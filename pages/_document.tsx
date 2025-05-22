@@ -12,13 +12,13 @@ export default function Document() {
         
         {/* Open Graph tags - some can be defaults, others page-specific */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.hansendev.com.au" /> {/* Replace with actual domain */}
+        <meta property="og:url" content="https://hansendev.com.au" /> {/* Replace with actual domain */}
         {/* For production, ensure og:image is an absolute URL to your hosted image */}
         <meta property="og:image" content="/assets/morning-beach-cairns.jpg" />
         <meta property="og:locale" content="en_AU" />
         <meta property="og:site_name" content="HansenDev PTY LTD" />
         
-        <link rel="canonical" href="https://www.hansendev.com.au" /> {/* Replace with actual domain */}
+        <link rel="canonical" href="https://hansendev.com.au" /> {/* Replace with actual domain */}
 
         {/* Any global font links or other head elements */}
       </Head>
