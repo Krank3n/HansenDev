@@ -1,0 +1,3 @@
+{
+  "obsolete": "This file is no longer needed and should be deleted. SEO metadata is handled by Next.js pages (_document.tsx, _app.tsx, and individual page files using next/head)."
+}
