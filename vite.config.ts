@@ -1,6 +1,8 @@
 import path from 'path';
+// @ts-ignore
 import { defineConfig, loadEnv } from 'vite';
 
+// @ts-ignore
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
