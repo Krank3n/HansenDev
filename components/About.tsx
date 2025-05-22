@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Section from './common/Section';
 import { UserCircleIcon, MapPinIcon } from './icons/CustomIcons';
-import Sunrise from 'assets/Sunrise esplanade.jpg';
+import Sunrise from '@/public/assets/Sunrise esplanade.jpg';
 
 const About: React.FC = () => {
   return (

@@ -1,31 +1,35 @@
+// _document.js
 import React from 'react';
 import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
-  return (
-    <Html lang="en" className="dark"> {/* Manages dark mode at HTML level if needed, or rely on body/tailwind config */}
-      <Head>
-        {/* Meta tags from original index.html moved here or to _app.tsx / specific pages */}
-        <meta charSet="UTF-8" />
-        <meta name="author" content="HansenDev PTY LTD" />
-        <meta name="robots" content="index, follow" />
-        
-        {/* Open Graph tags - some can be defaults, others page-specific */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://hansendev.com.au" /> {/* Replace with actual domain */}
-        {/* For production, ensure og:image is an absolute URL to your hosted image */}
-        <meta property="og:image" content="/assets/morning-beach-cairns.jpg" />
-        <meta property="og:locale" content="en_AU" />
-        <meta property="og:site_name" content="HansenDev PTY LTD" />
-        
-        <link rel="canonical" href="https://hansendev.com.au" /> {/* Replace with actual domain */}
+    // It's best practice to get your site's base URL from an environment variable
+    // For development, you can fallback to localhost
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+    const ogImageUrl = `${siteUrl}/assets/morning-beach-cairns.jpg`; // Assuming you put it in public/assets/
 
-        {/* Any global font links or other head elements */}
-      </Head>
-      <body className="bg-dark-bg text-dark-text antialiased">
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  );
+    return (
+        <Html lang="en" className="dark">
+            <Head>
+                <meta charSet="UTF-8" />
+                <meta name="author" content="HansenDev PTY LTD" />
+                <meta name="robots" content="index, follow" />
+
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={siteUrl} />
+                <meta property="og:image" content={ogImageUrl} />
+                {/* You might also want to add specific dimensions for the image */}
+                <meta property="og:image:width" content="1200" /> {/* Example width */}
+                <meta property="og:image:height" content="630" /> {/* Example height */}
+                <meta property="og:locale" content="en_AU" />
+                <meta property="og:site_name" content="HansenDev PTY LTD" />
+
+                <link rel="canonical" href={siteUrl} />
+            </Head>
+            <body className="bg-dark-bg text-dark-text antialiased">
+            <Main />
+            <NextScript />
+            </body>
+        </Html>
+    );
 }
