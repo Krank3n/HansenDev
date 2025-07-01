@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { SectionProps } from '../../types';
+import { SectionProps } from '@/types';
 
 const Section: React.FC<SectionProps> = ({ id, title, subtitle, children, className = '', titleClassName = '', subtitleClassName = '' }) => {
   return (

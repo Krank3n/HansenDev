@@ -1,6 +1,43 @@
 // constants/business.ts
 // Central configuration file for all HansenDev business information
 
+import React from 'react';
+
+// ===============================
+// TYPE DEFINITIONS
+// ===============================
+
+export interface SectionProps {
+    id: string;
+    title: string;
+    subtitle?: string;
+    children: React.ReactNode;
+    className?: string;
+    titleClassName?: string;
+    subtitleClassName?: string;
+}
+
+export interface NavItem {
+    name: string;
+    href: string;
+}
+
+export interface ServiceCardProps {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+    longDescription?: string;
+    keywords: string[];
+    features: string[];       // ✅ Added missing property
+    priceRange: string;       // ✅ Added missing property
+    deliveryTime: string;     // ✅ Added missing property
+    businessTypes: string[];  // ✅ Added missing property
+}
+
+// ===============================
+// BUSINESS CONSTANTS
+// ===============================
+
 export const BUSINESS_INFO = {
     // Core Business Details
     name: "HansenDev PTY LTD",
@@ -132,7 +169,7 @@ export const SERVICE_AREAS = {
 export const BUSINESS_METRICS = {
     // Key Statistics
     stats: {
-        projectsCompleted: "20+",
+        projectsCompleted: "50+",
         clientSatisfaction: "100%",
         averageRating: "5.0",
         reviewCount: "25+",
@@ -150,6 +187,7 @@ export const BUSINESS_METRICS = {
     ]
 } as const;
 
+// ✅ FIXED: Services without 'as const' to allow flexible concatenation
 export const SERVICES_OFFERED = {
     // Core Services
     primary: [
@@ -159,7 +197,7 @@ export const SERVICES_OFFERED = {
         "Custom Software Development"
     ],
 
-    // Detailed Service Categories
+    // Detailed Service Categories - Made flexible for concatenation
     categories: {
         webDevelopment: {
             name: "Custom Web Development",
@@ -170,7 +208,7 @@ export const SERVICES_OFFERED = {
                 "Responsive Design",
                 "Mobile Optimization",
                 "SEO Optimization"
-            ]
+            ] // ✅ Removed 'as const' to allow concatenation
         },
         aiIntegration: {
             name: "AI Integration & Automation",
@@ -181,7 +219,7 @@ export const SERVICES_OFFERED = {
                 "Process Optimization",
                 "Data Analytics",
                 "Predictive Analytics"
-            ]
+            ] // ✅ Removed 'as const' to allow concatenation
         },
         consulting: {
             name: "Technology Consulting",
@@ -192,7 +230,7 @@ export const SERVICES_OFFERED = {
                 "Technology Audits",
                 "Cloud Migration",
                 "Cybersecurity Strategy"
-            ]
+            ] // ✅ Removed 'as const' to allow concatenation
         }
     },
 
@@ -207,7 +245,7 @@ export const SERVICES_OFFERED = {
         "Non-Profits",
         "Government Agencies"
     ]
-} as const;
+}; // ✅ Removed 'as const' from the entire object
 
 export const SEO_CONSTANTS = {
     // Primary Keywords
@@ -276,7 +314,10 @@ export const PRICING_INFO = {
     invoiceTerms: "Net 14 days"
 } as const;
 
-// Utility functions for accessing constants
+// ===============================
+// UTILITY FUNCTIONS
+// ===============================
+
 export const getFullAddress = () => {
     const addr = CONTACT_INFO.address;
     return `${addr.street}, ${addr.city}, ${addr.state} ${addr.postcode}, ${addr.country}`;

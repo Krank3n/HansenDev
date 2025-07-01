@@ -7,7 +7,6 @@ import {
   Star,
   CheckCircle,
   MapPin,
-  Users,
   Zap,
   Shield,
   Clock,
@@ -21,12 +20,10 @@ import {
 import {
   BUSINESS_INFO,
   CONTACT_INFO,
-  ONLINE_PRESENCE,
   SERVICE_AREAS,
   SERVICES_OFFERED,
   BUSINESS_METRICS,
   PRICING_INFO,
-  getBusinessName
 } from '../constants/business';
 
 // Enhanced service data with local SEO focus using constants
