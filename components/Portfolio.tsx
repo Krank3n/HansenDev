@@ -71,6 +71,21 @@ const Portfolio: React.FC = () => {
             gradient: "from-emerald-500 via-green-500 to-teal-500",
             image: "/assets/projects/thomas-andrew-hansen-website.png",
             imageAlt: "Thomas Andrew Hansen portfolio website"
+        },
+        {
+            title: "QuoteMate",
+            description: "A modern quoting tool for Australian tradies with Bunnings Live API integration. Create professional quotes with smart job templates, AI-powered custom jobs, and auto-populated material pricing.",
+            url: "/projects/quotemate",
+            category: "Mobile App",
+            technologies: ["React Native", "Expo", "TypeScript", "AI Integration", "OAuth 2.0", "PDF Generation"],
+            highlight: true,
+            gradient: "from-green-600 via-emerald-500 to-teal-500",
+            image: "/assets/projects/quotemate-app.png",
+            imageAlt: "QuoteMate mobile application interface",
+            stats: [
+                { label: "AI-Powered", value: "Custom Jobs", icon: <Star className="h-4 w-4" /> },
+                { label: "API Integration", value: "Bunnings", icon: <Zap className="h-4 w-4" /> }
+            ]
         }
     ];
 
@@ -138,16 +153,18 @@ const Portfolio: React.FC = () => {
                                         <div className="pt-4">
                                             <a
                                                 href={project.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
+                                                target={project.url.startsWith('/') ? '_self' : '_blank'}
+                                                rel={project.url.startsWith('/') ? undefined : 'noopener noreferrer'}
                                                 className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-primary to-brand-accent hover:from-brand-accent hover:to-brand-primary text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                             >
                                                 <span>View Project</span>
                                                 <ArrowUpRight className="h-4 w-4" />
                                             </a>
-                                            <div className="mt-3 text-sm text-dark-text-secondary font-mono">
-                                                {new URL(project.url).hostname}
-                                            </div>
+                                            {!project.url.startsWith('/') && (
+                                                <div className="mt-3 text-sm text-dark-text-secondary font-mono">
+                                                    {new URL(project.url).hostname}
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
