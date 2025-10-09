@@ -27,6 +27,14 @@
         </image:image>
     </url>
 
+    <!-- QuoteMate Privacy Policy -->
+    <url>
+        <loc>https://hansendev.com.au/projects/quotemate-privacy</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
     <!-- Portfolio Section -->
     <url>
         <loc>https://hansendev.com.au/#portfolio</loc>

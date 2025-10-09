@@ -485,7 +485,7 @@ const QuoteMate: React.FC = () => {
 
                             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 space-y-8">
                                 <p className="text-lg text-dark-text-secondary leading-relaxed">
-                                    <strong className="text-white">100% Private:</strong> All your quotes, customer details, and business information are stored only on your phone. We never see your data, never store it on our servers, and never share it with anyone. Your business is your business.
+                                    <strong className="text-white">100% Private:</strong> All your quotes, customer details, and business information are stored only on your phone. We never see your data, never store it on our servers, and never share it with anyone. Your business is your business. <Link href="/projects/quotemate-privacy" className="text-brand-accent hover:underline">Read our full privacy policy →</Link>
                                 </p>
 
                                 <div className="grid md:grid-cols-3 gap-6">
