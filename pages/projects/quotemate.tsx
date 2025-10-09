@@ -87,7 +87,7 @@ const QuoteMate: React.FC = () => {
                                 "name": "Hansen Dev",
                                 "url": "https://hansendev.com.au"
                             },
-                            "downloadUrl": "https://github.com/Krank3n/QuoteMate",
+                            "downloadUrl": "https://play.google.com/apps/internaltest/4701261429127365600",
                             "screenshot": "https://hansendev.com.au/assets/projects/quotemate-app.png",
                             "featureList": [
                                 "Create professional quotes in under 5 minutes",
@@ -156,7 +156,7 @@ const QuoteMate: React.FC = () => {
                                     "name": "How do I download QuoteMate?",
                                     "acceptedAnswer": {
                                         "@type": "Answer",
-                                        "text": "QuoteMate is available for free download on both iPhone (iOS 13+) and Android (8.0+). Visit github.com/Krank3n/QuoteMate to download the app for your device. Setup takes less than 2 minutes."
+                                        "text": "QuoteMate is available for free download on Android (8.0+). Visit the Google Play Store internal test to download the app for your device. Setup takes less than 2 minutes."
                                     }
                                 }
                             ]
@@ -200,7 +200,7 @@ const QuoteMate: React.FC = () => {
                             {/* CTA Buttons */}
                             <div className="flex flex-wrap gap-4 justify-center mb-8">
                                 <a
-                                    href="https://github.com/Krank3n/QuoteMate"
+                                    href="https://play.google.com/apps/internaltest/4701261429127365600"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
@@ -543,7 +543,7 @@ const QuoteMate: React.FC = () => {
 
                             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                                 <a
-                                    href="https://github.com/Krank3n/QuoteMate"
+                                    href="https://play.google.com/apps/internaltest/4701261429127365600"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
