@@ -87,7 +87,7 @@ const QuoteMate: React.FC = () => {
                                 "name": "Hansen Dev",
                                 "url": "https://hansendev.com.au"
                             },
-                            "downloadUrl": "https://play.google.com/apps/internaltest/4701261429127365600",
+                            "downloadUrl": "https://play.google.com/apps/testing/com.quotemate.app",
                             "screenshot": "https://hansendev.com.au/assets/projects/quotemate-app.png",
                             "featureList": [
                                 "Create professional quotes in under 5 minutes",
@@ -200,7 +200,7 @@ const QuoteMate: React.FC = () => {
                             {/* CTA Buttons */}
                             <div className="flex flex-wrap gap-4 justify-center mb-8">
                                 <a
-                                    href="https://play.google.com/apps/internaltest/4701261429127365600"
+                                    href="https://play.google.com/apps/testing/com.quotemate.app"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
@@ -247,24 +247,15 @@ const QuoteMate: React.FC = () => {
                         <div className="max-w-4xl mx-auto">
                             <div className="relative flex justify-center">
                                 <div className="relative w-full max-w-sm">
-                                    <div className="relative aspect-[9/19.5] rounded-[3rem] overflow-hidden bg-dark-card border-8 border-gray-800 shadow-2xl">
-                                        <div className="absolute inset-0" style={{
-                                            width: '105%',
-                                            height: '106%',
-                                            top: '-1.5rem',
-                                            left: '-.6rem',
-                                            right: '0',
-                                            bottom: '0'
-                                        }}>
+                                    <div className="relative aspect-[9/16] rounded-[3rem] overflow-hidden bg-dark-card border-8 border-gray-800 shadow-2xl">
+                                        <div className="absolute inset-0">
                                             <Image
-                                                src="/assets/projects/quotemate-app.png"
+                                                src="/assets/projects/sim-screen-quotemate.gif"
                                                 alt="QuoteMate app interface showing quote creation in under 5 minutes"
                                                 fill
                                                 className="object-cover"
                                                 priority
-                                                style={{
-                                                    color: 'transparent'
-                                                }}
+                                                unoptimized
                                             />
                                         </div>
                                     </div>
@@ -543,7 +534,7 @@ const QuoteMate: React.FC = () => {
 
                             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                                 <a
-                                    href="https://play.google.com/apps/internaltest/4701261429127365600"
+                                    href="https://play.google.com/apps/testing/com.quotemate.app"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"

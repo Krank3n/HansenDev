@@ -80,7 +80,7 @@ const Portfolio: React.FC = () => {
             technologies: ["React Native", "Expo", "TypeScript", "AI Integration", "OAuth 2.0", "PDF Generation"],
             highlight: true,
             gradient: "from-green-600 via-emerald-500 to-teal-500",
-            image: "/assets/projects/quotemate-app.png",
+            image: "/assets/projects/quotemate-square.png",
             imageAlt: "QuoteMate mobile application interface",
             stats: [
                 { label: "AI-Powered", value: "Custom Jobs", icon: <Star className="h-4 w-4" /> },
