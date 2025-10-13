@@ -2,7 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/projects/quotemate-privacy": "pages/projects/quotemate-privacy.js",
+  "/": "pages/index.js",
   "/projects/quotemate": "pages/projects/quotemate.js",
-  "/": "pages/index.js"
+  "/projects/chatspark": "pages/projects/chatspark.js"
 }

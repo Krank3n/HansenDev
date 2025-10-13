@@ -35,6 +35,27 @@
         <priority>0.7</priority>
     </url>
 
+    <!-- ChatSpark Project - High Priority for Traffic -->
+    <url>
+        <loc>https://hansendev.com.au/projects/chatspark</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://hansendev.com.au/assets/projects/chatspark-app.png</image:loc>
+            <image:title>ChatSpark - Build Confidence Through Conversations</image:title>
+            <image:caption>Social confidence app with 145+ micro-missions to overcome social anxiety one conversation at a time</image:caption>
+        </image:image>
+    </url>
+
+    <!-- ChatSpark Privacy Policy -->
+    <url>
+        <loc>https://hansendev.com.au/projects/chatspark-privacy</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
     <!-- Portfolio Section -->
     <url>
         <loc>https://hansendev.com.au/#portfolio</loc>
@@ -91,6 +112,13 @@
 
     <url>
         <loc>https://hansendev.com.au/assets/projects/thomas-andrew-hansen-website.png</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <url>
+        <loc>https://hansendev.com.au/assets/projects/chatspark-square.png</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>

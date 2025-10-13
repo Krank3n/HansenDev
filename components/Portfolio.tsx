@@ -86,6 +86,21 @@ const Portfolio: React.FC = () => {
                 { label: "AI-Powered", value: "Custom Jobs", icon: <Star className="h-4 w-4" /> },
                 { label: "API Integration", value: "Bunnings", icon: <Zap className="h-4 w-4" /> }
             ]
+        },
+        {
+            title: "ChatSpark",
+            description: "Build social confidence through conversations. 145+ micro-missions across 7 difficulty levels with voice coaching and progress tracking. Privacy-focused app to overcome social anxiety one interaction at a time.",
+            url: "/projects/chatspark",
+            category: "Mobile App",
+            technologies: ["React Native", "Expo", "SQLite", "Zustand", "Voice Coaching", "Mood Analytics"],
+            highlight: true,
+            gradient: "from-purple-600 via-pink-500 to-rose-500",
+            image: "/assets/projects/chatspark-square.png",
+            imageAlt: "ChatSpark social confidence app interface",
+            stats: [
+                { label: "Micro-Missions", value: "145+", icon: <Star className="h-4 w-4" /> },
+                { label: "Privacy First", value: "100%", icon: <Users className="h-4 w-4" /> }
+            ]
         }
     ];
 

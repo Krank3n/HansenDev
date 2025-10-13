@@ -103,6 +103,37 @@ const QuoteMate: React.FC = () => {
                     }}
                 />
 
+                {/* Breadcrumb Navigation Schema */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "Home",
+                                    "item": "https://hansendev.com.au"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Projects",
+                                    "item": "https://hansendev.com.au/#portfolio"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "position": 3,
+                                    "name": "QuoteMate",
+                                    "item": "https://hansendev.com.au/projects/quotemate"
+                                }
+                            ]
+                        })
+                    }}
+                />
+
                 {/* FAQ Schema for LLMs */}
                 <script
                     type="application/ld+json"
