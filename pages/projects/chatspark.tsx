@@ -565,7 +565,7 @@ const ChatSpark: React.FC = () => {
 
                             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 space-y-8">
                                 <p className="text-lg text-dark-text-secondary leading-relaxed">
-                                    <strong className="text-white">100% Private:</strong> ChatSpark is built with privacy at its core. All your progress, mood entries, and personal data are stored locally on your device using SQLite. No backend servers, no data collection, no tracking. Your journey is yours alone. <Link href="/projects/chatspark-privacy" className="text-brand-accent hover:underline">Read our full privacy policy →</Link>
+                                    <strong className="text-white">100% Private:</strong> ChatSpark is built with privacy at its core. All your progress, mood entries, and personal data are stored locally on your device using SQLite. No backend servers, no data collection, no tracking. Your journey is yours alone. <Link href="/projects/chatspark-privacy" className="text-brand-accent hover:underline">Read our full privacy policy →</Link> | <Link href="/projects/chatspark-data-safety" className="text-brand-accent hover:underline">Data Safety disclosure →</Link>
                                 </p>
 
                                 <div className="grid md:grid-cols-3 gap-6">

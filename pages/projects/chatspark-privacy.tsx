@@ -434,6 +434,10 @@ const ChatSparkPrivacy: React.FC = () => {
                                         </p>
                                         <div className="space-y-4">
                                             <div className="flex items-center gap-3">
+                                                <Shield className="h-5 w-5 text-brand-accent" />
+                                                <Link href="/projects/chatspark-data-safety" className="text-brand-accent hover:underline">Google Play Data Safety Disclosure</Link>
+                                            </div>
+                                            <div className="flex items-center gap-3">
                                                 <Mail className="h-5 w-5 text-brand-accent" />
                                                 <a href="/#contact" className="text-brand-accent hover:underline">Contact Form on Hansen Dev</a>
                                             </div>
