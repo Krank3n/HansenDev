@@ -20,15 +20,15 @@ globalThis.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/projects/quotemate": [
+    "/projects/shredindex": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/projects/quotemate.js"
+      "static/chunks/pages/projects/shredindex.js"
     ],
-    "/projects/quotemate-privacy": [
+    "/technology-consulting-cairns": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/projects/quotemate-privacy.js"
+      "static/chunks/pages/technology-consulting-cairns.js"
     ]
   },
   "ampFirstPages": []

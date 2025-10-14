@@ -2,7 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/projects/quotemate-privacy": "pages/projects/quotemate-privacy.js",
-  "/projects/quotemate": "pages/projects/quotemate.js",
-  "/": "pages/index.js"
+  "/technology-consulting-cairns": "pages/technology-consulting-cairns.js",
+  "/custom-software-cairns": "pages/custom-software-cairns.js",
+  "/projects/shredindex": "pages/projects/shredindex.js"
 }

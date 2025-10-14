@@ -1,0 +1,356 @@
+import React from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
+import {
+    ArrowLeft,
+    Globe,
+    CheckCircle,
+    ArrowRight,
+    Zap,
+    Shield,
+    Smartphone,
+    TrendingUp,
+    Palette,
+    Code,
+    Search,
+    Settings
+} from 'lucide-react';
+import { BUSINESS_INFO, CONTACT_INFO, SERVICE_AREAS, PRICING_INFO } from '../constants/business';
+
+const WebDevelopmentCairns: React.FC = () => {
+    const features = [
+        {
+            icon: <Palette className="h-6 w-6 text-brand-accent" />,
+            title: "Custom Design",
+            description: "Beautiful, unique websites that reflect your brand identity and values"
+        },
+        {
+            icon: <Smartphone className="h-6 w-6 text-brand-accent" />,
+            title: "Responsive & Mobile",
+            description: "Perfect user experience on all devices - desktop, tablet, and mobile"
+        },
+        {
+            icon: <Search className="h-6 w-6 text-brand-accent" />,
+            title: "SEO Optimized",
+            description: "Built-in search engine optimization to help customers find you online"
+        },
+        {
+            icon: <Zap className="h-6 w-6 text-brand-accent" />,
+            title: "Lightning Fast",
+            description: "Optimized performance with fast load times and smooth interactions"
+        },
+        {
+            icon: <Shield className="h-6 w-6 text-brand-accent" />,
+            title: "Secure & Reliable",
+            description: "Enterprise-grade security with SSL certificates and regular backups"
+        },
+        {
+            icon: <TrendingUp className="h-6 w-6 text-brand-accent" />,
+            title: "Conversion Focused",
+            description: "Designed to turn visitors into customers with strategic CTAs and UX"
+        }
+    ];
+
+    const services = [
+        {
+            step: "1",
+            title: "Business Websites",
+            description: "Professional websites that establish credibility and attract customers"
+        },
+        {
+            step: "2",
+            title: "E-commerce Stores",
+            description: "Online stores with secure payment processing and inventory management"
+        },
+        {
+            step: "3",
+            title: "Web Applications",
+            description: "Custom web apps that streamline operations and serve your users"
+        },
+        {
+            step: "4",
+            title: "Landing Pages",
+            description: "High-converting landing pages for marketing campaigns and lead generation"
+        },
+        {
+            step: "5",
+            title: "Website Redesign",
+            description: "Modernize your existing website with fresh design and new features"
+        },
+        {
+            step: "6",
+            title: "Maintenance & Support",
+            description: "Ongoing updates, security patches, and technical support"
+        }
+    ];
+
+    const technologies = [
+        "React & Next.js",
+        "WordPress & WooCommerce",
+        "Shopify",
+        "Custom PHP & Laravel",
+        "HTML5 & CSS3",
+        "JavaScript & TypeScript",
+        "Node.js",
+        "Progressive Web Apps"
+    ];
+
+    return (
+        <>
+            <Head>
+                <title>Web Development Cairns | Custom Websites & Web Design | {BUSINESS_INFO.shortName}</title>
+                <meta name="description" content={`Professional web development in ${SERVICE_AREAS.primary}. Custom websites, responsive design, e-commerce, and web applications for ${SERVICE_AREAS.region} businesses. Get a stunning website that converts.`} />
+                <meta name="keywords" content={`web development cairns, website design ${SERVICE_AREAS.primary}, web developer cairns, custom websites fnq, responsive web design, ecommerce websites cairns, web design ${CONTACT_INFO.address.state}`} />
+                <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+                <link rel="canonical" href={`${CONTACT_INFO.website}/web-development-cairns`} />
+
+                {/* Open Graph */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={`${CONTACT_INFO.website}/web-development-cairns`} />
+                <meta property="og:title" content={`Web Development ${SERVICE_AREAS.primary} | ${BUSINESS_INFO.shortName}`} />
+                <meta property="og:description" content={`Professional web development for ${SERVICE_AREAS.primary} businesses. Custom websites that drive results.`} />
+                <meta property="og:locale" content="en_AU" />
+
+                {/* Twitter Card */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={`Web Development ${SERVICE_AREAS.primary}`} />
+                <meta name="twitter:description" content={`Professional web development for ${SERVICE_AREAS.primary} businesses.`} />
+
+                {/* Structured Data */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "Service",
+                            "serviceType": "Web Development",
+                            "provider": {
+                                "@type": "LocalBusiness",
+                                "name": BUSINESS_INFO.name,
+                                "address": {
+                                    "@type": "PostalAddress",
+                                    "addressLocality": CONTACT_INFO.address.city,
+                                    "addressRegion": CONTACT_INFO.address.state,
+                                    "addressCountry": CONTACT_INFO.address.countryCode
+                                }
+                            },
+                            "areaServed": {
+                                "@type": "City",
+                                "name": SERVICE_AREAS.primary
+                            },
+                            "description": `Professional web development services in ${SERVICE_AREAS.primary}. Custom websites, responsive design, and web applications.`
+                        })
+                    }}
+                />
+
+                {/* Breadcrumb Schema */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "Home",
+                                    "item": CONTACT_INFO.website
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Services",
+                                    "item": `${CONTACT_INFO.website}/#services`
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "position": 3,
+                                    "name": "Web Development",
+                                    "item": `${CONTACT_INFO.website}/web-development-cairns`
+                                }
+                            ]
+                        })
+                    }}
+                />
+            </Head>
+
+            <div className="min-h-screen bg-dark-bg text-dark-text">
+                {/* Back Navigation */}
+                <div className="border-b border-white/10">
+                    <div className="container-custom py-6">
+                        <Link href="/#services" className="inline-flex items-center gap-2 text-dark-text-secondary hover:text-brand-accent transition-colors duration-300">
+                            <ArrowLeft className="h-4 w-4" />
+                            <span>Back to Services</span>
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Hero Section */}
+                <section className="py-16 lg:py-24 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.15),transparent_50%)] pointer-events-none"></div>
+                    <div className="container-custom relative">
+                        <div className="max-w-5xl mx-auto text-center">
+                            <div className="inline-flex items-center gap-2 text-brand-accent text-sm font-medium uppercase tracking-wider mb-6">
+                                <Globe className="h-4 w-4" />
+                                <span>Web Development</span>
+                            </div>
+
+                            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                                Professional Web Development for {SERVICE_AREAS.primary} Businesses
+                            </h1>
+
+                            <p className="text-2xl lg:text-3xl text-dark-text-secondary mb-8 leading-relaxed max-w-3xl mx-auto">
+                                Custom websites that look stunning, perform flawlessly, and convert visitors into customers
+                            </p>
+
+                            <div className="flex flex-wrap gap-4 justify-center mb-8">
+                                <a
+                                    href="#contact"
+                                    className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                >
+                                    <span>Get Free Quote</span>
+                                    <ArrowRight className="h-5 w-5" />
+                                </a>
+                                <a
+                                    href={`tel:${CONTACT_INFO.phone.primary}`}
+                                    className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                >
+                                    <span>Call {CONTACT_INFO.phone.display}</span>
+                                </a>
+                            </div>
+
+                            <p className="text-sm text-dark-text-secondary">
+                                Serving <strong className="text-white">{SERVICE_AREAS.primary}</strong> and <strong className="text-white">{SERVICE_AREAS.region}</strong> • <strong className="text-white">{PRICING_INFO.webDevelopment.starting}</strong>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Features Grid */}
+                <section className="py-16 lg:py-24 bg-white/[0.02]">
+                    <div className="container-custom">
+                        <div className="max-w-5xl mx-auto">
+                            <div className="text-center mb-16">
+                                <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">Why Choose Our Web Development?</h2>
+                                <p className="text-xl text-dark-text-secondary max-w-2xl mx-auto">
+                                    Modern, professional websites built with the latest technologies and best practices
+                                </p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {features.map((feature, index) => (
+                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center mb-6 border border-brand-accent/30">
+                                            {feature.icon}
+                                        </div>
+                                        <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                                        <p className="text-dark-text-secondary leading-relaxed">{feature.description}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Services Offered */}
+                <section className="py-16 lg:py-24">
+                    <div className="container-custom">
+                        <div className="max-w-5xl mx-auto">
+                            <div className="text-center mb-16">
+                                <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">Web Development Services</h2>
+                                <p className="text-xl text-dark-text-secondary max-w-2xl mx-auto">
+                                    Comprehensive web solutions from simple sites to complex applications
+                                </p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {services.map((item, index) => (
+                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
+                                        <div className="flex items-center gap-4 mb-4">
+                                            <div className="w-12 h-12 bg-gradient-to-br from-brand-accent to-brand-primary rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                                                {item.step}
+                                            </div>
+                                            <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                                        </div>
+                                        <p className="text-dark-text-secondary leading-relaxed">{item.description}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Technologies */}
+                <section className="py-16 lg:py-24 bg-white/[0.02]">
+                    <div className="container-custom">
+                        <div className="max-w-5xl mx-auto">
+                            <div className="text-center mb-12">
+                                <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">Technologies We Use</h2>
+                                <p className="text-xl text-dark-text-secondary max-w-2xl mx-auto">
+                                    Modern tech stack for building fast, secure, and scalable websites
+                                </p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                {technologies.map((tech, index) => (
+                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 text-center">
+                                        <Code className="h-6 w-6 text-brand-accent mx-auto mb-3" />
+                                        <p className="text-white font-semibold">{tech}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* CTA Section */}
+                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 border-y border-brand-accent/20">
+                    <div className="container-custom">
+                        <div className="max-w-4xl mx-auto text-center">
+                            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+                                Ready to Build Your Dream Website?
+                            </h2>
+                            <p className="text-xl text-dark-text-secondary mb-8 max-w-2xl mx-auto">
+                                Let's create a stunning website that represents your brand and drives business growth
+                            </p>
+
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                                <a
+                                    href="#contact"
+                                    className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                >
+                                    <span>Start Your Project</span>
+                                    <ArrowRight className="h-5 w-5" />
+                                </a>
+                                <Link
+                                    href="/#portfolio"
+                                    className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                >
+                                    <span>View Portfolio</span>
+                                </Link>
+                            </div>
+
+                            <div className="flex flex-wrap justify-center gap-6 text-sm text-dark-text-secondary">
+                                <div className="flex items-center gap-2">
+                                    <CheckCircle className="h-5 w-5 text-brand-accent" />
+                                    <span>Free Consultation</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <CheckCircle className="h-5 w-5 text-brand-accent" />
+                                    <span>Fixed Price Quotes</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <CheckCircle className="h-5 w-5 text-brand-accent" />
+                                    <span>Ongoing Support</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </>
+    );
+};
+
+export default WebDevelopmentCairns;

@@ -49,17 +49,17 @@ const Portfolio: React.FC = () => {
         },
         {
             title: "ShredIndex",
-            description: "The world's largest ski resort index and rating platform. Advanced data aggregation and analysis system providing comprehensive ski resort information and rankings globally.",
-            url: "https://shredindex.com/",
-            category: "Travel & Recreation",
-            technologies: ["Data Analytics", "Search & Filtering", "API Integration", "Performance Optimization"],
+            description: "The world's largest ski resort database with 6,239+ resorts across 94 countries. Features advanced filtering, lifestyle categories, professional athlete reviews, and the biggest ski resort job board online.",
+            url: "/projects/shredindex",
+            category: "Travel & Sports Platform",
+            technologies: ["Next.js", "TypeScript", "GraphQL", "Tailwind CSS", "CMS Integration", "SEO Optimization"],
             highlight: true,
-            gradient: "from-purple-500 via-violet-500 to-indigo-500",
+            gradient: "from-blue-500 via-cyan-500 to-blue-600",
             image: "/assets/projects/shredindex-home.png",
-            imageAlt: "ShredIndex ski resort platform",
+            imageAlt: "ShredIndex - World's largest ski resort database and job board",
             stats: [
-                { label: "Ski Resorts", value: "2K+", icon: <Globe className="h-4 w-4" /> },
-                { label: "Global Reach", value: "50+ Countries", icon: <Star className="h-4 w-4" /> }
+                { label: "Ski Resorts", value: "6,239+", icon: <Globe className="h-4 w-4" /> },
+                { label: "Countries", value: "94", icon: <Star className="h-4 w-4" /> }
             ]
         },
         {
