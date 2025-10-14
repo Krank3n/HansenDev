@@ -10,7 +10,7 @@ import {
     Mail,
     Phone
 } from 'lucide-react';
-import { BUSINESS_INFO, CONTACT_INFO } from '../constants/business';
+import { BUSINESS_INFO, CONTACT_INFO, ONLINE_PRESENCE } from '../constants/business';
 
 const TermsOfService: React.FC = () => {
     return (
@@ -19,7 +19,7 @@ const TermsOfService: React.FC = () => {
                 <title>Terms of Service | {BUSINESS_INFO.name}</title>
                 <meta name="description" content={`Terms of service for ${BUSINESS_INFO.name}. Review our service terms, user responsibilities, and legal agreements.`} />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href={`${CONTACT_INFO.website}/terms-of-service`} />
+                <link rel="canonical" href={`${ONLINE_PRESENCE.website.primary}/terms-of-service`} />
             </Head>
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
@@ -63,7 +63,7 @@ const TermsOfService: React.FC = () => {
                                 {/* Introduction */}
                                 <div className="mb-12">
                                     <p className="text-dark-text-secondary text-lg leading-relaxed mb-4">
-                                        Please read these Terms of Service ("Terms", "Terms of Service") carefully before using the {CONTACT_INFO.website} website and services operated by {BUSINESS_INFO.name} ("we", "us", "our").
+                                        Please read these Terms of Service ("Terms", "Terms of Service") carefully before using the {ONLINE_PRESENCE.website.primary} website and services operated by {BUSINESS_INFO.name} ("we", "us", "our").
                                     </p>
                                     <p className="text-dark-text-secondary text-lg leading-relaxed">
                                         Your access to and use of the service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users, and others who access or use the service.

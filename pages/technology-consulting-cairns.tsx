@@ -15,7 +15,7 @@ import {
     Zap,
     Settings
 } from 'lucide-react';
-import { BUSINESS_INFO, CONTACT_INFO, SERVICE_AREAS, PRICING_INFO } from '../constants/business';
+import { BUSINESS_INFO, CONTACT_INFO, SERVICE_AREAS, PRICING_INFO, ONLINE_PRESENCE } from '../constants/business';
 
 const TechnologyConsultingCairns: React.FC = () => {
     const services = [
@@ -90,11 +90,11 @@ const TechnologyConsultingCairns: React.FC = () => {
                 <meta name="description" content={`Expert technology consulting in ${SERVICE_AREAS.primary}. IT strategy, digital transformation, cloud migration, and cybersecurity for ${SERVICE_AREAS.region} businesses. Get strategic guidance from local experts.`} />
                 <meta name="keywords" content={`technology consulting cairns, IT consulting ${SERVICE_AREAS.primary}, digital transformation cairns, IT strategy fnq, technology advisor ${CONTACT_INFO.address.state}, cloud consulting cairns, cybersecurity consulting`} />
                 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-                <link rel="canonical" href={`${CONTACT_INFO.website}/technology-consulting-cairns`} />
+                <link rel="canonical" href={`${ONLINE_PRESENCE.website.primary}/technology-consulting-cairns`} />
 
                 {/* Open Graph */}
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content={`${CONTACT_INFO.website}/technology-consulting-cairns`} />
+                <meta property="og:url" content={`${ONLINE_PRESENCE.website.primary}/technology-consulting-cairns`} />
                 <meta property="og:title" content={`Technology Consulting ${SERVICE_AREAS.primary} | ${BUSINESS_INFO.shortName}`} />
                 <meta property="og:description" content={`Expert technology consulting for ${SERVICE_AREAS.primary} businesses. Strategic IT guidance and digital transformation.`} />
                 <meta property="og:locale" content="en_AU" />
@@ -138,19 +138,19 @@ const TechnologyConsultingCairns: React.FC = () => {
                                     "@type": "ListItem",
                                     "position": 1,
                                     "name": "Home",
-                                    "item": CONTACT_INFO.website
+                                    "item": ONLINE_PRESENCE.website.primary
                                 },
                                 {
                                     "@type": "ListItem",
                                     "position": 2,
                                     "name": "Services",
-                                    "item": `${CONTACT_INFO.website}/#services`
+                                    "item": `${ONLINE_PRESENCE.website.primary}/#services`
                                 },
                                 {
                                     "@type": "ListItem",
                                     "position": 3,
                                     "name": "Technology Consulting",
-                                    "item": `${CONTACT_INFO.website}/technology-consulting-cairns`
+                                    "item": `${ONLINE_PRESENCE.website.primary}/technology-consulting-cairns`
                                 }
                             ]
                         })

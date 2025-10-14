@@ -15,7 +15,7 @@ import {
     RefreshCw,
     Settings
 } from 'lucide-react';
-import { BUSINESS_INFO, CONTACT_INFO, SERVICE_AREAS, PRICING_INFO } from '../constants/business';
+import { BUSINESS_INFO, CONTACT_INFO, SERVICE_AREAS, PRICING_INFO, ONLINE_PRESENCE } from '../constants/business';
 
 const MobileAppDevelopmentCairns: React.FC = () => {
     const features = [
@@ -102,11 +102,11 @@ const MobileAppDevelopmentCairns: React.FC = () => {
                 <meta name="description" content={`Professional mobile app development in ${SERVICE_AREAS.primary}. iOS and Android apps, React Native, cross-platform development for ${SERVICE_AREAS.region} businesses. Build your app with local experts.`} />
                 <meta name="keywords" content={`mobile app development cairns, app developer ${SERVICE_AREAS.primary}, iOS app cairns, android app development, react native cairns, cross platform apps fnq, mobile apps ${CONTACT_INFO.address.state}`} />
                 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-                <link rel="canonical" href={`${CONTACT_INFO.website}/mobile-app-development-cairns`} />
+                <link rel="canonical" href={`${ONLINE_PRESENCE.website.primary}/mobile-app-development-cairns`} />
 
                 {/* Open Graph */}
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content={`${CONTACT_INFO.website}/mobile-app-development-cairns`} />
+                <meta property="og:url" content={`${ONLINE_PRESENCE.website.primary}/mobile-app-development-cairns`} />
                 <meta property="og:title" content={`Mobile App Development ${SERVICE_AREAS.primary} | ${BUSINESS_INFO.shortName}`} />
                 <meta property="og:description" content={`Professional mobile app development for ${SERVICE_AREAS.primary} businesses. iOS and Android apps built by local experts.`} />
                 <meta property="og:locale" content="en_AU" />
@@ -155,19 +155,19 @@ const MobileAppDevelopmentCairns: React.FC = () => {
                                     "@type": "ListItem",
                                     "position": 1,
                                     "name": "Home",
-                                    "item": CONTACT_INFO.website
+                                    "item": ONLINE_PRESENCE.website.primary
                                 },
                                 {
                                     "@type": "ListItem",
                                     "position": 2,
                                     "name": "Services",
-                                    "item": `${CONTACT_INFO.website}/#services`
+                                    "item": `${ONLINE_PRESENCE.website.primary}/#services`
                                 },
                                 {
                                     "@type": "ListItem",
                                     "position": 3,
                                     "name": "Mobile App Development",
-                                    "item": `${CONTACT_INFO.website}/mobile-app-development-cairns`
+                                    "item": `${ONLINE_PRESENCE.website.primary}/mobile-app-development-cairns`
                                 }
                             ]
                         })

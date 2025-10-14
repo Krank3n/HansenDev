@@ -10,7 +10,7 @@ import {
     Mail,
     Phone
 } from 'lucide-react';
-import { BUSINESS_INFO, CONTACT_INFO } from '../constants/business';
+import { BUSINESS_INFO, CONTACT_INFO, ONLINE_PRESENCE } from '../constants/business';
 
 const PrivacyPolicy: React.FC = () => {
     return (
@@ -19,7 +19,7 @@ const PrivacyPolicy: React.FC = () => {
                 <title>Privacy Policy | {BUSINESS_INFO.name}</title>
                 <meta name="description" content={`Privacy policy for ${BUSINESS_INFO.name}. Learn how we collect, use, and protect your personal information.`} />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href={`${CONTACT_INFO.website}/privacy-policy`} />
+                <link rel="canonical" href={`${ONLINE_PRESENCE.website.primary}/privacy-policy`} />
             </Head>
 
             <div className="min-h-screen bg-dark-bg text-dark-text">

@@ -15,7 +15,7 @@ import {
     BarChart,
     Settings
 } from 'lucide-react';
-import { BUSINESS_INFO, CONTACT_INFO, SERVICE_AREAS, PRICING_INFO } from '../constants/business';
+import { BUSINESS_INFO, CONTACT_INFO, SERVICE_AREAS, PRICING_INFO, ONLINE_PRESENCE } from '../constants/business';
 
 const EcommerceDevelopmentCairns: React.FC = () => {
     const features = [
@@ -102,11 +102,11 @@ const EcommerceDevelopmentCairns: React.FC = () => {
                 <meta name="description" content={`Professional e-commerce development in ${SERVICE_AREAS.primary}. Online stores, Shopify, WooCommerce, and custom shopping carts for ${SERVICE_AREAS.region} businesses. Start selling online today.`} />
                 <meta name="keywords" content={`ecommerce development cairns, online store ${SERVICE_AREAS.primary}, shopify developer cairns, woocommerce cairns, shopping cart development, online shop fnq, ecommerce ${CONTACT_INFO.address.state}`} />
                 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-                <link rel="canonical" href={`${CONTACT_INFO.website}/e-commerce-development-cairns`} />
+                <link rel="canonical" href={`${ONLINE_PRESENCE.website.primary}/e-commerce-development-cairns`} />
 
                 {/* Open Graph */}
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content={`${CONTACT_INFO.website}/e-commerce-development-cairns`} />
+                <meta property="og:url" content={`${ONLINE_PRESENCE.website.primary}/e-commerce-development-cairns`} />
                 <meta property="og:title" content={`E-commerce Development ${SERVICE_AREAS.primary} | ${BUSINESS_INFO.shortName}`} />
                 <meta property="og:description" content={`Professional e-commerce development for ${SERVICE_AREAS.primary} businesses. Build your online store with local experts.`} />
                 <meta property="og:locale" content="en_AU" />
@@ -155,19 +155,19 @@ const EcommerceDevelopmentCairns: React.FC = () => {
                                     "@type": "ListItem",
                                     "position": 1,
                                     "name": "Home",
-                                    "item": CONTACT_INFO.website
+                                    "item": ONLINE_PRESENCE.website.primary
                                 },
                                 {
                                     "@type": "ListItem",
                                     "position": 2,
                                     "name": "Services",
-                                    "item": `${CONTACT_INFO.website}/#services`
+                                    "item": `${ONLINE_PRESENCE.website.primary}/#services`
                                 },
                                 {
                                     "@type": "ListItem",
                                     "position": 3,
                                     "name": "E-commerce Development",
-                                    "item": `${CONTACT_INFO.website}/e-commerce-development-cairns`
+                                    "item": `${ONLINE_PRESENCE.website.primary}/e-commerce-development-cairns`
                                 }
                             ]
                         })

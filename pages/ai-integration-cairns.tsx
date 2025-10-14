@@ -15,7 +15,7 @@ import {
     MessageSquare,
     Settings
 } from 'lucide-react';
-import { BUSINESS_INFO, CONTACT_INFO, SERVICE_AREAS, PRICING_INFO } from '../constants/business';
+import { BUSINESS_INFO, CONTACT_INFO, SERVICE_AREAS, PRICING_INFO, ONLINE_PRESENCE } from '../constants/business';
 
 const AIIntegrationCairns: React.FC = () => {
     const features = [
@@ -102,11 +102,11 @@ const AIIntegrationCairns: React.FC = () => {
                 <meta name="description" content={`Expert AI integration in ${SERVICE_AREAS.primary}. AI chatbots, business automation, machine learning, and process optimization for ${SERVICE_AREAS.region} businesses. Transform your operations with AI.`} />
                 <meta name="keywords" content={`AI integration cairns, chatbots cairns, business automation ${SERVICE_AREAS.primary}, machine learning cairns, AI chatbot development, process automation fnq, artificial intelligence ${CONTACT_INFO.address.state}`} />
                 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-                <link rel="canonical" href={`${CONTACT_INFO.website}/ai-integration-cairns`} />
+                <link rel="canonical" href={`${ONLINE_PRESENCE.website.primary}/ai-integration-cairns`} />
 
                 {/* Open Graph */}
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content={`${CONTACT_INFO.website}/ai-integration-cairns`} />
+                <meta property="og:url" content={`${ONLINE_PRESENCE.website.primary}/ai-integration-cairns`} />
                 <meta property="og:title" content={`AI Integration & Chatbots ${SERVICE_AREAS.primary} | ${BUSINESS_INFO.shortName}`} />
                 <meta property="og:description" content={`Expert AI integration for ${SERVICE_AREAS.primary} businesses. Chatbots, automation, and machine learning solutions.`} />
                 <meta property="og:locale" content="en_AU" />
@@ -155,19 +155,19 @@ const AIIntegrationCairns: React.FC = () => {
                                     "@type": "ListItem",
                                     "position": 1,
                                     "name": "Home",
-                                    "item": CONTACT_INFO.website
+                                    "item": ONLINE_PRESENCE.website.primary
                                 },
                                 {
                                     "@type": "ListItem",
                                     "position": 2,
                                     "name": "Services",
-                                    "item": `${CONTACT_INFO.website}/#services`
+                                    "item": `${ONLINE_PRESENCE.website.primary}/#services`
                                 },
                                 {
                                     "@type": "ListItem",
                                     "position": 3,
                                     "name": "AI Integration",
-                                    "item": `${CONTACT_INFO.website}/ai-integration-cairns`
+                                    "item": `${ONLINE_PRESENCE.website.primary}/ai-integration-cairns`
                                 }
                             ]
                         })

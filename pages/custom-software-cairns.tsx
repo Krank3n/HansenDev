@@ -15,7 +15,7 @@ import {
     Database,
     Settings
 } from 'lucide-react';
-import { BUSINESS_INFO, CONTACT_INFO, SERVICE_AREAS, PRICING_INFO } from '../constants/business';
+import { BUSINESS_INFO, CONTACT_INFO, SERVICE_AREAS, PRICING_INFO, ONLINE_PRESENCE } from '../constants/business';
 
 const CustomSoftwareCairns: React.FC = () => {
     const features = [
@@ -78,11 +78,11 @@ const CustomSoftwareCairns: React.FC = () => {
                 <meta name="description" content={`Expert custom software development in ${SERVICE_AREAS.primary}. We build tailored business solutions, CRM systems, automation tools, and enterprise software for ${SERVICE_AREAS.region} businesses. Free consultation available.`} />
                 <meta name="keywords" content={`custom software cairns, bespoke software development, business software ${SERVICE_AREAS.primary}, crm development, enterprise software cairns, software solutions fnq, custom applications ${CONTACT_INFO.address.state}`} />
                 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-                <link rel="canonical" href={`${CONTACT_INFO.website}/custom-software-cairns`} />
+                <link rel="canonical" href={`${ONLINE_PRESENCE.website.primary}/custom-software-cairns`} />
 
                 {/* Open Graph */}
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content={`${CONTACT_INFO.website}/custom-software-cairns`} />
+                <meta property="og:url" content={`${ONLINE_PRESENCE.website.primary}/custom-software-cairns`} />
                 <meta property="og:title" content={`Custom Software Development ${SERVICE_AREAS.primary} | ${BUSINESS_INFO.shortName}`} />
                 <meta property="og:description" content={`Expert custom software development for ${SERVICE_AREAS.primary} businesses. Tailored solutions that streamline operations and drive growth.`} />
                 <meta property="og:locale" content="en_AU" />
@@ -131,19 +131,19 @@ const CustomSoftwareCairns: React.FC = () => {
                                     "@type": "ListItem",
                                     "position": 1,
                                     "name": "Home",
-                                    "item": CONTACT_INFO.website
+                                    "item": ONLINE_PRESENCE.website.primary
                                 },
                                 {
                                     "@type": "ListItem",
                                     "position": 2,
                                     "name": "Services",
-                                    "item": `${CONTACT_INFO.website}/#services`
+                                    "item": `${ONLINE_PRESENCE.website.primary}/#services`
                                 },
                                 {
                                     "@type": "ListItem",
                                     "position": 3,
                                     "name": "Custom Software Development",
-                                    "item": `${CONTACT_INFO.website}/custom-software-cairns`
+                                    "item": `${ONLINE_PRESENCE.website.primary}/custom-software-cairns`
                                 }
                             ]
                         })

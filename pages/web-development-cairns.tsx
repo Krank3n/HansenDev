@@ -15,7 +15,7 @@ import {
     Search,
     Settings
 } from 'lucide-react';
-import { BUSINESS_INFO, CONTACT_INFO, SERVICE_AREAS, PRICING_INFO } from '../constants/business';
+import { BUSINESS_INFO, CONTACT_INFO, SERVICE_AREAS, PRICING_INFO, ONLINE_PRESENCE } from '../constants/business';
 
 const WebDevelopmentCairns: React.FC = () => {
     const features = [
@@ -102,11 +102,11 @@ const WebDevelopmentCairns: React.FC = () => {
                 <meta name="description" content={`Professional web development in ${SERVICE_AREAS.primary}. Custom websites, responsive design, e-commerce, and web applications for ${SERVICE_AREAS.region} businesses. Get a stunning website that converts.`} />
                 <meta name="keywords" content={`web development cairns, website design ${SERVICE_AREAS.primary}, web developer cairns, custom websites fnq, responsive web design, ecommerce websites cairns, web design ${CONTACT_INFO.address.state}`} />
                 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-                <link rel="canonical" href={`${CONTACT_INFO.website}/web-development-cairns`} />
+                <link rel="canonical" href={`${ONLINE_PRESENCE.website.primary}/web-development-cairns`} />
 
                 {/* Open Graph */}
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content={`${CONTACT_INFO.website}/web-development-cairns`} />
+                <meta property="og:url" content={`${ONLINE_PRESENCE.website.primary}/web-development-cairns`} />
                 <meta property="og:title" content={`Web Development ${SERVICE_AREAS.primary} | ${BUSINESS_INFO.shortName}`} />
                 <meta property="og:description" content={`Professional web development for ${SERVICE_AREAS.primary} businesses. Custom websites that drive results.`} />
                 <meta property="og:locale" content="en_AU" />
@@ -155,19 +155,19 @@ const WebDevelopmentCairns: React.FC = () => {
                                     "@type": "ListItem",
                                     "position": 1,
                                     "name": "Home",
-                                    "item": CONTACT_INFO.website
+                                    "item": ONLINE_PRESENCE.website.primary
                                 },
                                 {
                                     "@type": "ListItem",
                                     "position": 2,
                                     "name": "Services",
-                                    "item": `${CONTACT_INFO.website}/#services`
+                                    "item": `${ONLINE_PRESENCE.website.primary}/#services`
                                 },
                                 {
                                     "@type": "ListItem",
                                     "position": 3,
                                     "name": "Web Development",
-                                    "item": `${CONTACT_INFO.website}/web-development-cairns`
+                                    "item": `${ONLINE_PRESENCE.website.primary}/web-development-cairns`
                                 }
                             ]
                         })

@@ -1,8 +1,22 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
+  "/ai-integration-cairns": "pages/ai-integration-cairns.html",
   "/_document": "pages/_document.js",
-  "/technology-consulting-cairns": "pages/technology-consulting-cairns.js",
-  "/custom-software-cairns": "pages/custom-software-cairns.js",
-  "/projects/shredindex": "pages/projects/shredindex.js"
+  "/custom-software-cairns": "pages/custom-software-cairns.html",
+  "/api/contact": "pages/api/contact.js",
+  "/": "pages/index.html",
+  "/mobile-app-development-cairns": "pages/mobile-app-development-cairns.html",
+  "/e-commerce-development-cairns": "pages/e-commerce-development-cairns.html",
+  "/privacy-policy": "pages/privacy-policy.html",
+  "/projects/chatspark-data-safety": "pages/projects/chatspark-data-safety.html",
+  "/projects/chatspark-privacy": "pages/projects/chatspark-privacy.html",
+  "/projects/chatspark": "pages/projects/chatspark.html",
+  "/projects/quotemate-privacy": "pages/projects/quotemate-privacy.html",
+  "/projects/quotemate": "pages/projects/quotemate.html",
+  "/technology-consulting-cairns": "pages/technology-consulting-cairns.html",
+  "/web-development-cairns": "pages/web-development-cairns.html",
+  "/projects/shredindex": "pages/projects/shredindex.html",
+  "/terms-of-service": "pages/terms-of-service.html",
+  "/_error": "pages/_error.js",
+  "/404": "pages/404.html"
 }
