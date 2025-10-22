@@ -35,6 +35,42 @@
         <priority>0.7</priority>
     </url>
 
+    <!-- QuoteMate Content Pages -->
+    <url>
+        <loc>https://hansendev.com.au/projects/quotemate-features</loc>
+        <lastmod>2025-10-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://hansendev.com.au/projects/quotemate-for-tradies</loc>
+        <lastmod>2025-10-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://hansendev.com.au/projects/quotemate-pricing</loc>
+        <lastmod>2025-10-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://hansendev.com.au/projects/quotemate-getting-started</loc>
+        <lastmod>2025-10-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://hansendev.com.au/projects/quotemate-vs-traditional</loc>
+        <lastmod>2025-10-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- ChatSpark Project - High Priority for Traffic -->
     <url>
         <loc>https://hansendev.com.au/projects/chatspark</loc>
