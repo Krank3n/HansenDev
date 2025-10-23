@@ -291,7 +291,7 @@ const QuoteMateFeatures: React.FC = () => {
                             </p>
 
                             <div className="flex flex-wrap gap-4 justify-center">
-                                <a
+                                <Link
                                     href="/quote-tool"
                                     target="_blank"
                                     rel="noopener noreferrer"
