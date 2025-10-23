@@ -87,7 +87,7 @@ const QuoteMate: React.FC = () => {
                                 "name": "Hansen Dev",
                                 "url": "https://hansendev.com.au"
                             },
-                            "downloadUrl": "https://play.google.com/apps/testing/com.quotemate.app",
+                            "downloadUrl": "https://hansendev.com.au/quote-tool",
                             "screenshot": "https://hansendev.com.au/assets/projects/quotemate-app.png",
                             "featureList": [
                                 "Create professional quotes in under 5 minutes",
@@ -230,15 +230,13 @@ const QuoteMate: React.FC = () => {
 
                             {/* CTA Buttons */}
                             <div className="flex flex-wrap gap-4 justify-center mb-8">
-                                <a
-                                    href="https://play.google.com/apps/testing/com.quotemate.app"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                <Link
+                                    href="/quote-tool"
                                     className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
                                     <span>Try Free - First 5 Quotes On Us</span>
-                                </a>
+                                </Link>
                             </div>
 
                             <p className="text-sm text-dark-text-secondary">
@@ -564,15 +562,13 @@ const QuoteMate: React.FC = () => {
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                                <a
-                                    href="https://play.google.com/apps/testing/com.quotemate.app"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                <Link
+                                    href="/quote-tool"
                                     className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
                                     <span>Start Free Trial - 5 Quotes</span>
-                                </a>
+                                </Link>
                             </div>
 
                             <div className="flex flex-wrap justify-center gap-6 text-sm text-dark-text-secondary">

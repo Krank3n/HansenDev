@@ -23,7 +23,7 @@ import {
     AlertCircle
 } from 'lucide-react';
 
-const QuoteMateP ricing: React.FC = () => {
+const QuoteMatePricing: React.FC = () => {
     const pricingTiers = [
         {
             name: "Free Trial",
@@ -432,14 +432,14 @@ const QuoteMateP ricing: React.FC = () => {
 
                             <div className="flex flex-wrap gap-4 justify-center">
                                 <a
-                                    href="https://play.google.com/apps/testing/com.quotemate.app"
+                                    href="/quote-tool"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
                                     <span>Start Free Trial - 5 Quotes</span>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -501,7 +501,7 @@ const QuoteMateP ricing: React.FC = () => {
                                         </div>
 
                                         <a
-                                            href="https://play.google.com/apps/testing/com.quotemate.app"
+                                            href="/quote-tool"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className={`block text-center px-6 py-4 rounded-xl font-bold transition-all duration-300 ${
@@ -511,7 +511,7 @@ const QuoteMateP ricing: React.FC = () => {
                                             }`}
                                         >
                                             {tier.cta}
-                                        </a>
+                                        </Link>
                                     </div>
                                 ))}
                             </div>
@@ -800,14 +800,14 @@ const QuoteMateP ricing: React.FC = () => {
 
                             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                                 <a
-                                    href="https://play.google.com/apps/testing/com.quotemate.app"
+                                    href="/quote-tool"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
                                     <span>Download QuoteMate Free</span>
-                                </a>
+                                </Link>
                                 <Link
                                     href="/projects/quotemate"
                                     className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
@@ -843,4 +843,4 @@ const QuoteMateP ricing: React.FC = () => {
     );
 };
 
-export default QuoteMateP ricing;
+export default QuoteMatePricing;
