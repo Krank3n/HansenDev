@@ -7,6 +7,11 @@ const nextConfig = {
         source: '/quote-tool',
         destination: '/quote-tool/index.html',
       },
+      // Handle asset requests from within the quote-tool
+      {
+        source: '/assets/:path*',
+        destination: '/quote-tool/assets/:path*',
+      },
     ];
   },
 };
