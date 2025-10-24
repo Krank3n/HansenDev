@@ -7,6 +7,11 @@ const nextConfig = {
         source: '/quote-tool',
         destination: '/quote-tool/index.html',
       },
+      // Handle _expo bundle requests from within the quote-tool
+      {
+        source: '/_expo/:path*',
+        destination: '/quote-tool/_expo/:path*',
+      },
       // Handle asset requests from within the quote-tool
       {
         source: '/assets/:path*',
