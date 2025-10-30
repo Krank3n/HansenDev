@@ -108,7 +108,7 @@
         <priority>0.9</priority>
         <image:image>
             <image:loc>https://hansendev.com.au/assets/projects/shredindex-home.png</image:loc>
-            <image:title>ShredIndex - World's Largest Ski Resort Database & Job Board</image:title>
+            <image:title>ShredIndex - World's Largest Ski Resort Database &amp; Job Board</image:title>
             <image:caption>Discover 6,239+ ski resorts across 94 countries with lifestyle filtering, professional reviews, and the largest ski resort job board online</image:caption>
         </image:image>
     </url>
