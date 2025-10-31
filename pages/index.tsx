@@ -233,6 +233,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <Portfolio />
             <About />
             <Contact />
+
+            {/* Privacy Policy Link Section */}
+            <div className="py-8 border-t border-white/10">
+                <div className="container-custom text-center">
+                    <p className="text-dark-text-secondary text-sm">
+                        <a
+                            href="/projects/quotemate-privacy"
+                            className="text-brand-accent hover:text-brand-primary transition-colors underline"
+                        >
+                            QuoteMate Privacy Policy
+                        </a>
+                    </p>
+                </div>
+            </div>
         </>
     );
 };
