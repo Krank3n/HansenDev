@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import {
     MapPin,
     Phone,
@@ -31,8 +32,22 @@ import {
     getBusinessName
 } from '../constants/business';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+    privacyPolicyUrl?: string;
+    termsOfServiceUrl?: string;
+}
+
+const Footer: React.FC<FooterProps> = ({
+    privacyPolicyUrl,
+    termsOfServiceUrl
+}) => {
     const currentYear = new Date().getFullYear();
+    const router = useRouter();
+
+    // Determine privacy policy URL based on current page
+    const isQuoteMatePage = router.pathname.includes('/projects/quotemate');
+    const finalPrivacyUrl = privacyPolicyUrl || (isQuoteMatePage ? '/projects/quotemate-privacy' : '/privacy-policy');
+    const finalTermsUrl = termsOfServiceUrl || '/terms-of-service';
 
     // Quick contact handler
     const handleQuickContact = () => {
@@ -335,13 +350,13 @@ const Footer: React.FC = () => {
                                 {/* Legal Links */}
                                 <div className="flex flex-wrap justify-center gap-6 text-xs">
                                     <a
-                                        href="/privacy-policy"
+                                        href={finalPrivacyUrl}
                                         className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300"
                                     >
                                         Privacy Policy
                                     </a>
                                     <a
-                                        href="/terms-of-service"
+                                        href={finalTermsUrl}
                                         className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300"
                                     >
                                         Terms of Service
