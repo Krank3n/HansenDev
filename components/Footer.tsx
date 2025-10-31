@@ -356,6 +356,12 @@ const Footer: React.FC<FooterProps> = ({
                                         Privacy Policy
                                     </a>
                                     <a
+                                        href="/projects/quotemate-privacy"
+                                        className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300"
+                                    >
+                                        QuoteMate Privacy
+                                    </a>
+                                    <a
                                         href={finalTermsUrl}
                                         className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300"
                                     >
