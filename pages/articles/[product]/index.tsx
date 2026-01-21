@@ -152,13 +152,15 @@ const ProductArticlesPage: React.FC<ProductArticlesPageProps> = ({ articles, pro
                     <div className="container-custom relative">
                         <div className="max-w-4xl mx-auto">
                             {/* Back Link */}
-                            <Link
-                                href="/articles"
-                                className="inline-flex items-center gap-2 text-dark-text-secondary hover:text-brand-accent transition-colors mb-6"
-                            >
-                                <ArrowLeft className="h-4 w-4" />
-                                <span>All Articles</span>
-                            </Link>
+                            <div className="mb-6">
+                                <Link
+                                    href="/articles"
+                                    className="inline-flex items-center gap-2 text-dark-text-secondary hover:text-brand-accent transition-colors"
+                                >
+                                    <ArrowLeft className="h-4 w-4" />
+                                    <span>All Articles</span>
+                                </Link>
+                            </div>
 
                             {/* Badge */}
                             <div className="inline-flex items-center gap-2 text-brand-accent text-sm font-medium uppercase tracking-wider mb-4">

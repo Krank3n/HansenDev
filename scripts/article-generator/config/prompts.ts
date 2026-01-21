@@ -177,10 +177,15 @@ Technical Requirements:
 - 16:9 aspect ratio (landscape orientation)
 - Clean, modern design aesthetic
 - Should visually represent the topic "${topic}"
-- No text overlays or typography - image only
 - Suitable for both light and dark website backgrounds
 - Should look great as a social media share image
 - Avoid overly stock-photo look - aim for authentic, relatable imagery
+
+CRITICAL - NO TEXT:
+- Do NOT include any text, words, letters, numbers, or typography in the image
+- Do NOT include signs, labels, watermarks, or any written content
+- Do NOT include checklists, bullet points, or numbered lists
+- The image must be purely visual with no readable text of any kind
 
 Content Focus:
 - Show people, tools, or scenarios relevant to the topic

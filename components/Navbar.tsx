@@ -6,6 +6,7 @@ import { MenuIcon, XIcon, CodeIcon } from './icons/CustomIcons';
 const navItems: NavItem[] = [
   { name: 'Home', href: '#home' },
   { name: 'QuoteMate', href: '/quote-tool' },
+  { name: 'Articles', href: '/articles' },
   { name: 'Services', href: '#services' },
   { name: 'About Us', href: '#about' },
   { name: 'Contact', href: '#contact' },
