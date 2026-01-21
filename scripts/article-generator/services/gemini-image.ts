@@ -35,7 +35,6 @@ export const generateFeaturedImage = async (
     contents: prompt,
     config: {
       responseModalities: ['image', 'text'],
-      imageSizes: '16:9',
     }
   });
 
