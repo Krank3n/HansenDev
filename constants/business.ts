@@ -46,10 +46,10 @@ export const BUSINESS_INFO = {
     description: "Professional web development, AI integration, and technology consulting services in Cairns, Queensland, Australia",
 
     // Legal Information
-    abn: "12 345 678 901", // Replace with your actual ABN
-    acn: "123 456 789",    // Replace with your actual ACN if applicable
-    registeredName: "HansenDev PTY LTD",
-    entityType: "Private Company",
+    abn: "22 661 796 201",
+    acn: "661 796 201",
+    registeredName: "HANSENDEV PTY LTD",
+    entityType: "Australian Private Company",
 
     // Founder Information
     founder: {

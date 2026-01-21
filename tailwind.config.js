@@ -15,8 +15,37 @@ module.exports = {
         'dark-card': '#1F2937', // Gray-800
         'dark-text': '#E5E7EB', // Gray-200
         'dark-text-secondary': '#9CA3AF', // Gray-400
-      }
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: 'none',
+          },
+        },
+        invert: {
+          css: {
+            '--tw-prose-body': '#9CA3AF',
+            '--tw-prose-headings': '#E5E7EB',
+            '--tw-prose-lead': '#9CA3AF',
+            '--tw-prose-links': '#14B8A6',
+            '--tw-prose-bold': '#E5E7EB',
+            '--tw-prose-counters': '#9CA3AF',
+            '--tw-prose-bullets': '#14B8A6',
+            '--tw-prose-hr': 'rgba(255, 255, 255, 0.1)',
+            '--tw-prose-quotes': '#E5E7EB',
+            '--tw-prose-quote-borders': '#14B8A6',
+            '--tw-prose-captions': '#9CA3AF',
+            '--tw-prose-code': '#14B8A6',
+            '--tw-prose-pre-code': '#E5E7EB',
+            '--tw-prose-pre-bg': 'rgba(255, 255, 255, 0.05)',
+            '--tw-prose-th-borders': 'rgba(255, 255, 255, 0.1)',
+            '--tw-prose-td-borders': 'rgba(255, 255, 255, 0.05)',
+          },
+        },
+      },
     }
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };

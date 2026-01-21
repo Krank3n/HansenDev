@@ -19,6 +19,18 @@ const nextConfig = {
       },
     ];
   },
+  // Handle Node.js modules that should only run on the server
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // Don't bundle these Node.js modules on the client
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        path: false,
+      };
+    }
+    return config;
+  },
 };
 
 module.exports = nextConfig;
