@@ -141,8 +141,10 @@ export const getArticlePreview = (product: string, slug: string): ArticlePreview
   // Extract first paragraph as excerpt
   const excerpt = content
     .split('\n\n')
-    .find(p => p.trim() && !p.startsWith('#') && !p.startsWith('---'))
+    .map(p => p.trim())
+    .find(p => p && !p.startsWith('#') && !p.startsWith('---') && !p.startsWith('*') && !p.startsWith('-'))
     ?.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove markdown links
+    ?.replace(/\*\*([^*]+)\*\*/g, '$1') // Remove bold markdown
     ?.substring(0, 200) + '...' || '';
 
   return {

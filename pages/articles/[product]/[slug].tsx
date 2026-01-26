@@ -362,6 +362,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article, relatedArticles, pro
                             <li className="text-white truncate max-w-[200px]" aria-current="page" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
                                 <span itemProp="name">{frontmatter.title}</span>
                                 <meta itemProp="position" content="4" />
+                                <meta itemProp="item" content={canonicalUrl} />
                             </li>
                         </ol>
                     </div>

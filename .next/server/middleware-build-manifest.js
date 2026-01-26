@@ -1,1 +1,40 @@
-globalThis.__BUILD_MANIFEST={polyfillFiles:["static/chunks/polyfills-42372ed130431b0a.js"],devFiles:[],ampDevFiles:[],lowPriorityFiles:[],rootMainFiles:[],rootMainFilesTree:{},pages:{"/":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/587-c4779b465867fe45.js","static/chunks/pages/index-6c3466f9e3c83566.js"],"/_app":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/css/c850c8c7c3c15aa4.css","static/chunks/pages/_app-094f27ddd6c98aea.js"],"/_error":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/pages/_error-41608b100cc61246.js"],"/ai-integration-cairns":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/ai-integration-cairns-62da919b005079c9.js"],"/articles":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/52d06cd5-89f8ba747c31d680.js","static/chunks/230-5443ad96548554c5.js","static/chunks/587-c4779b465867fe45.js","static/chunks/390-f47d2970e61244c1.js","static/chunks/pages/articles-3c49275d8ff062ba.js"],"/articles/[product]":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/587-c4779b465867fe45.js","static/chunks/pages/articles/[product]-e0ebdcb0e5c1a7e0.js"],"/articles/[product]/[slug]":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/52d06cd5-89f8ba747c31d680.js","static/chunks/230-5443ad96548554c5.js","static/chunks/587-c4779b465867fe45.js","static/chunks/390-f47d2970e61244c1.js","static/chunks/pages/articles/[product]/[slug]-b410f1ce7cba1310.js"],"/custom-software-cairns":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/custom-software-cairns-c8177e6030c8fc92.js"],"/e-commerce-development-cairns":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/e-commerce-development-cairns-65fcce4768807257.js"],"/mobile-app-development-cairns":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/mobile-app-development-cairns-8e153b4daa3f9cd4.js"],"/privacy-policy":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/privacy-policy-d89b0d1487ee7c13.js"],"/projects/chatspark":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/projects/chatspark-007ab5dc653fcb50.js"],"/projects/chatspark-data-safety":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/projects/chatspark-data-safety-5a6e8e864e3d2539.js"],"/projects/chatspark-privacy":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/projects/chatspark-privacy-7b7e8fb430e646da.js"],"/projects/quotemate":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/587-c4779b465867fe45.js","static/chunks/pages/projects/quotemate-6dd537719152a32a.js"],"/projects/quotemate-features":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/projects/quotemate-features-4f8567a4e2d83927.js"],"/projects/quotemate-for-tradies":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/projects/quotemate-for-tradies-bd4adb1b32034ac6.js"],"/projects/quotemate-getting-started":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/projects/quotemate-getting-started-219a53f749aa4dea.js"],"/projects/quotemate-pricing":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/projects/quotemate-pricing-04b1402e19ce6a3d.js"],"/projects/quotemate-privacy":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/projects/quotemate-privacy-de8b76fdae1975a3.js"],"/projects/quotemate-vs-traditional":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/projects/quotemate-vs-traditional-2d58ff642ed2c453.js"],"/projects/shredindex":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/projects/shredindex-2c19e1b08921196a.js"],"/technology-consulting-cairns":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/technology-consulting-cairns-962fa710864eb22a.js"],"/terms-of-service":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/terms-of-service-e617d348b9a6ff6a.js"],"/web-development-cairns":["static/chunks/webpack-6ffd07a3317375c1.js","static/chunks/framework-f75312fc4004b783.js","static/chunks/main-b71c5e691ba0a928.js","static/chunks/230-5443ad96548554c5.js","static/chunks/pages/web-development-cairns-648b69afd6d3c275.js"]},ampFirstPages:[]},globalThis.__BUILD_MANIFEST.lowPriorityFiles=["/static/"+process.env.__NEXT_BUILD_ID+"/_buildManifest.js",,"/static/"+process.env.__NEXT_BUILD_ID+"/_ssgManifest.js"];
+globalThis.__BUILD_MANIFEST = {
+  "polyfillFiles": [
+    "static/chunks/polyfills.js"
+  ],
+  "devFiles": [
+    "static/chunks/react-refresh.js"
+  ],
+  "ampDevFiles": [],
+  "lowPriorityFiles": [],
+  "rootMainFiles": [],
+  "rootMainFilesTree": {},
+  "pages": {
+    "/_app": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_app.js"
+    ],
+    "/_error": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_error.js"
+    ],
+    "/articles": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/articles.js"
+    ],
+    "/articles/[product]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/articles/[product].js"
+    ]
+  },
+  "ampFirstPages": []
+};
+globalThis.__BUILD_MANIFEST.lowPriorityFiles = [
+"/static/" + process.env.__NEXT_BUILD_ID + "/_buildManifest.js",
+,"/static/" + process.env.__NEXT_BUILD_ID + "/_ssgManifest.js",
+
+];
