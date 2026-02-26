@@ -199,7 +199,7 @@ export default function WakeParkTemplate({ business }: { business: DemoBusiness 
     measureBanner();
     window.addEventListener('resize', measureBanner);
 
-    const onScroll = () => setScrolled(window.scrollY > bannerRef.current?.offsetHeight ?? 40);
+    const onScroll = () => setScrolled(window.scrollY > (bannerRef.current?.offsetHeight ?? 40));
     window.addEventListener('scroll', onScroll);
     return () => {
       window.removeEventListener('scroll', onScroll);
