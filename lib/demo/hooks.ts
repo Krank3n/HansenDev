@@ -9,7 +9,7 @@ export function useCountUp(end: number, duration = 2000, start = false) {
     const step = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
-      setCount(Math.floor(progress * end));
+      setCount(progress >= 1 ? end : Math.floor(progress * end));
       if (progress < 1) frame = requestAnimationFrame(step);
     };
     frame = requestAnimationFrame(step);

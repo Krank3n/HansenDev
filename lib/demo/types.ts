@@ -62,7 +62,7 @@ export interface DemoBusiness {
   process?: ProcessStep[];
   serviceAreas: string[];
   certifications: string[];
-  template: 'industrial' | 'corporate' | 'medical';
+  template: 'industrial' | 'corporate' | 'medical' | 'wakepark';
   navLinks?: { label: string; href: string }[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   custom?: Record<string, any>;

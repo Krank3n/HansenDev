@@ -17,6 +17,22 @@ module.exports = {
         'dark-text': '#E5E7EB', // Gray-200
         'dark-text-secondary': '#9CA3AF', // Gray-400
       },
+      keyframes: {
+        'shimmer': {
+          '0%': { backgroundPosition: '-200% center' },
+          '100%': { backgroundPosition: '200% center' },
+        },
+        'fade-up': {
+          '0%': { opacity: '0', transform: 'translateY(24px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        'shimmer': 'shimmer 4s ease-in-out infinite',
+        'fade-up': 'fade-up 0.7s ease-out forwards',
+        'fade-up-delay-1': 'fade-up 0.7s ease-out 0.15s forwards',
+        'fade-up-delay-2': 'fade-up 0.7s ease-out 0.3s forwards',
+      },
       typography: {
         DEFAULT: {
           css: {

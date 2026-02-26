@@ -13,7 +13,8 @@ import {
   Award,
   Code,
   Bot,
-  Lightbulb
+  Lightbulb,
+  Info,
 } from 'lucide-react';
 
 // Import business constants
@@ -29,7 +30,7 @@ import {
 // Enhanced service data with local SEO focus using constants
 const servicesData: ServiceCardProps[] = [
   {
-    icon: <Code className="h-12 w-12 text-brand-accent" />,
+    icon: <Code className="h-12 w-12 text-brand-accent service-icon-code" />,
     title: `Custom Web Development ${SERVICE_AREAS.primary}`,
     description: `Transform your ${SERVICE_AREAS.primary} business with professional websites and web applications that drive results. From tourism operators to local retailers, we create responsive, high-performance websites that attract customers and boost revenue throughout ${SERVICE_AREAS.region}.`,
     longDescription: `Our ${SERVICE_AREAS.primary}-based web development team specializes in creating stunning, conversion-focused websites for local businesses. Whether you're a tourism operator showcasing the Great Barrier Reef, a local restaurant, or a professional service provider, we build custom web solutions that capture your unique brand and drive real business results.`,
@@ -53,7 +54,7 @@ const servicesData: ServiceCardProps[] = [
     businessTypes: SERVICES_OFFERED.industries.slice(0, 6)
   },
   {
-    icon: <Bot className="h-12 w-12 text-brand-accent" />,
+    icon: <Bot className="h-12 w-12 text-brand-accent service-icon-bot" />,
     title: 'AI Integration & Business Automation',
     description: `Revolutionize your ${SERVICE_AREAS.primary} business with intelligent AI solutions. From customer service chatbots to automated booking systems, we help ${SERVICE_AREAS.region} businesses reduce costs, improve efficiency, and provide exceptional customer experiences through cutting-edge artificial intelligence.`,
     longDescription: `Stay ahead of the competition with our AI integration services designed specifically for ${SERVICE_AREAS.primary} businesses. We implement intelligent chatbots for tourism operators, automated customer service systems, predictive analytics for inventory management, and machine learning solutions that grow your business while you sleep.`,
@@ -74,7 +75,7 @@ const servicesData: ServiceCardProps[] = [
     businessTypes: ['Tourism Operators', 'Hotels & Accommodation', 'Restaurants', 'Retail Stores', 'Professional Services', 'Healthcare Practices']
   },
   {
-    icon: <Lightbulb className="h-12 w-12 text-brand-accent" />,
+    icon: <Lightbulb className="h-12 w-12 text-brand-accent service-icon-lightbulb" />,
     title: 'Strategic Technology Consulting',
     description: `Navigate the digital transformation journey with confidence. Our ${SERVICE_AREAS.primary}-based technology consultants help ${SERVICE_AREAS.region} businesses identify opportunities, implement the right solutions, and maximize ROI from technology investments while staying competitive in today's digital marketplace.`,
     longDescription: `As your trusted technology partner in ${SERVICE_AREAS.primary}, we provide strategic guidance to help your business leverage technology for growth. From digital transformation roadmaps to technology audits, we ensure your IT investments align with your business goals and deliver measurable results.`,
@@ -141,10 +142,21 @@ const Services: React.FC = () => {
             id="services"
             title={`Technology Services for ${SERVICE_AREAS.primary} Businesses`}
             subtitle={`Empowering ${SERVICE_AREAS.region} enterprises with cutting-edge web development, AI integration, and strategic technology solutions.`}
-            className="bg-gradient-to-b from-gray-800/20 to-gray-900/40"
+            className="bg-gradient-to-b from-gray-800/20 to-gray-900/40 relative overflow-hidden"
         >
+          {/* Subtle geometric grid background */}
+          <div className="absolute inset-0 geo-grid-subtle pointer-events-none"></div>
+
+          {/* The "Cairns Edge" — why local businesses need us */}
+          <div className="relative mb-12 max-w-3xl mx-auto text-center">
+            <p className="text-dark-text-secondary text-base sm:text-lg leading-relaxed italic border-l-4 border-brand-accent/40 pl-6 text-left">
+              In a coastal economy, generic tech doesn&apos;t cut it. We build solutions that handle local tourism surges,
+              automate repetitive admin for FNQ trades, and put AI to work where it actually impacts your bottom line.
+            </p>
+          </div>
+
           {/* Trust indicators for local businesses using constants */}
-          <div className="mb-16 text-center">
+          <div className="relative mb-16 text-center">
             <div className="flex flex-wrap justify-center items-center gap-6 mb-8">
               <div className="flex items-center gap-2 bg-dark-card/50 px-4 py-2 rounded-full">
                 <MapPin className="h-5 w-5 text-brand-accent" />
@@ -168,7 +180,7 @@ const Services: React.FC = () => {
           </div>
 
           {/* Enhanced service cards using constants */}
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          <div className="relative grid lg:grid-cols-3 gap-8 mb-16">
             {servicesData.map((service, index) => (
                 <Card key={service.title} className="group hover:border-brand-accent/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-accent/10 hover:-translate-y-2">
                   <div className="relative">
@@ -214,18 +226,24 @@ const Services: React.FC = () => {
                         <div className="text-lg font-bold text-brand-accent">{service.priceRange}</div>
                         <div className="text-xs text-dark-text-secondary">Starting Price</div>
                       </div>
-                      <div className="text-center">
-                        <div className="text-lg font-bold text-brand-primary">{service.deliveryTime}</div>
+                      <div className="text-center relative timeline-trigger">
+                        <div className="text-lg font-bold text-brand-primary inline-flex items-center gap-1.5">
+                          {service.deliveryTime}
+                          <Info className="h-3.5 w-3.5 text-dark-text-secondary/60 cursor-help" />
+                        </div>
                         <div className="text-xs text-dark-text-secondary">Timeline</div>
+                        <div className="timeline-tooltip">
+                          Includes discovery, design, development &amp; local QA testing
+                        </div>
                       </div>
                     </div>
 
-                    {/* Target business types */}
+                    {/* Target business types — deep slate tag style */}
                     <div className="mb-6">
                       <p className="text-xs text-dark-text-secondary mb-2">Perfect for:</p>
-                      <div className="flex flex-wrap gap-1">
+                      <div className="flex flex-wrap gap-1.5">
                         {service.businessTypes.slice(0, 3).map((type) => (
-                            <span key={type} className="bg-brand-accent/10 text-brand-accent px-2 py-1 rounded text-xs font-medium">
+                            <span key={type} className="bg-slate-700/60 text-gray-300 px-2.5 py-1 rounded text-xs font-medium border border-slate-600/40">
                         {type}
                       </span>
                         ))}

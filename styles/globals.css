@@ -83,3 +83,111 @@ body {
 .container-custom {
   @apply container mx-auto px-4 sm:px-6 lg:px-8;
 }
+
+/* AI shimmer gradient for highlighted text */
+.ai-shimmer {
+  background: linear-gradient(
+    90deg,
+    #14B8A6 0%,
+    #5eead4 25%,
+    #99f6e4 50%,
+    #5eead4 75%,
+    #14B8A6 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 40px rgba(20, 184, 166, 0.3);
+}
+
+/* Geometric network grid overlay */
+.geo-grid {
+  background-image:
+    linear-gradient(rgba(20, 184, 166, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 184, 166, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.geo-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle 2px, rgba(20, 184, 166, 0.12) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Parallax background wrapper */
+.parallax-bg {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+}
+
+/* Fade-up animation initial state */
+.fade-up-init {
+  opacity: 0;
+}
+
+/* Navbar scroll states */
+.navbar-scrolled {
+  @apply py-2 bg-dark-card/95 shadow-xl;
+}
+
+.navbar-top {
+  @apply py-0 bg-dark-card/80;
+}
+
+/* Geometric grid at reduced opacity for services section */
+.geo-grid-subtle {
+  background-image:
+    linear-gradient(rgba(20, 184, 166, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 184, 166, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.geo-grid-subtle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle 2px, rgba(20, 184, 166, 0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* Service icon hover animations */
+.service-icon-code {
+  transition: transform 0.3s ease;
+}
+.group:hover .service-icon-code {
+  transform: scaleX(1.15);
+}
+
+.service-icon-bot {
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.group:hover .service-icon-bot {
+  filter: drop-shadow(0 0 8px rgba(20, 184, 166, 0.5));
+  transform: scale(1.08);
+}
+
+.service-icon-lightbulb {
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.group:hover .service-icon-lightbulb {
+  filter: drop-shadow(0 0 8px rgba(234, 179, 8, 0.4));
+  transform: scale(1.1);
+}
+
+/* Timeline tooltip */
+.timeline-tooltip {
+  @apply invisible opacity-0 absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 text-xs text-white bg-dark-card border border-white/10 rounded-lg shadow-xl whitespace-nowrap;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+.timeline-trigger:hover .timeline-tooltip {
+  @apply visible opacity-100;
+}
