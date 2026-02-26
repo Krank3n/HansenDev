@@ -4,12 +4,27 @@ import React from 'react';
 // Fix: Changed named import 'AppProps' to default import.
 import type AppProps from 'next/app';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import '../styles/globals.css';
 
 // @ts-ignore
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const isDemoPage = router.pathname.startsWith('/demo');
+
+  if (isDemoPage) {
+    return (
+      <>
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        </Head>
+        <Component {...pageProps} />
+      </>
+    );
+  }
+
   return (
     <>
       <Head>
