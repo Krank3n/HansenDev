@@ -9,6 +9,64 @@ import { DemoBusiness } from '../../types';
 import { useCountUp, useInView } from '../../hooks';
 import DemoBanner from '../shared/DemoBanner';
 
+// ─── Water wave SVG divider ──────────────────────────────────────────────
+function WaveDivider({ flip, color = '#0f172a' }: { flip?: boolean; color?: string }) {
+  return (
+    <div className={`wave-divider relative w-full overflow-hidden leading-[0] ${flip ? 'rotate-180' : ''}`} style={{ marginTop: '-1px', marginBottom: '-1px' }}>
+      <svg viewBox="0 0 2400 120" preserveAspectRatio="none" className="w-[200%] h-[60px] md:h-[80px]">
+        <path
+          d="M0,60 C200,120 400,0 600,60 C800,120 1000,0 1200,60 C1400,120 1600,0 1800,60 C2000,120 2200,0 2400,60 L2400,120 L0,120 Z"
+          fill={color}
+          fillOpacity="0.15"
+        />
+        <path
+          d="M0,80 C150,30 350,100 600,80 C850,60 1050,110 1200,80 C1350,50 1550,100 1800,80 C2050,60 2250,110 2400,80 L2400,120 L0,120 Z"
+          fill={color}
+          fillOpacity="0.08"
+        />
+      </svg>
+    </div>
+  );
+}
+
+// ─── Splash / droplet particles ─────────────────────────────────────────
+function SplashParticles() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      {/* Water droplets */}
+      {[10, 25, 45, 70, 88].map((left, i) => (
+        <div
+          key={`drop-${i}`}
+          className="droplet absolute top-0 w-2 h-3 rounded-full bg-sky-400/30"
+          style={{ left: `${left}%` }}
+        />
+      ))}
+      {/* Rising bubbles */}
+      {[15, 35, 60, 82].map((left, i) => (
+        <div
+          key={`bubble-${i}`}
+          className="bubble absolute bottom-0 w-3 h-3 rounded-full border border-sky-400/20"
+          style={{ left: `${left}%` }}
+        />
+      ))}
+    </div>
+  );
+}
+
+// ─── Ripple rings (for CTA areas) ───────────────────────────────────────
+function RippleRings({ className = '' }: { className?: string }) {
+  return (
+    <div className={`absolute pointer-events-none ${className}`} aria-hidden="true">
+      {[0, 1, 2].map((i) => (
+        <div
+          key={i}
+          className="ripple-circle absolute inset-0 rounded-full border border-sky-400/20"
+        />
+      ))}
+    </div>
+  );
+}
+
 // ─── Park open/closed based on AEST time ────────────────────────────────
 function useParkStatus() {
   const [isOpen, setIsOpen] = useState(false);
@@ -271,6 +329,56 @@ export default function WakeParkTemplate({ business }: { business: DemoBusiness 
             padding-bottom: 4rem;
           }
         }
+        /* ── Water / Splash animations ─────────────────────────── */
+        @keyframes wave-move {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes ripple {
+          0% { transform: scale(0.8); opacity: 0.6; }
+          100% { transform: scale(2.5); opacity: 0; }
+        }
+        @keyframes droplet-fall {
+          0% { transform: translateY(-20px) scale(1); opacity: 0; }
+          20% { opacity: 1; }
+          100% { transform: translateY(60px) scale(0.5); opacity: 0; }
+        }
+        @keyframes splash-up {
+          0% { transform: translateY(0) scaleY(1); opacity: 0.8; }
+          50% { transform: translateY(-30px) scaleY(1.3); opacity: 0.5; }
+          100% { transform: translateY(-50px) scaleY(0.5); opacity: 0; }
+        }
+        @keyframes bubble-rise {
+          0% { transform: translateY(0) scale(1); opacity: 0.4; }
+          100% { transform: translateY(-80px) scale(0.3); opacity: 0; }
+        }
+        .wave-divider svg {
+          animation: wave-move 8s linear infinite;
+        }
+        .ripple-circle {
+          animation: ripple 3s ease-out infinite;
+        }
+        .ripple-circle:nth-child(2) { animation-delay: 1s; }
+        .ripple-circle:nth-child(3) { animation-delay: 2s; }
+        .droplet {
+          animation: droplet-fall 2s ease-in infinite;
+        }
+        .droplet:nth-child(2) { animation-delay: 0.4s; left: 20%; }
+        .droplet:nth-child(3) { animation-delay: 0.8s; left: 50%; }
+        .droplet:nth-child(4) { animation-delay: 1.2s; left: 75%; }
+        .droplet:nth-child(5) { animation-delay: 1.6s; left: 90%; }
+        .splash-particle {
+          animation: splash-up 2.5s ease-out infinite;
+        }
+        .splash-particle:nth-child(2) { animation-delay: 0.3s; }
+        .splash-particle:nth-child(3) { animation-delay: 0.6s; }
+        .splash-particle:nth-child(4) { animation-delay: 0.9s; }
+        .bubble {
+          animation: bubble-rise 3s ease-out infinite;
+        }
+        .bubble:nth-child(2) { animation-delay: 0.7s; left: 30%; }
+        .bubble:nth-child(3) { animation-delay: 1.4s; left: 60%; }
+        .bubble:nth-child(4) { animation-delay: 2.1s; left: 85%; }
       `}</style>
 
       <div className="cwp-body bg-slate-950 text-white min-h-screen">
@@ -491,7 +599,7 @@ export default function WakeParkTemplate({ business }: { business: DemoBusiness 
         {/* ── STATS BAR ──────────────────────────────────────────── */}
         <StatsBar stats={business.stats} />
 
-        {/* ── WAKE PARK SECTION (skewed) ──────────────────────────── */}
+        {/* ── WAKE PARK SECTION ──────────────────────────────────── */}
         <section className="skew-section bg-gradient-to-br from-slate-900 to-slate-800" id="wakepark-info">
           <Section>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -553,7 +661,7 @@ export default function WakeParkTemplate({ business }: { business: DemoBusiness 
           </Section>
         </section>
 
-        {/* ── AQUA PARK SECTION (skewed reverse) ─────────────────── */}
+        {/* ── AQUA PARK SECTION ──────────────────────────────────── */}
         <section className="skew-section-reverse bg-gradient-to-br from-cyan-900/30 to-slate-900" id="aquapark">
           <Section>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -979,8 +1087,9 @@ export default function WakeParkTemplate({ business }: { business: DemoBusiness 
         </section>
 
         {/* ── FINAL CTA ──────────────────────────────────────────── */}
-        <Section className="py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <Section className="py-24 relative overflow-hidden">
+          <SplashParticles />
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
             <h2 className="text-4xl sm:text-6xl font-black mb-6">
               Ready to{' '}
               <span className="bg-gradient-to-r from-sky-400 to-cyan-300 bg-clip-text text-transparent">
@@ -990,15 +1099,18 @@ export default function WakeParkTemplate({ business }: { business: DemoBusiness 
             <p className="text-slate-400 text-lg max-w-xl mx-auto mb-10">
               Book your session online and get straight onto the water. All gear included, all skill levels welcome.
             </p>
-            <a
-              href={bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-sky-500 to-cyan-400 text-slate-950 px-10 py-5 rounded-2xl text-xl font-black uppercase tracking-wider hover:shadow-2xl hover:shadow-sky-500/25 transition-all hover:scale-105 animate-pulse-glow"
-            >
-              {business.ctaText}
-              <ArrowRight className="w-6 h-6" />
-            </a>
+            <div className="relative inline-block">
+              <RippleRings className="-inset-8 md:-inset-12" />
+              <a
+                href={bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-flex items-center gap-3 bg-gradient-to-r from-sky-500 to-cyan-400 text-slate-950 px-10 py-5 rounded-2xl text-xl font-black uppercase tracking-wider hover:shadow-2xl hover:shadow-sky-500/25 transition-all hover:scale-105 animate-pulse-glow"
+              >
+                {business.ctaText}
+                <ArrowRight className="w-6 h-6" />
+              </a>
+            </div>
           </div>
         </Section>
 
