@@ -1,0 +1,55 @@
+import React from 'react';
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Shield,
+  Award,
+  Users,
+  Clock,
+  CheckCircle,
+  ArrowRight,
+  Star,
+  Truck,
+  HardHat,
+  Menu,
+  X,
+  Building2,
+  Wrench,
+  Plane,
+  Anchor,
+  Layers,
+  ArrowUp,
+  Zap,
+  Briefcase,
+  TrendingUp,
+  FileText,
+  Globe,
+  Target,
+  BarChart3,
+  Handshake,
+  Scale,
+  Heart,
+  Baby,
+  Sun,
+  Stethoscope,
+  Syringe,
+  Activity,
+  ClipboardList,
+  CalendarCheck,
+  UserCheck,
+  ShieldCheck,
+} from 'lucide-react';
+
+export const iconMap: Record<string, React.FC<{ className?: string }>> = {
+  Phone, Mail, MapPin, Shield, Award, Users, Clock, CheckCircle, ArrowRight,
+  Star, Truck, HardHat, Menu, X, Building2, Wrench, Plane, Anchor,
+  Layers, ArrowUp, Zap, Briefcase, TrendingUp, FileText, Globe,
+  Target, BarChart3, Handshake, Scale, Heart, Baby, Sun, Stethoscope,
+  Syringe, Activity, ClipboardList, CalendarCheck, UserCheck, ShieldCheck,
+};
+
+export function getIcon(name: string, className?: string) {
+  const Icon = iconMap[name];
+  return Icon ? React.createElement(Icon, { className }) : null;
+}

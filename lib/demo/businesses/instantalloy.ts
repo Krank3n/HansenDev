@@ -1,0 +1,155 @@
+import { DemoBusiness } from '../types';
+
+export const instantalloy: DemoBusiness = {
+  name: 'Instant Alloy Scaffolding',
+  tagline: "Cairns' Trusted Scaffolding Experts Since 2006",
+  description:
+    'With over 15 years of experience, Instant Alloy Scaffolding provides safe, reliable scaffolding solutions for residential, commercial, and industrial projects across Cairns and Far North Queensland.',
+  phone: '07 4041 0064',
+  phoneAlt: '1300 128 968',
+  email: 'sales@instantalloyscaffolding.com.au',
+  address: '6 Arc Close, Aeroglen, Cairns',
+  logoUrl: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/image30.png',
+  logoWhiteUrl: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/White-Logo.png',
+  primaryColor: '#006CB6',
+  primaryColorDark: '#002453',
+  accentColor: '#00A3E0',
+  heroImage: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/Gallery-1-scaled.jpg',
+  heroTitle: 'Professional Scaffolding',
+  heroHighlight: 'Solutions You Can Trust',
+  heroSubtitle:
+    'Safety-first scaffolding hire, sales & installation for Cairns and Far North Queensland. Fully insured up to $20 million in public liability.',
+  ctaText: 'Get a Free Quote',
+  services: [
+    {
+      icon: 'Building2',
+      title: 'Steel & Alloy Scaffolding',
+      description: 'Full range of steel and alloy scaffolding for construction, renovation, and maintenance projects of any scale.',
+      image: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/Gallery-1-scaled.jpg',
+    },
+    {
+      icon: 'HardHat',
+      title: 'Installation & Dismantle',
+      description: 'Professional installation and dismantling by our fully qualified team with dedicated project managers.',
+      image: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/gallery-2.jpg',
+    },
+    {
+      icon: 'Truck',
+      title: 'DIY Dry Hire',
+      description: 'Convenient self-hire options with delivery and collection service. All equipment certified to Australian standards.',
+      image: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/Gallery-3-scaled.jpg',
+    },
+    {
+      icon: 'Anchor',
+      title: 'Marine Scaffolding',
+      description: 'Specialised scaffolding for marine environments, docks, and waterfront projects across North Queensland.',
+      image: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/Gallery-4.jpg',
+    },
+    {
+      icon: 'Plane',
+      title: 'Aviation Scaffolding',
+      description: 'Purpose-built scaffolding solutions for aircraft maintenance, hangars, and aviation facilities.',
+      image: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/Gallery-5-scaled.jpg',
+    },
+    {
+      icon: 'Wrench',
+      title: 'Industrial Scaffolding',
+      description: 'Heavy-duty scaffolding for industrial plants, refineries, and large-scale commercial projects.',
+      image: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/Gallery-6.jpg',
+    },
+    {
+      icon: 'Layers',
+      title: 'Stair Access Solutions',
+      description: 'Safe stair access scaffolding systems for multi-level buildings and complex access requirements.',
+      image: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/Gallery7-scaled.jpg',
+    },
+    {
+      icon: 'Shield',
+      title: 'Fall & Edge Protection',
+      description: 'Comprehensive fall protection and edge protection systems compliant with Australian safety standards.',
+      image: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/last-section-1.jpg',
+    },
+    {
+      icon: 'ArrowUp',
+      title: 'Elevated Work Platforms',
+      description: 'Scissor lifts, boom lifts, and elevated work platforms for safe working at height.',
+      image: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/last-section-2-scaled.jpeg',
+    },
+  ],
+  stats: [
+    { value: '15', label: 'Years Experience', suffix: '+' },
+    { value: '$20M', label: 'Public Liability' },
+    { value: '100', label: 'Safety Record', suffix: '%' },
+    { value: '1000', label: 'Projects Completed', suffix: '+' },
+  ],
+  whyChooseUs: [
+    {
+      icon: 'Shield',
+      title: 'Safety First Policy',
+      description: 'Zero harm policy with dedicated onsite safety supervisors and full WHS & SWMS certification on every job.',
+    },
+    {
+      icon: 'Award',
+      title: 'Fully Certified',
+      description: 'All products comply with Australian Safety Standards & WorkCover. Fully insured up to $20 million.',
+    },
+    {
+      icon: 'Users',
+      title: 'Expert Team',
+      description: 'All workforce experienced, competent, and fully qualified with a dedicated project manager on every job.',
+    },
+    {
+      icon: 'Truck',
+      title: 'Delivery & Collection',
+      description: 'Convenient delivery and collection service across Cairns and FNQ with national shipping available.',
+    },
+  ],
+  testimonials: [
+    {
+      quote: 'Instant Alloy Scaffolding provided excellent service for our commercial project. Their team was professional, on time, and safety-conscious throughout.',
+      author: 'Mark T.',
+      role: 'Construction Manager',
+      rating: 5,
+    },
+    {
+      quote: 'We use Instant Alloy for all our scaffolding needs. Their dry hire service is convenient and the equipment is always in top condition.',
+      author: 'Sarah L.',
+      role: 'Property Developer',
+      rating: 5,
+    },
+    {
+      quote: 'Great team, great service. They handled the scaffolding for our resort renovation perfectly. Highly recommend for any commercial project.',
+      author: 'James R.',
+      role: 'Resort Manager',
+      rating: 5,
+    },
+  ],
+  gallery: [
+    { src: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/Gallery-1-scaled.jpg', alt: 'Commercial scaffolding project' },
+    { src: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/gallery-2.jpg', alt: 'Residential scaffolding installation' },
+    { src: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/Gallery-3-scaled.jpg', alt: 'Industrial scaffolding setup' },
+    { src: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/Gallery-4.jpg', alt: 'Marine scaffolding project' },
+    { src: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/Gallery-5-scaled.jpg', alt: 'High-rise scaffolding access' },
+    { src: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/Gallery-6.jpg', alt: 'Resort scaffolding renovation' },
+    { src: 'https://instantalloyscaffolding.com.au/wp-content/uploads/2022/10/Gallery7-scaled.jpg', alt: 'Complex scaffolding structure' },
+  ],
+  serviceAreas: [
+    'Cairns CBD', 'Cairns Beaches', 'Port Douglas', 'Atherton Tablelands',
+    'Palm Cove', 'Mission Beach', 'Mareeba', 'Innisfail', 'Cooktown', 'Far North Queensland',
+  ],
+  certifications: [
+    'Australian Safety Standards Compliant',
+    'WorkCover Approved',
+    '$20M Public Liability Insurance',
+    'WHS & SWMS Certified',
+    'Australian Warranty on All Products',
+  ],
+  template: 'industrial',
+  navLinks: [
+    { label: 'Services', href: '#services' },
+    { label: 'Why Us', href: '#why-us' },
+    { label: 'Projects', href: '#gallery' },
+    { label: 'Reviews', href: '#testimonials' },
+    { label: 'Contact', href: '#contact' },
+  ],
+};
