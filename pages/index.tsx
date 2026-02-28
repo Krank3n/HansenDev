@@ -84,7 +84,7 @@ const HomePage: React.FC = () => {
                 {/* Primary Meta Tags */}
                 <title>Web Development & AI Integration Cairns | {BUSINESS_INFO.name}</title>
                 <meta name="title" content={`Web Development & AI Integration Cairns | ${BUSINESS_INFO.name}`} />
-                <meta name="description" content={`Leading web development and AI integration services in ${SERVICE_AREAS.primary}, ${CONTACT_INFO.address.state}. ${BUSINESS_INFO.shortName} helps local businesses grow with custom websites, intelligent automation, and cutting-edge software solutions. Free consultation available.`} />
+                <meta name="description" content={`Leading web development and AI integration services in ${SERVICE_AREAS.primary}, ${CONTACT_INFO.address.state}. ${BUSINESS_INFO.shortName} helps local businesses grow with custom websites, intelligent automation, and WebFaceLift — our AI-powered website redesign tool. Free consultation available.`} />
                 <meta name="keywords" content={getKeywordsString()} />
                 <meta name="robots" content="index, follow" />
                 <meta name="language" content="English" />
@@ -195,6 +195,14 @@ const HomePage: React.FC = () => {
                                     "acceptedAnswer": {
                                         "@type": "Answer",
                                         "text": `We offer AI chatbots, machine learning integration, business process automation, predictive analytics, and custom AI solutions tailored to your business needs in ${SERVICE_AREAS.primary} and throughout ${CONTACT_INFO.address.state}.`
+                                    }
+                                },
+                                {
+                                    "@type": "Question",
+                                    "name": "What is WebFaceLift?",
+                                    "acceptedAnswer": {
+                                        "@type": "Answer",
+                                        "text": `WebFaceLift is an AI-powered website reconstruction tool built by ${BUSINESS_INFO.name}. Paste any outdated website URL and our AI scrapes the content, redesigns the entire structure, and renders a modern blueprint you can iterate on in real-time via chat. Try it free at webfacelift.app.`
                                     }
                                 },
                                 {

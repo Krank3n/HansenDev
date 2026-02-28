@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'webfacelift.app',
+      },
+    ],
+  },
   // Redirect /quote-tool to the static Expo web build
   async rewrites() {
     return [

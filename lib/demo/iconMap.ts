@@ -46,6 +46,12 @@ import {
   Facebook,
   Play,
   ChevronDown,
+  Umbrella,
+  Tent,
+  Sparkles,
+  Armchair,
+  Factory,
+  Compass,
 } from 'lucide-react';
 
 export const iconMap: Record<string, React.FC<{ className?: string }>> = {
@@ -55,6 +61,7 @@ export const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Target, BarChart3, Handshake, Scale, Heart, Baby, Sun, Stethoscope,
   Syringe, Activity, ClipboardList, CalendarCheck, UserCheck, ShieldCheck,
   Waves, PartyPopper, Droplets, Instagram, Facebook, Play, ChevronDown,
+  Umbrella, Tent, Sparkles, Armchair, Factory, Compass,
 };
 
 export function getIcon(name: string, className?: string) {

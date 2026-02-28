@@ -271,7 +271,11 @@ export const SEO_CONSTANTS = {
         "hansendev",
         "thomas hansen developer",
         "hansendev cairns",
-        "hansendev pty ltd"
+        "hansendev pty ltd",
+        "webfacelift",
+        "webfacelift.app",
+        "AI website redesign tool",
+        "AI website reconstruction"
     ],
 
     // Schema.org Types

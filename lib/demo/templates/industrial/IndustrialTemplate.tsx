@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FormEvent } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import {
   Phone, Mail, MapPin, CheckCircle, ArrowRight, Star,
-  Menu, X, ChevronDown, Play, Zap, Shield,
+  Menu, X, ChevronDown, Play, Zap, Shield, Send, Loader2, ExternalLink,
 } from 'lucide-react';
 import { DemoBusiness, DemoStat } from '../../types';
 import { getIcon } from '../../iconMap';
@@ -33,15 +35,69 @@ interface IndustrialTemplateProps {
 }
 
 export default function IndustrialTemplate({ business }: IndustrialTemplateProps) {
+  const router = useRouter();
+  const demoSlug = router.query.slug as string;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
+  const [contactVisible, setContactVisible] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [formError, setFormError] = useState('');
+  const heroRef = React.useRef<HTMLElement>(null);
+  const contactRef = React.useRef<HTMLElement>(null);
   const statsView = useInView(0.3);
   const galleryView = useInView(0.1);
+
+  async function handleFormSubmit(e: FormEvent) {
+    e.preventDefault();
+    setFormStatus('sending');
+    setFormError('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: `Phone: ${formData.phone || 'Not provided'}\n\nBusiness Demo: ${business.name}\n\n${formData.message}`,
+        }),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || 'Failed to send message');
+      }
+      setFormStatus('success');
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch (err) {
+      setFormStatus('error');
+      setFormError(err instanceof Error ? err.message : 'Something went wrong');
+    }
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const heroEl = heroRef.current;
+    const contactEl = contactRef.current;
+    if (!heroEl || !contactEl) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target === heroEl) setPastHero(!entry.isIntersecting);
+          if (entry.target === contactEl) setContactVisible(entry.isIntersecting);
+        });
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(heroEl);
+    observer.observe(contactEl);
+    return () => observer.disconnect();
   }, []);
 
   const navLinks = business.navLinks || [
@@ -201,7 +257,7 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
         </nav>
 
         {/* ─── Hero Section ───────────────────────────────────────────── */}
-        <section id="home" className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <section id="home" ref={heroRef} className="relative min-h-[90vh] flex items-center overflow-hidden">
           {/* Background Image */}
           <div className="absolute inset-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -225,7 +281,7 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
                   <MapPin className="h-3.5 w-3.5" style={{ color: business.accentColor }} />
                   <span className="text-xs font-bold uppercase tracking-wider" style={{ color: business.accentColor }}>Cairns</span>
                 </div>
-                <span className="text-sm font-medium text-white/80">Trusted Scaffolding Since 2006</span>
+                <span className="text-sm font-medium text-white/80">{business.custom?.heroBadge || 'Trusted Scaffolding Since 2006'}</span>
               </div>
 
               <h1 className="animate-fade-up-delay-1 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] mb-6 tracking-tight">
@@ -260,7 +316,7 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
 
               {/* Trust badges */}
               <div className="animate-fade-up-delay-4 flex flex-wrap gap-4">
-                {['$20M Insured', 'Safety First', 'Australian Standards'].map((badge, i) => (
+                {(business.custom?.trustBadges || ['$20M Insured', 'Safety First', 'Australian Standards']).map((badge: string, i: number) => (
                   <div key={i} className="flex items-center gap-2 text-white/60 text-sm">
                     <CheckCircle className="h-4 w-4 text-green-400" />
                     <span>{badge}</span>
@@ -302,7 +358,7 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
                 Our <span style={{ color: business.accentColor }}>Services</span>
               </h2>
               <p className="text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
-                Comprehensive scaffolding solutions for every project, from residential repairs to large-scale industrial work.
+                {business.custom?.servicesSubtitle || 'Comprehensive scaffolding solutions for every project, from residential repairs to large-scale industrial work.'}
               </p>
             </div>
 
@@ -311,13 +367,8 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
               {business.services.map((service, i) => {
                 const isHero = i < 2;
                 const isWide = i === 2;
-                return (
-                  <div
-                    key={i}
-                    className={`service-card group relative rounded-2xl md:rounded-3xl overflow-hidden ${
-                      isHero ? 'row-span-2' : ''
-                    } ${isWide ? 'lg:col-span-2' : ''}`}
-                  >
+                const cardContent = (
+                  <>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={service.image}
@@ -326,10 +377,6 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent group-hover:via-black/40 transition-all duration-500" />
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl md:rounded-3xl" style={{ boxShadow: `inset 0 0 80px ${business.primaryColor}30` }} />
-
-                    <div className="absolute top-5 left-5 glass rounded-full w-9 h-9 flex items-center justify-center">
-                      <span className="text-white/70 text-xs font-bold">0{i + 1}</span>
-                    </div>
 
                     <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-7">
                       <div className="flex items-center gap-3 mb-3">
@@ -349,6 +396,24 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
                         <ArrowRight className="h-3.5 w-3.5" style={{ color: business.accentColor }} />
                       </div>
                     </div>
+                  </>
+                );
+
+                const cardClass = `service-card group relative rounded-2xl md:rounded-3xl overflow-hidden ${
+                  isHero ? 'row-span-2' : ''
+                } ${isWide ? 'lg:col-span-2' : ''}`;
+
+                return service.id ? (
+                  <Link
+                    key={service.id}
+                    href={`/demo/${demoSlug}/services/${service.id}`}
+                    className={cardClass}
+                  >
+                    {cardContent}
+                  </Link>
+                ) : (
+                  <div key={i} className={cardClass}>
+                    {cardContent}
                   </div>
                 );
               })}
@@ -368,11 +433,11 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
                   Why Choose Us
                 </div>
                 <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-6 leading-tight">
-                  Safety, Quality &amp;<br />
-                  <span style={{ color: business.primaryColor }}>Reliability</span> You Can Count On
+                  {business.custom?.whyUsHeading || 'Safety, Quality &'}<br />
+                  <span style={{ color: business.primaryColor }}>{business.custom?.whyUsHighlight || 'Reliability'}</span> {business.custom?.whyUsTagline || 'You Can Count On'}
                 </h2>
                 <p className="text-lg text-gray-500 mb-10 leading-relaxed">
-                  Since 2006, we&apos;ve been providing Cairns and Far North Queensland with professional scaffolding services. Our commitment to safety has made us the region&apos;s most trusted provider.
+                  {business.custom?.whyUsSubtitle || 'Since 2006, we\'ve been providing Cairns and Far North Queensland with professional scaffolding services. Our commitment to safety has made us the region\'s most trusted provider.'}
                 </p>
 
                 <div className="space-y-4 mb-10">
@@ -414,6 +479,30 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
           </div>
         </section>
 
+        {/* ─── Credentials / Accreditations ─────────────────────────────── */}
+        {business.custom?.credentialLogos && business.custom.credentialLogos.length > 0 && (
+          <section className="py-16 md:py-24 bg-gray-50 border-y border-gray-100">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
+                  {business.custom?.credentialsTitle || 'Industry'} <span style={{ color: business.primaryColor }}>{business.custom?.credentialsHighlight || 'Accreditations'}</span>
+                </h2>
+                <p className="text-gray-500 max-w-2xl mx-auto">
+                  {business.custom?.credentialsSubtitle || 'Trusted and certified by leading industry bodies.'}
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14">
+                {business.custom.credentialLogos.map((logo: { src: string; alt: string }, i: number) => (
+                  <div key={i} className="flex items-center justify-center px-4 py-3 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={logo.src} alt={logo.alt} className="h-12 md:h-16 w-auto object-contain" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* ─── Image Gallery ──────────────────────────────────────────── */}
         {business.gallery && business.gallery.length > 0 && (
           <section id="gallery" ref={galleryView.setRef} className="py-20 md:py-32 bg-gray-950 overflow-hidden">
@@ -427,17 +516,25 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
                   Project <span style={{ color: business.accentColor }}>Gallery</span>
                 </h2>
                 <p className="text-lg text-white/50 max-w-2xl mx-auto">
-                  A selection of our recent scaffolding projects across Cairns and Far North Queensland.
+                  {business.custom?.gallerySubtitle || 'A selection of our recent scaffolding projects across Cairns and Far North Queensland.'}
                 </p>
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-                {business.gallery.map((img, i) => {
+                {business.gallery.slice(0, 8).map((img, i) => {
                   const isLarge = i === 0 || i === 3;
+                  const isExternal = img.link?.startsWith('http');
+                  const Wrapper = img.link ? 'a' : 'div';
+                  const linkProps = img.link
+                    ? isExternal
+                      ? { href: img.link, target: '_blank' as const, rel: 'noopener noreferrer' }
+                      : { href: img.link }
+                    : {};
                   return (
-                    <div
+                    <Wrapper
                       key={i}
-                      className={`gallery-item relative rounded-2xl overflow-hidden cursor-pointer ${
+                      {...linkProps}
+                      className={`gallery-item group/gallery relative rounded-2xl overflow-hidden cursor-pointer block ${
                         isLarge ? 'col-span-2 row-span-2 aspect-square' : 'aspect-[4/3]'
                       }`}
                       style={{
@@ -448,13 +545,37 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
-                      <div className="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 flex items-end p-5">
+                      <div className="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-5">
                         <p className="text-white font-semibold text-sm">{img.alt}</p>
+                        {img.link && (
+                          <div className="flex items-center gap-1.5 mt-2">
+                            <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: business.accentColor }}>View Project</span>
+                            {isExternal ? (
+                              <ExternalLink className="h-3 w-3" style={{ color: business.accentColor }} />
+                            ) : (
+                              <ArrowRight className="h-3 w-3" style={{ color: business.accentColor }} />
+                            )}
+                          </div>
+                        )}
                       </div>
-                    </div>
+                    </Wrapper>
                   );
                 })}
               </div>
+
+              {/* View All Projects Link */}
+              {business.custom?.projects?.length > 0 && (
+                <div className="text-center mt-12">
+                  <a
+                    href={`/demo/${demoSlug}/projects`}
+                    className="group inline-flex items-center gap-3 text-white px-8 py-4 rounded-2xl font-bold transition-all hover:shadow-xl hover:-translate-y-0.5"
+                    style={{ background: `linear-gradient(135deg, ${business.primaryColor}, ${business.accentColor})` }}
+                  >
+                    View All Projects
+                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              )}
             </div>
           </section>
         )}
@@ -474,8 +595,8 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
                   Client Reviews
                 </div>
                 <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight">
-                  Trusted by Builders<br />
-                  <span style={{ color: business.accentColor }}>Across Cairns</span>
+                  {business.custom?.testimonialsHeading || 'Trusted by Builders'}<br />
+                  <span style={{ color: business.accentColor }}>{business.custom?.testimonialsHighlight || 'Across Cairns'}</span>
                 </h2>
               </div>
               <div className="flex items-center gap-3 pb-2">
@@ -558,10 +679,12 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
 
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
             <h2 className="text-4xl sm:text-5xl font-black text-white mb-5">
-              Proudly Serving<br />Far North Queensland
+              {(business.custom?.serviceAreasHeading || 'Proudly Serving\nFar North Queensland').split('\n').map((line: string, i: number) => (
+                <span key={i}>{line}{i === 0 && <br />}</span>
+              ))}
             </h2>
             <p className="text-white/60 text-lg mb-12 max-w-2xl mx-auto">
-              From Cairns CBD to the Atherton Tablelands, we deliver scaffolding solutions across the region with national shipping available.
+              {business.custom?.serviceAreasSubtitle || 'From Cairns CBD to the Atherton Tablelands, we deliver scaffolding solutions across the region with national shipping available.'}
             </p>
             <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
               {business.serviceAreas.map((area, i) => (
@@ -574,9 +697,9 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
         </section>
 
         {/* ─── Contact / CTA Section ──────────────────────────────────── */}
-        <section id="contact" className="py-20 md:py-32 bg-gray-50">
+        <section id="contact" ref={contactRef} className="py-20 md:py-32 bg-gray-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
                 <div className="inline-flex items-center gap-2 bg-green-50 text-sm font-semibold tracking-wider uppercase rounded-full px-5 py-2 mb-6 text-green-600">
                   <Phone className="h-4 w-4" />
@@ -590,70 +713,237 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-5 mb-12">
-                <a href={`tel:${business.phone.replace(/\s/g, '')}`} className="hover-lift flex flex-col items-center p-8 md:p-10 rounded-3xl bg-white border border-gray-100 shadow-sm group">
-                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform" style={{ background: `linear-gradient(135deg, ${business.primaryColor}15, ${business.accentColor}15)` }}>
-                    <Phone className="h-7 w-7" style={{ color: business.primaryColor }} />
-                  </div>
-                  <div className="font-bold text-gray-900 text-lg mb-1">Call Us</div>
-                  <div className="text-gray-500">{business.phone}</div>
-                  <div className="text-gray-400 text-sm mt-1">or {business.phoneAlt}</div>
-                </a>
+              <div className="grid lg:grid-cols-5 gap-8">
+                {/* Contact Info Cards */}
+                <div className="lg:col-span-2 flex flex-col gap-5">
+                  <a href={`tel:${business.phone.replace(/\s/g, '')}`} className="hover-lift flex items-center gap-5 p-6 rounded-2xl bg-white border border-gray-100 shadow-sm group">
+                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform" style={{ background: `linear-gradient(135deg, ${business.primaryColor}15, ${business.accentColor}15)` }}>
+                      <Phone className="h-6 w-6" style={{ color: business.primaryColor }} />
+                    </div>
+                    <div>
+                      <div className="font-bold text-gray-900 mb-0.5">Call Us</div>
+                      <div className="text-gray-500 text-sm">{business.phone}</div>
+                      <div className="text-gray-400 text-xs">or {business.phoneAlt}</div>
+                    </div>
+                  </a>
 
-                <a href={`mailto:${business.email}`} className="hover-lift flex flex-col items-center p-8 md:p-10 rounded-3xl bg-white border border-gray-100 shadow-sm group">
-                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform" style={{ background: `linear-gradient(135deg, ${business.primaryColor}15, ${business.accentColor}15)` }}>
-                    <Mail className="h-7 w-7" style={{ color: business.primaryColor }} />
-                  </div>
-                  <div className="font-bold text-gray-900 text-lg mb-1">Email Us</div>
-                  <div className="text-gray-500 text-sm break-all">{business.email}</div>
-                </a>
+                  <a href={`mailto:${business.email}`} className="hover-lift flex items-center gap-5 p-6 rounded-2xl bg-white border border-gray-100 shadow-sm group">
+                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform" style={{ background: `linear-gradient(135deg, ${business.primaryColor}15, ${business.accentColor}15)` }}>
+                      <Mail className="h-6 w-6" style={{ color: business.primaryColor }} />
+                    </div>
+                    <div>
+                      <div className="font-bold text-gray-900 mb-0.5">Email Us</div>
+                      <div className="text-gray-500 text-sm break-all">{business.email}</div>
+                    </div>
+                  </a>
 
-                <div className="hover-lift flex flex-col items-center p-8 md:p-10 rounded-3xl bg-white border border-gray-100 shadow-sm">
-                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5" style={{ background: `linear-gradient(135deg, ${business.primaryColor}15, ${business.accentColor}15)` }}>
-                    <MapPin className="h-7 w-7" style={{ color: business.primaryColor }} />
+                  <div className="hover-lift flex items-center gap-5 p-6 rounded-2xl bg-white border border-gray-100 shadow-sm">
+                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: `linear-gradient(135deg, ${business.primaryColor}15, ${business.accentColor}15)` }}>
+                      <MapPin className="h-6 w-6" style={{ color: business.primaryColor }} />
+                    </div>
+                    <div>
+                      <div className="font-bold text-gray-900 mb-0.5">Visit Us</div>
+                      <div className="text-gray-500 text-sm">{business.address}</div>
+                    </div>
                   </div>
-                  <div className="font-bold text-gray-900 text-lg mb-1">Visit Us</div>
-                  <div className="text-gray-500 text-center text-sm">{business.address}</div>
+
+                  {/* Quick CTA */}
+                  <div className="relative rounded-2xl overflow-hidden mt-auto">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={business.gallery?.[1]?.src || business.heroImage || ''} alt="Background" className="absolute inset-0 w-full h-full object-cover" />
+                    <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${business.primaryColorDark}ee, ${business.primaryColor}dd)` }} />
+                    <div className="relative p-7 text-white">
+                      <h3 className="text-xl font-black mb-2">Prefer to Talk?</h3>
+                      <p className="text-white/70 text-sm mb-5">
+                        {business.custom?.ctaSubtitle || 'Get a free quote for your project. Our expert team is ready to help.'}
+                      </p>
+                      <a
+                        href={`tel:${business.phone.replace(/\s/g, '')}`}
+                        className="group inline-flex items-center gap-2 bg-white px-5 py-2.5 rounded-xl font-bold text-sm transition-all hover:shadow-xl hover:-translate-y-0.5"
+                        style={{ color: business.primaryColor }}
+                      >
+                        <Phone className="h-4 w-4" />
+                        {business.phone}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Contact Form */}
+                <div className="lg:col-span-3">
+                  <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8 md:p-10">
+                    <h3 className="text-2xl font-black text-gray-900 mb-2">Send Us a Message</h3>
+                    <p className="text-gray-500 text-sm mb-8">Fill out the form below and we&apos;ll get back to you as soon as possible.</p>
+
+                    {formStatus === 'success' ? (
+                      <div className="text-center py-12">
+                        <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5" style={{ background: `linear-gradient(135deg, ${business.primaryColor}15, ${business.accentColor}15)` }}>
+                          <CheckCircle className="h-8 w-8 text-green-500" />
+                        </div>
+                        <h4 className="text-xl font-bold text-gray-900 mb-2">Message Sent!</h4>
+                        <p className="text-gray-500 mb-6">Thank you for your enquiry. We&apos;ll be in touch shortly.</p>
+                        <button
+                          onClick={() => setFormStatus('idle')}
+                          className="text-sm font-semibold transition-colors hover:underline"
+                          style={{ color: business.primaryColor }}
+                        >
+                          Send another message
+                        </button>
+                      </div>
+                    ) : (
+                      <form onSubmit={handleFormSubmit} className="space-y-5">
+                        <div className="grid sm:grid-cols-2 gap-5">
+                          <div>
+                            <label htmlFor="contact-name" className="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+                            <input
+                              id="contact-name"
+                              type="text"
+                              required
+                              value={formData.name}
+                              onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                              placeholder="John Smith"
+                              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-shadow"
+                              style={{ '--tw-ring-color': `${business.primaryColor}40` } as React.CSSProperties}
+                            />
+                          </div>
+                          <div>
+                            <label htmlFor="contact-email" className="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+                            <input
+                              id="contact-email"
+                              type="email"
+                              required
+                              value={formData.email}
+                              onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                              placeholder="john@example.com"
+                              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-shadow"
+                              style={{ '--tw-ring-color': `${business.primaryColor}40` } as React.CSSProperties}
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <label htmlFor="contact-phone" className="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+                          <input
+                            id="contact-phone"
+                            type="tel"
+                            value={formData.phone}
+                            onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+                            placeholder="0412 345 678"
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-shadow"
+                            style={{ '--tw-ring-color': `${business.primaryColor}40` } as React.CSSProperties}
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="contact-message" className="block text-sm font-semibold text-gray-700 mb-2">Your Message *</label>
+                          <textarea
+                            id="contact-message"
+                            required
+                            rows={5}
+                            value={formData.message}
+                            onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
+                            placeholder="Tell us about your project..."
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-shadow resize-none"
+                            style={{ '--tw-ring-color': `${business.primaryColor}40` } as React.CSSProperties}
+                          />
+                        </div>
+
+                        {formStatus === 'error' && (
+                          <div className="flex items-center gap-2 text-red-600 bg-red-50 px-4 py-3 rounded-xl text-sm">
+                            <X className="h-4 w-4 flex-shrink-0" />
+                            <span>{formError || 'Something went wrong. Please try again.'}</span>
+                          </div>
+                        )}
+
+                        <button
+                          type="submit"
+                          disabled={formStatus === 'sending'}
+                          className="group w-full inline-flex items-center justify-center gap-3 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
+                          style={{ background: `linear-gradient(135deg, ${business.primaryColor}, ${business.accentColor})` }}
+                        >
+                          {formStatus === 'sending' ? (
+                            <>
+                              <Loader2 className="h-5 w-5 animate-spin" />
+                              Sending...
+                            </>
+                          ) : (
+                            <>
+                              Send Message
+                              <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                            </>
+                          )}
+                        </button>
+                      </form>
+                    )}
+                  </div>
                 </div>
               </div>
 
-              {/* Big CTA */}
-              <div className="relative rounded-3xl overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={business.gallery?.[1]?.src || business.heroImage || ''} alt="Background" className="absolute inset-0 w-full h-full object-cover" />
-                <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${business.primaryColorDark}ee, ${business.primaryColor}dd)` }} />
-                <div className="relative p-10 md:p-16 text-center text-white">
-                  <h3 className="text-3xl md:text-4xl font-black mb-4">
-                    Pick Up the Phone &amp; Call Today!
-                  </h3>
-                  <p className="text-white/70 mb-10 max-w-xl mx-auto text-lg">
-                    Get a free quote for your scaffolding project. Our expert team is ready to help.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a
-                      href={`tel:${business.phone.replace(/\s/g, '')}`}
-                      className="group inline-flex items-center justify-center gap-3 bg-white px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:shadow-2xl hover:-translate-y-1"
-                      style={{ color: business.primaryColor }}
-                    >
-                      <Phone className="h-5 w-5 group-hover:animate-bounce" />
-                      {business.phone}
-                    </a>
-                    <a
-                      href={`tel:${business.phoneAlt.replace(/\s/g, '')}`}
-                      className="inline-flex items-center justify-center gap-3 glass text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:bg-white/15"
-                    >
-                      <Phone className="h-5 w-5" />
-                      {business.phoneAlt}
-                    </a>
-                  </div>
+              {/* Map Embed */}
+              {business.custom?.mapEmbedUrl && (
+                <div className="mt-10 rounded-3xl overflow-hidden border border-gray-100 shadow-sm bg-white">
+                  <iframe
+                    src={business.custom.mapEmbedUrl}
+                    className="w-full h-80 md:h-96 border-0"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title={`${business.name} Location`}
+                  />
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </section>
 
         {/* ─── Footer ─────────────────────────────────────────────────── */}
         <DemoFooter business={business} />
+
+        {/* ─── Sticky Bottom CTA ────────────────────────────────────────── */}
+        <div
+          className="fixed bottom-0 left-0 right-0 z-50 transition-all duration-500"
+          style={{
+            opacity: pastHero && !contactVisible ? 1 : 0,
+            transform: pastHero && !contactVisible ? 'translateY(0)' : 'translateY(100%)',
+            pointerEvents: pastHero && !contactVisible ? 'auto' : 'none',
+          }}
+        >
+          <div className="backdrop-blur-xl border-t" style={{ background: `${business.primaryColorDark}ee`, borderColor: 'rgba(255,255,255,0.1)' }}>
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex items-center justify-between h-16 md:h-[4.5rem] gap-4">
+                <div className="hidden sm:flex items-center gap-3 min-w-0">
+                  <div
+                    className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-black text-xs flex-shrink-0"
+                    style={{ background: `linear-gradient(135deg, ${business.primaryColor}, ${business.accentColor})` }}
+                  >
+                    {initials}
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-white font-bold text-sm truncate">{business.ctaText}</div>
+                    <div className="text-white/50 text-xs truncate">Contact us today for a free, no-obligation quote</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 flex-shrink-0 sm:ml-auto w-full sm:w-auto">
+                  <a
+                    href={`tel:${business.phone.replace(/\s/g, '')}`}
+                    className="hidden md:inline-flex items-center gap-2 text-white/80 hover:text-white px-4 py-2 rounded-xl text-sm font-medium transition-colors"
+                  >
+                    <Phone className="h-4 w-4" />
+                    {business.phone}
+                  </a>
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center justify-center gap-2 text-white px-6 py-2.5 rounded-xl font-bold text-sm transition-all hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto"
+                    style={{ background: `linear-gradient(135deg, ${business.primaryColor}, ${business.accentColor})` }}
+                  >
+                    {business.ctaText}
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

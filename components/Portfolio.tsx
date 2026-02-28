@@ -101,6 +101,21 @@ const Portfolio: React.FC = () => {
                 { label: "Micro-Missions", value: "145+", icon: <Star className="h-4 w-4" /> },
                 { label: "Privacy First", value: "100%", icon: <Users className="h-4 w-4" /> }
             ]
+        },
+        {
+            title: "WebFaceLift",
+            description: "AI-powered website reconstruction platform that transforms outdated business websites into modern designs in seconds. Paste any URL, and our AI scrapes the content, redesigns the structure, and renders a blueprint you can refine via chat.",
+            url: "/projects/webfacelift",
+            category: "AI SaaS Platform",
+            technologies: ["Next.js", "TypeScript", "Claude AI", "Tailwind CSS", "Supabase", "Firecrawl"],
+            highlight: true,
+            gradient: "from-indigo-500 via-violet-500 to-purple-500",
+            image: "https://webfacelift.app/og-image.png",
+            imageAlt: "WebFaceLift AI website redesign platform",
+            stats: [
+                { label: "Redesign Time", value: "30s", icon: <Zap className="h-4 w-4" /> },
+                { label: "Any Website", value: "Universal", icon: <Globe className="h-4 w-4" /> }
+            ]
         }
     ];
 

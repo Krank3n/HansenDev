@@ -3,6 +3,13 @@ export interface DemoService {
   title: string;
   description: string;
   image?: string;
+  id?: string;
+  detailedDescription?: string;
+  applications?: string[];
+  advantages?: string[];
+  images?: string[];
+  fabricInfo?: string;
+  credential?: string;
 }
 
 export interface DemoStat {
@@ -27,6 +34,7 @@ export interface DemoTestimonial {
 export interface GalleryImage {
   src: string;
   alt: string;
+  link?: string;
 }
 
 export interface ProcessStep {
