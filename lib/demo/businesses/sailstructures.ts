@@ -353,6 +353,7 @@ export const sailstructures: DemoBusiness = {
     { label: 'Contact', href: '#contact' },
   ],
   custom: {
+    heroVideo: '/assets/video/SailStructures30-hero.mp4',
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.2!2d145.7481!3d-16.9356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6978670501a37b5b%3A0xf84e7eaff2f0c68d!2s14%20Doyle%20St%2C%20Bungalow%20QLD%204870!5e0!3m2!1sen!2sau!4v1',
     projects: [
       {

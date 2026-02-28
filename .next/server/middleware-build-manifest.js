@@ -25,10 +25,15 @@ globalThis.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/demo/[slug].js"
     ],
-    "/projects/webfacelift": [
+    "/demo/[slug]/projects": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/projects/webfacelift.js"
+      "static/chunks/pages/demo/[slug]/projects.js"
+    ],
+    "/demo/[slug]/projects/[projectId]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/demo/[slug]/projects/[projectId].js"
     ]
   },
   "ampFirstPages": []

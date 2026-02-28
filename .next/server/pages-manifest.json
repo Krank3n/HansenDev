@@ -2,6 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/projects/webfacelift": "pages/projects/webfacelift.js",
-  "/demo/[slug]": "pages/demo/[slug].js"
+  "/demo/[slug]": "pages/demo/[slug].js",
+  "/demo/[slug]/projects": "pages/demo/[slug]/projects.js",
+  "/demo/[slug]/projects/[projectId]": "pages/demo/[slug]/projects/[projectId].js"
 }

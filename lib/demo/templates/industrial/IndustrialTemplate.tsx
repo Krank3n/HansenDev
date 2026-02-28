@@ -47,7 +47,13 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
   const heroRef = React.useRef<HTMLElement>(null);
   const contactRef = React.useRef<HTMLElement>(null);
   const statsView = useInView(0.3);
+  const servicesView = useInView(0.1);
+  const whyUsView = useInView(0.15);
+  const credentialsView = useInView(0.2);
   const galleryView = useInView(0.1);
+  const testimonialsView = useInView(0.1);
+  const serviceAreasView = useInView(0.15);
+  const contactView = useInView(0.1);
 
   async function handleFormSubmit(e: FormEvent) {
     e.preventDefault();
@@ -258,10 +264,23 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
 
         {/* ─── Hero Section ───────────────────────────────────────────── */}
         <section id="home" ref={heroRef} className="relative min-h-[90vh] flex items-center overflow-hidden">
-          {/* Background Image */}
+          {/* Background Image / Video */}
           <div className="absolute inset-0">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={business.heroImage} alt="Hero background" className="w-full h-full object-cover" />
+            {business.custom?.heroVideo ? (
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster={business.heroImage}
+                className="w-full h-full object-cover"
+              >
+                <source src={business.custom.heroVideo} type="video/mp4" />
+              </video>
+            ) : (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={business.heroImage} alt="Hero background" className="w-full h-full object-cover" />
+            )}
             <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${business.primaryColorDark}ee 0%, ${business.primaryColorDark}cc 40%, ${business.primaryColor}99 100%)` }} />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           </div>
@@ -345,11 +364,18 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
         </section>
 
         {/* ─── Services Section ───────────────────────────────────────── */}
-        <section id="services" className="py-20 md:py-32 bg-gray-950 relative overflow-hidden">
+        <section id="services" ref={servicesView.setRef} className="py-20 md:py-32 bg-gray-950 relative overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] opacity-20 blur-3xl rounded-full" style={{ background: `radial-gradient(circle, ${business.primaryColor}, transparent 70%)` }} />
 
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div className="text-center mb-16 md:mb-20">
+            <div
+              className="text-center mb-16 md:mb-20"
+              style={{
+                opacity: servicesView.inView ? 1 : 0,
+                transform: servicesView.inView ? 'translateY(0)' : 'translateY(40px)',
+                transition: 'all 0.8s ease-out',
+              }}
+            >
               <div className="inline-flex items-center gap-2 bg-white/10 text-sm font-semibold tracking-wider uppercase rounded-full px-5 py-2 mb-6 text-white/70">
                 <Zap className="h-4 w-4" />
                 What We Offer
@@ -403,16 +429,23 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
                   isHero ? 'row-span-2' : ''
                 } ${isWide ? 'lg:col-span-2' : ''}`;
 
+                const cardStyle = {
+                  opacity: servicesView.inView ? 1 : 0,
+                  transform: servicesView.inView ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.92)',
+                  transition: `all 0.7s cubic-bezier(0.4, 0, 0.2, 1) ${i * 0.15}s`,
+                };
+
                 return service.id ? (
                   <Link
                     key={service.id}
                     href={`/demo/${demoSlug}/services/${service.id}`}
                     className={cardClass}
+                    style={cardStyle}
                   >
                     {cardContent}
                   </Link>
                 ) : (
-                  <div key={i} className={cardClass}>
+                  <div key={i} className={cardClass} style={cardStyle}>
                     {cardContent}
                   </div>
                 );
@@ -422,12 +455,18 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
         </section>
 
         {/* ─── Why Choose Us ──────────────────────────────────────────── */}
-        <section id="why-us" className="py-20 md:py-32 bg-white relative overflow-hidden">
+        <section id="why-us" ref={whyUsView.setRef} className="py-20 md:py-32 bg-white relative overflow-hidden">
           <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.03]" style={{ background: `radial-gradient(circle at 70% 30%, ${business.primaryColor}, transparent 60%)` }} />
 
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
+              <div
+                style={{
+                  opacity: whyUsView.inView ? 1 : 0,
+                  transform: whyUsView.inView ? 'translateX(0)' : 'translateX(-50px)',
+                  transition: 'all 0.8s ease-out',
+                }}
+              >
                 <div className="inline-flex items-center gap-2 bg-blue-50 text-sm font-semibold tracking-wider uppercase rounded-full px-5 py-2 mb-6" style={{ color: business.primaryColor }}>
                   <Shield className="h-4 w-4" />
                   Why Choose Us
@@ -463,7 +502,15 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
 
               <div className="grid sm:grid-cols-2 gap-5">
                 {business.whyChooseUs.map((feature, i) => (
-                  <div key={i} className="hover-lift bg-white rounded-3xl p-7 border border-gray-100 shadow-sm">
+                  <div
+                    key={i}
+                    className="hover-lift bg-white rounded-3xl p-7 border border-gray-100 shadow-sm"
+                    style={{
+                      opacity: whyUsView.inView ? 1 : 0,
+                      transform: whyUsView.inView ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.95)',
+                      transition: `all 0.6s ease-out ${0.2 + i * 0.1}s`,
+                    }}
+                  >
                     <div
                       className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
                       style={{ background: `linear-gradient(135deg, ${business.primaryColor}15, ${business.accentColor}15)` }}
@@ -481,9 +528,16 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
 
         {/* ─── Credentials / Accreditations ─────────────────────────────── */}
         {business.custom?.credentialLogos && business.custom.credentialLogos.length > 0 && (
-          <section className="py-16 md:py-24 bg-gray-50 border-y border-gray-100">
+          <section ref={credentialsView.setRef} className="py-16 md:py-24 bg-gray-50 border-y border-gray-100">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-12">
+              <div
+                className="text-center mb-12"
+                style={{
+                  opacity: credentialsView.inView ? 1 : 0,
+                  transform: credentialsView.inView ? 'translateY(0)' : 'translateY(30px)',
+                  transition: 'all 0.8s ease-out',
+                }}
+              >
                 <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
                   {business.custom?.credentialsTitle || 'Industry'} <span style={{ color: business.primaryColor }}>{business.custom?.credentialsHighlight || 'Accreditations'}</span>
                 </h2>
@@ -493,7 +547,15 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
               </div>
               <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14">
                 {business.custom.credentialLogos.map((logo: { src: string; alt: string }, i: number) => (
-                  <div key={i} className="flex items-center justify-center px-4 py-3 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300">
+                  <div
+                    key={i}
+                    className="flex items-center justify-center px-4 py-3 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                    style={{
+                      opacity: credentialsView.inView ? 0.7 : 0,
+                      transform: credentialsView.inView ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.9)',
+                      transition: `all 0.5s ease-out ${0.2 + i * 0.15}s`,
+                    }}
+                  >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={logo.src} alt={logo.alt} className="h-12 md:h-16 w-auto object-contain" />
                   </div>
@@ -539,8 +601,8 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
                       }`}
                       style={{
                         opacity: galleryView.inView ? 1 : 0,
-                        transform: galleryView.inView ? 'translateY(0)' : 'translateY(40px)',
-                        transition: `all 0.6s ease-out ${i * 0.1}s`,
+                        transform: galleryView.inView ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.92)',
+                        transition: `all 0.7s cubic-bezier(0.4, 0, 0.2, 1) ${i * 0.15}s`,
                       }}
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -581,14 +643,21 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
         )}
 
         {/* ─── Testimonials ───────────────────────────────────────────── */}
-        <section id="testimonials" className="py-20 md:py-32 relative overflow-hidden" style={{ background: `linear-gradient(160deg, ${business.primaryColorDark} 0%, ${business.primaryColor}dd 100%)` }}>
+        <section id="testimonials" ref={testimonialsView.setRef} className="py-20 md:py-32 relative overflow-hidden" style={{ background: `linear-gradient(160deg, ${business.primaryColorDark} 0%, ${business.primaryColor}dd 100%)` }}>
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full opacity-10" style={{ background: `radial-gradient(circle, ${business.accentColor}, transparent 70%)` }} />
             <div className="absolute -bottom-20 -left-20 w-[300px] h-[300px] rounded-full opacity-10" style={{ background: `radial-gradient(circle, ${business.accentColor}, transparent 70%)` }} />
           </div>
 
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+            <div
+              className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14"
+              style={{
+                opacity: testimonialsView.inView ? 1 : 0,
+                transform: testimonialsView.inView ? 'translateY(0)' : 'translateY(40px)',
+                transition: 'all 0.8s ease-out',
+              }}
+            >
               <div>
                 <div className="inline-flex items-center gap-2 bg-white/10 text-sm font-semibold tracking-wider uppercase rounded-full px-5 py-2 mb-6 text-white/70">
                   <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
@@ -619,7 +688,14 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
             </div>
 
             <div className="grid lg:grid-cols-5 gap-5">
-              <div className="lg:col-span-3 relative rounded-3xl overflow-hidden bg-white/[0.07] backdrop-blur-xl border border-white/10 p-8 md:p-10 flex flex-col justify-between">
+              <div
+                className="lg:col-span-3 relative rounded-3xl overflow-hidden bg-white/[0.07] backdrop-blur-xl border border-white/10 p-8 md:p-10 flex flex-col justify-between"
+                style={{
+                  opacity: testimonialsView.inView ? 1 : 0,
+                  transform: testimonialsView.inView ? 'translateX(0)' : 'translateX(-40px)',
+                  transition: 'all 0.8s ease-out 0.15s',
+                }}
+              >
                 <div className="absolute top-6 right-8 text-[120px] font-serif leading-none select-none opacity-[0.07] text-white">
                   &ldquo;
                 </div>
@@ -646,7 +722,15 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
 
               <div className="lg:col-span-2 flex flex-col gap-5">
                 {business.testimonials.slice(1).map((testimonial, i) => (
-                  <div key={i} className="flex-1 rounded-3xl bg-white/[0.05] backdrop-blur-xl border border-white/10 p-6 md:p-7 flex flex-col justify-between hover:bg-white/[0.08] transition-colors duration-300">
+                  <div
+                    key={i}
+                    className="flex-1 rounded-3xl bg-white/[0.05] backdrop-blur-xl border border-white/10 p-6 md:p-7 flex flex-col justify-between hover:bg-white/[0.08] transition-colors duration-300"
+                    style={{
+                      opacity: testimonialsView.inView ? 1 : 0,
+                      transform: testimonialsView.inView ? 'translateX(0)' : 'translateX(40px)',
+                      transition: `all 0.6s ease-out ${0.25 + i * 0.12}s`,
+                    }}
+                  >
                     <div>
                       <div className="flex gap-1 mb-4">
                         {[...Array(testimonial.rating)].map((_, j) => (
@@ -674,21 +758,43 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
         </section>
 
         {/* ─── Service Areas ──────────────────────────────────────────── */}
-        <section className="py-20 md:py-28 relative overflow-hidden" style={{ background: `linear-gradient(135deg, ${business.primaryColorDark}, ${business.primaryColor})` }}>
+        <section ref={serviceAreasView.setRef} className="py-20 md:py-28 relative overflow-hidden" style={{ background: `linear-gradient(135deg, ${business.primaryColorDark}, ${business.primaryColor})` }}>
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.4\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
 
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-            <h2 className="text-4xl sm:text-5xl font-black text-white mb-5">
+            <h2
+              className="text-4xl sm:text-5xl font-black text-white mb-5"
+              style={{
+                opacity: serviceAreasView.inView ? 1 : 0,
+                transform: serviceAreasView.inView ? 'translateY(0)' : 'translateY(30px)',
+                transition: 'all 0.8s ease-out',
+              }}
+            >
               {(business.custom?.serviceAreasHeading || 'Proudly Serving\nFar North Queensland').split('\n').map((line: string, i: number) => (
                 <span key={i}>{line}{i === 0 && <br />}</span>
               ))}
             </h2>
-            <p className="text-white/60 text-lg mb-12 max-w-2xl mx-auto">
+            <p
+              className="text-white/60 text-lg mb-12 max-w-2xl mx-auto"
+              style={{
+                opacity: serviceAreasView.inView ? 1 : 0,
+                transform: serviceAreasView.inView ? 'translateY(0)' : 'translateY(20px)',
+                transition: 'all 0.8s ease-out 0.1s',
+              }}
+            >
               {business.custom?.serviceAreasSubtitle || 'From Cairns CBD to the Atherton Tablelands, we deliver scaffolding solutions across the region with national shipping available.'}
             </p>
             <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
               {business.serviceAreas.map((area, i) => (
-                <span key={i} className="glass text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-white/15 transition-colors cursor-default">
+                <span
+                  key={i}
+                  className="glass text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-white/15 transition-colors cursor-default"
+                  style={{
+                    opacity: serviceAreasView.inView ? 1 : 0,
+                    transform: serviceAreasView.inView ? 'translateY(0) scale(1)' : 'translateY(15px) scale(0.9)',
+                    transition: `all 0.4s ease-out ${0.2 + i * 0.05}s`,
+                  }}
+                >
                   {area}
                 </span>
               ))}
@@ -699,8 +805,15 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
         {/* ─── Contact / CTA Section ──────────────────────────────────── */}
         <section id="contact" ref={contactRef} className="py-20 md:py-32 bg-gray-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-16">
+            <div ref={contactView.setRef} className="max-w-6xl mx-auto">
+              <div
+                className="text-center mb-16"
+                style={{
+                  opacity: contactView.inView ? 1 : 0,
+                  transform: contactView.inView ? 'translateY(0)' : 'translateY(40px)',
+                  transition: 'all 0.8s ease-out',
+                }}
+              >
                 <div className="inline-flex items-center gap-2 bg-green-50 text-sm font-semibold tracking-wider uppercase rounded-full px-5 py-2 mb-6 text-green-600">
                   <Phone className="h-4 w-4" />
                   Get In Touch
@@ -715,7 +828,14 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
 
               <div className="grid lg:grid-cols-5 gap-8">
                 {/* Contact Info Cards */}
-                <div className="lg:col-span-2 flex flex-col gap-5">
+                <div
+                  className="lg:col-span-2 flex flex-col gap-5"
+                  style={{
+                    opacity: contactView.inView ? 1 : 0,
+                    transform: contactView.inView ? 'translateX(0)' : 'translateX(-40px)',
+                    transition: 'all 0.8s ease-out 0.15s',
+                  }}
+                >
                   <a href={`tel:${business.phone.replace(/\s/g, '')}`} className="hover-lift flex items-center gap-5 p-6 rounded-2xl bg-white border border-gray-100 shadow-sm group">
                     <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform" style={{ background: `linear-gradient(135deg, ${business.primaryColor}15, ${business.accentColor}15)` }}>
                       <Phone className="h-6 w-6" style={{ color: business.primaryColor }} />
@@ -770,7 +890,14 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
                 </div>
 
                 {/* Contact Form */}
-                <div className="lg:col-span-3">
+                <div
+                  className="lg:col-span-3"
+                  style={{
+                    opacity: contactView.inView ? 1 : 0,
+                    transform: contactView.inView ? 'translateX(0)' : 'translateX(40px)',
+                    transition: 'all 0.8s ease-out 0.25s',
+                  }}
+                >
                   <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8 md:p-10">
                     <h3 className="text-2xl font-black text-gray-900 mb-2">Send Us a Message</h3>
                     <p className="text-gray-500 text-sm mb-8">Fill out the form below and we&apos;ll get back to you as soon as possible.</p>
