@@ -3,7 +3,7 @@ title: "5 Things Your Quote MUST Have to Win the Job: The Essential Checklist"
 description: "Stop losing jobs to messy paperwork. Discover the 5 essential elements every winning quote needs to look professional. Master your tradie quoting app strategy today!"
 slug: "5-things-your-quote-must-have-to-win-the-job-the-essential-checklist"
 product: "quotemate"
-featuredImage: "/assets/articles/quotemate/5-things-your-quote-must-have-to-win-the-job-the-essential-checklist.png"
+featuredImage: "/assets/articles/quotemate/5-things-your-quote-must-have-to-win-the-job-the-essential-checklist.jpg"
 keywords:
   - "tradie quoting app"
   - "quote builder Australia"

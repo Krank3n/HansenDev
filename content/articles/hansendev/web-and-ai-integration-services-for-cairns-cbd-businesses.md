@@ -3,7 +3,7 @@ title: "Web & AI Integration Guide for Cairns Businesses (2026)"
 description: "Transform your operations with expert web development and AI integration in Cairns. Discover how HansenDev helps FNQ businesses automate and grow. Read now."
 slug: "web-and-ai-integration-services-for-cairns-cbd-businesses"
 product: "hansendev"
-featuredImage: "/assets/articles/hansendev/web-and-ai-integration-services-for-cairns-cbd-businesses.png"
+featuredImage: "/assets/articles/hansendev/web-and-ai-integration-services-for-cairns-cbd-businesses.jpg"
 keywords:
   - "web development Cairns"
   - "AI integration Cairns"

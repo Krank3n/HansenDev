@@ -3,7 +3,7 @@ title: "Web & AI Integration for Mareeba: The 2026 Growth Guide"
 description: "Transform your Mareeba business with expert web development and AI integration from Cairns. Boost efficiency and ROI with HansenDev. Get your strategy today."
 slug: "web-and-ai-integration-services-for-mareeba-businesses"
 product: "hansendev"
-featuredImage: "/assets/articles/hansendev/web-and-ai-integration-services-for-mareeba-businesses.png"
+featuredImage: "/assets/articles/hansendev/web-and-ai-integration-services-for-mareeba-businesses.jpg"
 keywords:
   - "web development Cairns"
   - "AI integration Cairns"

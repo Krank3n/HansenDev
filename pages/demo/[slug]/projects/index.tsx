@@ -1,6 +1,7 @@
 import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, MapPin, Calendar } from 'lucide-react';
 import { DemoBusiness } from '../../../../lib/demo/types';
@@ -129,11 +130,13 @@ export default function ProjectsPage({ business, slug, projects }: ProjectsPageP
                   className="group hover-lift block rounded-3xl overflow-hidden bg-white border border-gray-100 shadow-sm"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={project.images[0]}
                       alt={project.title}
-                      className="project-image w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="project-image object-cover"
+                      unoptimized
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute top-4 left-4">

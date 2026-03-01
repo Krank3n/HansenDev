@@ -147,14 +147,14 @@
 
     <!-- Project Images -->
     <url>
-        <loc>https://hansendev.com.au/assets/projects/makawa-solutions.png</loc>
+        <loc>https://hansendev.com.au/assets/projects/makawa-solutions.jpg</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
 
     <url>
-        <loc>https://hansendev.com.au/assets/projects/wakeindex-search.png</loc>
+        <loc>https://hansendev.com.au/assets/projects/wakeindex-search.jpg</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
@@ -168,7 +168,7 @@
     </url>
 
     <url>
-        <loc>https://hansendev.com.au/assets/projects/thomas-andrew-hansen-website.png</loc>
+        <loc>https://hansendev.com.au/assets/projects/thomas-andrew-hansen-website.jpg</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>

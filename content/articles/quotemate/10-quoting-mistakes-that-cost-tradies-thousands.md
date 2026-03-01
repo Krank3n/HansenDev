@@ -3,7 +3,7 @@ title: "10 Quoting Mistakes Costing Aussie Tradies Thousands (And How to Fix The
 description: "Stop losing money on jobs. Discover the top 10 quoting errors Australian tradies make and how using a tradie quoting app can save your profit margins and win more work."
 slug: "10-quoting-mistakes-that-cost-tradies-thousands"
 product: "quotemate"
-featuredImage: "/assets/articles/quotemate/10-quoting-mistakes-that-cost-tradies-thousands.png"
+featuredImage: "/assets/articles/quotemate/10-quoting-mistakes-that-cost-tradies-thousands.jpg"
 keywords:
   - "tradie quoting app"
   - "quote builder Australia"

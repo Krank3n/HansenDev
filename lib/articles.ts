@@ -115,7 +115,7 @@ export const getArticle = async (product: string, slug: string): Promise<Article
 
   // Convert markdown to HTML
   const processedContent = await remark()
-    .use(html, { sanitize: false })
+    .use(html, { sanitize: true })
     .process(content);
   const htmlContent = processedContent.toString();
 

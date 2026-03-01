@@ -3,7 +3,7 @@ title: "Quote to Invoice in One Tap: Stop Double-Handling Your Paperwork"
 description: "Convert accepted quotes to professional invoices instantly with QuoteMate. Australian tradies save hours each week by eliminating double data entry and paperwork."
 slug: "quote-to-invoice-in-one-tap-stop-double-handling-your-paperwork"
 product: "quotemate"
-featuredImage: "/assets/articles/quotemate/quote-to-invoice-in-one-tap-stop-double-handling-your-paperwork.png"
+featuredImage: "/assets/articles/quotemate/quote-to-invoice-in-one-tap-stop-double-handling-your-paperwork.jpg"
 keywords:
   - "convert quote to invoice"
   - "tradie workflow app"

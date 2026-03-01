@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { DemoBusiness } from '../../types';
 
@@ -19,8 +20,7 @@ export default function DemoFooter({ business }: DemoFooterProps) {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-2">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={business.logoWhiteUrl} alt={business.name} className="h-12 w-auto mb-5" />
+            <Image src={business.logoWhiteUrl} alt={business.name} width={120} height={48} className="h-12 w-auto mb-5" unoptimized />
             <p className="text-gray-400 text-sm leading-relaxed max-w-md">
               {business.tagline}. {business.description.split('.')[0]}.
             </p>

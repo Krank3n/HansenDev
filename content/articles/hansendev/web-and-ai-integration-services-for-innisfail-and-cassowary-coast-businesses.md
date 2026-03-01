@@ -3,7 +3,7 @@ title: "Web & AI Integration: Growth for Innisfail & Cassowary Coast"
 description: "Transform your Cassowary Coast business with expert web development and AI integration. HansenDev delivers custom tech solutions in FNQ. Book a consult today."
 slug: "web-and-ai-integration-services-for-innisfail-and-cassowary-coast-businesses"
 product: "hansendev"
-featuredImage: "/assets/articles/hansendev/web-and-ai-integration-services-for-innisfail-and-cassowary-coast-businesses.png"
+featuredImage: "/assets/articles/hansendev/web-and-ai-integration-services-for-innisfail-and-cassowary-coast-businesses.jpg"
 keywords:
   - "web development Cairns"
   - "AI integration Cairns"

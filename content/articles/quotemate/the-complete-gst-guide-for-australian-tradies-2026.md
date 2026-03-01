@@ -3,7 +3,7 @@ title: "The Complete GST Guide for Australian Tradies (2026)"
 description: "Everything Australian tradies need to know about GST in 2026. Learn when to register, how to calculate GST on quotes and invoices, and avoid costly BAS mistakes."
 slug: "the-complete-gst-guide-for-australian-tradies-2026"
 product: "quotemate"
-featuredImage: "/assets/articles/quotemate/the-complete-gst-guide-for-australian-tradies-2026.png"
+featuredImage: "/assets/articles/quotemate/the-complete-gst-guide-for-australian-tradies-2026.jpg"
 keywords:
   - "GST for tradies"
   - "tradie tax guide"

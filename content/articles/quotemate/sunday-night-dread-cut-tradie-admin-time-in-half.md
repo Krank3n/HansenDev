@@ -3,7 +3,7 @@ title: "Stop the Sunday Night Dread: Cut Tradie Admin Time in Half"
 description: "Beat the Sunday night dread with the ultimate tradie quoting app. Save 5+ hours weekly, access live Bunnings prices, and win more jobs with professional quotes."
 slug: "sunday-night-dread-cut-tradie-admin-time-in-half"
 product: "quotemate"
-featuredImage: "/assets/articles/quotemate/sunday-night-dread-cut-tradie-admin-time-in-half.png"
+featuredImage: "/assets/articles/quotemate/sunday-night-dread-cut-tradie-admin-time-in-half.jpg"
 keywords:
   - "tradie quoting app"
   - "quote builder Australia"

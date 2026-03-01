@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import {
   Phone, Mail, MapPin, CheckCircle, ArrowRight, Star,
   Menu, X, ChevronDown, Clock, Calendar,
@@ -123,11 +124,13 @@ export default function MedicalTemplate({ business }: MedicalTemplateProps) {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16 md:h-20">
               <a href="#home" className="flex items-center gap-3 group">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={business.logoUrl}
                   alt={business.name}
+                  width={120}
+                  height={48}
                   className="h-10 md:h-12 w-auto group-hover:scale-105 transition-transform"
+                  unoptimized
                 />
               </a>
 
@@ -389,11 +392,13 @@ export default function MedicalTemplate({ business }: MedicalTemplateProps) {
                 >
                   {/* Doctor photo */}
                   <div className="h-56 relative overflow-hidden" style={{ background: `linear-gradient(135deg, ${cyan}10, ${orange}08)` }}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={doctor.imageUrl}
                       alt={doctor.imageAlt}
-                      className="w-full h-full object-cover object-top"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 33vw, 25vw"
+                      className="object-cover object-top"
+                      unoptimized
                     />
                     {/* Accepting badge */}
                     {doctor.acceptingNewPatients && (
@@ -658,8 +663,7 @@ export default function MedicalTemplate({ business }: MedicalTemplateProps) {
             <div className="grid md:grid-cols-3 gap-10 mb-12">
               {/* Practice info */}
               <div>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={business.logoUrl} alt={business.name} className="h-12 w-auto mb-5 brightness-0 invert" />
+                <Image src={business.logoUrl} alt={business.name} width={120} height={48} className="h-12 w-auto mb-5 brightness-0 invert" unoptimized />
                 <p className="text-gray-400 text-sm leading-relaxed">
                   {business.tagline}. Caring for our community since 2006.
                 </p>

@@ -3,7 +3,7 @@ title: "Stop Losing Money: Are You Underquoting Decks, Fences or Renos?"
 description: "Stop losing cash on jobs. Discover the top 3 underquoted projects for Aussie tradies and how a quote builder in Australia can fix your margins today."
 slug: "decking-fencing-or-reno-which-jobs-are-you-underquoting-and-losing-money-on"
 product: "quotemate"
-featuredImage: "/assets/articles/quotemate/decking-fencing-or-reno-which-jobs-are-you-underquoting-and-losing-money-on.png"
+featuredImage: "/assets/articles/quotemate/decking-fencing-or-reno-which-jobs-are-you-underquoting-and-losing-money-on.jpg"
 keywords:
   - "tradie quoting app"
   - "quote builder Australia"

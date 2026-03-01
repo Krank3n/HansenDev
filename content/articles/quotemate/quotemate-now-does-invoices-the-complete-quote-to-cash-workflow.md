@@ -3,7 +3,7 @@ title: "QuoteMate Now Does Invoices: The Complete Quote-to-Cash Workflow"
 description: "QuoteMate's new invoice feature lets Australian tradies go from quote to payment in one app. Create, send, and track invoices with real-time Bunnings pricing built in."
 slug: "quotemate-now-does-invoices-the-complete-quote-to-cash-workflow"
 product: "quotemate"
-featuredImage: "/assets/articles/quotemate/quotemate-now-does-invoices-the-complete-quote-to-cash-workflow.png"
+featuredImage: "/assets/articles/quotemate/quotemate-now-does-invoices-the-complete-quote-to-cash-workflow.jpg"
 keywords:
   - "tradie invoice app"
   - "invoice software for tradies"

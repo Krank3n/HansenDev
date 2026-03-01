@@ -3,7 +3,7 @@ title: "Web Development & AI Integration Cairns: The 2026 Business Guide"
 description: "Transform your FNQ business with expert web development & AI integration in Cairns. Discover custom software solutions that drive real growth. Read the guide."
 slug: "web-and-ai-integration-services-for-cairns-northern-beaches-palm-cove-trinity-beach"
 product: "hansendev"
-featuredImage: "/assets/articles/hansendev/web-and-ai-integration-services-for-cairns-northern-beaches-palm-cove-trinity-beach.png"
+featuredImage: "/assets/articles/hansendev/web-and-ai-integration-services-for-cairns-northern-beaches-palm-cove-trinity-beach.jpg"
 keywords:
   - "web development Cairns"
   - "AI integration Cairns"

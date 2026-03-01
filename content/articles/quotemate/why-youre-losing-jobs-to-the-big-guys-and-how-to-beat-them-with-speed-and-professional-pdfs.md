@@ -3,7 +3,7 @@ title: "Win More Jobs: Beat Big Companies with Speed & Pro Quotes"
 description: "Stop losing work to the big guys. Discover how a tradie quoting app helps you send professional PDFs with real-time Bunnings prices to win more jobs fast."
 slug: "why-youre-losing-jobs-to-the-big-guys-and-how-to-beat-them-with-speed-and-professional-pdfs"
 product: "quotemate"
-featuredImage: "/assets/articles/quotemate/why-youre-losing-jobs-to-the-big-guys-and-how-to-beat-them-with-speed-and-professional-pdfs.png"
+featuredImage: "/assets/articles/quotemate/why-youre-losing-jobs-to-the-big-guys-and-how-to-beat-them-with-speed-and-professional-pdfs.jpg"
 keywords:
   - "tradie quoting app"
   - "quote builder Australia"

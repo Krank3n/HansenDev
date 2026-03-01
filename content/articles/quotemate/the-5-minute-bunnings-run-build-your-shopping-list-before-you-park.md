@@ -3,7 +3,7 @@ title: "The 5-Minute Bunnings Run: Master Your Material List"
 description: "Stop wandering aisles. Master the 5-minute Bunnings run with our guide. Get real-time Bunnings prices and build precise lists with the best tradie quoting app."
 slug: "the-5-minute-bunnings-run-build-your-shopping-list-before-you-park"
 product: "quotemate"
-featuredImage: "/assets/articles/quotemate/the-5-minute-bunnings-run-build-your-shopping-list-before-you-park.png"
+featuredImage: "/assets/articles/quotemate/the-5-minute-bunnings-run-build-your-shopping-list-before-you-park.jpg"
 keywords:
   - "tradie quoting app"
   - "quote builder Australia"

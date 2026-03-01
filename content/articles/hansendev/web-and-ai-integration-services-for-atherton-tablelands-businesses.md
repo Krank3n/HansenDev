@@ -3,7 +3,7 @@ title: "Web & AI Integration: Guide for Atherton Tablelands Business"
 description: "Boost efficiency and growth with expert web and AI integration services for Atherton Tablelands businesses. Discover how HansenDev transforms local operations."
 slug: "web-and-ai-integration-services-for-atherton-tablelands-businesses"
 product: "hansendev"
-featuredImage: "/assets/articles/hansendev/web-and-ai-integration-services-for-atherton-tablelands-businesses.png"
+featuredImage: "/assets/articles/hansendev/web-and-ai-integration-services-for-atherton-tablelands-businesses.jpg"
 keywords:
   - "web development Cairns"
   - "AI integration Cairns"

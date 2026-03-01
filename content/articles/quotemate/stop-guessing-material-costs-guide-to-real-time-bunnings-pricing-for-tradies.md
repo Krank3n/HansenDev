@@ -3,7 +3,7 @@ title: "Stop Guessing: Guide to Real-Time Bunnings Prices for Tradies"
 description: "Stop losing profit on material fluctuations. Learn how a tradie quoting app with real-time Bunnings prices helps you win more work. Try QuoteMate today."
 slug: "stop-guessing-material-costs-guide-to-real-time-bunnings-pricing-for-tradies"
 product: "quotemate"
-featuredImage: "/assets/articles/quotemate/stop-guessing-material-costs-guide-to-real-time-bunnings-pricing-for-tradies.png"
+featuredImage: "/assets/articles/quotemate/stop-guessing-material-costs-guide-to-real-time-bunnings-pricing-for-tradies.jpg"
 keywords:
   - "tradie quoting app"
   - "quote builder Australia"

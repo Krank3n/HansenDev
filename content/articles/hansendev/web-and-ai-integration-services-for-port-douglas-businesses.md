@@ -3,7 +3,7 @@ title: "Port Douglas Web & AI Services: The Ultimate Business Growth Guide"
 description: "Transform your Port Douglas business with expert web development and AI integration. Drive efficiency and ROI with HansenDev's local tech solutions. Read now."
 slug: "web-and-ai-integration-services-for-port-douglas-businesses"
 product: "hansendev"
-featuredImage: "/assets/articles/hansendev/web-and-ai-integration-services-for-port-douglas-businesses.png"
+featuredImage: "/assets/articles/hansendev/web-and-ai-integration-services-for-port-douglas-businesses.jpg"
 keywords:
   - "web development Cairns"
   - "AI integration Cairns"

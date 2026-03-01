@@ -3,7 +3,7 @@ title: "No Signal? Why You Need an Offline Tradie Quoting App"
 description: "Stuck with no signal? Learn why cloud-only apps fail on Aussie sites and how an offline tradie quoting app helps you win jobs anywhere. Get the competitive edge."
 slug: "no-signal-no-worries-why-cloud-only-apps-fail-on-australian-job-sites"
 product: "quotemate"
-featuredImage: "/assets/articles/quotemate/no-signal-no-worries-why-cloud-only-apps-fail-on-australian-job-sites.png"
+featuredImage: "/assets/articles/quotemate/no-signal-no-worries-why-cloud-only-apps-fail-on-australian-job-sites.jpg"
 keywords:
   - "tradie quoting app"
   - "quote builder Australia"

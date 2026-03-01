@@ -1,6 +1,7 @@
 import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { DemoBusiness, DemoService } from '../../../../lib/demo/types';
@@ -107,11 +108,13 @@ export default function ServicesPage({ business, slug, services }: ServicesPageP
                   style={gridView.inView ? { animation: `scaleIn 0.5s ease-out ${i * 0.08}s both` } : { opacity: 0 }}
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={service.image}
+                    <Image
+                      src={service.image!}
                       alt={service.title}
-                      className="service-image w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="service-image object-cover"
+                      unoptimized
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute top-4 left-4">

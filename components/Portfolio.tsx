@@ -26,7 +26,7 @@ const Portfolio: React.FC = () => {
             technologies: ["React", "Next.js", "Tailwind CSS", "Responsive Design"],
             highlight: true,
             gradient: "from-orange-500 via-red-500 to-pink-500",
-            image: "/assets/projects/makawa-solutions.png",
+            image: "/assets/projects/makawa-solutions.jpg",
             imageAlt: "Makawa Dynamic Solutions website homepage",
             stats: [
                 { label: "Performance", value: "95+", icon: <Zap className="h-4 w-4" /> },
@@ -40,7 +40,7 @@ const Portfolio: React.FC = () => {
             category: "Sports Management",
             technologies: ["Full-Stack Development", "Database Management", "Real-time Data", "User Management"],
             gradient: "from-blue-500 via-cyan-500 to-teal-500",
-            image: "/assets/projects/wakeindex-search.png",
+            image: "/assets/projects/wakeindex-search.jpg",
             imageAlt: "WakeIndex platform dashboard",
             stats: [
                 { label: "Active Users", value: "1K+", icon: <Users className="h-4 w-4" /> },
@@ -69,7 +69,7 @@ const Portfolio: React.FC = () => {
             category: "Personal Portfolio",
             technologies: ["Portfolio Design", "Personal Branding", "SEO Optimization", "Modern UI/UX"],
             gradient: "from-emerald-500 via-green-500 to-teal-500",
-            image: "/assets/projects/thomas-andrew-hansen-website.png",
+            image: "/assets/projects/thomas-andrew-hansen-website.jpg",
             imageAlt: "Thomas Andrew Hansen portfolio website"
         },
         {
@@ -80,7 +80,7 @@ const Portfolio: React.FC = () => {
             technologies: ["React Native", "Expo", "TypeScript", "AI Integration", "OAuth 2.0", "PDF Generation"],
             highlight: true,
             gradient: "from-green-600 via-emerald-500 to-teal-500",
-            image: "/assets/projects/quotemate-square.png",
+            image: "/assets/projects/quotemate-square.jpg",
             imageAlt: "QuoteMate mobile application interface",
             stats: [
                 { label: "AI-Powered", value: "Custom Jobs", icon: <Star className="h-4 w-4" /> },

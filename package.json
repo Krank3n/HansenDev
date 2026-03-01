@@ -14,7 +14,7 @@
     "@tailwindcss/typography": "^0.5.19",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.525.0",
-    "next": "latest",
+    "next": "^15.5.12",
     "nodemailer": "^7.0.3",
     "react": "^18",
     "react-dom": "^18",

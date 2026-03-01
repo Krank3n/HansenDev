@@ -3,7 +3,7 @@ title: "AI for Tradies: Stop Quoting at Night & Get Home Early"
 description: "Stop spending nights on paperwork. Discover the AI tradie quoting app with live Bunnings prices that saves 5+ hours/week. Get your weekends back now."
 slug: "ai-for-tradies-it-not-about-robots-it-about-getting-home-on-time"
 product: "quotemate"
-featuredImage: "/assets/articles/quotemate/ai-for-tradies-it-not-about-robots-it-about-getting-home-on-time.png"
+featuredImage: "/assets/articles/quotemate/ai-for-tradies-it-not-about-robots-it-about-getting-home-on-time.jpg"
 keywords:
   - "tradie quoting app"
   - "quote builder Australia"

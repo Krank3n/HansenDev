@@ -61,7 +61,7 @@ export const writeArticle = async (params: WriteArticleParams): Promise<string> 
 
   // Build image path for frontmatter
   const featuredImage = imagePath
-    ? `/assets/articles/${product.id}/${slug}.png`
+    ? `/assets/articles/${product.id}/${slug}.jpg`
     : '';
 
   // Create metadata
@@ -124,7 +124,7 @@ export const previewMarkdown = (params: Omit<WriteArticleParams, 'outputDir'>): 
   const readingTime = generateReadingTime(wordCount);
 
   const featuredImage = imagePath
-    ? `/assets/articles/${product.id}/${slug}.png`
+    ? `/assets/articles/${product.id}/${slug}.jpg`
     : '';
 
   const metadata: ArticleMetadata = {

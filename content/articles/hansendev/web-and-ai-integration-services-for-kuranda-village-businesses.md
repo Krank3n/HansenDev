@@ -3,7 +3,7 @@ title: "Kuranda Business Growth: Top Web & AI Integration Guide"
 description: "Transform your Kuranda business with expert web development and AI integration. Discover how Cairns-based HansenDev drives growth and efficiency in FNQ."
 slug: "web-and-ai-integration-services-for-kuranda-village-businesses"
 product: "hansendev"
-featuredImage: "/assets/articles/hansendev/web-and-ai-integration-services-for-kuranda-village-businesses.png"
+featuredImage: "/assets/articles/hansendev/web-and-ai-integration-services-for-kuranda-village-businesses.jpg"
 keywords:
   - "web and ai integration services for kuranda village businesses"
   - "web development Cairns"

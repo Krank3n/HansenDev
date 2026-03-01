@@ -3,7 +3,7 @@ title: "AI & Web Integration: Boost Your Mission Beach Business"
 description: "Transform your Mission Beach business with expert web development and AI integration. Drive growth with HansenDev's proven FNQ tech solutions. Learn how today."
 slug: "web-and-ai-integration-services-for-mission-beach-businesses"
 product: "hansendev"
-featuredImage: "/assets/articles/hansendev/web-and-ai-integration-services-for-mission-beach-businesses.png"
+featuredImage: "/assets/articles/hansendev/web-and-ai-integration-services-for-mission-beach-businesses.jpg"
 keywords:
   - "web development Cairns"
   - "AI integration Cairns"

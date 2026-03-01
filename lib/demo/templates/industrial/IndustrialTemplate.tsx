@@ -1,5 +1,6 @@
 import React, { useState, useEffect, FormEvent } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import {
@@ -278,8 +279,7 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
                 <source src={business.custom.heroVideo} type="video/mp4" />
               </video>
             ) : (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={business.heroImage} alt="Hero background" className="w-full h-full object-cover" />
+              <Image src={business.heroImage!} alt="Hero background" fill sizes="100vw" className="object-cover" unoptimized />
             )}
             <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${business.primaryColorDark}ee 0%, ${business.primaryColorDark}cc 40%, ${business.primaryColor}99 100%)` }} />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
@@ -395,11 +395,13 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
                 const isWide = i === 2;
                 const cardContent = (
                   <>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={service.image}
+                    <Image
+                      src={service.image!}
                       alt={service.title}
-                      className="service-image absolute inset-0 w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="service-image object-cover"
+                      unoptimized
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent group-hover:via-black/40 transition-all duration-500" />
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl md:rounded-3xl" style={{ boxShadow: `inset 0 0 80px ${business.primaryColor}30` }} />
@@ -556,8 +558,7 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
                       transition: `all 0.5s ease-out ${0.2 + i * 0.15}s`,
                     }}
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={logo.src} alt={logo.alt} className="h-12 md:h-16 w-auto object-contain" />
+                    <Image src={logo.src} alt={logo.alt} width={160} height={64} className="h-12 md:h-16 w-auto object-contain" unoptimized />
                   </div>
                 ))}
               </div>
@@ -605,8 +606,7 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
                         transition: `all 0.7s cubic-bezier(0.4, 0, 0.2, 1) ${i * 0.15}s`,
                       }}
                     >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
+                      <Image src={img.src} alt={img.alt} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover" unoptimized />
                       <div className="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-5">
                         <p className="text-white font-semibold text-sm">{img.alt}</p>
                         {img.link && (
@@ -869,8 +869,7 @@ export default function IndustrialTemplate({ business }: IndustrialTemplateProps
 
                   {/* Quick CTA */}
                   <div className="relative rounded-2xl overflow-hidden mt-auto">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={business.gallery?.[1]?.src || business.heroImage || ''} alt="Background" className="absolute inset-0 w-full h-full object-cover" />
+                    <Image src={business.gallery?.[1]?.src || business.heroImage || '/placeholder.jpg'} alt="Background" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" unoptimized />
                     <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${business.primaryColorDark}ee, ${business.primaryColor}dd)` }} />
                     <div className="relative p-7 text-white">
                       <h3 className="text-xl font-black mb-2">Prefer to Talk?</h3>

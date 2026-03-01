@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import {
   Phone, Mail, MapPin, Menu, X, Star, ChevronDown,
   Zap, Users, Shield, Award, Sun, Clock,
@@ -164,8 +165,7 @@ function QuickActionCard({
     >
       {image && (
         <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-300">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={image} alt="" className="w-full h-full object-cover" />
+          <Image src={image} alt="" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" unoptimized />
         </div>
       )}
       <div className="relative p-6 flex flex-col gap-3">
@@ -400,11 +400,13 @@ export default function WakeParkTemplate({ business }: { business: DemoBusiness 
             <div className="flex items-center justify-between h-16 md:h-20">
               {/* Logo */}
               <a href="#" className="flex-shrink-0">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={business.logoUrl}
                   alt={business.name}
+                  width={120}
+                  height={48}
                   className="h-10 md:h-12 w-auto brightness-0 invert"
+                  unoptimized
                 />
               </a>
 
@@ -491,8 +493,7 @@ export default function WakeParkTemplate({ business }: { business: DemoBusiness 
               </video>
             ) : (
               business.heroImage && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={business.heroImage} alt="" className="w-full h-full object-cover" />
+                <Image src={business.heroImage} alt="" fill sizes="100vw" className="object-cover" unoptimized />
               )
             )}
             {/* Overlays */}
@@ -648,8 +649,9 @@ export default function WakeParkTemplate({ business }: { business: DemoBusiness 
                       </video>
                     ) : (
                       business.services[0]?.image && (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img src={business.services[0].image} alt="Wake Park" className="w-full aspect-video object-cover" />
+                        <div className="relative w-full aspect-video">
+                          <Image src={business.services[0].image} alt="Wake Park" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" unoptimized />
+                        </div>
                       )
                     )}
                   </div>
@@ -674,8 +676,9 @@ export default function WakeParkTemplate({ business }: { business: DemoBusiness 
                       </video>
                     ) : (
                       business.services[1]?.image && (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img src={business.services[1].image} alt="Aqua Park" className="w-full aspect-video object-cover" />
+                        <div className="relative w-full aspect-video">
+                          <Image src={business.services[1].image} alt="Aqua Park" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" unoptimized />
+                        </div>
                       )
                     )}
                   </div>
@@ -904,11 +907,13 @@ export default function WakeParkTemplate({ business }: { business: DemoBusiness 
                       i === 0 ? 'col-span-2 row-span-2' : ''
                     }`}
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={img.src}
                       alt={img.alt}
-                      className="w-full h-full object-cover aspect-video group-hover:scale-105 transition-transform duration-500"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      unoptimized
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
@@ -1119,11 +1124,13 @@ export default function WakeParkTemplate({ business }: { business: DemoBusiness 
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={business.logoUrl}
                   alt={business.name}
+                  width={120}
+                  height={48}
                   className="h-12 w-auto brightness-0 invert mb-4"
+                  unoptimized
                 />
                 <p className="text-slate-500 text-sm">{business.description.split('.')[0]}.</p>
               </div>

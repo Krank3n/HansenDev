@@ -3,7 +3,7 @@ title: "Never Chase Payments Again: How Smart Tradies Track What They're Owed"
 description: "Sick of chasing late payments? Learn how Australian tradies use payment tracking to get paid faster, manage overdue invoices, and stop leaving money on the table."
 slug: "never-chase-payments-again-how-smart-tradies-track-what-theyre-owed"
 product: "quotemate"
-featuredImage: "/assets/articles/quotemate/never-chase-payments-again-how-smart-tradies-track-what-theyre-owed.png"
+featuredImage: "/assets/articles/quotemate/never-chase-payments-again-how-smart-tradies-track-what-theyre-owed.jpg"
 keywords:
   - "payment tracking for tradies"
   - "invoice tracking app"

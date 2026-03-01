@@ -3,7 +3,7 @@ title: "Setting Up PayID, Bank Transfer & BPAY in QuoteMate"
 description: "Step-by-step guide to setting up PayID, bank transfer, and BPAY payment methods in QuoteMate so your tradie invoices get paid faster with fewer hassles."
 slug: "setting-up-payid-bank-transfer-and-bpay-in-quotemate"
 product: "quotemate"
-featuredImage: "/assets/articles/quotemate/setting-up-payid-bank-transfer-and-bpay-in-quotemate.png"
+featuredImage: "/assets/articles/quotemate/setting-up-payid-bank-transfer-and-bpay-in-quotemate.jpg"
 keywords:
   - "PayID for business"
   - "tradie payment methods"

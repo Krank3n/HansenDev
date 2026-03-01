@@ -1,6 +1,7 @@
 import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowLeft, ArrowRight, MapPin, Calendar, Building2, Tag, CheckCircle, Phone,
@@ -75,11 +76,13 @@ export default function ProjectPage({ business, slug, project, prevProject, next
         {/* Hero Image */}
         <section className="relative">
           <div className="aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] relative overflow-hidden bg-gray-100">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={project.images[activeImage]}
               alt={project.title}
-              className="w-full h-full object-cover object-top transition-opacity duration-500"
+              fill
+              sizes="100vw"
+              className="object-cover object-top transition-opacity duration-500"
+              unoptimized
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
 
@@ -137,8 +140,7 @@ export default function ProjectPage({ business, slug, project, prevProject, next
                     }`}
                     style={activeImage === i ? { borderColor: business.primaryColor } : undefined}
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={img} alt={`${project.title} ${i + 1}`} className="w-full h-full object-cover" />
+                    <Image src={img} alt={`${project.title} ${i + 1}`} fill sizes="128px" className="object-cover" unoptimized />
                   </button>
                 ))}
               </div>
