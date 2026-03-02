@@ -3,7 +3,9 @@ import Head from 'next/head';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
+import NewsletterCapture from '../components/NewsletterCapture';
 import About from '../components/About';
+import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
 
 // Import business constants
@@ -15,6 +17,7 @@ import {
     SERVICES_OFFERED,
     BUSINESS_METRICS,
     SEO_CONSTANTS,
+    FAQ_DATA,
     getFullAddress,
     getServiceAreasString,
     getKeywordsString
@@ -180,40 +183,14 @@ const HomePage: React.FC = () => {
                         __html: JSON.stringify({
                             "@context": "https://schema.org",
                             "@type": "FAQPage",
-                            "mainEntity": [
-                                {
-                                    "@type": "Question",
-                                    "name": `Do you provide web development services in ${SERVICE_AREAS.primary}?`,
-                                    "acceptedAnswer": {
-                                        "@type": "Answer",
-                                        "text": `Yes, ${BUSINESS_INFO.shortName} provides comprehensive web development services throughout ${SERVICE_AREAS.primary} and ${SERVICE_AREAS.region}. We specialize in custom websites, web applications, and e-commerce solutions for local businesses.`
-                                    }
-                                },
-                                {
-                                    "@type": "Question",
-                                    "name": "What AI integration services do you offer?",
-                                    "acceptedAnswer": {
-                                        "@type": "Answer",
-                                        "text": `We offer AI chatbots, machine learning integration, business process automation, predictive analytics, and custom AI solutions tailored to your business needs in ${SERVICE_AREAS.primary} and throughout ${CONTACT_INFO.address.state}.`
-                                    }
-                                },
-                                {
-                                    "@type": "Question",
-                                    "name": "What is WebFaceLift?",
-                                    "acceptedAnswer": {
-                                        "@type": "Answer",
-                                        "text": `WebFaceLift is an AI-powered website reconstruction tool built by ${BUSINESS_INFO.name}. Paste any outdated website URL and our AI scrapes the content, redesigns the entire structure, and renders a modern blueprint you can iterate on in real-time via chat. Try it free at webfacelift.app.`
-                                    }
-                                },
-                                {
-                                    "@type": "Question",
-                                    "name": `How much does a custom website cost in ${SERVICE_AREAS.primary}?`,
-                                    "acceptedAnswer": {
-                                        "@type": "Answer",
-                                        "text": `Website costs vary based on complexity and requirements. We offer free consultations to provide accurate quotes for ${SERVICE_AREAS.primary} businesses. Contact us for a personalized estimate based on your specific needs.`
-                                    }
+                            "mainEntity": FAQ_DATA.map((faq) => ({
+                                "@type": "Question",
+                                "name": faq.question,
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": faq.answer
                                 }
-                            ]
+                            }))
                         })
                     }}
                 />
@@ -239,7 +216,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <Hero />
             <Services />
             <Portfolio />
+            <NewsletterCapture />
             <About />
+            <FAQ />
             <Contact />
 
             {/* Privacy Policy Link Section */}

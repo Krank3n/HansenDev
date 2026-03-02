@@ -3,13 +3,18 @@ import React, { useState } from 'react';
 import { EnvelopeIcon, PhoneIcon, MapPinIconAlt, UserCircleIcon as ContactUserCircleIcon } from './icons/CustomIcons'; // Assuming these exist
 import Section from './common/Section'; // Assuming this exists
 
-const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // Optional: for loading state
-  const [submitError, setSubmitError] = useState<string | null>(null); // Optional: for error messages
+const SERVICE_OPTIONS = ['Web Development', 'AI Integration', 'Consulting', 'Other'] as const;
+const BUDGET_OPTIONS = ['Under $4,000', '$4,000–$8,000', '$8,000–$15,000', '$15,000+', 'Not sure'] as const;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '', email: '', message: '', phone: '', service: '', budget: '', website: '',
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -32,7 +37,7 @@ const Contact: React.FC = () => {
       if (response.ok) {
         console.log('Form data submitted successfully:', result.message);
         setIsSubmitted(true);
-        setFormData({ name: '', email: '', message: '' }); // Clear form on success
+        setFormData({ name: '', email: '', message: '', phone: '', service: '', budget: '', website: '' });
         setTimeout(() => {
           setIsSubmitted(false);
         }, 5000); // Show success message for 5 seconds
@@ -146,6 +151,67 @@ const Contact: React.FC = () => {
                         className="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-brand-accent focus:border-brand-accent sm:text-sm text-dark-text"
                         placeholder="you@example.com"
                         aria-label="Email Address"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-dark-text-secondary">Phone Number <span className="text-gray-500">(optional)</span></label>
+                    <input
+                        type="tel"
+                        name="phone"
+                        id="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        disabled={isLoading}
+                        className="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-brand-accent focus:border-brand-accent sm:text-sm text-dark-text"
+                        placeholder="+61 400 000 000"
+                        aria-label="Phone Number"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="service" className="block text-sm font-medium text-dark-text-secondary">Service Interest <span className="text-gray-500">(optional)</span></label>
+                    <select
+                        name="service"
+                        id="service"
+                        value={formData.service}
+                        onChange={handleChange}
+                        disabled={isLoading}
+                        className="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-brand-accent focus:border-brand-accent sm:text-sm text-dark-text"
+                        aria-label="Service Interest"
+                    >
+                      <option value="">Select a service...</option>
+                      {SERVICE_OPTIONS.map((opt) => (
+                          <option key={opt} value={opt}>{opt}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="budget" className="block text-sm font-medium text-dark-text-secondary">Budget Range <span className="text-gray-500">(optional)</span></label>
+                    <select
+                        name="budget"
+                        id="budget"
+                        value={formData.budget}
+                        onChange={handleChange}
+                        disabled={isLoading}
+                        className="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-brand-accent focus:border-brand-accent sm:text-sm text-dark-text"
+                        aria-label="Budget Range"
+                    >
+                      <option value="">Select a range...</option>
+                      {BUDGET_OPTIONS.map((opt) => (
+                          <option key={opt} value={opt}>{opt}</option>
+                      ))}
+                    </select>
+                  </div>
+                  {/* Honeypot field — invisible to real users */}
+                  <div className="absolute opacity-0 top-0 left-0 h-0 w-0 -z-10" aria-hidden="true">
+                    <label htmlFor="website">Website</label>
+                    <input
+                        type="text"
+                        name="website"
+                        id="website"
+                        value={formData.website}
+                        onChange={handleChange}
+                        tabIndex={-1}
+                        autoComplete="off"
                     />
                   </div>
                   <div>

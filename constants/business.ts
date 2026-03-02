@@ -290,17 +290,17 @@ export const SEO_CONSTANTS = {
 export const PRICING_INFO = {
     // Service Pricing Ranges
     webDevelopment: {
-        starting: "From $2,500",
+        starting: "From $4,000",
         range: "$$",
         timeline: "2-6 weeks"
     },
     aiIntegration: {
-        starting: "From $3,500",
+        starting: "From $6,000",
         range: "$$",
         timeline: "3-8 weeks"
     },
     consulting: {
-        starting: "From $150/hour",
+        starting: "From $200/hour",
         range: "$$",
         timeline: "1-12 weeks"
     },
@@ -346,6 +346,34 @@ export const getKeywordsString = () => {
         ...SEO_CONSTANTS.brandKeywords
     ].join(", ");
 };
+
+// ===============================
+// FAQ DATA
+// ===============================
+
+export interface FAQItem {
+    question: string;
+    answer: string;
+}
+
+export const FAQ_DATA: FAQItem[] = [
+    {
+        question: `Do you provide web development services in ${SERVICE_AREAS.primary}?`,
+        answer: `Yes, HansenDev provides comprehensive web development services throughout ${SERVICE_AREAS.primary} and ${SERVICE_AREAS.region}. We specialize in custom websites, web applications, and e-commerce solutions for local businesses.`,
+    },
+    {
+        question: "What AI integration services do you offer?",
+        answer: `We offer AI chatbots, machine learning integration, business process automation, predictive analytics, and custom AI solutions tailored to your business needs in ${SERVICE_AREAS.primary} and throughout ${CONTACT_INFO.address.state}.`,
+    },
+    {
+        question: "What is WebFaceLift?",
+        answer: `WebFaceLift is an AI-powered website reconstruction tool built by ${BUSINESS_INFO.name}. Paste any outdated website URL and our AI scrapes the content, redesigns the entire structure, and renders a modern blueprint you can iterate on in real-time via chat. Try it free at webfacelift.app.`,
+    },
+    {
+        question: `How much does a custom website cost in ${SERVICE_AREAS.primary}?`,
+        answer: `Website costs vary based on complexity and requirements. We offer free consultations to provide accurate quotes for ${SERVICE_AREAS.primary} businesses. Contact us for a personalized estimate based on your specific needs.`,
+    },
+];
 
 // Export all constants as a single object (optional)
 export const HANSENDEV_CONSTANTS = {

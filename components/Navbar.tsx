@@ -4,6 +4,7 @@ import { MenuIcon, XIcon, CodeIcon } from './icons/CustomIcons';
 
 const navItems: NavItem[] = [
   { name: 'Home', href: '#home' },
+  { name: 'Our Work', href: '/our-work' },
   { name: 'QuoteMate', href: '/quote-tool' },
   { name: 'Articles', href: '/articles' },
   { name: 'Services', href: '#services' },
@@ -35,7 +36,7 @@ const Navbar: React.FC = () => {
             <CodeIcon className={`transition-all duration-300 ${scrolled ? 'h-9 w-9' : 'h-10 w-10'}`} />
             <span className={`transition-all duration-300 ${scrolled ? 'text-2xl' : 'text-[1.7rem]'}`}>HansenDev</span>
           </a>
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -46,6 +47,12 @@ const Navbar: React.FC = () => {
                 <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-brand-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full"></span>
               </a>
             ))}
+            <a
+              href="#contact"
+              className="ml-2 inline-flex items-center px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent transition-all duration-300 shadow-lg shadow-brand-accent/20 hover:shadow-brand-accent/40 hover:scale-105"
+            >
+              Get Free Quote
+            </a>
           </nav>
           <div className="md:hidden">
             <button
@@ -72,6 +79,13 @@ const Navbar: React.FC = () => {
                 {item.name}
               </a>
             ))}
+            <a
+              href="#contact"
+              onClick={() => setIsOpen(false)}
+              className="block mx-3 mt-3 text-center px-5 py-3 rounded-lg text-base font-semibold text-white bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent transition-all duration-300 shadow-lg"
+            >
+              Get Free Quote
+            </a>
           </nav>
         </div>
       )}

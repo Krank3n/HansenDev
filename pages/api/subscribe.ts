@@ -11,7 +11,6 @@ const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
 const RATE_LIMIT_MAX = 5;
 
-// Clean up stale entries every 30 minutes
 setInterval(() => {
     const now = Date.now();
     rateLimitMap.forEach((value, key) => {
@@ -59,63 +58,31 @@ export default async function handler(
         return res.status(405).json({ error: `Method ${req.method} Not Allowed` });
     }
 
-    // Rate limiting
     const clientIp = getClientIp(req);
     if (isRateLimited(clientIp)) {
         return res.status(429).json({ error: 'Too many requests. Please try again later.' });
     }
 
-    const { name, email, message, phone, service, budget, website } = req.body ?? {};
+    const { email, website } = req.body ?? {};
 
-    // Honeypot check — bots fill this hidden field; silently accept to fool them
+    // Honeypot check
     if (typeof website === 'string' && website.trim() !== '') {
-        return res.status(200).json({ message: 'Message sent successfully!' });
+        return res.status(200).json({ message: 'Subscribed successfully!' });
     }
 
-    // Type checking for required fields
-    if (typeof name !== 'string' || typeof email !== 'string' || typeof message !== 'string') {
+    if (typeof email !== 'string') {
         return res.status(400).json({ error: 'Invalid input.' });
     }
 
-    // Length limits
-    if (!name.trim() || name.length > 100) {
-        return res.status(400).json({ error: 'Name is required and must be under 100 characters.' });
-    }
     if (!email.trim() || email.length > 254) {
         return res.status(400).json({ error: 'A valid email is required.' });
     }
-    if (!message.trim() || message.length > 5000) {
-        return res.status(400).json({ error: 'Message is required and must be under 5000 characters.' });
-    }
 
-    // Email format validation
     if (!EMAIL_REGEX.test(email)) {
         return res.status(400).json({ error: 'A valid email is required.' });
     }
 
-    // Validate optional fields
-    const ALLOWED_SERVICES = ['Web Development', 'AI Integration', 'Consulting', 'Other'];
-    const ALLOWED_BUDGETS = ['Under $4,000', '$4,000–$8,000', '$8,000–$15,000', '$15,000+', 'Not sure'];
-
-    let safePhone = '';
-    if (phone && typeof phone === 'string') {
-        safePhone = phone.replace(/[^\d\s+\-()]/g, '').slice(0, 20);
-    }
-
-    let safeService = '';
-    if (service && typeof service === 'string' && ALLOWED_SERVICES.includes(service)) {
-        safeService = service;
-    }
-
-    let safeBudget = '';
-    if (budget && typeof budget === 'string' && ALLOWED_BUDGETS.includes(budget)) {
-        safeBudget = budget;
-    }
-
-    // Sanitize header-injection vectors
-    const safeName = sanitizeHeaderValue(name.trim());
     const safeEmail = sanitizeHeaderValue(email.trim());
-    const safeMessage = message.trim();
 
     const transporter = nodemailer.createTransport({
         host: process.env.EMAIL_SERVER_HOST,
@@ -128,36 +95,27 @@ export default async function handler(
     });
 
     const mailOptions = {
-        from: `"${safeName}" <${process.env.EMAIL_FROM}>`,
-        replyTo: safeEmail,
+        from: `"HansenDev Newsletter" <${process.env.EMAIL_FROM}>`,
         to: process.env.EMAIL_FROM,
-        subject: `New Contact Form Submission from ${safeName}`,
-        text: `You have a new message from your website contact form:\n\nName: ${safeName}\nEmail: ${safeEmail}${safePhone ? `\nPhone: ${safePhone}` : ''}${safeService ? `\nService Interest: ${safeService}` : ''}${safeBudget ? `\nBudget Range: ${safeBudget}` : ''}\n\nMessage: ${safeMessage}`,
+        subject: `New Newsletter Subscriber: ${safeEmail}`,
+        text: `New newsletter subscription:\n\nEmail: ${safeEmail}\nTime: ${new Date().toISOString()}`,
         html: `
     <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-      <h2 style="color: #333;">New Contact Form Submission</h2>
-      <p>You have received a new message from your website's contact form.</p>
+      <h2 style="color: #333;">New Newsletter Subscriber</h2>
       <hr style="border: 0; border-top: 1px solid #eee;">
-      <p><strong>Name:</strong> ${safeName}</p>
       <p><strong>Email:</strong> <a href="mailto:${safeEmail}">${safeEmail}</a></p>
-      ${safePhone ? `<p><strong>Phone:</strong> ${safePhone}</p>` : ''}
-      ${safeService ? `<p><strong>Service Interest:</strong> ${safeService}</p>` : ''}
-      ${safeBudget ? `<p><strong>Budget Range:</strong> ${safeBudget}</p>` : ''}
-      <p><strong>Message:</strong></p>
-      <div style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9;">
-        <p style="white-space: pre-wrap;">${safeMessage.replace(/\n/g, '<br>')}</p>
-      </div>
+      <p><strong>Subscribed at:</strong> ${new Date().toISOString()}</p>
       <hr style="border: 0; border-top: 1px solid #eee;">
-      <p style="font-size: 0.9em; color: #777;">This email was sent from your website contact form.</p>
+      <p style="font-size: 0.9em; color: #777;">This notification was sent from your website newsletter form.</p>
     </div>
-      `,
+        `,
     };
 
     try {
         await transporter.sendMail(mailOptions);
-        return res.status(200).json({ message: 'Message sent successfully!' });
+        return res.status(200).json({ message: 'Subscribed successfully!' });
     } catch (error) {
-        console.error('Error sending email:', error);
-        return res.status(500).json({ error: 'Failed to send message. Please try again later.' });
+        console.error('Error sending subscription email:', error);
+        return res.status(500).json({ error: 'Failed to subscribe. Please try again later.' });
     }
 }

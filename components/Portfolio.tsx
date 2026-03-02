@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Section from './common/Section';
-import { ExternalLink, Code2, Globe, Star, Zap, Users, TrendingUp, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, Code2, Globe, Star, Zap, Users, ArrowUpRight, ArrowRight } from 'lucide-react';
 
 interface Project {
     title: string;
@@ -19,35 +20,6 @@ interface Project {
 const Portfolio: React.FC = () => {
     const projects: Project[] = [
         {
-            title: "Makawa Dynamic Solutions",
-            description: "Modern building and construction company website featuring responsive design, project showcases, and professional service presentation for the construction industry.",
-            url: "https://makawa-dynamic-solutions-amtkc.ondigitalocean.app/",
-            category: "Construction & Business",
-            technologies: ["React", "Next.js", "Tailwind CSS", "Responsive Design"],
-            highlight: true,
-            gradient: "from-orange-500 via-red-500 to-pink-500",
-            image: "/assets/projects/makawa-solutions.jpg",
-            imageAlt: "Makawa Dynamic Solutions website homepage",
-            stats: [
-                { label: "Performance", value: "95+", icon: <Zap className="h-4 w-4" /> },
-                { label: "Mobile Ready", value: "100%", icon: <Users className="h-4 w-4" /> }
-            ]
-        },
-        {
-            title: "WakeIndex",
-            description: "Comprehensive wakepark index and management software platform. A specialized system for wakeboarding facilities to manage operations, track riders, and optimize park performance.",
-            url: "https://wakeindex.com/",
-            category: "Sports Management",
-            technologies: ["Full-Stack Development", "Database Management", "Real-time Data", "User Management"],
-            gradient: "from-blue-500 via-cyan-500 to-teal-500",
-            image: "/assets/projects/wakeindex-search.jpg",
-            imageAlt: "WakeIndex platform dashboard",
-            stats: [
-                { label: "Active Users", value: "1K+", icon: <Users className="h-4 w-4" /> },
-                { label: "Wakeparks", value: "50+", icon: <TrendingUp className="h-4 w-4" /> }
-            ]
-        },
-        {
             title: "ShredIndex",
             description: "The world's largest ski resort database with 6,239+ resorts across 94 countries. Features advanced filtering, lifestyle categories, professional athlete reviews, and the biggest ski resort job board online.",
             url: "/projects/shredindex",
@@ -61,16 +33,6 @@ const Portfolio: React.FC = () => {
                 { label: "Ski Resorts", value: "6,239+", icon: <Globe className="h-4 w-4" /> },
                 { label: "Countries", value: "94", icon: <Star className="h-4 w-4" /> }
             ]
-        },
-        {
-            title: "Thomas Andrew Hansen",
-            description: "Personal portfolio website showcasing professional work, technical expertise, and project highlights with clean, modern design and optimal user experience.",
-            url: "https://thomasandrewhansen.com/",
-            category: "Personal Portfolio",
-            technologies: ["Portfolio Design", "Personal Branding", "SEO Optimization", "Modern UI/UX"],
-            gradient: "from-emerald-500 via-green-500 to-teal-500",
-            image: "/assets/projects/thomas-andrew-hansen-website.jpg",
-            imageAlt: "Thomas Andrew Hansen portfolio website"
         },
         {
             title: "QuoteMate",
@@ -88,21 +50,6 @@ const Portfolio: React.FC = () => {
             ]
         },
         {
-            title: "ChatSpark",
-            description: "Build social confidence through conversations. 145+ micro-missions across 7 difficulty levels with voice coaching and progress tracking. Privacy-focused app to overcome social anxiety one interaction at a time.",
-            url: "/projects/chatspark",
-            category: "Mobile App",
-            technologies: ["React Native", "Expo", "SQLite", "Zustand", "Voice Coaching", "Mood Analytics"],
-            highlight: true,
-            gradient: "from-purple-600 via-pink-500 to-rose-500",
-            image: "/assets/projects/chatspark-square.png",
-            imageAlt: "ChatSpark social confidence app interface",
-            stats: [
-                { label: "Micro-Missions", value: "145+", icon: <Star className="h-4 w-4" /> },
-                { label: "Privacy First", value: "100%", icon: <Users className="h-4 w-4" /> }
-            ]
-        },
-        {
             title: "WebFaceLift",
             description: "AI-powered website reconstruction platform that transforms outdated business websites into modern designs in seconds. Paste any URL, and our AI scrapes the content, redesigns the structure, and renders a blueprint you can refine via chat.",
             url: "/projects/webfacelift",
@@ -116,7 +63,22 @@ const Portfolio: React.FC = () => {
                 { label: "Redesign Time", value: "30s", icon: <Zap className="h-4 w-4" /> },
                 { label: "Any Website", value: "Universal", icon: <Globe className="h-4 w-4" /> }
             ]
-        }
+        },
+        {
+            title: "Makawa Dynamic Solutions",
+            description: "Modern building and construction company website featuring responsive design, project showcases, and professional service presentation for the construction industry.",
+            url: "https://makawa-dynamic-solutions-amtkc.ondigitalocean.app/",
+            category: "Construction & Business",
+            technologies: ["React", "Next.js", "Tailwind CSS", "Responsive Design"],
+            highlight: true,
+            gradient: "from-orange-500 via-red-500 to-pink-500",
+            image: "/assets/projects/makawa-solutions.jpg",
+            imageAlt: "Makawa Dynamic Solutions website homepage",
+            stats: [
+                { label: "Performance", value: "95+", icon: <Zap className="h-4 w-4" /> },
+                { label: "Mobile Ready", value: "100%", icon: <Users className="h-4 w-4" /> }
+            ]
+        },
     ];
 
     return (
@@ -227,6 +189,17 @@ const Portfolio: React.FC = () => {
                         </div>
                     </div>
                 ))}
+            </div>
+
+            {/* View All Our Work Button */}
+            <div className="mt-16 text-center">
+                <Link
+                    href="/our-work"
+                    className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-brand-accent/50 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 backdrop-blur-sm hover:-translate-y-0.5"
+                >
+                    <span>View All Our Work</span>
+                    <ArrowRight className="h-5 w-5" />
+                </Link>
             </div>
 
             {/* Call to Action */}
