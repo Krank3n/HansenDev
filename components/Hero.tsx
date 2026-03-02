@@ -1,9 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Section from './common/Section';
-import { ArrowRight, Play, Users, Clock, Shield, CheckCircle } from 'lucide-react';
+import { ArrowRight, Users, Clock, Shield, CheckCircle } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const bgRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 639px)');
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,14 +35,15 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0">
           <div ref={bgRef} className="absolute inset-0 parallax-bg" style={{ top: '-10%', bottom: '-10%' }}>
             <video
+                key={isMobile ? 'mobile' : 'desktop'}
                 autoPlay
                 loop
                 muted
                 playsInline
-                poster="/assets/video/HansenDev-poster.jpg"
+                poster={isMobile ? '/assets/video/HansenDevMobile-poster.jpg' : '/assets/video/HansenDev-poster.jpg'}
                 className="absolute inset-0 w-full h-full object-cover"
             >
-              <source src="/assets/video/HansenDev.mp4" type="video/mp4" />
+              <source src={isMobile ? '/assets/video/HansenDevMobile.mp4' : '/assets/video/HansenDev.mp4'} type="video/mp4" />
             </video>
           </div>
           {/* Scrim + blur — keeps video vibe but recedes detail so text pops */}
@@ -54,7 +64,7 @@ const Hero: React.FC = () => {
         {/* Main Content */}
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 pb-28 sm:pb-20">
           {/* SEO-Optimized Main Headline with increased hierarchy */}
-          <div className="space-y-8 mb-12">
+          <div className="space-y-10 mb-14">
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight">
               <span className="block text-white leading-tight">
                 Cairns Web Development &
@@ -68,9 +78,9 @@ const Hero: React.FC = () => {
             <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed">
               Transform your <span className="text-brand-accent font-semibold">Cairns business</span> with custom web apps,
               <br className="hidden sm:block" />
-              intelligent AI automation & cutting-edge software.
+              {' '}intelligent AI automation & cutting-edge software.
             </p>
-            <p className="text-brand-primary font-medium text-sm sm:text-base tracking-wide">
+            <p className="text-white/70 font-medium text-sm sm:text-base tracking-wide">
               Local expertise &bull; Global technology &bull; Proven results in FNQ
             </p>
           </div>
@@ -103,7 +113,6 @@ const Hero: React.FC = () => {
                 className="group inline-flex items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl px-10 py-5 text-white font-bold text-lg hover:bg-white/10 transition-all duration-300 w-full sm:w-auto"
                 aria-label="View our portfolio of Cairns web development projects"
             >
-              <Play className="h-4 w-4" />
               <span>View Our Work</span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
