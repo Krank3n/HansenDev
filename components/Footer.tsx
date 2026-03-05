@@ -59,46 +59,6 @@ const Footer: React.FC<FooterProps> = ({
 
     return (
         <>
-            {/* Footer Schema Markup using constants */}
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": BUSINESS_INFO.name,
-                        "description": BUSINESS_INFO.description,
-                        "address": {
-                            "@type": "PostalAddress",
-                            "streetAddress": CONTACT_INFO.address.street,
-                            "addressLocality": CONTACT_INFO.address.city,
-                            "addressRegion": CONTACT_INFO.address.state,
-                            "postalCode": CONTACT_INFO.address.postcode,
-                            "addressCountry": CONTACT_INFO.address.countryCode
-                        },
-                        "geo": {
-                            "@type": "GeoCoordinates",
-                            "latitude": CONTACT_INFO.coordinates.latitude,
-                            "longitude": CONTACT_INFO.coordinates.longitude
-                        },
-                        "url": ONLINE_PRESENCE.website.primary,
-                        "telephone": CONTACT_INFO.phone.primary,
-                        "email": CONTACT_INFO.email.primary,
-                        "founder": {
-                            "@type": "Person",
-                            "name": BUSINESS_INFO.founder.name
-                        },
-                        "areaServed": SERVICE_AREAS.areas,
-                        "serviceType": SERVICES_OFFERED.primary,
-                        "openingHours": CONTACT_INFO.hours.structured,
-                        "sameAs": [
-                            ONLINE_PRESENCE.social.linkedin,
-                            ONLINE_PRESENCE.social.github
-                        ]
-                    })
-                }}
-            />
-
             <footer className="bg-gradient-to-b from-dark-card to-dark-bg border-t border-gray-700/50 relative overflow-hidden">
                 {/* Background decoration */}
                 <div className="absolute inset-0 opacity-5">

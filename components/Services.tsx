@@ -28,7 +28,7 @@ import {
 } from '../constants/business';
 
 // Enhanced service data with local SEO focus using constants
-const servicesData: ServiceCardProps[] = [
+const servicesData: (ServiceCardProps & { learnMoreUrl: string })[] = [
   {
     icon: <Code className="h-12 w-12 text-brand-accent service-icon-code" />,
     title: `Custom Web Development ${SERVICE_AREAS.primary}`,
@@ -51,7 +51,8 @@ const servicesData: ServiceCardProps[] = [
     ]),
     priceRange: PRICING_INFO.webDevelopment.starting,
     deliveryTime: PRICING_INFO.webDevelopment.timeline,
-    businessTypes: SERVICES_OFFERED.industries.slice(0, 6)
+    businessTypes: SERVICES_OFFERED.industries.slice(0, 6),
+    learnMoreUrl: '/web-development-cairns'
   },
   {
     icon: <Bot className="h-12 w-12 text-brand-accent service-icon-bot" />,
@@ -72,7 +73,8 @@ const servicesData: ServiceCardProps[] = [
     features: SERVICES_OFFERED.categories.aiIntegration.services,
     priceRange: PRICING_INFO.aiIntegration.starting,
     deliveryTime: PRICING_INFO.aiIntegration.timeline,
-    businessTypes: ['Tourism Operators', 'Hotels & Accommodation', 'Restaurants', 'Retail Stores', 'Professional Services', 'Healthcare Practices']
+    businessTypes: ['Tourism Operators', 'Hotels & Accommodation', 'Restaurants', 'Retail Stores', 'Professional Services', 'Healthcare Practices'],
+    learnMoreUrl: '/ai-integration-cairns'
   },
   {
     icon: <Lightbulb className="h-12 w-12 text-brand-accent service-icon-lightbulb" />,
@@ -92,7 +94,8 @@ const servicesData: ServiceCardProps[] = [
     features: SERVICES_OFFERED.categories.consulting.services,
     priceRange: PRICING_INFO.consulting.starting,
     deliveryTime: PRICING_INFO.consulting.timeline,
-    businessTypes: ['Growing Businesses', 'Established Companies', 'Non-Profits', 'Government Agencies', 'Educational Institutions', 'Healthcare Organizations']
+    businessTypes: ['Growing Businesses', 'Established Companies', 'Non-Profits', 'Government Agencies', 'Educational Institutions', 'Healthcare Organizations'],
+    learnMoreUrl: '/technology-consulting-cairns'
   },
 ];
 
@@ -251,7 +254,7 @@ const Services: React.FC = () => {
                     </div>
 
                     {/* CTA Button */}
-                    <div className="mt-auto pt-4">
+                    <div className="mt-auto pt-4 space-y-3">
                       <a
                           href="#contact"
                           className="group/btn inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25"
@@ -259,6 +262,13 @@ const Services: React.FC = () => {
                       >
                         <span>Get Free Quote</span>
                         <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                      </a>
+                      <a
+                          href={service.learnMoreUrl}
+                          className="group/link inline-flex items-center justify-center gap-2 w-full text-dark-text-secondary hover:text-brand-accent text-sm font-medium transition-colors duration-300"
+                      >
+                        <span>Learn More</span>
+                        <ArrowRight className="h-3 w-3 group-hover/link:translate-x-1 transition-transform duration-300" />
                       </a>
                     </div>
 

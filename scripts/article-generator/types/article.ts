@@ -52,4 +52,4 @@ export interface GenerationResult {
   error?: string;
 }
 
-export type ProductId = 'quotemate' | 'chatspark' | 'shredindex' | 'hansendev' | 'wakeindex';
+export type ProductId = 'quotemate' | 'chatspark' | 'shredindex' | 'hansendev' | 'wakeindex' | 'webfacelift';

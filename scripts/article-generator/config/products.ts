@@ -217,6 +217,51 @@ WakeIndex is the world's most comprehensive database of wakeboarding spots, cabl
 - Travel guides and trip planning features
 The platform helps wakeboarders and water sports enthusiasts discover new spots and plan their sessions. Sister site to ShredIndex, applying the same comprehensive approach to water sports.`,
     websiteUrl: 'https://www.wakeindex.com'
+  },
+
+  webfacelift: {
+    id: 'webfacelift',
+    name: 'WebFaceLift',
+    tagline: 'AI Website Redesign in Seconds',
+    tone: 'Confident, practical, and results-focused. Speak to business owners frustrated with their outdated websites, web agencies looking for faster workflows, and freelancers pitching redesigns. Be direct about the pain of old websites and show how AI reconstruction solves it.',
+    targetAudience: 'Small business owners with outdated websites, freelance web designers, digital agencies, and web developers looking to speed up their redesign workflow.',
+    brandColors: {
+      primary: '#6366F1', // Indigo
+      secondary: '#7C3AED', // Violet
+      accent: '#A78BFA' // Light purple
+    },
+    imageStyle: 'Split-screen before/after website transformations, modern web design interfaces, AI-powered design tools, clean dashboards. Use indigo and violet tones. Show outdated websites being transformed into modern designs. Professional SaaS aesthetic.',
+    primaryKeywords: [
+      'AI website redesign',
+      'website reconstruction',
+      'AI web design tool',
+      'modernise website',
+      'website makeover',
+      'automated web design',
+      'AI website builder',
+      'outdated website fix',
+      'website facelift',
+      'redesign website with AI'
+    ],
+    ctaBlock: `## Ready to Modernise Your Website?
+
+WebFaceLift transforms any outdated website into a modern design in 30 seconds. Paste a URL, get a complete redesign powered by AI.
+
+**Try free — no account required.**
+
+[Try WebFaceLift Free](https://webfacelift.app) | Built by [HansenDev](https://hansendev.com.au)`,
+    promptContext: `WebFaceLift is an AI-powered website reconstruction platform built by HansenDev. Key features include:
+- Paste any website URL and get a complete modern redesign in ~30 seconds
+- AI scrapes all content, images, and structure from the original site
+- Claude AI analyses the content and generates a modern blueprint
+- Chat with the AI to refine the design in real-time ("Make it blue", "Add a contact form")
+- 4 design styles: Glass, Bold, Minimal, Vibrant
+- Niche-specific templates for restaurants, fitness, water sports, medical, etc.
+- 13+ component types (hero, services, testimonials, pricing, gallery, FAQ, etc.)
+- Component-based JSON output you can export
+- Free demo mode with no account required
+The platform is ideal for agencies pitching redesigns, freelancers generating mockups, and business owners who want to see what their site could look like before committing to a full rebuild.`,
+    websiteUrl: 'https://webfacelift.app'
   }
 };
 

@@ -6,9 +6,9 @@ const navItems: NavItem[] = [
   { name: 'Our Work', href: '/our-work' },
   { name: 'QuoteMate', href: '/quote-tool' },
   { name: 'Articles', href: '/articles' },
-  { name: 'Services', href: '#services' },
-  { name: 'About Us', href: '#about' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Services', href: '/#services' },
+  { name: 'About Us', href: '/#about' },
+  { name: 'Contact', href: '/#contact' },
 ];
 
 const Navbar: React.FC = () => {
@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#contact"
               className="ml-2 inline-flex items-center px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent transition-all duration-300 shadow-lg shadow-brand-accent/20 hover:shadow-brand-accent/40 hover:scale-105"
             >
               Get Free Quote
@@ -79,7 +79,7 @@ const Navbar: React.FC = () => {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setIsOpen(false)}
               className="block mx-3 mt-3 text-center px-5 py-3 rounded-lg text-base font-semibold text-white bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent transition-all duration-300 shadow-lg"
             >

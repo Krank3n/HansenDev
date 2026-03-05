@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
                 loop
                 muted
                 playsInline
-                poster={isMobile ? '/assets/video/HansenDevMobile-poster.jpg' : '/assets/video/HansenDev-poster.jpg'}
+                poster={isMobile ? '/assets/video/HansenDevMobile-poster.webp' : '/assets/video/HansenDev-poster.webp'}
                 className="absolute inset-0 w-full h-full object-cover"
             >
               <source src={isMobile ? '/assets/video/HansenDevMobile.mp4' : '/assets/video/HansenDev.mp4'} type="video/mp4" />

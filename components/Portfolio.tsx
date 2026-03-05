@@ -42,7 +42,7 @@ const Portfolio: React.FC = () => {
             technologies: ["React Native", "Expo", "TypeScript", "AI Integration", "OAuth 2.0", "PDF Generation"],
             highlight: true,
             gradient: "from-green-600 via-emerald-500 to-teal-500",
-            image: "/assets/projects/quotemate-square.jpg",
+            image: "/assets/projects/quotemate-square.webp",
             imageAlt: "QuoteMate mobile application interface",
             stats: [
                 { label: "AI-Powered", value: "Custom Jobs", icon: <Star className="h-4 w-4" /> },
@@ -72,7 +72,7 @@ const Portfolio: React.FC = () => {
             technologies: ["React", "Next.js", "Tailwind CSS", "Responsive Design"],
             highlight: true,
             gradient: "from-orange-500 via-red-500 to-pink-500",
-            image: "/assets/projects/makawa-solutions.jpg",
+            image: "/assets/projects/makawa-solutions.webp",
             imageAlt: "Makawa Dynamic Solutions website homepage",
             stats: [
                 { label: "Performance", value: "95+", icon: <Zap className="h-4 w-4" /> },
