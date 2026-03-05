@@ -3,7 +3,6 @@ import { NavItem } from '../types';
 import { MenuIcon, XIcon, CodeIcon } from './icons/CustomIcons';
 
 const navItems: NavItem[] = [
-  { name: 'Home', href: '#home' },
   { name: 'Our Work', href: '/our-work' },
   { name: 'QuoteMate', href: '/quote-tool' },
   { name: 'Articles', href: '/articles' },

@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
     ArrowLeft,
@@ -184,6 +185,18 @@ const WebFaceLift: React.FC = () => {
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(139,92,246,0.1),transparent_50%)] pointer-events-none"></div>
                     <div className="container-custom relative">
                         <div className="max-w-5xl mx-auto text-center">
+                            {/* Logo */}
+                            <div className="mb-8">
+                                <Image
+                                    src="/assets/projects/webfacelift-logo.webp"
+                                    alt="WebFaceLift logo"
+                                    width={400}
+                                    height={218}
+                                    className="mx-auto"
+                                    priority
+                                />
+                            </div>
+
                             {/* Category Badge */}
                             <div className="inline-flex items-center gap-2 text-indigo-400 text-sm font-medium uppercase tracking-wider mb-6">
                                 <Sparkles className="h-4 w-4" />

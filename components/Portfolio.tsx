@@ -27,7 +27,7 @@ const Portfolio: React.FC = () => {
             technologies: ["Next.js", "TypeScript", "GraphQL", "Tailwind CSS", "CMS Integration", "SEO Optimization"],
             highlight: true,
             gradient: "from-blue-500 via-cyan-500 to-blue-600",
-            image: "/assets/projects/shredindex-home.png",
+            image: "/assets/projects/shredindex-info.webp",
             imageAlt: "ShredIndex - World's largest ski resort database and job board",
             stats: [
                 { label: "Ski Resorts", value: "6,239+", icon: <Globe className="h-4 w-4" /> },
@@ -57,7 +57,7 @@ const Portfolio: React.FC = () => {
             technologies: ["Next.js", "TypeScript", "Claude AI", "Tailwind CSS", "Supabase", "Firecrawl"],
             highlight: true,
             gradient: "from-indigo-500 via-violet-500 to-purple-500",
-            image: "https://webfacelift.app/og-image.png",
+            image: "/assets/projects/webfacelift-logo.webp",
             imageAlt: "WebFaceLift AI website redesign platform",
             stats: [
                 { label: "Redesign Time", value: "30s", icon: <Zap className="h-4 w-4" /> },
