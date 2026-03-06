@@ -87,8 +87,8 @@ const Contact: React.FC = () => {
             <EnvelopeIcon className="h-5 w-5 text-brand-accent mt-1 flex-shrink-0" />
             <div>
               <h4 className="font-medium text-dark-text">Email</h4>
-              <a href="mailto:thomas.andrew.hansen@gmail.com" className="gradient-text hover:opacity-80 transition-opacity">
-                thomas.andrew.hansen@gmail.com
+              <a href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`} className="gradient-text hover:opacity-80 transition-opacity">
+                {process.env.NEXT_PUBLIC_CONTACT_EMAIL}
               </a>
             </div>
           </div>
