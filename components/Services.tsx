@@ -296,6 +296,7 @@ const Services: React.FC = () => {
                   <a
                     href={service.learnMoreUrl}
                     className="group/link inline-flex items-center justify-center gap-2 w-full text-dark-text-secondary hover:text-brand-accent text-sm font-medium transition-colors duration-300"
+                    aria-label={`Learn more about ${service.title}`}
                   >
                     <span>Learn More</span>
                     <ArrowRight className="h-3 w-3 group-hover/link:translate-x-1 transition-transform duration-300" />

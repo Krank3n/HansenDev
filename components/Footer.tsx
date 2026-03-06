@@ -77,7 +77,7 @@ const Footer: React.FC<FooterProps> = ({
                                     <Code className="h-8 w-8 mr-3 text-brand-accent" />
                                     <div>
                                         <h3 className="font-bold text-xl text-dark-text">{BUSINESS_INFO.shortName}</h3>
-                                        <span className="text-xs text-dark-text-secondary/50">PTY LTD</span>
+                                        <span className="text-xs text-dark-text-secondary/70">PTY LTD</span>
                                     </div>
                                 </div>
 
@@ -90,17 +90,17 @@ const Footer: React.FC<FooterProps> = ({
                                 <div className="space-y-3 mb-6">
                                     <div className="flex items-center gap-2 text-sm">
                                         <Shield className="h-4 w-4 text-green-400/70" />
-                                        <span className="text-dark-text-secondary/60">Australian Business Registered</span>
+                                        <span className="text-dark-text-secondary/80">Australian Business Registered</span>
                                     </div>
                                     <div className="flex items-center gap-2 text-sm">
                                         <Star className="h-4 w-4 text-yellow-400/70" />
-                                        <span className="text-dark-text-secondary/60">
+                                        <span className="text-dark-text-secondary/80">
                                             {BUSINESS_METRICS.stats.averageRating} Rating &bull; {BUSINESS_METRICS.stats.reviewCount} Reviews
                                         </span>
                                     </div>
                                     <div className="flex items-center gap-2 text-sm">
                                         <Award className="h-4 w-4 text-brand-accent/70" />
-                                        <span className="text-dark-text-secondary/60">
+                                        <span className="text-dark-text-secondary/80">
                                             {BUSINESS_METRICS.stats.projectsCompleted} Successful Projects
                                         </span>
                                     </div>
@@ -115,7 +115,7 @@ const Footer: React.FC<FooterProps> = ({
                                         className="p-2.5 rounded-xl bg-white/[0.03] hover:bg-brand-accent/10 transition-all duration-300 hover:scale-110 group"
                                         aria-label={`Follow ${BUSINESS_INFO.shortName} on LinkedIn`}
                                     >
-                                        <Linkedin className="h-4 w-4 text-dark-text-secondary/50 group-hover:text-brand-accent transition-colors duration-300" />
+                                        <Linkedin className="h-4 w-4 text-dark-text-secondary/70 group-hover:text-brand-accent transition-colors duration-300" />
                                     </a>
                                     <a
                                         href={ONLINE_PRESENCE.social.github}
@@ -124,7 +124,7 @@ const Footer: React.FC<FooterProps> = ({
                                         className="p-2.5 rounded-xl bg-white/[0.03] hover:bg-brand-accent/10 transition-all duration-300 hover:scale-110 group"
                                         aria-label={`View ${BUSINESS_INFO.shortName} projects on GitHub`}
                                     >
-                                        <Github className="h-4 w-4 text-dark-text-secondary/50 group-hover:text-brand-accent transition-colors duration-300" />
+                                        <Github className="h-4 w-4 text-dark-text-secondary/70 group-hover:text-brand-accent transition-colors duration-300" />
                                     </a>
                                 </div>
                             </div>
@@ -144,7 +144,7 @@ const Footer: React.FC<FooterProps> = ({
                                         <li key={item.href}>
                                             <a
                                                 href={item.href}
-                                                className="text-dark-text-secondary/60 hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
+                                                className="text-dark-text-secondary/80 hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
                                             >
                                                 <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
                                                 {item.label}
@@ -167,7 +167,7 @@ const Footer: React.FC<FooterProps> = ({
                                         <li key={item.href}>
                                             <a
                                                 href={item.href}
-                                                className="text-dark-text-secondary/60 hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
+                                                className="text-dark-text-secondary/80 hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
                                             >
                                                 <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
                                                 {item.label}
@@ -177,12 +177,12 @@ const Footer: React.FC<FooterProps> = ({
                                 </ul>
                                 <div className="mt-5">
                                     <h5 className="text-sm font-medium gradient-text mb-2">Service Areas:</h5>
-                                    <ul className="space-y-1 text-sm text-dark-text-secondary/50">
+                                    <ul className="space-y-1 text-sm text-dark-text-secondary/70">
                                         {SERVICE_AREAS.areas.slice(0, 4).map((area) => (
                                             <li key={area}>&bull; {area}</li>
                                         ))}
                                         <li>
-                                            <a href="/services" className="text-brand-accent/60 hover:text-brand-accent text-xs transition-colors">
+                                            <a href="/services" className="text-brand-accent/80 hover:text-brand-accent text-xs transition-colors">
                                                 + {SERVICE_AREAS.areas.length - 4} more areas
                                             </a>
                                         </li>
@@ -200,7 +200,7 @@ const Footer: React.FC<FooterProps> = ({
                                             <p className="text-dark-text/80 font-medium text-sm">
                                                 {CONTACT_INFO.address.suburb}, {CONTACT_INFO.address.city}
                                             </p>
-                                            <p className="text-dark-text-secondary/50 text-xs">
+                                            <p className="text-dark-text-secondary/70 text-xs">
                                                 {CONTACT_INFO.address.state} {CONTACT_INFO.address.postcode}, {CONTACT_INFO.address.country}
                                             </p>
                                         </div>
@@ -230,8 +230,8 @@ const Footer: React.FC<FooterProps> = ({
                                         <Clock className="h-4 w-4 text-brand-accent/60 mt-0.5 flex-shrink-0" />
                                         <div>
                                             <p className="text-dark-text/80 text-sm font-medium">Business Hours:</p>
-                                            <p className="text-dark-text-secondary/50 text-xs">{CONTACT_INFO.hours.business}</p>
-                                            <p className="text-dark-text-secondary/50 text-xs">{CONTACT_INFO.hours.support}</p>
+                                            <p className="text-dark-text-secondary/70 text-xs">{CONTACT_INFO.hours.business}</p>
+                                            <p className="text-dark-text-secondary/70 text-xs">{CONTACT_INFO.hours.support}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -258,10 +258,10 @@ const Footer: React.FC<FooterProps> = ({
                             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
 
                                 <div className="text-center md:text-left">
-                                    <p className="text-dark-text-secondary/50 text-sm">
+                                    <p className="text-dark-text-secondary/70 text-sm">
                                         &copy; {currentYear} <span className="font-semibold text-dark-text/70">{BUSINESS_INFO.name}</span>. All rights reserved.
                                     </p>
-                                    <p className="text-dark-text-secondary/30 text-xs mt-1">
+                                    <p className="text-dark-text-secondary/60 text-xs mt-1">
                                         ABN: {BUSINESS_INFO.abn} &bull; {CONTACT_INFO.address.state}, {CONTACT_INFO.address.country}
                                     </p>
                                 </div>
@@ -276,21 +276,21 @@ const Footer: React.FC<FooterProps> = ({
                                         <a
                                             key={link.label}
                                             href={link.href}
-                                            className="text-dark-text-secondary/40 hover:text-brand-accent transition-colors duration-300"
+                                            className="text-dark-text-secondary/70 hover:text-brand-accent transition-colors duration-300"
                                         >
                                             {link.label}
                                         </a>
                                     ))}
                                     <a
                                         href="/sitemap.xml"
-                                        className="text-dark-text-secondary/40 hover:text-brand-accent transition-colors duration-300 flex items-center gap-1"
+                                        className="text-dark-text-secondary/70 hover:text-brand-accent transition-colors duration-300 flex items-center gap-1"
                                     >
                                         <Globe className="h-3 w-3" />
                                         Sitemap
                                     </a>
                                 </div>
 
-                                <div className="flex items-center gap-1 text-xs text-dark-text-secondary/30">
+                                <div className="flex items-center gap-1 text-xs text-dark-text-secondary/60">
                                     <span>Made with</span>
                                     <Heart className="h-3 w-3 text-red-400/50 fill-current" />
                                     <span>in {CONTACT_INFO.address.city}, {CONTACT_INFO.address.country}</span>
@@ -302,12 +302,12 @@ const Footer: React.FC<FooterProps> = ({
                     {/* Local SEO benefit statement */}
                     <div className="bg-gradient-to-r from-brand-accent/[0.03] to-brand-primary/[0.03]">
                         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                            <p className="text-center text-dark-text-secondary/40 text-xs leading-relaxed">
-                                <strong className="text-brand-accent/50">{BUSINESS_INFO.name}</strong> - Your trusted technology partner in
-                                <strong className="text-brand-primary/50"> {SERVICE_AREAS.primary}, {SERVICE_AREAS.region}</strong>.
+                            <p className="text-center text-dark-text-secondary/60 text-xs leading-relaxed">
+                                <strong className="text-brand-accent/70">{BUSINESS_INFO.name}</strong> - Your trusted technology partner in
+                                <strong className="text-brand-primary/70"> {SERVICE_AREAS.primary}, {SERVICE_AREAS.region}</strong>.
                                 Specializing in web development, AI integration, and custom software solutions for local businesses.
                                 Serving {SERVICES_OFFERED.industries.slice(0, 4).join(', ').toLowerCase()}, and growing companies throughout the region.
-                                <span className="block mt-1 text-dark-text-secondary/25">
+                                <span className="block mt-1 text-dark-text-secondary/50">
                                     <strong>Local Expertise &bull; Global Technology &bull; Proven Results</strong>
                                 </span>
                             </p>

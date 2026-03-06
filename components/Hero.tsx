@@ -54,8 +54,10 @@ const Hero: React.FC = () => {
             playsInline
             poster={isMobile ? '/assets/video/HansenDevMobile-poster.webp' : '/assets/video/HansenDev-poster.webp'}
             className="absolute inset-0 w-full h-full object-cover"
+            aria-label="Background video showing HansenDev web development work"
           >
             <source src={isMobile ? '/assets/video/HansenDevMobile.mp4' : '/assets/video/HansenDev.mp4'} type="video/mp4" />
+            <track kind="captions" src="" label="No dialogue" default />
           </video>
         </div>
         {/* Deep gradient overlay - more immersive */}
@@ -109,18 +111,6 @@ const Hero: React.FC = () => {
           >
             Local expertise &bull; Global technology &bull; Proven results in FNQ
           </p>
-        </div>
-
-        {/* Service Keywords for SEO */}
-        <div className="hidden">
-          <h2>Web Development Services Cairns</h2>
-          <h3>AI Integration Cairns Queensland</h3>
-          <h3>Custom Software Development Far North Queensland</h3>
-          <h3>Business Automation Cairns</h3>
-          <h3>Machine Learning Solutions Queensland</h3>
-          <h3>E-commerce Development Cairns</h3>
-          <h3>Mobile App Development Cairns</h3>
-          <h3>Website Design Cairns</h3>
         </div>
 
         {/* CTA */}

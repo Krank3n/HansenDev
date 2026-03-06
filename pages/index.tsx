@@ -211,10 +211,10 @@ const HomePage: React.FC = () => {
             <div className="py-8">
                 <div className="gradient-line mb-8" />
                 <div className="container-custom text-center">
-                    <p className="text-dark-text-secondary/50 text-sm">
+                    <p className="text-dark-text-secondary/70 text-sm">
                         <a
                             href="/projects/quotemate-privacy"
-                            className="text-brand-accent/60 hover:text-brand-accent transition-colors"
+                            className="text-brand-accent/80 hover:text-brand-accent transition-colors"
                         >
                             QuoteMate Privacy Policy
                         </a>
