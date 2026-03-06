@@ -48,6 +48,9 @@ const ServicesIndex: React.FC = () => {
                 <meta property="og:url" content={canonicalUrl} />
                 <meta property="og:title" content={`Services by Location | ${BUSINESS_INFO.shortName}`} />
                 <meta property="og:locale" content="en_AU" />
+                <meta property="og:image" content={`${ONLINE_PRESENCE.website.primary}/assets/HansenDevOg-1200x630.jpg`} />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }} />
             </Head>
 

@@ -16,10 +16,16 @@ const Hero: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      if (bgRef.current) {
-        const scrollY = window.scrollY;
-        bgRef.current.style.transform = `translateY(${scrollY * 0.3}px)`;
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          if (bgRef.current) {
+            bgRef.current.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });

@@ -98,6 +98,9 @@ const TechnologyConsultingCairns: React.FC = () => {
                 <meta property="og:title" content={`Technology Consulting ${SERVICE_AREAS.primary} | ${BUSINESS_INFO.shortName}`} />
                 <meta property="og:description" content={`Expert technology consulting for ${SERVICE_AREAS.primary} businesses. Strategic IT guidance and digital transformation.`} />
                 <meta property="og:locale" content="en_AU" />
+                <meta property="og:image" content={`${ONLINE_PRESENCE.website.primary}/assets/HansenDevOg-1200x630.jpg`} />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
 
                 {/* Structured Data */}
                 <script

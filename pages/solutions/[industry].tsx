@@ -107,6 +107,9 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
                 <meta property="og:description" content={pageDescription} />
                 <meta property="og:locale" content="en_AU" />
                 <meta property="og:site_name" content={BUSINESS_INFO.name} />
+                <meta property="og:image" content={`${ONLINE_PRESENCE.website.primary}/assets/HansenDevOg-1200x630.jpg`} />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
 
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={`AI Website Redesign for ${industry.plural}`} />

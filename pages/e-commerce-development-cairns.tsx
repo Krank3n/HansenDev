@@ -110,6 +110,9 @@ const EcommerceDevelopmentCairns: React.FC = () => {
                 <meta property="og:title" content={`E-commerce Development ${SERVICE_AREAS.primary} | ${BUSINESS_INFO.shortName}`} />
                 <meta property="og:description" content={`Professional e-commerce development for ${SERVICE_AREAS.primary} businesses. Build your online store with local experts.`} />
                 <meta property="og:locale" content="en_AU" />
+                <meta property="og:image" content={`${ONLINE_PRESENCE.website.primary}/assets/HansenDevOg-1200x630.jpg`} />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
 
                 {/* Twitter Card */}
                 <meta name="twitter:card" content="summary_large_image" />

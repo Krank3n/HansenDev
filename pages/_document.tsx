@@ -6,7 +6,7 @@ export default function Document() {
     // It's best practice to get your site's base URL from an environment variable
     // For development, you can fallback to localhost
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-    const ogImageUrl = `${siteUrl}/assets/morning-beach-cairns.jpg`; // Assuming you put it in public/assets/
+    const ogImageUrl = `${siteUrl}/assets/HansenDevOg-1200x630.jpg`;
 
     // Organization Schema for LLM recognition
     const organizationSchema = {
@@ -94,16 +94,6 @@ export default function Document() {
                     }}
                 />
 
-                {/* Google Tag Manager */}
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PWPRX6WL');`
-                    }}
-                />
             </Head>
             <body className="bg-dark-bg text-dark-text antialiased">
             {/* Google Tag Manager (noscript) */}

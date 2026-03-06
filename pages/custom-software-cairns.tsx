@@ -86,6 +86,9 @@ const CustomSoftwareCairns: React.FC = () => {
                 <meta property="og:title" content={`Custom Software Development ${SERVICE_AREAS.primary} | ${BUSINESS_INFO.shortName}`} />
                 <meta property="og:description" content={`Expert custom software development for ${SERVICE_AREAS.primary} businesses. Tailored solutions that streamline operations and drive growth.`} />
                 <meta property="og:locale" content="en_AU" />
+                <meta property="og:image" content={`${ONLINE_PRESENCE.website.primary}/assets/HansenDevOg-1200x630.jpg`} />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
 
                 {/* Twitter Card */}
                 <meta name="twitter:card" content="summary_large_image" />
