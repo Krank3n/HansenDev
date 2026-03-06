@@ -30,8 +30,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {/* Default SEO tags can go here, or be overridden by pages */}
-        {/* favicon example - place in public folder */}
-        {/* <link rel="icon" href="/favicon.ico" /> */}
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
       </Head>
       <div className="flex flex-col min-h-screen">
         <Navbar />
