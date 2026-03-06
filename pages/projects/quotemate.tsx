@@ -221,7 +221,7 @@ fbq('track', 'PageView');
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Back Navigation */}
-                <div className="border-b border-white/10">
+                <div className="">
                     <div className="container-custom py-6">
                         <Link href="/#portfolio" className="inline-flex items-center gap-2 text-dark-text-secondary hover:text-brand-accent transition-colors duration-300">
                             <ArrowLeft className="h-4 w-4" />
@@ -255,7 +255,7 @@ fbq('track', 'PageView');
                             <div className="flex flex-wrap gap-4 justify-center mb-8">
                                 <Link
                                     href="/quote-tool"
-                                    className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
                                     <span>Try Free - First 5 Quotes On Us</span>
@@ -270,7 +270,7 @@ fbq('track', 'PageView');
                 </section>
 
                 {/* Time Savings Banner */}
-                <section className="py-12 bg-gradient-to-r from-brand-accent/20 via-brand-primary/20 to-brand-accent/20 border-y border-brand-accent/30">
+                <section className="py-12 bg-gradient-to-r from-brand-accent/20 via-brand-primary/20 to-brand-accent/20 ">
                     <div className="container-custom">
                         <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
                             <div className="text-center">
@@ -331,7 +331,7 @@ fbq('track', 'PageView');
                             </div>
 
                             <div className="grid md:grid-cols-3 gap-8 mb-16">
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8  text-center">
                                     <div className="w-20 h-20 bg-gradient-to-br from-brand-accent to-brand-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
                                         <span className="text-4xl font-bold text-white">1</span>
                                     </div>
@@ -341,7 +341,7 @@ fbq('track', 'PageView');
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8  text-center">
                                     <div className="w-20 h-20 bg-gradient-to-br from-brand-accent to-brand-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
                                         <span className="text-4xl font-bold text-white">2</span>
                                     </div>
@@ -351,7 +351,7 @@ fbq('track', 'PageView');
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8  text-center">
                                     <div className="w-20 h-20 bg-gradient-to-br from-brand-accent to-brand-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
                                         <span className="text-4xl font-bold text-white">3</span>
                                     </div>
@@ -362,7 +362,7 @@ fbq('track', 'PageView');
                                 </div>
                             </div>
 
-                            <div className="bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8 border border-brand-accent/20 text-center">
+                            <div className="bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8  text-center">
                                 <p className="text-2xl text-white font-semibold mb-2">
                                     "I used to spend 2-3 hours per quote. Now it takes me 5 minutes."
                                 </p>
@@ -386,9 +386,9 @@ fbq('track', 'PageView');
                             </div>
 
                             <div className="grid md:grid-cols-2 gap-6">
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center border border-brand-accent/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <Clock className="h-6 w-6 text-brand-accent" />
                                         </div>
                                         <div>
@@ -400,9 +400,9 @@ fbq('track', 'PageView');
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center border border-brand-accent/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <Zap className="h-6 w-6 text-brand-accent" />
                                         </div>
                                         <div>
@@ -414,9 +414,9 @@ fbq('track', 'PageView');
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center border border-brand-accent/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <DollarSign className="h-6 w-6 text-brand-accent" />
                                         </div>
                                         <div>
@@ -428,9 +428,9 @@ fbq('track', 'PageView');
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center border border-brand-accent/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <FileText className="h-6 w-6 text-brand-accent" />
                                         </div>
                                         <div>
@@ -442,9 +442,9 @@ fbq('track', 'PageView');
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center border border-brand-accent/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <Smartphone className="h-6 w-6 text-brand-accent" />
                                         </div>
                                         <div>
@@ -456,9 +456,9 @@ fbq('track', 'PageView');
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center border border-brand-accent/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <TrendingUp className="h-6 w-6 text-brand-accent" />
                                         </div>
                                         <div>
@@ -486,7 +486,7 @@ fbq('track', 'PageView');
                             </div>
 
                             <div className="grid md:grid-cols-3 gap-6">
-                                <Link href="/tools/quoting-app-for-carpenter" className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-500 group">
+                                <Link href="/tools/quoting-app-for-carpenter" className="bg-white/5 backdrop-blur-sm rounded-2xl p-6   transition-all duration-500 group">
                                     <h3 className="text-lg font-bold text-white mb-3 group-hover:text-brand-accent transition-colors">🔨 Carpenters & Builders</h3>
                                     <ul className="space-y-2 text-dark-text-secondary text-sm">
                                         <li>• Deck installations</li>
@@ -496,7 +496,7 @@ fbq('track', 'PageView');
                                     </ul>
                                 </Link>
 
-                                <Link href="/tools/quoting-app-for-landscaper" className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-500 group">
+                                <Link href="/tools/quoting-app-for-landscaper" className="bg-white/5 backdrop-blur-sm rounded-2xl p-6   transition-all duration-500 group">
                                     <h3 className="text-lg font-bold text-white mb-3 group-hover:text-brand-accent transition-colors">🌿 Landscapers</h3>
                                     <ul className="space-y-2 text-dark-text-secondary text-sm">
                                         <li>• Retaining walls</li>
@@ -506,7 +506,7 @@ fbq('track', 'PageView');
                                     </ul>
                                 </Link>
 
-                                <Link href="/tools/quoting-app-for-fencing-contractor" className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-500 group">
+                                <Link href="/tools/quoting-app-for-fencing-contractor" className="bg-white/5 backdrop-blur-sm rounded-2xl p-6   transition-all duration-500 group">
                                     <h3 className="text-lg font-bold text-white mb-3 group-hover:text-brand-accent transition-colors">🏗️ General Contractors</h3>
                                     <ul className="space-y-2 text-dark-text-secondary text-sm">
                                         <li>• Fencing projects</li>
@@ -532,7 +532,7 @@ fbq('track', 'PageView');
                         <div className="max-w-5xl mx-auto">
                             <h2 className="text-4xl font-bold text-white mb-12">Your Data Stays Yours</h2>
 
-                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 space-y-8">
+                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8  space-y-8">
                                 <p className="text-lg text-dark-text-secondary leading-relaxed">
                                     <strong className="text-white">100% Private:</strong> All your quotes, customer details, and business information are stored only on your phone. We never see your data, never store it on our servers, and never share it with anyone. Your business is your business. <Link href="/projects/quotemate-privacy" className="text-brand-accent hover:underline">Read our full privacy policy →</Link>
                                 </p>
@@ -540,7 +540,7 @@ fbq('track', 'PageView');
                                 <div className="grid md:grid-cols-3 gap-6">
                                     <div className="space-y-3">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-lg flex items-center justify-center border border-brand-accent/30">
+                                            <div className="w-10 h-10 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-lg flex items-center justify-center ">
                                                 <Camera className="h-5 w-5 text-brand-accent" />
                                             </div>
                                             <h3 className="text-lg font-bold text-white">Camera</h3>
@@ -552,7 +552,7 @@ fbq('track', 'PageView');
 
                                     <div className="space-y-3">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-lg flex items-center justify-center border border-brand-accent/30">
+                                            <div className="w-10 h-10 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-lg flex items-center justify-center ">
                                                 <MapPin className="h-5 w-5 text-brand-accent" />
                                             </div>
                                             <h3 className="text-lg font-bold text-white">Location</h3>
@@ -564,7 +564,7 @@ fbq('track', 'PageView');
 
                                     <div className="space-y-3">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-lg flex items-center justify-center border border-brand-accent/30">
+                                            <div className="w-10 h-10 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-lg flex items-center justify-center ">
                                                 <Shield className="h-5 w-5 text-brand-accent" />
                                             </div>
                                             <h3 className="text-lg font-bold text-white">Storage</h3>
@@ -580,7 +580,7 @@ fbq('track', 'PageView');
                 </section>
 
                 {/* Final CTA */}
-                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 border-y border-brand-accent/20">
+                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 ">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto text-center">
                             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -593,7 +593,7 @@ fbq('track', 'PageView');
                             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                                 <Link
                                     href="/quote-tool"
-                                    className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
                                     <span>Start Free Trial - 5 Quotes</span>

@@ -24,7 +24,7 @@ const PrivacyPolicy: React.FC = () => {
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Back Navigation */}
-                <div className="border-b border-white/10">
+                <div className="">
                     <div className="container-custom py-6">
                         <Link href="/" className="inline-flex items-center gap-2 text-dark-text-secondary hover:text-brand-accent transition-colors duration-300">
                             <ArrowLeft className="h-4 w-4" />
@@ -58,7 +58,7 @@ const PrivacyPolicy: React.FC = () => {
                 <section className="py-16">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto">
-                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 lg:p-12 border border-white/10">
+                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 lg:p-12">
 
                                 {/* Introduction */}
                                 <div className="mb-12">
@@ -198,7 +198,7 @@ const PrivacyPolicy: React.FC = () => {
                                 </div>
 
                                 {/* Contact Information */}
-                                <div className="border-t border-white/10 pt-8">
+                                <div className="pt-8">
                                     <h2 className="text-3xl font-bold text-white mb-6">Contact Us</h2>
 
                                     <p className="text-dark-text-secondary leading-relaxed mb-6">

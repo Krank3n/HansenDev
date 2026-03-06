@@ -301,7 +301,7 @@ const OurWorkPage: React.FC = () => {
                 <div className="space-y-6">
                     {hansenDevProjects.map((project, index) => (
                         <div key={index} className="group relative">
-                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden hover:border-brand-accent/30 transition-all duration-500 hover:bg-white/[0.07]">
+                            <div className="glass-card overflow-hidden hover-glow transition-all duration-500 hover:bg-white/[0.05]">
                                 <div className="grid lg:grid-cols-5 gap-0">
                                     <div className="p-5 lg:p-8 flex flex-col justify-center order-2 lg:order-1 lg:col-span-3">
                                         <div className="space-y-3">
@@ -330,7 +330,7 @@ const OurWorkPage: React.FC = () => {
                                                 {project.technologies.map((tech, techIndex) => (
                                                     <span
                                                         key={techIndex}
-                                                        className="bg-white/10 text-dark-text px-2.5 py-1 rounded-full text-xs border border-white/20"
+                                                        className="bg-white/10 text-dark-text px-2.5 py-1 rounded-full text-xs"
                                                     >
                                                         {tech}
                                                     </span>
@@ -341,7 +341,7 @@ const OurWorkPage: React.FC = () => {
                                                     href={project.url}
                                                     target={project.url.startsWith('/') ? '_self' : '_blank'}
                                                     rel={project.url.startsWith('/') ? undefined : 'noopener noreferrer'}
-                                                    className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-primary to-brand-accent hover:from-brand-accent hover:to-brand-primary text-white px-5 py-2 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                                    className="inline-flex items-center gap-2 btn-gradient text-white px-5 py-2 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                                 >
                                                     <span>View Project</span>
                                                     <ArrowUpRight className="h-3.5 w-3.5" />
@@ -351,7 +351,7 @@ const OurWorkPage: React.FC = () => {
                                     </div>
                                     <div className="relative p-4 lg:p-6 order-1 lg:order-2 lg:col-span-2">
                                         <div className="relative aspect-[16/10] group/image">
-                                            <div className="relative w-full h-full rounded-xl overflow-hidden bg-dark-card border border-white/10 group-hover:border-brand-accent/30 transition-all duration-500">
+                                            <div className="relative w-full h-full rounded-xl overflow-hidden bg-dark-card transition-all duration-500">
                                                 <Image
                                                     src={project.image}
                                                     alt={project.imageAlt}
@@ -379,7 +379,7 @@ const OurWorkPage: React.FC = () => {
                 <div className="space-y-6">
                     {cairnsProjects.map((project, index) => (
                         <div key={project.slug} className="group relative">
-                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden hover:border-brand-accent/30 transition-all duration-500 hover:bg-white/[0.07]">
+                            <div className="glass-card overflow-hidden hover-glow transition-all duration-500 hover:bg-white/[0.05]">
                                 <div className="grid lg:grid-cols-5 gap-0">
                                     {/* Content Side */}
                                     <div className={`p-5 lg:p-8 flex flex-col justify-center lg:col-span-3 ${index % 2 === 0 ? 'order-2 lg:order-1' : 'order-2'}`}>
@@ -426,7 +426,7 @@ const OurWorkPage: React.FC = () => {
                                                     href={project.demoUrl}
                                                     target={project.demoUrl.startsWith('/') ? '_self' : '_blank'}
                                                     rel={project.demoUrl.startsWith('/') ? undefined : 'noopener noreferrer'}
-                                                    className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-primary to-brand-accent hover:from-brand-accent hover:to-brand-primary text-white px-5 py-2 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                                    className="inline-flex items-center gap-2 btn-gradient text-white px-5 py-2 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                                 >
                                                     <span>{project.demoUrl.startsWith('/') ? 'View Demo' : 'Visit Site'}</span>
                                                     <ArrowUpRight className="h-3.5 w-3.5" />
@@ -438,7 +438,7 @@ const OurWorkPage: React.FC = () => {
                                     {/* Image Side */}
                                     <div className={`relative p-4 lg:p-6 lg:col-span-2 ${index % 2 === 0 ? 'order-1 lg:order-2' : 'order-1'}`}>
                                         <div className="relative aspect-[16/10] group/image">
-                                            <div className="relative w-full h-full rounded-xl overflow-hidden bg-dark-card border border-white/10 group-hover:border-brand-accent/30 transition-all duration-500">
+                                            <div className="relative w-full h-full rounded-xl overflow-hidden bg-dark-card transition-all duration-500">
                                                 <Image
                                                     src={project.image}
                                                     alt={project.imageAlt}
@@ -459,7 +459,7 @@ const OurWorkPage: React.FC = () => {
 
             {/* CTA Section */}
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-20">
-                <div className="relative bg-gradient-to-br from-brand-primary/10 to-brand-accent/10 rounded-2xl p-8 lg:p-12 border border-brand-accent/20 overflow-hidden">
+                <div className="relative bg-gradient-to-br from-brand-primary/10 to-brand-accent/10 rounded-2xl p-8 lg:p-12 overflow-hidden">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(20,184,166,0.1),transparent_50%)] pointer-events-none"></div>
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(13,148,136,0.1),transparent_50%)] pointer-events-none"></div>
                     <div className="relative text-center max-w-4xl mx-auto space-y-8">
@@ -477,14 +477,14 @@ const OurWorkPage: React.FC = () => {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a
                                 href="/#contact"
-                                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                             >
                                 <span>Start Your Project</span>
                                 <ArrowUpRight className="h-5 w-5" />
                             </a>
                             <a
                                 href="/#services"
-                                className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-brand-accent/50 px-8 py-4 rounded-xl font-semibold transition-all duration-300 backdrop-blur-sm"
+                                className="inline-flex items-center justify-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 backdrop-blur-sm"
                             >
                                 <span>View Services</span>
                                 <Code2 className="h-5 w-5" />

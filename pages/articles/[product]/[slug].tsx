@@ -335,7 +335,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article, relatedArticles, pro
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Breadcrumb Navigation */}
-                <nav className="border-b border-white/10" aria-label="Breadcrumb">
+                <nav className="" aria-label="Breadcrumb">
                     <div className="container-custom py-4">
                         <ol className="flex items-center gap-2 text-sm text-dark-text-secondary flex-wrap" itemScope itemType="https://schema.org/BreadcrumbList">
                             <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
@@ -406,7 +406,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article, relatedArticles, pro
                             </p>
 
                             {/* Author & Meta Info */}
-                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 bg-white/5 rounded-xl border border-white/10">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 glass-card">
                                 <div className="flex items-center gap-4">
                                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-accent to-brand-primary flex items-center justify-center text-white font-bold">
                                         TH
@@ -448,7 +448,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article, relatedArticles, pro
                 {frontmatter.featuredImage && (
                     <div className="container-custom pb-8">
                         <div className="max-w-4xl mx-auto">
-                            <figure className="relative aspect-video rounded-2xl overflow-hidden border border-white/10">
+                            <figure className="relative aspect-video rounded-2xl overflow-hidden">
                                 <Image
                                     src={frontmatter.featuredImage}
                                     alt={frontmatter.title}
@@ -469,7 +469,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article, relatedArticles, pro
                             {/* Table of Contents - Sticky Sidebar on Desktop */}
                             {headings.length >= 3 && (
                                 <aside className="lg:w-64 flex-shrink-0 mb-8 lg:mb-0">
-                                    <nav className="lg:sticky lg:top-8 bg-white/5 rounded-2xl p-5 border border-white/10" aria-label="Table of contents">
+                                    <nav className="lg:sticky lg:top-8 glass-card p-5" aria-label="Table of contents">
                                         <div className="flex items-center gap-2 text-white font-semibold mb-4">
                                             <BookOpen className="h-5 w-5 text-brand-accent" />
                                             <span>Contents</span>
@@ -503,7 +503,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article, relatedArticles, pro
                 </div>
 
                 {/* Author Bio Section - E-E-A-T Signal */}
-                <section className="py-12 bg-white/[0.02] border-t border-white/10">
+                <section className="py-12 bg-white/[0.02]">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto">
                             <h2 className="text-xl font-bold text-white mb-6">About the Author</h2>
@@ -513,7 +513,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article, relatedArticles, pro
                 </section>
 
                 {/* Keywords/Tags */}
-                <section className="py-8 border-t border-white/10">
+                <section className="py-8">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto">
                             <h2 className="text-sm font-medium text-dark-text-secondary uppercase tracking-wider mb-4">
@@ -523,7 +523,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article, relatedArticles, pro
                                 {frontmatter.keywords.map((keyword, index) => (
                                     <span
                                         key={index}
-                                        className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm text-dark-text-secondary hover:border-brand-accent/30 transition-colors"
+                                        className="px-3 py-1 bg-white/5 rounded-full text-sm text-dark-text-secondary transition-colors"
                                     >
                                         {keyword}
                                     </span>
@@ -549,7 +549,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article, relatedArticles, pro
                                         <Link
                                             key={index}
                                             href={`/articles/${product}/${related.frontmatter.slug}`}
-                                            className="group bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:border-brand-accent/30 transition-all duration-300"
+                                            className="group glass-card overflow-hidden transition-all duration-300"
                                         >
                                             {related.frontmatter.featuredImage && (
                                                 <div className="relative aspect-video overflow-hidden">
@@ -579,7 +579,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article, relatedArticles, pro
                 )}
 
                 {/* CTA Section */}
-                <section className="py-16 lg:py-20 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 border-t border-brand-accent/20">
+                <section className="py-16 lg:py-20 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 ">
                     <div className="container-custom">
                         <div className="max-w-3xl mx-auto text-center">
                             <div className="inline-flex items-center gap-2 text-brand-accent text-sm font-medium mb-4">
@@ -595,14 +595,14 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article, relatedArticles, pro
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Link
                                     href={`/articles/${product}`}
-                                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25"
+                                    className="inline-flex items-center justify-center gap-2 btn-gradient text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25"
                                 >
                                     Browse All Articles
                                     <ChevronRight className="h-4 w-4" />
                                 </Link>
                                 <Link
                                     href={product === 'hansendev' ? '/' : `/projects/${product}`}
-                                    className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300"
                                 >
                                     Learn About {productName}
                                 </Link>

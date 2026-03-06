@@ -208,12 +208,13 @@ const HomePage: React.FC = () => {
             <Contact />
 
             {/* Privacy Policy Link Section */}
-            <div className="py-8 border-t border-white/10">
+            <div className="py-8">
+                <div className="gradient-line mb-8" />
                 <div className="container-custom text-center">
-                    <p className="text-dark-text-secondary text-sm">
+                    <p className="text-dark-text-secondary/50 text-sm">
                         <a
                             href="/projects/quotemate-privacy"
-                            className="text-brand-accent hover:text-brand-primary transition-colors underline"
+                            className="text-brand-accent/60 hover:text-brand-accent transition-colors"
                         >
                             QuoteMate Privacy Policy
                         </a>

@@ -466,7 +466,7 @@ const QuoteMateGettingStarted: React.FC = () => {
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Back Navigation */}
-                <div className="border-b border-white/10">
+                <div className="">
                     <div className="container-custom py-6">
                         <Link href="/projects/quotemate" className="inline-flex items-center gap-2 px-4 py-2 text-dark-text-secondary hover:text-brand-accent transition-colors duration-300">
                             <ArrowLeft className="h-4 w-4" />
@@ -498,7 +498,7 @@ const QuoteMateGettingStarted: React.FC = () => {
                                     href="/quote-tool"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
                                     <span>Download & Start Now</span>
@@ -509,7 +509,7 @@ const QuoteMateGettingStarted: React.FC = () => {
                 </section>
 
                 {/* Quick Overview */}
-                <section className="py-12 bg-gradient-to-r from-brand-accent/20 via-brand-primary/20 to-brand-accent/20 border-y border-brand-accent/30">
+                <section className="py-12 bg-gradient-to-r from-brand-accent/20 via-brand-primary/20 to-brand-accent/20 ">
                     <div className="container-custom">
                         <div className="max-w-5xl mx-auto">
                             <div className="grid md:grid-cols-5 gap-6">
@@ -533,7 +533,7 @@ const QuoteMateGettingStarted: React.FC = () => {
                                 </div>
                             </div>
                             <div className="text-center mt-8">
-                                <div className="inline-flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full border border-white/20">
+                                <div className="inline-flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full ">
                                     <Clock className="h-5 w-5 text-brand-accent" />
                                     <span className="text-white font-bold">Total Time: Under 10 Minutes</span>
                                 </div>
@@ -555,10 +555,10 @@ const QuoteMateGettingStarted: React.FC = () => {
 
                             <div className="space-y-12">
                                 {steps.map((step, index) => (
-                                    <div key={index} id={`step-${step.number}`} className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 lg:p-12 border border-white/10">
+                                    <div key={index} id={`step-${step.number}`} className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 lg:p-12 ">
                                         {/* Step Header */}
                                         <div className="flex items-start gap-6 mb-8">
-                                            <div className="w-20 h-20 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-2xl flex items-center justify-center border border-brand-accent/30 flex-shrink-0">
+                                            <div className="w-20 h-20 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-2xl flex items-center justify-center  flex-shrink-0">
                                                 {step.icon}
                                             </div>
                                             <div className="flex-1">
@@ -589,7 +589,7 @@ const QuoteMateGettingStarted: React.FC = () => {
 
                                         {/* Tips & Common Mistakes */}
                                         <div className="grid lg:grid-cols-2 gap-6">
-                                            <div className="bg-green-400/10 rounded-xl p-6 border border-green-400/20">
+                                            <div className="bg-green-400/10 rounded-xl p-6 ">
                                                 <div className="flex items-center gap-2 mb-4">
                                                     <Lightbulb className="h-5 w-5 text-green-400" />
                                                     <h4 className="font-bold text-white">Pro Tips:</h4>
@@ -604,7 +604,7 @@ const QuoteMateGettingStarted: React.FC = () => {
                                                 </ul>
                                             </div>
 
-                                            <div className="bg-yellow-500/10 rounded-xl p-6 border border-yellow-500/20">
+                                            <div className="bg-yellow-500/10 rounded-xl p-6 ">
                                                 <div className="flex items-center gap-2 mb-4">
                                                     <AlertCircle className="h-5 w-5 text-yellow-500" />
                                                     <h4 className="font-bold text-white">Avoid These Mistakes:</h4>
@@ -639,13 +639,13 @@ const QuoteMateGettingStarted: React.FC = () => {
 
                             <div className="grid md:grid-cols-2 gap-8">
                                 {firstQuoteExamples.map((example, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 ">
                                         <div className="flex items-center gap-3 mb-6">
                                             <Award className="h-8 w-8 text-brand-accent" />
                                             <h3 className="text-2xl font-bold text-white">{example.trade}</h3>
                                         </div>
 
-                                        <div className="bg-brand-accent/10 rounded-xl p-6 border border-brand-accent/20 mb-6">
+                                        <div className="bg-brand-accent/10 rounded-xl p-6  mb-6">
                                             <div className="text-sm text-brand-accent font-semibold mb-2">YOU TYPE:</div>
                                             <div className="text-white font-mono">{example.example}</div>
                                         </div>
@@ -674,9 +674,9 @@ const QuoteMateGettingStarted: React.FC = () => {
 
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {quickTips.map((tip, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
+                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-6   transition-all duration-500">
                                         <div className="flex items-center gap-3 mb-4">
-                                            <div className="w-12 h-12 bg-brand-accent/10 rounded-xl flex items-center justify-center border border-brand-accent/20">
+                                            <div className="w-12 h-12 bg-brand-accent/10 rounded-xl flex items-center justify-center ">
                                                 {tip.icon}
                                             </div>
                                             <h3 className="text-lg font-bold text-white">{tip.title}</h3>
@@ -702,12 +702,12 @@ const QuoteMateGettingStarted: React.FC = () => {
 
                             <div className="space-y-6">
                                 {troubleshooting.map((item, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 ">
                                         <div className="flex items-start gap-4 mb-4">
                                             <AlertCircle className="h-6 w-6 text-yellow-500 flex-shrink-0 mt-1" />
                                             <div className="flex-1">
                                                 <h3 className="text-xl font-bold text-white mb-3">{item.problem}</h3>
-                                                <div className="bg-green-400/10 rounded-xl p-4 border border-green-400/20">
+                                                <div className="bg-green-400/10 rounded-xl p-4 ">
                                                     <div className="text-sm font-semibold text-green-400 mb-2">SOLUTION:</div>
                                                     <p className="text-dark-text-secondary text-sm leading-relaxed">{item.solution}</p>
                                                 </div>
@@ -717,7 +717,7 @@ const QuoteMateGettingStarted: React.FC = () => {
                                 ))}
                             </div>
 
-                            <div className="mt-12 bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8 border border-brand-accent/20 text-center">
+                            <div className="mt-12 bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8  text-center">
                                 <h3 className="text-2xl font-bold text-white mb-4">Still Need Help?</h3>
                                 <p className="text-dark-text-secondary mb-6">
                                     Our Australian support team is here to help. Contact us via the app or at support@quotemate.app
@@ -744,7 +744,7 @@ const QuoteMateGettingStarted: React.FC = () => {
 
                             <div className="grid md:grid-cols-2 gap-6">
                                 {nextSteps.map((step, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 ">
                                         <div className="flex items-center gap-3 mb-4">
                                             <div className="w-12 h-12 bg-gradient-to-br from-brand-accent to-brand-primary rounded-xl flex items-center justify-center text-white font-bold text-xl">
                                                 {index + 1}
@@ -772,19 +772,19 @@ const QuoteMateGettingStarted: React.FC = () => {
                             </div>
 
                             <div className="grid md:grid-cols-3 gap-6">
-                                <Link href="/projects/quotemate-features" className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 group">
+                                <Link href="/projects/quotemate-features" className="bg-white/5 backdrop-blur-sm rounded-xl p-6   transition-all duration-300 group">
                                     <Zap className="h-8 w-8 text-brand-accent mb-4 group-hover:scale-110 transition-transform" />
                                     <h3 className="text-lg font-bold text-white mb-2">All Features</h3>
                                     <p className="text-dark-text-secondary text-sm">Explore every feature in detail</p>
                                 </Link>
 
-                                <Link href="/projects/quotemate-pricing" className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 group">
+                                <Link href="/projects/quotemate-pricing" className="bg-white/5 backdrop-blur-sm rounded-xl p-6   transition-all duration-300 group">
                                     <DollarSign className="h-8 w-8 text-brand-accent mb-4 group-hover:scale-110 transition-transform" />
                                     <h3 className="text-lg font-bold text-white mb-2">Pricing & ROI</h3>
                                     <p className="text-dark-text-secondary text-sm">See plans and calculate savings</p>
                                 </Link>
 
-                                <Link href="/projects/quotemate-for-tradies" className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 group">
+                                <Link href="/projects/quotemate-for-tradies" className="bg-white/5 backdrop-blur-sm rounded-xl p-6   transition-all duration-300 group">
                                     <Users className="h-8 w-8 text-brand-accent mb-4 group-hover:scale-110 transition-transform" />
                                     <h3 className="text-lg font-bold text-white mb-2">For Your Trade</h3>
                                     <p className="text-dark-text-secondary text-sm">Trade-specific features & examples</p>
@@ -795,7 +795,7 @@ const QuoteMateGettingStarted: React.FC = () => {
                 </section>
 
                 {/* CTA Section */}
-                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 border-y border-brand-accent/20">
+                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 ">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto text-center">
                             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -810,14 +810,14 @@ const QuoteMateGettingStarted: React.FC = () => {
                                     href="/quote-tool"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
                                     <span>Download QuoteMate Free</span>
                                 </Link>
                                 <Link
                                     href="/projects/quotemate"
-                                    className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center justify-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 "
                                 >
                                     <span>Learn More</span>
                                 </Link>

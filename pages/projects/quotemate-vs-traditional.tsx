@@ -430,7 +430,7 @@ const QuoteMateVsTraditional: React.FC = () => {
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Back Navigation */}
-                <div className="border-b border-white/10">
+                <div className="">
                     <div className="container-custom py-6">
                         <Link href="/projects/quotemate" className="inline-flex items-center gap-2 px-4 py-2 text-dark-text-secondary hover:text-brand-accent transition-colors duration-300">
                             <ArrowLeft className="h-4 w-4" />
@@ -462,7 +462,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                                     href="/quote-tool"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
                                     <span>Try QuoteMate Free</span>
@@ -473,7 +473,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                 </section>
 
                 {/* Quick Stats */}
-                <section className="py-12 bg-gradient-to-r from-brand-accent/20 via-brand-primary/20 to-brand-accent/20 border-y border-brand-accent/30">
+                <section className="py-12 bg-gradient-to-r from-brand-accent/20 via-brand-primary/20 to-brand-accent/20 ">
                     <div className="container-custom">
                         <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
                             <div className="text-center">
@@ -504,7 +504,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                             </div>
 
                             <div className="overflow-x-auto">
-                                <table className="w-full bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                                <table className="w-full bg-white/5 backdrop-blur-sm rounded-2xl  overflow-hidden">
                                     <thead>
                                         <tr className="bg-white/10">
                                             <th className="text-left p-6 text-white font-bold">Feature</th>
@@ -515,7 +515,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                                     </thead>
                                     <tbody>
                                         {comparisonTable.map((row, index) => (
-                                            <tr key={index} className="border-t border-white/10">
+                                            <tr key={index} className="">
                                                 <td className="p-6 font-semibold text-white">{row.feature}</td>
                                                 <td className="p-6 text-center text-dark-text-secondary text-sm">{row.manual}</td>
                                                 <td className="p-6 text-center text-dark-text-secondary text-sm">{row.excel}</td>
@@ -547,18 +547,18 @@ const QuoteMateVsTraditional: React.FC = () => {
 
                             <div className="space-y-6">
                                 {timeComparison.map((item, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 ">
                                         <h3 className="text-xl font-bold text-white mb-6">{item.task}</h3>
                                         <div className="grid md:grid-cols-3 gap-6">
-                                            <div className="bg-red-500/10 rounded-xl p-6 border border-red-500/20">
+                                            <div className="bg-red-500/10 rounded-xl p-6 ">
                                                 <div className="text-red-400 font-semibold mb-2">Manual/Word</div>
                                                 <div className="text-2xl font-bold text-white">{item.manual}</div>
                                             </div>
-                                            <div className="bg-yellow-500/10 rounded-xl p-6 border border-yellow-500/20">
+                                            <div className="bg-yellow-500/10 rounded-xl p-6 ">
                                                 <div className="text-yellow-500 font-semibold mb-2">Excel</div>
                                                 <div className="text-2xl font-bold text-white">{item.excel}</div>
                                             </div>
-                                            <div className="bg-brand-accent/10 rounded-xl p-6 border border-brand-accent/20">
+                                            <div className="bg-brand-accent/10 rounded-xl p-6 ">
                                                 <div className="text-brand-accent font-semibold mb-2 flex items-center gap-2">
                                                     <CheckCircle className="h-5 w-5" />
                                                     <span>QuoteMate</span>
@@ -570,7 +570,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                                 ))}
                             </div>
 
-                            <div className="mt-12 bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8 border border-brand-accent/20">
+                            <div className="mt-12 bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8 ">
                                 <div className="flex items-start gap-4">
                                     <Clock className="h-12 w-12 text-brand-accent flex-shrink-0" />
                                     <div>
@@ -612,7 +612,7 @@ const QuoteMateVsTraditional: React.FC = () => {
 
                             <div className="space-y-6">
                                 {accuracyComparison.map((item, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 ">
                                         <div className="flex items-start gap-4 mb-6">
                                             <AlertTriangle className="h-8 w-8 text-yellow-500 flex-shrink-0" />
                                             <div className="flex-1">
@@ -625,15 +625,15 @@ const QuoteMateVsTraditional: React.FC = () => {
                                         </div>
 
                                         <div className="grid md:grid-cols-3 gap-4">
-                                            <div className="bg-red-500/10 rounded-xl p-4 border border-red-500/20">
+                                            <div className="bg-red-500/10 rounded-xl p-4 ">
                                                 <div className="text-red-400 font-semibold mb-2 text-sm">Manual Risk</div>
                                                 <div className="text-white text-sm">{item.manualError}</div>
                                             </div>
-                                            <div className="bg-yellow-500/10 rounded-xl p-4 border border-yellow-500/20">
+                                            <div className="bg-yellow-500/10 rounded-xl p-4 ">
                                                 <div className="text-yellow-500 font-semibold mb-2 text-sm">Excel Risk</div>
                                                 <div className="text-white text-sm">{item.excelError}</div>
                                             </div>
-                                            <div className="bg-green-400/10 rounded-xl p-4 border border-green-400/20">
+                                            <div className="bg-green-400/10 rounded-xl p-4 ">
                                                 <div className="text-green-400 font-semibold mb-2 text-sm">QuoteMate Risk</div>
                                                 <div className="text-white text-sm">{item.quotemateError}</div>
                                             </div>
@@ -642,7 +642,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                                 ))}
                             </div>
 
-                            <div className="mt-12 bg-gradient-to-r from-green-400/10 to-brand-accent/10 rounded-2xl p-8 border border-green-400/20">
+                            <div className="mt-12 bg-gradient-to-r from-green-400/10 to-brand-accent/10 rounded-2xl p-8 ">
                                 <div className="flex items-start gap-4">
                                     <Shield className="h-12 w-12 text-green-400 flex-shrink-0" />
                                     <div>
@@ -673,22 +673,22 @@ const QuoteMateVsTraditional: React.FC = () => {
 
                             <div className="space-y-6">
                                 {professionalismFactors.map((factor, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 ">
                                         <div className="mb-6">
                                             <h3 className="text-2xl font-bold text-white mb-2">{factor.factor}</h3>
                                             <p className="text-dark-text-secondary">{factor.impact}</p>
                                         </div>
 
                                         <div className="grid md:grid-cols-3 gap-4">
-                                            <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                                            <div className="bg-white/5 rounded-xl p-4 ">
                                                 <div className="font-semibold text-white mb-2">Manual/Word</div>
                                                 <div className="text-dark-text-secondary text-sm">{factor.manual}</div>
                                             </div>
-                                            <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                                            <div className="bg-white/5 rounded-xl p-4 ">
                                                 <div className="font-semibold text-white mb-2">Excel</div>
                                                 <div className="text-dark-text-secondary text-sm">{factor.excel}</div>
                                             </div>
-                                            <div className="bg-brand-accent/10 rounded-xl p-4 border border-brand-accent/20">
+                                            <div className="bg-brand-accent/10 rounded-xl p-4 ">
                                                 <div className="font-semibold text-brand-accent mb-2">QuoteMate</div>
                                                 <div className="text-white text-sm">{factor.quotemate}</div>
                                             </div>
@@ -697,7 +697,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                                 ))}
                             </div>
 
-                            <div className="mt-12 bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8 border border-brand-accent/20">
+                            <div className="mt-12 bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8 ">
                                 <div className="flex items-start gap-4">
                                     <Award className="h-12 w-12 text-brand-accent flex-shrink-0" />
                                     <div>
@@ -728,11 +728,11 @@ const QuoteMateVsTraditional: React.FC = () => {
 
                             <div className="space-y-8">
                                 {vsOtherApps.map((app, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 lg:p-12 border border-white/10">
+                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 lg:p-12 ">
                                         <h3 className="text-3xl font-bold text-white mb-8">{app.app}</h3>
 
                                         <div className="grid lg:grid-cols-2 gap-8 mb-8">
-                                            <div className="bg-green-400/10 rounded-2xl p-6 border border-green-400/20">
+                                            <div className="bg-green-400/10 rounded-2xl p-6 ">
                                                 <div className="flex items-center gap-3 mb-4">
                                                     <ThumbsUp className="h-6 w-6 text-green-400" />
                                                     <h4 className="text-lg font-bold text-white">Pros</h4>
@@ -747,7 +747,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                                                 </ul>
                                             </div>
 
-                                            <div className="bg-red-500/10 rounded-2xl p-6 border border-red-500/20">
+                                            <div className="bg-red-500/10 rounded-2xl p-6 ">
                                                 <div className="flex items-center gap-3 mb-4">
                                                     <ThumbsDown className="h-6 w-6 text-red-400" />
                                                     <h4 className="text-lg font-bold text-white">Cons</h4>
@@ -763,7 +763,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                                             </div>
                                         </div>
 
-                                        <div className="bg-brand-accent/10 rounded-2xl p-6 border border-brand-accent/20">
+                                        <div className="bg-brand-accent/10 rounded-2xl p-6 ">
                                             <div className="text-sm font-semibold text-brand-accent mb-2">VERDICT:</div>
                                             <p className="text-white leading-relaxed">{app.verdict}</p>
                                         </div>
@@ -787,17 +787,17 @@ const QuoteMateVsTraditional: React.FC = () => {
 
                             <div className="space-y-8">
                                 {commonObjections.map((objection, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 lg:p-12 border border-white/10">
+                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 lg:p-12 ">
                                         <div className="flex items-start gap-4 mb-6">
                                             <MessageSquare className="h-10 w-10 text-brand-accent flex-shrink-0" />
                                             <div>
                                                 <h3 className="text-2xl font-bold text-white mb-4">{objection.objection}</h3>
-                                                <div className="bg-brand-accent/10 rounded-xl p-6 border border-brand-accent/20 mb-6">
+                                                <div className="bg-brand-accent/10 rounded-xl p-6  mb-6">
                                                     <div className="text-sm font-semibold text-brand-accent mb-2">RESPONSE:</div>
                                                     <p className="text-white leading-relaxed">{objection.response}</p>
                                                 </div>
 
-                                                <div className="bg-gradient-to-r from-brand-primary/10 to-brand-accent/10 rounded-xl p-6 border border-brand-accent/20">
+                                                <div className="bg-gradient-to-r from-brand-primary/10 to-brand-accent/10 rounded-xl p-6 ">
                                                     <div className="flex items-start gap-3">
                                                         <Star className="h-5 w-5 text-brand-accent flex-shrink-0 mt-1" />
                                                         <div>
@@ -827,7 +827,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                             </div>
 
                             <div className="grid md:grid-cols-2 gap-8 mb-12">
-                                <div className="bg-green-400/10 rounded-3xl p-8 border border-green-400/20">
+                                <div className="bg-green-400/10 rounded-3xl p-8 ">
                                     <div className="flex items-center gap-3 mb-6">
                                         <CheckCircle className="h-10 w-10 text-green-400" />
                                         <h3 className="text-2xl font-bold text-white">QuoteMate is Perfect If You...</h3>
@@ -864,7 +864,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                                     </ul>
                                 </div>
 
-                                <div className="bg-yellow-500/10 rounded-3xl p-8 border border-yellow-500/20">
+                                <div className="bg-yellow-500/10 rounded-3xl p-8 ">
                                     <div className="flex items-center gap-3 mb-6">
                                         <AlertTriangle className="h-10 w-10 text-yellow-500" />
                                         <h3 className="text-2xl font-bold text-white">Maybe Stick With Excel If You...</h3>
@@ -902,7 +902,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                                 </div>
                             </div>
 
-                            <div className="bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8 border border-brand-accent/20 text-center">
+                            <div className="bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8  text-center">
                                 <h3 className="text-2xl font-bold text-white mb-4">Still Not Sure? Try It Risk-Free</h3>
                                 <p className="text-xl text-dark-text-secondary mb-6">
                                     Get 5 free quotes to see the difference yourself. No credit card. No commitment. If it doesn't save you massive time, don't subscribe. Simple.
@@ -911,7 +911,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                                     href="/quote-tool"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
                                     <span>Try 5 Free Quotes</span>
@@ -930,19 +930,19 @@ const QuoteMateVsTraditional: React.FC = () => {
                             </div>
 
                             <div className="grid md:grid-cols-3 gap-6">
-                                <Link href="/projects/quotemate-features" className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 group">
+                                <Link href="/projects/quotemate-features" className="bg-white/5 backdrop-blur-sm rounded-xl p-6   transition-all duration-300 group">
                                     <Zap className="h-8 w-8 text-brand-accent mb-4 group-hover:scale-110 transition-transform" />
                                     <h3 className="text-lg font-bold text-white mb-2">All Features</h3>
                                     <p className="text-dark-text-secondary text-sm">See every feature in detail</p>
                                 </Link>
 
-                                <Link href="/projects/quotemate-pricing" className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 group">
+                                <Link href="/projects/quotemate-pricing" className="bg-white/5 backdrop-blur-sm rounded-xl p-6   transition-all duration-300 group">
                                     <DollarSign className="h-8 w-8 text-brand-accent mb-4 group-hover:scale-110 transition-transform" />
                                     <h3 className="text-lg font-bold text-white mb-2">Pricing & ROI</h3>
                                     <p className="text-dark-text-secondary text-sm">Calculate your savings</p>
                                 </Link>
 
-                                <Link href="/projects/quotemate-getting-started" className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 group">
+                                <Link href="/projects/quotemate-getting-started" className="bg-white/5 backdrop-blur-sm rounded-xl p-6   transition-all duration-300 group">
                                     <Download className="h-8 w-8 text-brand-accent mb-4 group-hover:scale-110 transition-transform" />
                                     <h3 className="text-lg font-bold text-white mb-2">Getting Started</h3>
                                     <p className="text-dark-text-secondary text-sm">First quote in 2 minutes</p>
@@ -953,7 +953,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                 </section>
 
                 {/* CTA Section */}
-                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 border-y border-brand-accent/20">
+                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 ">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto text-center">
                             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -968,14 +968,14 @@ const QuoteMateVsTraditional: React.FC = () => {
                                     href="/quote-tool"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
                                     <span>Try QuoteMate Free</span>
                                 </Link>
                                 <Link
                                     href="/projects/quotemate"
-                                    className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center justify-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 "
                                 >
                                     <span>Learn More</span>
                                     <ArrowRight className="h-5 w-5" />

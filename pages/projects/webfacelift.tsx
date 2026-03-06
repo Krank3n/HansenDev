@@ -170,7 +170,7 @@ const WebFaceLift: React.FC = () => {
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Back Navigation */}
-                <div className="border-b border-white/10">
+                <div className="">
                     <div className="container-custom py-6">
                         <Link href="/#portfolio" className="inline-flex items-center gap-2 text-dark-text-secondary hover:text-brand-accent transition-colors duration-300">
                             <ArrowLeft className="h-4 w-4" />
@@ -222,14 +222,14 @@ const WebFaceLift: React.FC = () => {
                                     href="https://webfacelift.app"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-3 bg-gradient-to-r from-indigo-500 to-violet-500 hover:from-violet-500 hover:to-indigo-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5"
                                 >
                                     <Zap className="h-6 w-6" />
                                     <span>Try It Free</span>
                                 </a>
                                 <a
                                     href="#how-it-works"
-                                    className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 "
                                 >
                                     <span>See How It Works</span>
                                     <ArrowUpRight className="h-6 w-6" />
@@ -244,7 +244,7 @@ const WebFaceLift: React.FC = () => {
                 </section>
 
                 {/* Stats Banner */}
-                <section className="py-12 bg-gradient-to-r from-indigo-500/20 via-violet-500/20 to-purple-500/20 border-y border-indigo-500/30">
+                <section className="py-12 bg-gradient-to-r from-indigo-500/20 via-violet-500/20 to-purple-500/20 ">
                     <div className="container-custom">
                         <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
                             <div className="text-center">
@@ -279,7 +279,7 @@ const WebFaceLift: React.FC = () => {
                             </div>
 
                             <div className="grid md:grid-cols-3 gap-8 mb-16">
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8  text-center">
                                     <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                                         <span className="text-4xl font-bold text-white">1</span>
                                     </div>
@@ -289,7 +289,7 @@ const WebFaceLift: React.FC = () => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8  text-center">
                                     <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                                         <span className="text-4xl font-bold text-white">2</span>
                                     </div>
@@ -299,7 +299,7 @@ const WebFaceLift: React.FC = () => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8  text-center">
                                     <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                                         <span className="text-4xl font-bold text-white">3</span>
                                     </div>
@@ -310,7 +310,7 @@ const WebFaceLift: React.FC = () => {
                                 </div>
                             </div>
 
-                            <div className="bg-gradient-to-r from-indigo-500/10 to-violet-500/10 rounded-2xl p-8 border border-indigo-500/20 text-center">
+                            <div className="bg-gradient-to-r from-indigo-500/10 to-violet-500/10 rounded-2xl p-8  text-center">
                                 <p className="text-2xl text-white font-semibold mb-2">
                                     &quot;Stop polishing. Start rebuilding.&quot;
                                 </p>
@@ -334,9 +334,9 @@ const WebFaceLift: React.FC = () => {
                             </div>
 
                             <div className="grid md:grid-cols-2 gap-6">
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-500/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-indigo-500/20 to-violet-500/20 rounded-xl flex items-center justify-center border border-indigo-500/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-indigo-500/20 to-violet-500/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <Zap className="h-6 w-6 text-indigo-400" />
                                         </div>
                                         <div>
@@ -348,9 +348,9 @@ const WebFaceLift: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-500/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-xl flex items-center justify-center border border-violet-500/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <MessageSquare className="h-6 w-6 text-violet-400" />
                                         </div>
                                         <div>
@@ -362,9 +362,9 @@ const WebFaceLift: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-500/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl flex items-center justify-center border border-cyan-500/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <Globe className="h-6 w-6 text-cyan-400" />
                                         </div>
                                         <div>
@@ -376,9 +376,9 @@ const WebFaceLift: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-500/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-pink-500/20 to-rose-500/20 rounded-xl flex items-center justify-center border border-pink-500/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-pink-500/20 to-rose-500/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <Paintbrush className="h-6 w-6 text-pink-400" />
                                         </div>
                                         <div>
@@ -390,9 +390,9 @@ const WebFaceLift: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-500/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-xl flex items-center justify-center border border-amber-500/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <Layers className="h-6 w-6 text-amber-400" />
                                         </div>
                                         <div>
@@ -404,9 +404,9 @@ const WebFaceLift: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-500/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-emerald-500/20 to-green-500/20 rounded-xl flex items-center justify-center border border-emerald-500/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-emerald-500/20 to-green-500/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <FileJson className="h-6 w-6 text-emerald-400" />
                                         </div>
                                         <div>
@@ -460,8 +460,8 @@ const WebFaceLift: React.FC = () => {
                                         description: 'Map content to components, construct the full JSON blueprint, and render the live preview.',
                                     },
                                 ].map((step, index) => (
-                                    <div key={step.stage} className="flex items-start gap-6 bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-                                        <div className="flex-shrink-0 w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center border border-white/10">
+                                    <div key={step.stage} className="flex items-start gap-6 bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
+                                        <div className="flex-shrink-0 w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center ">
                                             {step.icon}
                                         </div>
                                         <div className="flex-1">
@@ -512,7 +512,7 @@ const WebFaceLift: React.FC = () => {
                                 ].map((component) => (
                                     <div
                                         key={component.name}
-                                        className="bg-white/5 rounded-xl p-4 border border-white/10 hover:border-indigo-500/30 transition-all duration-300 flex items-center gap-3"
+                                        className="bg-white/5 rounded-xl p-4   transition-all duration-300 flex items-center gap-3"
                                     >
                                         <span className="text-indigo-400">{component.icon}</span>
                                         <span className="text-sm font-medium text-white">{component.name}</span>
@@ -535,28 +535,28 @@ const WebFaceLift: React.FC = () => {
                             </div>
 
                             <div className="grid md:grid-cols-2 gap-8">
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 ">
                                     <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
                                         <Monitor className="h-5 w-5 text-indigo-400" />
                                         Frontend
                                     </h3>
                                     <div className="flex flex-wrap gap-2">
                                         {['Next.js', 'React 19', 'TypeScript', 'Tailwind CSS', 'Zustand', 'Lucide Icons'].map((tech) => (
-                                            <span key={tech} className="bg-white/10 text-dark-text px-3 py-1.5 rounded-full text-sm border border-white/20">
+                                            <span key={tech} className="bg-white/10 text-dark-text px-3 py-1.5 rounded-full text-sm ">
                                                 {tech}
                                             </span>
                                         ))}
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 ">
                                     <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
                                         <Bot className="h-5 w-5 text-violet-400" />
                                         Backend & AI
                                     </h3>
                                     <div className="flex flex-wrap gap-2">
                                         {['Claude AI (Opus)', 'Firecrawl', 'Supabase', 'Next.js Server Actions', 'Gemini API'].map((tech) => (
-                                            <span key={tech} className="bg-white/10 text-dark-text px-3 py-1.5 rounded-full text-sm border border-white/20">
+                                            <span key={tech} className="bg-white/10 text-dark-text px-3 py-1.5 rounded-full text-sm ">
                                                 {tech}
                                             </span>
                                         ))}
@@ -596,8 +596,8 @@ const WebFaceLift: React.FC = () => {
                                         icon: <FileJson className="h-6 w-6 text-emerald-400" />,
                                     },
                                 ].map((audience) => (
-                                    <div key={audience.title} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-500/30 transition-all duration-500 text-center">
-                                        <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center mx-auto mb-6 border border-white/10">
+                                    <div key={audience.title} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500 text-center">
+                                        <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center mx-auto mb-6 ">
                                             {audience.icon}
                                         </div>
                                         <h3 className="text-xl font-bold text-white mb-3">{audience.title}</h3>
@@ -619,7 +619,7 @@ const WebFaceLift: React.FC = () => {
                 <section className="py-16 lg:py-24 bg-white/[0.02]">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto">
-                            <div className="relative bg-gradient-to-br from-indigo-500/10 to-violet-500/10 rounded-3xl p-12 lg:p-16 border border-indigo-500/20 overflow-hidden">
+                            <div className="relative bg-gradient-to-br from-indigo-500/10 to-violet-500/10 rounded-3xl p-12 lg:p-16  overflow-hidden">
                                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.08),transparent_50%)] pointer-events-none"></div>
                                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(139,92,246,0.08),transparent_50%)] pointer-events-none"></div>
 
@@ -642,14 +642,14 @@ const WebFaceLift: React.FC = () => {
                                             href="https://webfacelift.app"
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-indigo-500 to-violet-500 hover:from-violet-500 hover:to-indigo-500 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5"
+                                            className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5"
                                         >
                                             <span>Try WebFaceLift Free</span>
                                             <ArrowUpRight className="h-5 w-5" />
                                         </a>
                                         <Link
                                             href="/#contact"
-                                            className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-indigo-500/50 px-8 py-4 rounded-xl font-semibold transition-all duration-300 backdrop-blur-sm"
+                                            className="inline-flex items-center justify-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 backdrop-blur-sm"
                                         >
                                             <span>Ask Us About It</span>
                                             <MessageSquare className="h-5 w-5" />

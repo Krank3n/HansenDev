@@ -201,7 +201,7 @@ const ShredIndex: React.FC = () => {
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Back Navigation */}
-                <div className="border-b border-white/10">
+                <div className="">
                     <div className="container-custom py-6">
                         <Link href="/#portfolio" className="inline-flex items-center gap-2 px-4 py-2 text-dark-text-secondary hover:text-brand-accent transition-colors duration-300">
                             <ArrowLeft className="h-4 w-4" />
@@ -237,7 +237,7 @@ const ShredIndex: React.FC = () => {
                                     href="https://www.shredindex.com"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5"
                                 >
                                     <Mountain className="h-6 w-6" />
                                     <span>Explore Resorts</span>
@@ -247,7 +247,7 @@ const ShredIndex: React.FC = () => {
                                     href="https://www.shredindex.com/jobs"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 "
                                 >
                                     <Briefcase className="h-6 w-6" />
                                     <span>Browse Ski Jobs</span>
@@ -262,7 +262,7 @@ const ShredIndex: React.FC = () => {
                 </section>
 
                 {/* Stats Banner */}
-                <section className="py-12 bg-gradient-to-r from-blue-500/20 via-blue-600/20 to-blue-500/20 border-y border-blue-500/30">
+                <section className="py-12 bg-gradient-to-r from-blue-500/20 via-blue-600/20 to-blue-500/20 ">
                     <div className="container-custom">
                         <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
                             <div className="text-center">
@@ -297,8 +297,8 @@ const ShredIndex: React.FC = () => {
                             </div>
 
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500/30 transition-all duration-500">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center mb-6 border border-blue-500/30">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center mb-6 ">
                                         <Globe className="h-6 w-6 text-blue-400" />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">Global Coverage</h3>
@@ -307,8 +307,8 @@ const ShredIndex: React.FC = () => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500/30 transition-all duration-500">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center mb-6 border border-blue-500/30">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center mb-6 ">
                                         <Filter className="h-6 w-6 text-blue-400" />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">Lifestyle Filtering</h3>
@@ -317,8 +317,8 @@ const ShredIndex: React.FC = () => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500/30 transition-all duration-500">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center mb-6 border border-blue-500/30">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center mb-6 ">
                                         <Award className="h-6 w-6 text-blue-400" />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">Pro Athlete Insights</h3>
@@ -327,8 +327,8 @@ const ShredIndex: React.FC = () => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500/30 transition-all duration-500">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center mb-6 border border-blue-500/30">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center mb-6 ">
                                         <Briefcase className="h-6 w-6 text-blue-400" />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">Largest Job Board</h3>
@@ -337,8 +337,8 @@ const ShredIndex: React.FC = () => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500/30 transition-all duration-500">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center mb-6 border border-blue-500/30">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center mb-6 ">
                                         <Search className="h-6 w-6 text-blue-400" />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">Advanced Search</h3>
@@ -347,8 +347,8 @@ const ShredIndex: React.FC = () => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500/30 transition-all duration-500">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center mb-6 border border-blue-500/30">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center mb-6 ">
                                         <Star className="h-6 w-6 text-blue-400" />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">Highlights & Lowlights</h3>
@@ -377,7 +377,7 @@ const ShredIndex: React.FC = () => {
                                     href="https://www.shredindex.com/categories/family"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500/50 transition-all duration-300 group"
+                                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-300 group"
                                 >
                                     <Users className="h-8 w-8 text-blue-400 mb-4" />
                                     <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">Family Resorts</h3>
@@ -392,7 +392,7 @@ const ShredIndex: React.FC = () => {
                                     href="https://www.shredindex.com/categories/luxury"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500/50 transition-all duration-300 group"
+                                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-300 group"
                                 >
                                     <Sparkles className="h-8 w-8 text-blue-400 mb-4" />
                                     <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">Luxury Resorts</h3>
@@ -407,7 +407,7 @@ const ShredIndex: React.FC = () => {
                                     href="https://www.shredindex.com/categories/extreme"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500/50 transition-all duration-300 group"
+                                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-300 group"
                                 >
                                     <Target className="h-8 w-8 text-blue-400 mb-4" />
                                     <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">Extreme Resorts</h3>
@@ -422,7 +422,7 @@ const ShredIndex: React.FC = () => {
                                     href="https://www.shredindex.com/categories/powder"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500/50 transition-all duration-300 group"
+                                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-300 group"
                                 >
                                     <Mountain className="h-8 w-8 text-blue-400 mb-4" />
                                     <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">Powder Resorts</h3>
@@ -437,7 +437,7 @@ const ShredIndex: React.FC = () => {
                                     href="https://www.shredindex.com/categories/helicopter"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500/50 transition-all duration-300 group"
+                                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-300 group"
                                 >
                                     <Zap className="h-8 w-8 text-blue-400 mb-4" />
                                     <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">Heli-Ski Operations</h3>
@@ -452,7 +452,7 @@ const ShredIndex: React.FC = () => {
                                     href="https://www.shredindex.com/categories/affordable"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500/50 transition-all duration-300 group"
+                                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-300 group"
                                 >
                                     <CheckCircle className="h-8 w-8 text-blue-400 mb-4" />
                                     <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">Affordable Resorts</h3>
@@ -471,7 +471,7 @@ const ShredIndex: React.FC = () => {
                 <section className="py-16 lg:py-24 bg-white/[0.02]">
                     <div className="container-custom">
                         <div className="max-w-5xl mx-auto">
-                            <div className="bg-gradient-to-r from-blue-500/10 to-blue-600/10 rounded-3xl p-12 border border-blue-500/20">
+                            <div className="bg-gradient-to-r from-blue-500/10 to-blue-600/10 rounded-3xl p-12 ">
                                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                                     <div>
                                         <div className="inline-flex items-center gap-2 bg-blue-500/20 text-blue-400 px-4 py-2 rounded-full text-sm font-semibold mb-6">
@@ -506,14 +506,14 @@ const ShredIndex: React.FC = () => {
                                             href="https://www.shredindex.com/jobs"
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5"
+                                            className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5"
                                         >
                                             <Briefcase className="h-6 w-6" />
                                             <span>Browse Ski Jobs</span>
                                             <ExternalLink className="h-5 w-5" />
                                         </a>
                                     </div>
-                                    <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
+                                    <div className="bg-white/5 rounded-2xl p-8 ">
                                         <h3 className="text-2xl font-bold text-white mb-6">Popular Job Categories</h3>
                                         <div className="space-y-4">
                                             <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-all">
@@ -555,7 +555,7 @@ const ShredIndex: React.FC = () => {
                                 </p>
                             </div>
 
-                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 ">
                                 <div className="grid md:grid-cols-2 gap-8">
                                     <div>
                                         <h3 className="text-xl font-bold text-white mb-4">Core Technologies</h3>
@@ -607,7 +607,7 @@ const ShredIndex: React.FC = () => {
                 </section>
 
                 {/* Final CTA */}
-                <section className="py-16 lg:py-24 bg-gradient-to-br from-blue-500/10 via-blue-600/10 to-blue-500/10 border-y border-blue-500/20">
+                <section className="py-16 lg:py-24 bg-gradient-to-br from-blue-500/10 via-blue-600/10 to-blue-500/10 ">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto text-center">
                             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -622,7 +622,7 @@ const ShredIndex: React.FC = () => {
                                     href="https://www.shredindex.com"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5"
                                 >
                                     <Mountain className="h-6 w-6" />
                                     <span>Visit ShredIndex.com</span>
@@ -632,7 +632,7 @@ const ShredIndex: React.FC = () => {
                                     href="https://github.com/underflip/shredindex-frontend"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center justify-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 "
                                 >
                                     <Database className="h-6 w-6" />
                                     <span>View on GitHub</span>

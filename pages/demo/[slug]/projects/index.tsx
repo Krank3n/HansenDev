@@ -79,7 +79,7 @@ export default function ProjectsPage({ business, slug, projects }: ProjectsPageP
         {/* Hero */}
         <section className="relative py-20 md:py-28 overflow-hidden" style={{ background: `linear-gradient(135deg, ${business.primaryColorDark}, ${business.primaryColor})` }}>
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-20 right-20 w-72 h-72 rounded-full border border-white/10" />
+            <div className="absolute top-20 right-20 w-72 h-72 rounded-full" />
             <div className="absolute bottom-10 left-10 w-48 h-48 rounded-full opacity-20" style={{ background: `radial-gradient(circle, ${business.accentColor}, transparent 70%)` }} />
           </div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -98,7 +98,7 @@ export default function ProjectsPage({ business, slug, projects }: ProjectsPageP
         </section>
 
         {/* Category Filter */}
-        <section className="py-8 border-b border-gray-100 sticky top-16 md:top-20 z-30 bg-white/95 backdrop-blur-xl">
+        <section className="py-8 sticky top-16 md:top-20 z-30 bg-white/95 backdrop-blur-xl">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-wrap gap-2">
               {categories.map((cat) => (
@@ -127,7 +127,7 @@ export default function ProjectsPage({ business, slug, projects }: ProjectsPageP
                 <Link
                   key={project.id}
                   href={`/demo/${slug}/projects/${project.id}`}
-                  className="group hover-lift block rounded-3xl overflow-hidden bg-white border border-gray-100 shadow-sm"
+                  className="group hover-lift block rounded-3xl overflow-hidden bg-white shadow-sm"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image

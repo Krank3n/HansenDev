@@ -33,7 +33,7 @@ const ChatSparkDataSafety: React.FC = () => {
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Back Navigation */}
-                <div className="border-b border-white/10">
+                <div className="">
                     <div className="container-custom py-6">
                         <Link href="/projects/chatspark" className="inline-flex items-center gap-2 text-dark-text-secondary hover:text-brand-accent transition-colors duration-300">
                             <ArrowLeft className="h-4 w-4" />
@@ -57,7 +57,7 @@ const ChatSparkDataSafety: React.FC = () => {
                             </div>
 
                             {/* Trust Banner */}
-                            <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-2xl p-8 border border-green-500/20 mb-12">
+                            <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-2xl p-8  mb-12">
                                 <div className="flex items-start gap-4">
                                     <CheckCircle className="h-8 w-8 text-green-400 flex-shrink-0 mt-1" />
                                     <div>
@@ -70,10 +70,10 @@ const ChatSparkDataSafety: React.FC = () => {
                             </div>
 
                             {/* Quick Summary */}
-                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 mb-12">
+                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8  mb-12">
                                 <h2 className="text-2xl font-bold text-white mb-6">Data Safety Summary</h2>
                                 <div className="space-y-4">
-                                    <div className="flex items-center gap-3 p-4 bg-green-500/10 rounded-xl border border-green-500/20">
+                                    <div className="flex items-center gap-3 p-4 bg-green-500/10 rounded-xl ">
                                         <CheckCircle className="h-6 w-6 text-green-400 flex-shrink-0" />
                                         <div>
                                             <p className="text-white font-semibold">No data collected</p>
@@ -81,7 +81,7 @@ const ChatSparkDataSafety: React.FC = () => {
                                         </div>
                                     </div>
 
-                                    <div className="flex items-center gap-3 p-4 bg-green-500/10 rounded-xl border border-green-500/20">
+                                    <div className="flex items-center gap-3 p-4 bg-green-500/10 rounded-xl ">
                                         <CheckCircle className="h-6 w-6 text-green-400 flex-shrink-0" />
                                         <div>
                                             <p className="text-white font-semibold">Data not shared with third parties</p>
@@ -89,7 +89,7 @@ const ChatSparkDataSafety: React.FC = () => {
                                         </div>
                                     </div>
 
-                                    <div className="flex items-center gap-3 p-4 bg-green-500/10 rounded-xl border border-green-500/20">
+                                    <div className="flex items-center gap-3 p-4 bg-green-500/10 rounded-xl ">
                                         <CheckCircle className="h-6 w-6 text-green-400 flex-shrink-0" />
                                         <div>
                                             <p className="text-white font-semibold">Data is encrypted in transit</p>
@@ -97,7 +97,7 @@ const ChatSparkDataSafety: React.FC = () => {
                                         </div>
                                     </div>
 
-                                    <div className="flex items-center gap-3 p-4 bg-green-500/10 rounded-xl border border-green-500/20">
+                                    <div className="flex items-center gap-3 p-4 bg-green-500/10 rounded-xl ">
                                         <CheckCircle className="h-6 w-6 text-green-400 flex-shrink-0" />
                                         <div>
                                             <p className="text-white font-semibold">You can request data deletion</p>
@@ -112,7 +112,7 @@ const ChatSparkDataSafety: React.FC = () => {
                                 {/* Data Collection Section */}
                                 <section>
                                     <h2 className="text-3xl font-bold text-white mb-6">1. Data Collection</h2>
-                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 ">
                                         <div className="flex items-start gap-4 mb-6">
                                             <Database className="h-8 w-8 text-brand-accent flex-shrink-0" />
                                             <div>
@@ -197,7 +197,7 @@ const ChatSparkDataSafety: React.FC = () => {
                                             </div>
                                         </div>
 
-                                        <div className="mt-6 p-4 bg-brand-accent/10 border border-brand-accent/30 rounded-xl">
+                                        <div className="mt-6 p-4 bg-brand-accent/10  rounded-xl">
                                             <p className="text-dark-text-secondary text-sm">
                                                 <strong className="text-white">Why?</strong> ChatSpark is designed as an offline-first app. All your progress, mood entries, and personal information are stored locally on your device using SQLite. There is no backend server, no cloud storage, and no data transmission.
                                             </p>
@@ -208,7 +208,7 @@ const ChatSparkDataSafety: React.FC = () => {
                                 {/* Data Sharing Section */}
                                 <section>
                                     <h2 className="text-3xl font-bold text-white mb-6">2. Data Sharing</h2>
-                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 ">
                                         <div className="flex items-start gap-4 mb-6">
                                             <Share2 className="h-8 w-8 text-brand-accent flex-shrink-0" />
                                             <div>
@@ -247,7 +247,7 @@ const ChatSparkDataSafety: React.FC = () => {
                                 {/* Security Practices Section */}
                                 <section>
                                     <h2 className="text-3xl font-bold text-white mb-6">3. Security Practices</h2>
-                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 ">
                                         <div className="flex items-start gap-4 mb-6">
                                             <Lock className="h-8 w-8 text-brand-accent flex-shrink-0" />
                                             <div>
@@ -297,7 +297,7 @@ const ChatSparkDataSafety: React.FC = () => {
                                 {/* Local Storage Section */}
                                 <section>
                                     <h2 className="text-3xl font-bold text-white mb-6">4. What Data is Stored Locally</h2>
-                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 ">
                                         <div className="flex items-start gap-4 mb-6">
                                             <HardDrive className="h-8 w-8 text-brand-accent flex-shrink-0" />
                                             <div>
@@ -327,7 +327,7 @@ const ChatSparkDataSafety: React.FC = () => {
                                             </li>
                                         </ul>
 
-                                        <div className="mt-6 p-4 bg-blue-500/10 border border-blue-500/30 rounded-xl">
+                                        <div className="mt-6 p-4 bg-blue-500/10  rounded-xl">
                                             <div className="flex items-start gap-3">
                                                 <AlertCircle className="h-5 w-5 text-blue-400 flex-shrink-0 mt-0.5" />
                                                 <p className="text-dark-text-secondary text-sm">
@@ -341,13 +341,13 @@ const ChatSparkDataSafety: React.FC = () => {
                                 {/* Permissions Section */}
                                 <section>
                                     <h2 className="text-3xl font-bold text-white mb-6">5. App Permissions</h2>
-                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 ">
                                         <p className="text-dark-text-secondary leading-relaxed mb-6">
                                             ChatSpark requests minimal permissions to provide functionality:
                                         </p>
 
                                         <div className="space-y-4">
-                                            <div className="p-4 bg-white/5 rounded-xl border border-white/10">
+                                            <div className="p-4 bg-white/5 rounded-xl ">
                                                 <div className="flex items-start gap-3 mb-2">
                                                     <span className="text-2xl">💾</span>
                                                     <h4 className="text-white font-semibold">Storage (Required)</h4>
@@ -357,7 +357,7 @@ const ChatSparkDataSafety: React.FC = () => {
                                                 </p>
                                             </div>
 
-                                            <div className="p-4 bg-white/5 rounded-xl border border-white/10">
+                                            <div className="p-4 bg-white/5 rounded-xl ">
                                                 <div className="flex items-start gap-3 mb-2">
                                                     <span className="text-2xl">🔔</span>
                                                     <h4 className="text-white font-semibold">Notifications (Optional)</h4>
@@ -373,7 +373,7 @@ const ChatSparkDataSafety: React.FC = () => {
                                 {/* User Controls Section */}
                                 <section>
                                     <h2 className="text-3xl font-bold text-white mb-6">6. Your Controls & Rights</h2>
-                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 ">
                                         <p className="text-dark-text-secondary leading-relaxed mb-6">
                                             You have complete control over your data:
                                         </p>
@@ -409,7 +409,7 @@ const ChatSparkDataSafety: React.FC = () => {
                                 {/* Contact Section */}
                                 <section>
                                     <h2 className="text-3xl font-bold text-white mb-6">7. Questions or Concerns?</h2>
-                                    <div className="bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8 border border-brand-accent/20">
+                                    <div className="bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8 ">
                                         <p className="text-dark-text-secondary leading-relaxed mb-6">
                                             If you have questions about our data safety practices or need more information:
                                         </p>
@@ -449,7 +449,7 @@ const ChatSparkDataSafety: React.FC = () => {
                             <div className="mt-16 text-center">
                                 <Link
                                     href="/projects/chatspark"
-                                    className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Shield className="h-5 w-5" />
                                     <span>Back to ChatSpark</span>

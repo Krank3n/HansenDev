@@ -78,7 +78,7 @@ export default function ServicesPage({ business, slug, services }: ServicesPageP
           style={{ background: `linear-gradient(135deg, ${business.primaryColorDark}, ${business.primaryColor})` }}
         >
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-20 right-20 w-72 h-72 rounded-full border border-white/10" />
+            <div className="absolute top-20 right-20 w-72 h-72 rounded-full" />
             <div className="absolute bottom-10 left-10 w-48 h-48 rounded-full opacity-20" style={{ background: `radial-gradient(circle, ${business.accentColor}, transparent 70%)` }} />
           </div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -104,7 +104,7 @@ export default function ServicesPage({ business, slug, services }: ServicesPageP
                 <Link
                   key={service.id}
                   href={`/demo/${slug}/services/${service.id}`}
-                  className="group hover-lift block rounded-3xl overflow-hidden bg-white border border-gray-100 shadow-sm"
+                  className="group hover-lift block rounded-3xl overflow-hidden bg-white shadow-sm"
                   style={gridView.inView ? { animation: `scaleIn 0.5s ease-out ${i * 0.08}s both` } : { opacity: 0 }}
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">

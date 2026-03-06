@@ -166,7 +166,7 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ articles, products }) => {
                                 {articles.map((article, index) => (
                                     <article
                                         key={index}
-                                        className="group bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-brand-accent/30 transition-all duration-300 hover:-translate-y-1"
+                                        className="group glass-card overflow-hidden hover-glow transition-all duration-300 hover:-translate-y-1"
                                     >
                                         {/* Featured Image */}
                                         {article.frontmatter.featuredImage && (
@@ -236,7 +236,7 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ articles, products }) => {
                 </section>
 
                 {/* Newsletter CTA */}
-                <section className="py-16 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 border-t border-brand-accent/20">
+                <section className="py-16 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10">
                     <div className="container-custom">
                         <div className="max-w-3xl mx-auto text-center">
                             <h2 className="text-3xl font-bold text-white mb-4">
@@ -247,7 +247,7 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ articles, products }) => {
                             </p>
                             <Link
                                 href="/#contact"
-                                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25"
+                                className="inline-flex items-center justify-center gap-2 btn-gradient text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25"
                             >
                                 Get In Touch
                                 <ArrowRight className="h-4 w-4" />

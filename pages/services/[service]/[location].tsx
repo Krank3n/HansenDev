@@ -188,7 +188,7 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Breadcrumb Navigation */}
-                <nav className="border-b border-white/10" aria-label="Breadcrumb">
+                <nav className="" aria-label="Breadcrumb">
                     <div className="container-custom py-4">
                         <ol className="flex items-center gap-2 text-sm text-dark-text-secondary flex-wrap">
                             <li>
@@ -229,14 +229,14 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
                             <div className="flex flex-wrap gap-4 justify-center mb-8">
                                 <a
                                     href="/#contact"
-                                    className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <span>{service.ctaText}</span>
                                     <ArrowRight className="h-5 w-5" />
                                 </a>
                                 <a
                                     href={`tel:${CONTACT_INFO.phone.primary}`}
-                                    className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
                                 >
                                     <Phone className="h-5 w-5" />
                                     <span>Call {CONTACT_INFO.phone.display}</span>
@@ -251,11 +251,11 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
                 </section>
 
                 {/* Local Context Section */}
-                <section className="py-12 lg:py-16 border-y border-white/10 bg-white/[0.02]">
+                <section className="py-12 lg:py-16 bg-white/[0.02]">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto">
                             <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center flex-shrink-0 border border-brand-accent/30">
+                                <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center flex-shrink-0 ">
                                     <MapPin className="h-6 w-6 text-brand-accent" />
                                 </div>
                                 <div>
@@ -289,8 +289,8 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
 
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {service.features.map((feature, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center mb-6 border border-brand-accent/30">
+                                    <div key={index} className="glass-card p-8 hover-glow transition-all duration-500">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center mb-6 ">
                                             {ICON_MAP[feature.icon] || <Zap className="h-6 w-6 text-brand-accent" />}
                                         </div>
                                         <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
@@ -317,7 +317,7 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
 
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {service.offerings.map((item, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
+                                    <div key={index} className="glass-card p-6 hover-glow transition-all duration-500">
                                         <div className="flex items-center gap-4 mb-4">
                                             <div className="w-12 h-12 bg-gradient-to-br from-brand-accent to-brand-primary rounded-xl flex items-center justify-center text-white font-bold text-xl">
                                                 {index + 1}
@@ -347,7 +347,7 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
 
                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                                 {location.industries.map((industry, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 text-center">
+                                    <div key={index} className="bg-white/[0.03] backdrop-blur-sm rounded-xl p-5 hover:bg-white/[0.06] transition-all duration-300 text-center">
                                         <CheckCircle className="h-6 w-6 text-brand-accent mx-auto mb-3" />
                                         <p className="text-white font-semibold text-sm">{industry}</p>
                                     </div>
@@ -370,7 +370,7 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
 
                             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                                 {service.technologies.map((tech, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 text-center">
+                                    <div key={index} className="bg-white/[0.03] backdrop-blur-sm rounded-xl p-6 hover:bg-white/[0.06] transition-all duration-300 text-center">
                                         <Code className="h-6 w-6 text-brand-accent mx-auto mb-3" />
                                         <p className="text-white font-semibold">{tech}</p>
                                     </div>
@@ -395,7 +395,7 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
 
                             <div className="space-y-6">
                                 {service.faqs.map((faq, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                    <div key={index} className="glass-card p-6">
                                         <h3 className="text-lg font-bold text-white mb-3">{faq.question}</h3>
                                         <p className="text-dark-text-secondary leading-relaxed">{faq.answer}</p>
                                     </div>
@@ -407,7 +407,7 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
 
                 {/* Internal Links - Nearby Locations */}
                 {nearbyLocations.length > 0 && (
-                    <section className="py-16 lg:py-24 bg-white/[0.02] border-t border-white/10">
+                    <section className="py-16 lg:py-24 bg-white/[0.02] ">
                         <div className="container-custom">
                             <div className="max-w-5xl mx-auto">
                                 <div className="text-center mb-12">
@@ -424,7 +424,7 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
                                         <Link
                                             key={nearby.slug}
                                             href={`/services/${service.slug}/${nearby.slug}`}
-                                            className="bg-white/5 rounded-xl p-4 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 group"
+                                            className="bg-white/[0.03] rounded-xl p-4 hover:bg-white/[0.06] transition-all duration-300 group"
                                         >
                                             <div className="flex items-center gap-2">
                                                 <MapPin className="h-4 w-4 text-brand-accent flex-shrink-0" />
@@ -441,7 +441,7 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
                 )}
 
                 {/* Internal Links - Other Services */}
-                <section className="py-16 lg:py-24 border-t border-white/10">
+                <section className="py-16 lg:py-24 ">
                     <div className="container-custom">
                         <div className="max-w-5xl mx-auto">
                             <div className="text-center mb-12">
@@ -458,7 +458,7 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
                                     <Link
                                         key={other.slug}
                                         href={`/services/${other.slug}/${location.slug}`}
-                                        className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 group"
+                                        className="glass-card p-6 hover-glow transition-all duration-300 group"
                                     >
                                         <div className="flex items-center gap-3 mb-3">
                                             {ICON_MAP[other.icon] || <Zap className="h-6 w-6 text-brand-accent" />}
@@ -477,7 +477,7 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
                 </section>
 
                 {/* CTA Section */}
-                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 border-y border-brand-accent/20">
+                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 ">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto text-center">
                             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -490,14 +490,14 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
                             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                                 <a
                                     href="/#contact"
-                                    className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <span>{service.ctaText}</span>
                                     <ArrowRight className="h-5 w-5" />
                                 </a>
                                 <Link
                                     href="/our-work"
-                                    className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center justify-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
                                 >
                                     <span>View Our Work</span>
                                 </Link>

@@ -65,7 +65,7 @@ const ArticleTableOfContents: React.FC<ArticleTableOfContentsProps> = ({ content
     if (headings.length < 3) return null;
 
     return (
-        <nav className="bg-white/5 rounded-2xl p-6 border border-white/10 mb-8" aria-label="Table of contents">
+        <nav className="glass-card p-6 mb-8" aria-label="Table of contents">
             <div className="flex items-center gap-2 text-white font-semibold mb-4">
                 <List className="h-5 w-5 text-brand-accent" />
                 <span>In This Article</span>

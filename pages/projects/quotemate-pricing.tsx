@@ -403,7 +403,7 @@ const QuoteMatePricing: React.FC = () => {
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Back Navigation */}
-                <div className="border-b border-white/10">
+                <div className="">
                     <div className="container-custom py-6">
                         <Link href="/projects/quotemate" className="inline-flex items-center gap-2 px-4 py-2 text-dark-text-secondary hover:text-brand-accent transition-colors duration-300">
                             <ArrowLeft className="h-4 w-4" />
@@ -435,7 +435,7 @@ const QuoteMatePricing: React.FC = () => {
                                     href="/quote-tool"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
                                     <span>Start Free Trial - 5 Quotes</span>
@@ -460,10 +460,10 @@ const QuoteMatePricing: React.FC = () => {
                                 {pricingTiers.map((tier, index) => (
                                     <div
                                         key={index}
-                                        className={`relative bg-white/5 backdrop-blur-sm rounded-3xl p-8 border transition-all duration-500 ${
+                                        className={`relative bg-white/5 backdrop-blur-sm rounded-3xl p-8 transition-all duration-500 ${
                                             tier.highlighted
-                                                ? 'border-brand-accent/50 shadow-lg shadow-brand-accent/10 lg:-translate-y-4'
-                                                : 'border-white/10 hover:border-brand-accent/30'
+                                                ? 'shadow-lg shadow-brand-accent/10 lg:-translate-y-4'
+                                                : ''
                                         }`}
                                     >
                                         {tier.popular && (
@@ -506,8 +506,8 @@ const QuoteMatePricing: React.FC = () => {
                                             rel="noopener noreferrer"
                                             className={`block text-center px-6 py-4 rounded-xl font-bold transition-all duration-300 ${
                                                 tier.highlighted
-                                                    ? 'bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white shadow-lg hover:shadow-brand-accent/25'
-                                                    : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
+                                                    ? 'btn-gradient text-white shadow-lg hover:shadow-brand-accent/25'
+                                                    : 'bg-white/[0.04] hover:bg-white/[0.08] text-white '
                                             }`}
                                         >
                                             {tier.cta}
@@ -542,7 +542,7 @@ const QuoteMatePricing: React.FC = () => {
 
                             <div className="space-y-8">
                                 {roiCalculations.map((calc, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 lg:p-12 border border-white/10">
+                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 lg:p-12 ">
                                         <div className="mb-8">
                                             <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2">{calc.scenario}</h3>
                                             <div className="h-1 w-20 bg-gradient-to-r from-brand-accent to-brand-primary rounded-full"></div>
@@ -558,7 +558,7 @@ const QuoteMatePricing: React.FC = () => {
                                                     <div className="text-sm text-dark-text-secondary mb-1">QuoteMate way:</div>
                                                     <div className="text-lg text-brand-accent font-semibold">{calc.newTime}</div>
                                                 </div>
-                                                <div className="pt-4 border-t border-white/10">
+                                                <div className="pt-4 ">
                                                     <div className="text-sm text-dark-text-secondary mb-1">Time saved:</div>
                                                     <div className="text-xl text-white font-bold">{calc.timeSaved}</div>
                                                 </div>
@@ -573,14 +573,14 @@ const QuoteMatePricing: React.FC = () => {
                                                     <div className="text-sm text-dark-text-secondary mb-1">QuoteMate cost:</div>
                                                     <div className="text-lg text-white font-semibold">{calc.cost}</div>
                                                 </div>
-                                                <div className="pt-4 border-t border-white/10">
+                                                <div className="pt-4 ">
                                                     <div className="text-sm text-dark-text-secondary mb-1">Your ROI:</div>
                                                     <div className="text-xl text-brand-accent font-bold">{calc.roi}</div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div className="bg-gradient-to-r from-brand-accent/20 to-brand-primary/20 rounded-xl p-6 border border-brand-accent/30">
+                                        <div className="bg-gradient-to-r from-brand-accent/20 to-brand-primary/20 rounded-xl p-6 ">
                                             <div className="flex items-center gap-4">
                                                 <BarChart3 className="h-10 w-10 text-brand-accent flex-shrink-0" />
                                                 <div>
@@ -595,7 +595,7 @@ const QuoteMatePricing: React.FC = () => {
                                 ))}
                             </div>
 
-                            <div className="mt-12 bg-gradient-to-r from-green-400/10 to-brand-accent/10 rounded-2xl p-8 border border-green-400/20">
+                            <div className="mt-12 bg-gradient-to-r from-green-400/10 to-brand-accent/10 rounded-2xl p-8 ">
                                 <div className="flex items-start gap-4">
                                     <Target className="h-12 w-12 text-green-400 flex-shrink-0" />
                                     <div>
@@ -626,7 +626,7 @@ const QuoteMatePricing: React.FC = () => {
 
                             <div className="space-y-4">
                                 {costComparisons.map((comparison, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 ">
                                         <div className="grid md:grid-cols-4 gap-4 items-center">
                                             <div className="md:col-span-2">
                                                 <div className="font-bold text-white mb-1">{comparison.item}</div>
@@ -640,7 +640,7 @@ const QuoteMatePricing: React.FC = () => {
                             </div>
 
                             <div className="mt-12 grid md:grid-cols-2 gap-8">
-                                <div className="bg-red-500/10 rounded-2xl p-8 border border-red-500/20">
+                                <div className="bg-red-500/10 rounded-2xl p-8 ">
                                     <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
                                         <X className="h-8 w-8 text-red-400" />
                                         <span>Without QuoteMate</span>
@@ -653,12 +653,12 @@ const QuoteMatePricing: React.FC = () => {
                                         <li>• Lose track of pending quotes</li>
                                         <li>• Can't quote on-site (lose jobs)</li>
                                     </ul>
-                                    <div className="mt-6 pt-6 border-t border-red-500/20">
+                                    <div className="mt-6 pt-6 ">
                                         <div className="text-red-400 font-bold text-lg">Cost: Your time & lost opportunities</div>
                                     </div>
                                 </div>
 
-                                <div className="bg-brand-accent/10 rounded-2xl p-8 border border-brand-accent/20">
+                                <div className="bg-brand-accent/10 rounded-2xl p-8 ">
                                     <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
                                         <CheckCircle className="h-8 w-8 text-brand-accent" />
                                         <span>With QuoteMate</span>
@@ -689,7 +689,7 @@ const QuoteMatePricing: React.FC = () => {
                                             <span>Quote on-site & close faster</span>
                                         </li>
                                     </ul>
-                                    <div className="mt-6 pt-6 border-t border-brand-accent/20">
+                                    <div className="mt-6 pt-6 ">
                                         <div className="text-brand-accent font-bold text-lg">Cost: $15/month (less than 2 snags)</div>
                                     </div>
                                 </div>
@@ -711,9 +711,9 @@ const QuoteMatePricing: React.FC = () => {
 
                             <div className="grid md:grid-cols-2 gap-8">
                                 {guarantees.map((guarantee, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-green-400/30 transition-all duration-500">
+                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                         <div className="flex items-start gap-6">
-                                            <div className="w-16 h-16 bg-green-400/10 rounded-xl flex items-center justify-center border border-green-400/20 flex-shrink-0">
+                                            <div className="w-16 h-16 bg-green-400/10 rounded-xl flex items-center justify-center  flex-shrink-0">
                                                 {guarantee.icon}
                                             </div>
                                             <div>
@@ -741,7 +741,7 @@ const QuoteMatePricing: React.FC = () => {
 
                             <div className="space-y-6">
                                 {commonObjections.map((item, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 ">
                                         <div className="flex items-start gap-4 mb-4">
                                             <AlertCircle className="h-6 w-6 text-brand-accent flex-shrink-0 mt-1" />
                                             <h3 className="text-xl font-bold text-white">{item.objection}</h3>
@@ -765,19 +765,19 @@ const QuoteMatePricing: React.FC = () => {
                             </div>
 
                             <div className="grid md:grid-cols-3 gap-6">
-                                <Link href="/projects/quotemate-features" className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 group">
+                                <Link href="/projects/quotemate-features" className="bg-white/5 backdrop-blur-sm rounded-xl p-6   transition-all duration-300 group">
                                     <Zap className="h-8 w-8 text-brand-accent mb-4 group-hover:scale-110 transition-transform" />
                                     <h3 className="text-lg font-bold text-white mb-2">See All Features</h3>
                                     <p className="text-dark-text-secondary text-sm">AI estimation, Bunnings pricing, PDF quotes & more</p>
                                 </Link>
 
-                                <Link href="/projects/quotemate-for-tradies" className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 group">
+                                <Link href="/projects/quotemate-for-tradies" className="bg-white/5 backdrop-blur-sm rounded-xl p-6   transition-all duration-300 group">
                                     <Users className="h-8 w-8 text-brand-accent mb-4 group-hover:scale-110 transition-transform" />
                                     <h3 className="text-lg font-bold text-white mb-2">For Your Trade</h3>
                                     <p className="text-dark-text-secondary text-sm">See how QuoteMate helps carpenters, fencers, landscapers</p>
                                 </Link>
 
-                                <Link href="/projects/quotemate-getting-started" className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 group">
+                                <Link href="/projects/quotemate-getting-started" className="bg-white/5 backdrop-blur-sm rounded-xl p-6   transition-all duration-300 group">
                                     <Download className="h-8 w-8 text-brand-accent mb-4 group-hover:scale-110 transition-transform" />
                                     <h3 className="text-lg font-bold text-white mb-2">Getting Started</h3>
                                     <p className="text-dark-text-secondary text-sm">Step-by-step guide to your first quote</p>
@@ -788,7 +788,7 @@ const QuoteMatePricing: React.FC = () => {
                 </section>
 
                 {/* CTA Section */}
-                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 border-y border-brand-accent/20">
+                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 ">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto text-center">
                             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -803,14 +803,14 @@ const QuoteMatePricing: React.FC = () => {
                                     href="/quote-tool"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
                                     <span>Download QuoteMate Free</span>
                                 </Link>
                                 <Link
                                     href="/projects/quotemate"
-                                    className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center justify-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 "
                                 >
                                     <span>Learn More</span>
                                     <ArrowRight className="h-5 w-5" />

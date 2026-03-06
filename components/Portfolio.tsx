@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Section from './common/Section';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import { ExternalLink, Code2, Globe, Star, Zap, Users, ArrowUpRight, ArrowRight } from 'lucide-react';
 
 interface Project {
@@ -18,6 +19,9 @@ interface Project {
 }
 
 const Portfolio: React.FC = () => {
+    const { ref: projectsRef, isVisible: projectsVisible } = useScrollReveal();
+    const { ref: ctaRef, isVisible: ctaVisible } = useScrollReveal();
+
     const projects: Project[] = [
         {
             title: "ShredIndex",
@@ -86,40 +90,43 @@ const Portfolio: React.FC = () => {
             id="portfolio"
             title="Our Work"
             subtitle="Showcasing innovative solutions and successful partnerships"
+            className="relative overflow-hidden"
         >
-            <div className="space-y-16">
+            {/* Background orbs */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="orb orb-teal w-[400px] h-[400px] top-[20%] right-[-5%] animate-float-slow opacity-30"></div>
+                <div className="orb orb-primary w-[300px] h-[300px] bottom-[30%] left-[-5%] animate-float-slower opacity-20"></div>
+            </div>
+
+            <div
+                ref={projectsRef}
+                className={`space-y-12 stagger-children ${projectsVisible ? 'revealed' : ''}`}
+            >
                 {projects.map((project, index) => (
-                    <div
-                        key={index}
-                        className="group relative"
-                    >
-                        <div className="bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 overflow-hidden hover:border-brand-accent/30 transition-all duration-700 hover:bg-white/[0.07]">
+                    <div key={index} className="group relative">
+                        <div className="glass-card overflow-hidden hover-glow transition-all duration-700 hover:bg-white/[0.05]">
                             <div className="grid lg:grid-cols-2 gap-0">
                                 {/* Content Side */}
                                 <div className="p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
                                     <div className="space-y-6">
-                                        {/* Category */}
-                                        <div className="inline-flex items-center gap-2 text-brand-accent text-sm font-medium uppercase tracking-wider">
-                                            <div className="w-2 h-2 bg-brand-accent rounded-full"></div>
-                                            {project.category}
+                                        <div className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wider">
+                                            <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${project.gradient}`}></div>
+                                            <span className="gradient-text">{project.category}</span>
                                         </div>
 
-                                        {/* Title */}
                                         <h3 className="text-3xl lg:text-4xl font-bold text-white leading-tight">
                                             {project.title}
                                         </h3>
 
-                                        {/* Description */}
                                         <p className="text-lg text-dark-text-secondary leading-relaxed">
                                             {project.description}
                                         </p>
 
-                                        {/* Stats */}
                                         {project.stats && (
                                             <div className="grid grid-cols-2 gap-4">
                                                 {project.stats.map((stat, statIndex) => (
                                                     <div key={statIndex} className="space-y-1">
-                                                        <div className="flex items-center gap-2 text-brand-accent">
+                                                        <div className="flex items-center gap-2 text-brand-accent/80">
                                                             {stat.icon}
                                                             <span className="text-sm font-medium">{stat.label}</span>
                                                         </div>
@@ -129,31 +136,29 @@ const Portfolio: React.FC = () => {
                                             </div>
                                         )}
 
-                                        {/* Technologies */}
                                         <div className="flex flex-wrap gap-2">
                                             {project.technologies.map((tech, techIndex) => (
                                                 <span
                                                     key={techIndex}
-                                                    className="bg-white/10 text-dark-text px-3 py-1.5 rounded-full text-sm border border-white/20 hover:border-brand-accent/50 hover:text-brand-accent transition-all duration-300"
+                                                    className="bg-white/[0.04] text-dark-text/80 px-3 py-1.5 rounded-full text-sm hover:bg-brand-accent/10 hover:text-brand-accent transition-all duration-300"
                                                 >
                                                     {tech}
                                                 </span>
                                             ))}
                                         </div>
 
-                                        {/* Project Link */}
                                         <div className="pt-4">
                                             <a
                                                 href={project.url}
                                                 target={project.url.startsWith('/') ? '_self' : '_blank'}
                                                 rel={project.url.startsWith('/') ? undefined : 'noopener noreferrer'}
-                                                className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-primary to-brand-accent hover:from-brand-accent hover:to-brand-primary text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                                className="inline-flex items-center gap-3 btn-gradient text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/15 hover:-translate-y-0.5"
                                             >
                                                 <span>View Project</span>
                                                 <ArrowUpRight className="h-4 w-4" />
                                             </a>
                                             {!project.url.startsWith('/') && (
-                                                <div className="mt-3 text-sm text-dark-text-secondary font-mono">
+                                                <div className="mt-3 text-sm text-dark-text-secondary/50 font-mono">
                                                     {new URL(project.url).hostname}
                                                 </div>
                                             )}
@@ -164,8 +169,7 @@ const Portfolio: React.FC = () => {
                                 {/* Image Side */}
                                 <div className="relative p-8 lg:p-12 order-1 lg:order-2">
                                     <div className="relative aspect-[4/3] group/image">
-                                        {/* Simple clean image container */}
-                                        <div className="relative w-full h-full rounded-2xl overflow-hidden bg-dark-card border border-white/10 group-hover:border-brand-accent/30 transition-all duration-500">
+                                        <div className="relative w-full h-full rounded-2xl overflow-hidden">
                                             <Image
                                                 src={project.image}
                                                 alt={project.imageAlt}
@@ -173,13 +177,11 @@ const Portfolio: React.FC = () => {
                                                 className="object-cover transition-transform duration-700 group-hover/image:scale-105"
                                                 sizes="(max-width: 768px) 100vw, 50vw"
                                             />
-                                            {/* Subtle overlay */}
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                                            <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/30 via-transparent to-transparent"></div>
                                         </div>
 
-                                        {/* Floating action button */}
-                                        <div className="absolute -bottom-4 -right-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-                                            <div className="bg-brand-accent text-white p-3 rounded-full shadow-lg">
+                                        <div className="absolute -bottom-3 -right-3 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+                                            <div className="bg-gradient-to-br from-brand-accent to-brand-primary text-white p-3 rounded-full shadow-lg shadow-brand-accent/20">
                                                 <ExternalLink className="h-5 w-5" />
                                             </div>
                                         </div>
@@ -191,27 +193,31 @@ const Portfolio: React.FC = () => {
                 ))}
             </div>
 
-            {/* View All Our Work Button */}
+            {/* View All Work */}
             <div className="mt-16 text-center">
                 <Link
                     href="/our-work"
-                    className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-brand-accent/50 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 backdrop-blur-sm hover:-translate-y-0.5"
+                    className="inline-flex items-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-500 backdrop-blur-sm hover:-translate-y-0.5 hover-glow"
                 >
                     <span>View All Our Work</span>
                     <ArrowRight className="h-5 w-5" />
                 </Link>
             </div>
 
-            {/* Call to Action */}
-            <div className="mt-24">
-                <div className="relative bg-gradient-to-br from-brand-primary/10 to-brand-accent/10 rounded-3xl p-12 lg:p-16 border border-brand-accent/20 overflow-hidden">
-                    {/* Background decoration */}
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(20,184,166,0.1),transparent_50%)] pointer-events-none"></div>
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(13,148,136,0.1),transparent_50%)] pointer-events-none"></div>
+            {/* CTA */}
+            <div
+                ref={ctaRef}
+                className={`mt-24 transition-all duration-700 ${
+                    ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
+            >
+                <div className="relative rounded-3xl p-12 lg:p-16 overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/[0.08] via-transparent to-brand-accent/[0.08]"></div>
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(20,184,166,0.08),transparent_50%)] pointer-events-none"></div>
 
                     <div className="relative text-center max-w-4xl mx-auto space-y-8">
                         <div className="space-y-4">
-                            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-brand-accent to-brand-primary rounded-2xl">
+                            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-brand-accent to-brand-primary rounded-2xl shadow-lg shadow-brand-accent/20">
                                 <Code2 className="h-8 w-8 text-white" />
                             </div>
                             <h3 className="text-3xl lg:text-4xl font-bold text-white">
@@ -225,14 +231,14 @@ const Portfolio: React.FC = () => {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a
                                 href="#contact"
-                                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/15 hover:-translate-y-0.5"
                             >
                                 <span>Start Your Project</span>
                                 <ArrowUpRight className="h-5 w-5" />
                             </a>
                             <a
                                 href="#services"
-                                className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-brand-accent/50 px-8 py-4 rounded-xl font-semibold transition-all duration-300 backdrop-blur-sm"
+                                className="inline-flex items-center justify-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-500 backdrop-blur-sm"
                             >
                                 <span>View Services</span>
                                 <Code2 className="h-5 w-5" />

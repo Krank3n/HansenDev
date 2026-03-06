@@ -181,7 +181,7 @@ const ChatSpark: React.FC = () => {
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Back Navigation */}
-                <div className="border-b border-white/10">
+                <div className="">
                     <div className="container-custom py-6">
                         <Link href="/#portfolio" className="inline-flex items-center gap-2 text-dark-text-secondary hover:text-brand-accent transition-colors duration-300">
                             <ArrowLeft className="h-4 w-4" />
@@ -217,7 +217,7 @@ const ChatSpark: React.FC = () => {
                                     href="https://play.google.com/apps/testing/com.chatspark.app"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
                                     <span>Download Free</span>
@@ -226,7 +226,7 @@ const ChatSpark: React.FC = () => {
                                     href="https://github.com/Krank3n/ChatSpark"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 "
                                 >
                                     <Github className="h-6 w-6" />
                                     <span>View on GitHub</span>
@@ -241,7 +241,7 @@ const ChatSpark: React.FC = () => {
                 </section>
 
                 {/* Stats Banner */}
-                <section className="py-12 bg-gradient-to-r from-brand-accent/20 via-brand-primary/20 to-brand-accent/20 border-y border-brand-accent/30">
+                <section className="py-12 bg-gradient-to-r from-brand-accent/20 via-brand-primary/20 to-brand-accent/20 ">
                     <div className="container-custom">
                         <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
                             <div className="text-center">
@@ -276,7 +276,7 @@ const ChatSpark: React.FC = () => {
                             </div>
 
                             <div className="grid md:grid-cols-3 gap-8 mb-16">
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8  text-center">
                                     <div className="w-20 h-20 bg-gradient-to-br from-brand-accent to-brand-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
                                         <span className="text-4xl font-bold text-white">1</span>
                                     </div>
@@ -286,7 +286,7 @@ const ChatSpark: React.FC = () => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8  text-center">
                                     <div className="w-20 h-20 bg-gradient-to-br from-brand-accent to-brand-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
                                         <span className="text-4xl font-bold text-white">2</span>
                                     </div>
@@ -296,7 +296,7 @@ const ChatSpark: React.FC = () => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8  text-center">
                                     <div className="w-20 h-20 bg-gradient-to-br from-brand-accent to-brand-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
                                         <span className="text-4xl font-bold text-white">3</span>
                                     </div>
@@ -307,7 +307,7 @@ const ChatSpark: React.FC = () => {
                                 </div>
                             </div>
 
-                            <div className="bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8 border border-brand-accent/20 text-center">
+                            <div className="bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8  text-center">
                                 <p className="text-2xl text-white font-semibold mb-2">
                                     "Small conversations, big confidence gains"
                                 </p>
@@ -331,9 +331,9 @@ const ChatSpark: React.FC = () => {
                             </div>
 
                             <div className="grid md:grid-cols-2 gap-6">
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center border border-brand-accent/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <Target className="h-6 w-6 text-brand-accent" />
                                         </div>
                                         <div>
@@ -345,9 +345,9 @@ const ChatSpark: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center border border-brand-accent/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <TrendingUp className="h-6 w-6 text-brand-accent" />
                                         </div>
                                         <div>
@@ -359,9 +359,9 @@ const ChatSpark: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center border border-brand-accent/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <MessageCircle className="h-6 w-6 text-brand-accent" />
                                         </div>
                                         <div>
@@ -373,9 +373,9 @@ const ChatSpark: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center border border-brand-accent/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <BarChart3 className="h-6 w-6 text-brand-accent" />
                                         </div>
                                         <div>
@@ -387,9 +387,9 @@ const ChatSpark: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center border border-brand-accent/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <Shield className="h-6 w-6 text-brand-accent" />
                                         </div>
                                         <div>
@@ -401,9 +401,9 @@ const ChatSpark: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center border border-brand-accent/30 flex-shrink-0">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                             <Globe className="h-6 w-6 text-brand-accent" />
                                         </div>
                                         <div>
@@ -431,7 +431,7 @@ const ChatSpark: React.FC = () => {
                             </div>
 
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                     <div className="flex items-center gap-2 mb-3">
                                         <span className="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-bold rounded-full">VERY EASY</span>
                                     </div>
@@ -441,7 +441,7 @@ const ChatSpark: React.FC = () => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                     <div className="flex items-center gap-2 mb-3">
                                         <span className="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-bold rounded-full">EASY</span>
                                     </div>
@@ -451,7 +451,7 @@ const ChatSpark: React.FC = () => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                     <div className="flex items-center gap-2 mb-3">
                                         <span className="px-3 py-1 bg-yellow-500/20 text-yellow-400 text-xs font-bold rounded-full">MEDIUM</span>
                                     </div>
@@ -461,7 +461,7 @@ const ChatSpark: React.FC = () => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                     <div className="flex items-center gap-2 mb-3">
                                         <span className="px-3 py-1 bg-orange-500/20 text-orange-400 text-xs font-bold rounded-full">HARD</span>
                                     </div>
@@ -471,7 +471,7 @@ const ChatSpark: React.FC = () => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                     <div className="flex items-center gap-2 mb-3">
                                         <span className="px-3 py-1 bg-red-500/20 text-red-400 text-xs font-bold rounded-full">VERY HARD</span>
                                     </div>
@@ -481,7 +481,7 @@ const ChatSpark: React.FC = () => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                     <div className="flex items-center gap-2 mb-3">
                                         <span className="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-bold rounded-full">WILD</span>
                                     </div>
@@ -506,7 +506,7 @@ const ChatSpark: React.FC = () => {
                                 </p>
                             </div>
 
-                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 ">
                                 <div className="grid md:grid-cols-2 gap-8">
                                     <div>
                                         <h3 className="text-xl font-bold text-white mb-4">Core Technologies</h3>
@@ -563,7 +563,7 @@ const ChatSpark: React.FC = () => {
                         <div className="max-w-5xl mx-auto">
                             <h2 className="text-4xl font-bold text-white mb-12">Your Privacy Matters</h2>
 
-                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 space-y-8">
+                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8  space-y-8">
                                 <p className="text-lg text-dark-text-secondary leading-relaxed">
                                     <strong className="text-white">100% Private:</strong> ChatSpark is built with privacy at its core. All your progress, mood entries, and personal data are stored locally on your device using SQLite. No backend servers, no data collection, no tracking. Your journey is yours alone. <Link href="/projects/chatspark-privacy" className="text-brand-accent hover:underline">Read our full privacy policy →</Link> | <Link href="/projects/chatspark-data-safety" className="text-brand-accent hover:underline">Data Safety disclosure →</Link>
                                 </p>
@@ -571,7 +571,7 @@ const ChatSpark: React.FC = () => {
                                 <div className="grid md:grid-cols-3 gap-6">
                                     <div className="space-y-3">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-lg flex items-center justify-center border border-brand-accent/30">
+                                            <div className="w-10 h-10 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-lg flex items-center justify-center ">
                                                 <Shield className="h-5 w-5 text-brand-accent" />
                                             </div>
                                             <h3 className="text-lg font-bold text-white">Local Storage</h3>
@@ -583,7 +583,7 @@ const ChatSpark: React.FC = () => {
 
                                     <div className="space-y-3">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-lg flex items-center justify-center border border-brand-accent/30">
+                                            <div className="w-10 h-10 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-lg flex items-center justify-center ">
                                                 <Zap className="h-5 w-5 text-brand-accent" />
                                             </div>
                                             <h3 className="text-lg font-bold text-white">Offline First</h3>
@@ -595,7 +595,7 @@ const ChatSpark: React.FC = () => {
 
                                     <div className="space-y-3">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-lg flex items-center justify-center border border-brand-accent/30">
+                                            <div className="w-10 h-10 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-lg flex items-center justify-center ">
                                                 <Brain className="h-5 w-5 text-brand-accent" />
                                             </div>
                                             <h3 className="text-lg font-bold text-white">No Tracking</h3>
@@ -611,7 +611,7 @@ const ChatSpark: React.FC = () => {
                 </section>
 
                 {/* Final CTA */}
-                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 border-y border-brand-accent/20">
+                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 ">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto text-center">
                             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -626,7 +626,7 @@ const ChatSpark: React.FC = () => {
                                     href="https://play.google.com/apps/testing/com.chatspark.app"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
                                     <span>Download Free</span>
@@ -635,7 +635,7 @@ const ChatSpark: React.FC = () => {
                                     href="https://github.com/Krank3n/ChatSpark"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center justify-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 "
                                 >
                                     <Github className="h-6 w-6" />
                                     <span>View on GitHub</span>

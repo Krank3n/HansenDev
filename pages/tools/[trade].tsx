@@ -120,7 +120,7 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Breadcrumb */}
-                <nav className="border-b border-white/10" aria-label="Breadcrumb">
+                <nav className="" aria-label="Breadcrumb">
                     <div className="container-custom py-4">
                         <ol className="flex items-center gap-2 text-sm text-dark-text-secondary flex-wrap">
                             <li><Link href="/" className="hover:text-brand-accent transition-colors">Home</Link></li>
@@ -153,14 +153,14 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
                             <div className="flex flex-wrap gap-4 justify-center mb-8">
                                 <Link
                                     href="/quote-tool"
-                                    className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <span>Try Free &mdash; No Sign Up</span>
                                     <ArrowRight className="h-5 w-5" />
                                 </Link>
                                 <Link
                                     href="/projects/quotemate"
-                                    className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
                                 >
                                     <span>Learn More</span>
                                 </Link>
@@ -174,7 +174,7 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
                 </section>
 
                 {/* Pain Points */}
-                <section className="py-16 lg:py-24 bg-white/[0.02] border-y border-white/10">
+                <section className="py-16 lg:py-24 bg-white/[0.02] ">
                     <div className="container-custom">
                         <div className="max-w-5xl mx-auto">
                             <div className="text-center mb-16">
@@ -188,8 +188,8 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
 
                             <div className="grid md:grid-cols-2 gap-6">
                                 {trade.painPoints.map((point, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 flex items-start gap-4">
-                                        <div className="w-10 h-10 bg-red-500/20 rounded-xl flex items-center justify-center flex-shrink-0 border border-red-500/30">
+                                    <div key={index} className="glass-card p-6 flex items-start gap-4">
+                                        <div className="w-10 h-10 bg-red-500/20 rounded-xl flex items-center justify-center flex-shrink-0 ">
                                             <span className="text-red-400 font-bold">{index + 1}</span>
                                         </div>
                                         <p className="text-dark-text-secondary leading-relaxed">{point}</p>
@@ -214,8 +214,8 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
                             </div>
 
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center mb-6 border border-brand-accent/30">
+                                <div className="glass-card p-8 hover-glow transition-all duration-500">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center mb-6 ">
                                         <Zap className="h-6 w-6 text-brand-accent" />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">AI-Powered Estimation</h3>
@@ -224,8 +224,8 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center mb-6 border border-brand-accent/30">
+                                <div className="glass-card p-8 hover-glow transition-all duration-500">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center mb-6 ">
                                         <DollarSign className="h-6 w-6 text-brand-accent" />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">Real-Time Bunnings Pricing</h3>
@@ -234,8 +234,8 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center mb-6 border border-brand-accent/30">
+                                <div className="glass-card p-8 hover-glow transition-all duration-500">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center mb-6 ">
                                         <FileText className="h-6 w-6 text-brand-accent" />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">Professional PDF Quotes</h3>
@@ -244,8 +244,8 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center mb-6 border border-brand-accent/30">
+                                <div className="glass-card p-8 hover-glow transition-all duration-500">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center mb-6 ">
                                         <WifiOff className="h-6 w-6 text-brand-accent" />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">Works Offline</h3>
@@ -254,8 +254,8 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center mb-6 border border-brand-accent/30">
+                                <div className="glass-card p-8 hover-glow transition-all duration-500">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center mb-6 ">
                                         <Shield className="h-6 w-6 text-brand-accent" />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">GST Calculated Automatically</h3>
@@ -264,8 +264,8 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center mb-6 border border-brand-accent/30">
+                                <div className="glass-card p-8 hover-glow transition-all duration-500">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center mb-6 ">
                                         <Send className="h-6 w-6 text-brand-accent" />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">Send via Email, SMS or WhatsApp</h3>
@@ -293,7 +293,7 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
 
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                 {trade.commonJobs.map((job, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 text-center">
+                                    <div key={index} className="bg-white/[0.03] backdrop-blur-sm rounded-xl p-5 hover:bg-white/[0.06] transition-all duration-300 text-center">
                                         <Hammer className="h-6 w-6 text-brand-accent mx-auto mb-3" />
                                         <p className="text-white font-semibold text-sm">{job}</p>
                                     </div>
@@ -324,7 +324,7 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
 
                             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                                 {trade.materials.map((material, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 flex items-center gap-3">
+                                    <div key={index} className="bg-white/[0.03] backdrop-blur-sm rounded-xl p-5 hover:bg-white/[0.06] transition-all duration-300 flex items-center gap-3">
                                         <CheckCircle className="h-5 w-5 text-brand-accent flex-shrink-0" />
                                         <p className="text-white font-medium text-sm">{material}</p>
                                     </div>
@@ -335,7 +335,7 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
                 </section>
 
                 {/* Social Proof */}
-                <section className="py-16 lg:py-24 bg-white/[0.02] border-y border-white/10">
+                <section className="py-16 lg:py-24 bg-white/[0.02] ">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto text-center">
                             <div className="grid md:grid-cols-3 gap-8">
@@ -372,7 +372,7 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
 
                             <div className="space-y-6">
                                 {faqItems.map((faq, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                    <div key={index} className="glass-card p-6">
                                         <h3 className="text-lg font-bold text-white mb-3">{faq.question}</h3>
                                         <p className="text-dark-text-secondary leading-relaxed">{faq.answer}</p>
                                     </div>
@@ -383,7 +383,7 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
                 </section>
 
                 {/* Other Trades */}
-                <section className="py-16 lg:py-24 bg-white/[0.02] border-t border-white/10">
+                <section className="py-16 lg:py-24 bg-white/[0.02] ">
                     <div className="container-custom">
                         <div className="max-w-5xl mx-auto">
                             <div className="text-center mb-12">
@@ -400,7 +400,7 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
                                     <Link
                                         key={other.slug}
                                         href={`/tools/quoting-app-for-${other.slug}`}
-                                        className="bg-white/5 rounded-xl p-4 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 group"
+                                        className="bg-white/[0.03] rounded-xl p-4 hover:bg-white/[0.06] transition-all duration-300 group"
                                     >
                                         <div className="flex items-center gap-2">
                                             <Wrench className="h-4 w-4 text-brand-accent flex-shrink-0" />
@@ -416,7 +416,7 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
                 </section>
 
                 {/* CTA */}
-                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 border-y border-brand-accent/20">
+                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 ">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto text-center">
                             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -429,14 +429,14 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
                             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                                 <Link
                                     href="/quote-tool"
-                                    className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <span>Try QuoteMate Free</span>
                                     <ArrowRight className="h-5 w-5" />
                                 </Link>
                                 <Link
                                     href="/projects/quotemate"
-                                    className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center justify-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
                                 >
                                     <span>See All Features</span>
                                 </Link>

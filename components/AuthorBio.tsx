@@ -23,7 +23,7 @@ const AuthorBio: React.FC<AuthorBioProps> = ({ compact = false }) => {
     }
 
     return (
-        <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+        <div className="glass-card p-6">
             <div className="flex flex-col sm:flex-row gap-6">
                 {/* Author Avatar */}
                 <div className="flex-shrink-0">

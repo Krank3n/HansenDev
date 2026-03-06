@@ -398,7 +398,7 @@ const QuoteMateForTradies: React.FC = () => {
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Back Navigation */}
-                <div className="border-b border-white/10">
+                <div className="">
                     <div className="container-custom py-6">
                         <Link href="/projects/quotemate" className="inline-flex items-center gap-2 px-4 py-2 text-dark-text-secondary hover:text-brand-accent transition-colors duration-300">
                             <ArrowLeft className="h-4 w-4" />
@@ -430,7 +430,7 @@ const QuoteMateForTradies: React.FC = () => {
                                     href="/quote-tool"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
                                     <span>Try Free - First 5 Quotes</span>
@@ -441,7 +441,7 @@ const QuoteMateForTradies: React.FC = () => {
                 </section>
 
                 {/* Real Results Section */}
-                <section className="py-12 bg-gradient-to-r from-brand-accent/20 via-brand-primary/20 to-brand-accent/20 border-y border-brand-accent/30">
+                <section className="py-12 bg-gradient-to-r from-brand-accent/20 via-brand-primary/20 to-brand-accent/20 ">
                     <div className="container-custom">
                         <div className="max-w-6xl mx-auto">
                             <div className="text-center mb-8">
@@ -469,13 +469,13 @@ const QuoteMateForTradies: React.FC = () => {
                                 {/* Trade Header */}
                                 <div className="text-center mb-12">
                                     <div className="flex justify-center mb-6">
-                                        <div className="w-20 h-20 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-2xl flex items-center justify-center border border-brand-accent/30">
+                                        <div className="w-20 h-20 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-2xl flex items-center justify-center ">
                                             {trade.icon}
                                         </div>
                                     </div>
                                     <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">{trade.trade}</h2>
                                     <p className="text-xl text-dark-text-secondary mb-4">{trade.subtitle}</p>
-                                    <div className="inline-flex items-center gap-2 bg-brand-accent/20 text-brand-accent px-6 py-3 rounded-full border border-brand-accent/30">
+                                    <div className="inline-flex items-center gap-2 bg-brand-accent/20 text-brand-accent px-6 py-3 rounded-full ">
                                         <Clock className="h-5 w-5" />
                                         <span className="font-bold">{trade.timeSaved}</span>
                                     </div>
@@ -483,7 +483,7 @@ const QuoteMateForTradies: React.FC = () => {
 
                                 {/* Pain Points vs How QuoteMate Helps */}
                                 <div className="grid lg:grid-cols-2 gap-8 mb-12">
-                                    <div className="bg-red-500/10 rounded-2xl p-8 border border-red-500/20">
+                                    <div className="bg-red-500/10 rounded-2xl p-8 ">
                                         <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
                                             <span className="text-red-400">❌</span>
                                             <span>Common Pain Points</span>
@@ -498,7 +498,7 @@ const QuoteMateForTradies: React.FC = () => {
                                         </ul>
                                     </div>
 
-                                    <div className="bg-brand-accent/10 rounded-2xl p-8 border border-brand-accent/20">
+                                    <div className="bg-brand-accent/10 rounded-2xl p-8 ">
                                         <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
                                             <span className="text-brand-accent">✅</span>
                                             <span>How QuoteMate Helps</span>
@@ -515,7 +515,7 @@ const QuoteMateForTradies: React.FC = () => {
                                 </div>
 
                                 {/* Real Example */}
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 lg:p-12 border border-white/10 mb-8">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 lg:p-12  mb-8">
                                     <div className="flex items-center gap-3 mb-6">
                                         <Award className="h-8 w-8 text-brand-accent" />
                                         <h3 className="text-2xl font-bold text-white">Real Example: {trade.example.job}</h3>
@@ -533,7 +533,7 @@ const QuoteMateForTradies: React.FC = () => {
                                 </div>
 
                                 {/* Testimonial */}
-                                <div className="bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8 border border-brand-accent/20">
+                                <div className="bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8 ">
                                     <div className="flex items-start gap-4">
                                         <MessageSquare className="h-10 w-10 text-brand-accent flex-shrink-0" />
                                         <div>
@@ -569,9 +569,9 @@ const QuoteMateForTradies: React.FC = () => {
 
                             <div className="grid md:grid-cols-2 gap-8">
                                 {commonBenefits.map((benefit, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-green-400/30 transition-all duration-500">
+                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
                                         <div className="flex items-start gap-6">
-                                            <div className="w-16 h-16 bg-green-400/10 rounded-xl flex items-center justify-center border border-green-400/20 flex-shrink-0">
+                                            <div className="w-16 h-16 bg-green-400/10 rounded-xl flex items-center justify-center  flex-shrink-0">
                                                 {benefit.icon}
                                             </div>
                                             <div className="flex-1">
@@ -602,55 +602,55 @@ const QuoteMateForTradies: React.FC = () => {
                             </div>
 
                             <div className="grid md:grid-cols-3 gap-6">
-                                <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                                <div className="bg-white/5 rounded-xl p-6 ">
                                     <div className="text-4xl mb-3">🔧</div>
                                     <h3 className="text-lg font-bold text-white mb-2">Plumbers</h3>
                                     <p className="text-dark-text-secondary text-sm">Quote pipe, fixtures, labour for bathroom & kitchen jobs</p>
                                 </div>
 
-                                <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                                <div className="bg-white/5 rounded-xl p-6 ">
                                     <div className="text-4xl mb-3">⚡</div>
                                     <h3 className="text-lg font-bold text-white mb-2">Electricians</h3>
                                     <p className="text-dark-text-secondary text-sm">Price out switchboards, wiring, lights, power points</p>
                                 </div>
 
-                                <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                                <div className="bg-white/5 rounded-xl p-6 ">
                                     <div className="text-4xl mb-3">🎨</div>
                                     <h3 className="text-lg font-bold text-white mb-2">Painters</h3>
                                     <p className="text-dark-text-secondary text-sm">Calculate paint quantities, prep materials, labour hours</p>
                                 </div>
 
-                                <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                                <div className="bg-white/5 rounded-xl p-6 ">
                                     <div className="text-4xl mb-3">🪟</div>
                                     <h3 className="text-lg font-bold text-white mb-2">Window Installers</h3>
                                     <p className="text-dark-text-secondary text-sm">Quote windows, frames, installation for any project</p>
                                 </div>
 
-                                <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                                <div className="bg-white/5 rounded-xl p-6 ">
                                     <div className="text-4xl mb-3">🏠</div>
                                     <h3 className="text-lg font-bold text-white mb-2">Roofing Contractors</h3>
                                     <p className="text-dark-text-secondary text-sm">Calculate roofing materials, flashing, guttering</p>
                                 </div>
 
-                                <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                                <div className="bg-white/5 rounded-xl p-6 ">
                                     <div className="text-4xl mb-3">🧱</div>
                                     <h3 className="text-lg font-bold text-white mb-2">Bricklayers</h3>
                                     <p className="text-dark-text-secondary text-sm">Quote bricks, mortar, labour for walls & structures</p>
                                 </div>
 
-                                <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                                <div className="bg-white/5 rounded-xl p-6 ">
                                     <div className="text-4xl mb-3">🚪</div>
                                     <h3 className="text-lg font-bold text-white mb-2">Door Installers</h3>
                                     <p className="text-dark-text-secondary text-sm">Price doors, frames, hardware, installation time</p>
                                 </div>
 
-                                <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                                <div className="bg-white/5 rounded-xl p-6 ">
                                     <div className="text-4xl mb-3">🔨</div>
                                     <h3 className="text-lg font-bold text-white mb-2">Demolition</h3>
                                     <p className="text-dark-text-secondary text-sm">Quote demo work, skip bins, labour, disposal</p>
                                 </div>
 
-                                <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                                <div className="bg-white/5 rounded-xl p-6 ">
                                     <div className="text-4xl mb-3">🏗️</div>
                                     <h3 className="text-lg font-bold text-white mb-2">Concreters</h3>
                                     <p className="text-dark-text-secondary text-sm">Calculate concrete volumes, reinforcement, labour</p>
@@ -672,7 +672,7 @@ const QuoteMateForTradies: React.FC = () => {
                             </div>
 
                             <div className="space-y-6">
-                                <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
+                                <div className="bg-white/5 rounded-2xl p-8 ">
                                     <div className="flex items-start gap-4">
                                         <Zap className="h-8 w-8 text-brand-accent flex-shrink-0 mt-1" />
                                         <div>
@@ -684,7 +684,7 @@ const QuoteMateForTradies: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
+                                <div className="bg-white/5 rounded-2xl p-8 ">
                                     <div className="flex items-start gap-4">
                                         <DollarSign className="h-8 w-8 text-brand-accent flex-shrink-0 mt-1" />
                                         <div>
@@ -696,7 +696,7 @@ const QuoteMateForTradies: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
+                                <div className="bg-white/5 rounded-2xl p-8 ">
                                     <div className="flex items-start gap-4">
                                         <CheckCircle className="h-8 w-8 text-brand-accent flex-shrink-0 mt-1" />
                                         <div>
@@ -708,7 +708,7 @@ const QuoteMateForTradies: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
+                                <div className="bg-white/5 rounded-2xl p-8 ">
                                     <div className="flex items-start gap-4">
                                         <Smartphone className="h-8 w-8 text-brand-accent flex-shrink-0 mt-1" />
                                         <div>
@@ -720,7 +720,7 @@ const QuoteMateForTradies: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
+                                <div className="bg-white/5 rounded-2xl p-8 ">
                                     <div className="flex items-start gap-4">
                                         <Clock className="h-8 w-8 text-brand-accent flex-shrink-0 mt-1" />
                                         <div>
@@ -746,19 +746,19 @@ const QuoteMateForTradies: React.FC = () => {
                             </div>
 
                             <div className="grid md:grid-cols-3 gap-6">
-                                <Link href="/projects/quotemate-features" className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 group">
+                                <Link href="/projects/quotemate-features" className="bg-white/5 backdrop-blur-sm rounded-xl p-6   transition-all duration-300 group">
                                     <Zap className="h-8 w-8 text-brand-accent mb-4 group-hover:scale-110 transition-transform" />
                                     <h3 className="text-lg font-bold text-white mb-2">See All Features</h3>
                                     <p className="text-dark-text-secondary text-sm">AI estimation, Bunnings pricing, PDF quotes & more</p>
                                 </Link>
 
-                                <Link href="/projects/quotemate-pricing" className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 group">
+                                <Link href="/projects/quotemate-pricing" className="bg-white/5 backdrop-blur-sm rounded-xl p-6   transition-all duration-300 group">
                                     <DollarSign className="h-8 w-8 text-brand-accent mb-4 group-hover:scale-110 transition-transform" />
                                     <h3 className="text-lg font-bold text-white mb-2">Pricing & ROI</h3>
                                     <p className="text-dark-text-secondary text-sm">See pricing plans and calculate your time savings</p>
                                 </Link>
 
-                                <Link href="/projects/quotemate-getting-started" className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 group">
+                                <Link href="/projects/quotemate-getting-started" className="bg-white/5 backdrop-blur-sm rounded-xl p-6   transition-all duration-300 group">
                                     <Download className="h-8 w-8 text-brand-accent mb-4 group-hover:scale-110 transition-transform" />
                                     <h3 className="text-lg font-bold text-white mb-2">Getting Started</h3>
                                     <p className="text-dark-text-secondary text-sm">Step-by-step guide to your first quote in 2 minutes</p>
@@ -769,7 +769,7 @@ const QuoteMateForTradies: React.FC = () => {
                 </section>
 
                 {/* CTA Section */}
-                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 border-y border-brand-accent/20">
+                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 ">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto text-center">
                             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -784,14 +784,14 @@ const QuoteMateForTradies: React.FC = () => {
                                     href="/quote-tool"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
                                     <span>Download QuoteMate Free</span>
                                 </Link>
                                 <Link
                                     href="/projects/quotemate"
-                                    className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center justify-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 "
                                 >
                                     <span>Learn More</span>
                                 </Link>

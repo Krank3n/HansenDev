@@ -25,38 +25,45 @@ const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 backdrop-blur-md shadow-lg transition-all duration-300 ${
-        scrolled ? 'bg-dark-card/95 shadow-xl' : 'bg-dark-card/80'
+      className={`sticky top-0 z-50 backdrop-blur-xl transition-all duration-500 ${
+        scrolled
+          ? 'bg-dark-bg/80 shadow-lg shadow-black/20'
+          : 'bg-transparent'
       }`}
     >
+      {/* Subtle bottom gradient line when scrolled */}
+      {scrolled && (
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-accent/20 to-transparent"></div>
+      )}
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-16' : 'h-20'}`}>
-          <a href="/" className="flex items-center space-x-2.5 text-2xl font-bold text-brand-accent hover:text-teal-400 transition-colors">
-            <CodeIcon className={`transition-all duration-300 ${scrolled ? 'h-9 w-9' : 'h-10 w-10'}`} />
+          <a href="/" className="flex items-center space-x-2.5 text-2xl font-bold text-brand-accent hover:text-teal-400 transition-colors group">
+            <CodeIcon className={`transition-all duration-300 group-hover:scale-110 ${scrolled ? 'h-9 w-9' : 'h-10 w-10'}`} />
             <span className={`transition-all duration-300 ${scrolled ? 'text-2xl' : 'text-[1.7rem]'}`}>HansenDev</span>
           </a>
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="relative text-dark-text-secondary hover:text-brand-accent transition-colors duration-300 font-medium px-3 py-2 rounded-md text-sm group"
+                className="relative text-dark-text-secondary/80 hover:text-white transition-colors duration-300 font-medium px-4 py-2 rounded-xl text-sm group hover:bg-white/[0.04]"
               >
                 {item.name}
-                <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-brand-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full"></span>
+                <span className="absolute bottom-1 left-4 right-4 h-px bg-gradient-to-r from-brand-accent to-brand-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </a>
             ))}
             <a
               href="/#contact"
-              className="ml-2 inline-flex items-center px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent transition-all duration-300 shadow-lg shadow-brand-accent/20 hover:shadow-brand-accent/40 hover:scale-105"
+              className="ml-3 inline-flex items-center px-5 py-2.5 rounded-xl text-sm font-semibold text-white btn-gradient transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/15 hover:scale-105"
             >
-              Get Free Quote
+              <span>Get Free Quote</span>
             </a>
           </nav>
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-dark-text-secondary hover:text-brand-accent focus:outline-none"
+              className="text-dark-text-secondary hover:text-brand-accent focus:outline-none p-2 rounded-xl hover:bg-white/[0.04] transition-all duration-300"
               aria-label="Toggle menu"
             >
               {isOpen ? <XIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
@@ -64,30 +71,34 @@ const Navbar: React.FC = () => {
           </div>
         </div>
       </div>
+
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-dark-card absolute w-full shadow-xl">
-          <nav className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="text-dark-text-secondary hover:text-brand-accent hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300"
-              >
-                {item.name}
-              </a>
-            ))}
+      <div
+        className={`lg:hidden absolute w-full bg-dark-bg/95 backdrop-blur-xl transition-all duration-500 overflow-hidden ${
+          isOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="gradient-line"></div>
+        <nav className="px-4 pt-3 pb-4 space-y-1">
+          {navItems.map((item) => (
             <a
-              href="/#contact"
+              key={item.name}
+              href={item.href}
               onClick={() => setIsOpen(false)}
-              className="block mx-3 mt-3 text-center px-5 py-3 rounded-lg text-base font-semibold text-white bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent transition-all duration-300 shadow-lg"
+              className="text-dark-text-secondary hover:text-white hover:bg-white/[0.04] block px-4 py-3 rounded-xl text-base font-medium transition-all duration-300"
             >
-              Get Free Quote
+              {item.name}
             </a>
-          </nav>
-        </div>
-      )}
+          ))}
+          <a
+            href="/#contact"
+            onClick={() => setIsOpen(false)}
+            className="block mx-2 mt-3 text-center px-5 py-3.5 rounded-xl text-base font-semibold text-white btn-gradient transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/15"
+          >
+            <span>Get Free Quote</span>
+          </a>
+        </nav>
+      </div>
     </header>
   );
 };

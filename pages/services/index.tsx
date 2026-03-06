@@ -53,7 +53,7 @@ const ServicesIndex: React.FC = () => {
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Breadcrumb */}
-                <nav className="border-b border-white/10" aria-label="Breadcrumb">
+                <nav aria-label="Breadcrumb">
                     <div className="container-custom py-4">
                         <ol className="flex items-center gap-2 text-sm text-dark-text-secondary">
                             <li><Link href="/" className="hover:text-brand-accent transition-colors">Home</Link></li>
@@ -80,11 +80,11 @@ const ServicesIndex: React.FC = () => {
 
                 {/* Services Grid with Location Links */}
                 {SERVICES.map((service) => (
-                    <section key={service.slug} className="py-12 lg:py-16 border-t border-white/10 even:bg-white/[0.02]">
+                    <section key={service.slug} className="py-12 lg:py-16 even:bg-white/[0.02]">
                         <div className="container-custom">
                             <div className="max-w-6xl mx-auto">
                                 <div className="flex items-center gap-4 mb-4">
-                                    <div className="w-14 h-14 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-2xl flex items-center justify-center border border-brand-accent/30">
+                                    <div className="w-14 h-14 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-2xl flex items-center justify-center ">
                                         {ICON_MAP[service.icon]}
                                     </div>
                                     <div>
@@ -103,7 +103,7 @@ const ServicesIndex: React.FC = () => {
                                             <Link
                                                 key={location.slug}
                                                 href={`/services/${service.slug}/${location.slug}`}
-                                                className="bg-white/5 rounded-lg px-4 py-3 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 group text-center"
+                                                className="bg-white/[0.03] rounded-lg px-4 py-3 hover:bg-white/[0.06] transition-all duration-300 group text-center"
                                             >
                                                 <span className="text-white text-sm font-medium group-hover:text-brand-accent transition-colors">
                                                     {location.name}
@@ -118,7 +118,7 @@ const ServicesIndex: React.FC = () => {
                 ))}
 
                 {/* CTA */}
-                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 border-y border-brand-accent/20">
+                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto text-center">
                             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
@@ -129,7 +129,7 @@ const ServicesIndex: React.FC = () => {
                             </p>
                             <a
                                 href="/#contact"
-                                className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                             >
                                 <span>Get Free Consultation</span>
                                 <ArrowRight className="h-5 w-5" />

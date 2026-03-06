@@ -39,7 +39,7 @@ const ToolsIndex: React.FC = () => {
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Breadcrumb */}
-                <nav className="border-b border-white/10" aria-label="Breadcrumb">
+                <nav aria-label="Breadcrumb">
                     <div className="container-custom py-4">
                         <ol className="flex items-center gap-2 text-sm text-dark-text-secondary">
                             <li><Link href="/" className="hover:text-brand-accent transition-colors">Home</Link></li>
@@ -71,7 +71,7 @@ const ToolsIndex: React.FC = () => {
 
                             <Link
                                 href="/quote-tool"
-                                className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                             >
                                 <span>Try QuoteMate Free</span>
                                 <ArrowRight className="h-5 w-5" />
@@ -81,7 +81,7 @@ const ToolsIndex: React.FC = () => {
                 </section>
 
                 {/* Trades Grid */}
-                <section className="py-16 lg:py-24 bg-white/[0.02] border-t border-white/10">
+                <section className="py-16 lg:py-24 bg-white/[0.02]">
                     <div className="container-custom">
                         <div className="max-w-6xl mx-auto">
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -89,10 +89,10 @@ const ToolsIndex: React.FC = () => {
                                     <Link
                                         key={trade.slug}
                                         href={`/tools/quoting-app-for-${trade.slug}`}
-                                        className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-500 group"
+                                        className="glass-card p-6 hover-glow transition-all duration-500 group"
                                     >
                                         <div className="flex items-center gap-3 mb-4">
-                                            <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center border border-brand-accent/30">
+                                            <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center ">
                                                 <Hammer className="h-6 w-6 text-brand-accent" />
                                             </div>
                                             <h2 className="text-xl font-bold text-white group-hover:text-brand-accent transition-colors">
@@ -121,7 +121,7 @@ const ToolsIndex: React.FC = () => {
                 </section>
 
                 {/* CTA */}
-                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 border-y border-brand-accent/20">
+                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto text-center">
                             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
@@ -133,14 +133,14 @@ const ToolsIndex: React.FC = () => {
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Link
                                     href="/quote-tool"
-                                    className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
+                                    className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
                                 >
                                     <span>Try Free &mdash; No Sign Up</span>
                                     <ArrowRight className="h-5 w-5" />
                                 </Link>
                                 <Link
                                     href="/projects/quotemate"
-                                    className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center justify-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
                                 >
                                     See All Features
                                 </Link>

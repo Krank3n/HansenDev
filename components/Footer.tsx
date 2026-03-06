@@ -19,7 +19,6 @@ import {
     Code
 } from 'lucide-react';
 
-// Import business constants
 import {
     BUSINESS_INFO,
     CONTACT_INFO,
@@ -44,12 +43,10 @@ const Footer: React.FC<FooterProps> = ({
     const currentYear = new Date().getFullYear();
     const router = useRouter();
 
-    // Determine privacy policy URL based on current page
     const isQuoteMatePage = router.pathname.includes('/projects/quotemate');
     const finalPrivacyUrl = privacyPolicyUrl || (isQuoteMatePage ? '/projects/quotemate-privacy' : '/privacy-policy');
     const finalTermsUrl = termsOfServiceUrl || '/terms-of-service';
 
-    // Quick contact handler
     const handleQuickContact = () => {
         const contactSection = document.getElementById('contact');
         if (contactSection) {
@@ -59,11 +56,14 @@ const Footer: React.FC<FooterProps> = ({
 
     return (
         <>
-            <footer className="bg-gradient-to-b from-dark-card to-dark-bg border-t border-gray-700/50 relative overflow-hidden">
-                {/* Background decoration */}
-                <div className="absolute inset-0 opacity-5">
-                    <div className="absolute top-10 left-10 w-32 h-32 bg-brand-accent rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-10 right-10 w-40 h-40 bg-brand-primary rounded-full blur-3xl"></div>
+            <footer className="relative overflow-hidden bg-dark-bg">
+                {/* Top gradient line instead of border */}
+                <div className="gradient-line"></div>
+
+                {/* Background orbs */}
+                <div className="absolute inset-0 pointer-events-none">
+                    <div className="orb orb-teal w-[300px] h-[300px] top-10 left-10 opacity-20"></div>
+                    <div className="orb orb-primary w-[400px] h-[400px] bottom-10 right-10 opacity-15"></div>
                 </div>
 
                 <div className="relative z-10">
@@ -71,192 +71,118 @@ const Footer: React.FC<FooterProps> = ({
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
                         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
 
-                            {/* Company Information using constants */}
+                            {/* Company Information */}
                             <div className="lg:col-span-1">
                                 <div className="flex items-center mb-6">
                                     <Code className="h-8 w-8 mr-3 text-brand-accent" />
                                     <div>
                                         <h3 className="font-bold text-xl text-dark-text">{BUSINESS_INFO.shortName}</h3>
-                                        <span className="text-xs text-dark-text-secondary">PTY LTD</span>
+                                        <span className="text-xs text-dark-text-secondary/50">PTY LTD</span>
                                     </div>
                                 </div>
 
-                                <p className="text-dark-text-secondary mb-6 leading-relaxed text-sm">
+                                <p className="text-dark-text-secondary/70 mb-6 leading-relaxed text-sm">
                                     {SERVICE_AREAS.primary}' premier technology partner, helping {SERVICE_AREAS.region} businesses
                                     thrive with custom web development, AI integration, and innovative software solutions.
                                 </p>
 
-                                {/* Trust indicators using constants */}
+                                {/* Trust indicators */}
                                 <div className="space-y-3 mb-6">
                                     <div className="flex items-center gap-2 text-sm">
-                                        <Shield className="h-4 w-4 text-green-400" />
-                                        <span className="text-dark-text-secondary">Australian Business Registered</span>
+                                        <Shield className="h-4 w-4 text-green-400/70" />
+                                        <span className="text-dark-text-secondary/60">Australian Business Registered</span>
                                     </div>
                                     <div className="flex items-center gap-2 text-sm">
-                                        <Star className="h-4 w-4 text-yellow-400" />
-                                        <span className="text-dark-text-secondary">
-                                            {BUSINESS_METRICS.stats.averageRating} Rating • {BUSINESS_METRICS.stats.reviewCount} Reviews
+                                        <Star className="h-4 w-4 text-yellow-400/70" />
+                                        <span className="text-dark-text-secondary/60">
+                                            {BUSINESS_METRICS.stats.averageRating} Rating &bull; {BUSINESS_METRICS.stats.reviewCount} Reviews
                                         </span>
                                     </div>
                                     <div className="flex items-center gap-2 text-sm">
-                                        <Award className="h-4 w-4 text-brand-accent" />
-                                        <span className="text-dark-text-secondary">
+                                        <Award className="h-4 w-4 text-brand-accent/70" />
+                                        <span className="text-dark-text-secondary/60">
                                             {BUSINESS_METRICS.stats.projectsCompleted} Successful Projects
                                         </span>
                                     </div>
                                 </div>
 
-                                {/* Social Media Links using constants */}
-                                <div className="flex space-x-4">
+                                {/* Social Media Links */}
+                                <div className="flex space-x-3">
                                     <a
                                         href={ONLINE_PRESENCE.social.linkedin}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="p-2 bg-dark-bg/50 hover:bg-brand-accent/20 rounded-lg transition-all duration-300 hover:scale-110"
+                                        className="p-2.5 rounded-xl bg-white/[0.03] hover:bg-brand-accent/10 transition-all duration-300 hover:scale-110 group"
                                         aria-label={`Follow ${BUSINESS_INFO.shortName} on LinkedIn`}
                                     >
-                                        <Linkedin className="h-5 w-5 text-dark-text-secondary hover:text-brand-accent transition-colors duration-300" />
+                                        <Linkedin className="h-4 w-4 text-dark-text-secondary/50 group-hover:text-brand-accent transition-colors duration-300" />
                                     </a>
                                     <a
                                         href={ONLINE_PRESENCE.social.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="p-2 bg-dark-bg/50 hover:bg-brand-accent/20 rounded-lg transition-all duration-300 hover:scale-110"
+                                        className="p-2.5 rounded-xl bg-white/[0.03] hover:bg-brand-accent/10 transition-all duration-300 hover:scale-110 group"
                                         aria-label={`View ${BUSINESS_INFO.shortName} projects on GitHub`}
                                     >
-                                        <Github className="h-5 w-5 text-dark-text-secondary hover:text-brand-accent transition-colors duration-300" />
+                                        <Github className="h-4 w-4 text-dark-text-secondary/50 group-hover:text-brand-accent transition-colors duration-300" />
                                     </a>
-                                    {/*<a*/}
-                                    {/*    href={ONLINE_PRESENCE.social.facebook}*/}
-                                    {/*    target="_blank"*/}
-                                    {/*    rel="noopener noreferrer"*/}
-                                    {/*    className="p-2 bg-dark-bg/50 hover:bg-brand-accent/20 rounded-lg transition-all duration-300 hover:scale-110"*/}
-                                    {/*    aria-label={`Follow ${BUSINESS_INFO.shortName} on Facebook`}*/}
-                                    {/*>*/}
-                                    {/*    <Facebook className="h-5 w-5 text-dark-text-secondary hover:text-brand-accent transition-colors duration-300" />*/}
-                                    {/*</a>*/}
-                                    {/*<a*/}
-                                    {/*    href={ONLINE_PRESENCE.social.instagram}*/}
-                                    {/*    target="_blank"*/}
-                                    {/*    rel="noopener noreferrer"*/}
-                                    {/*    className="p-2 bg-dark-bg/50 hover:bg-brand-accent/20 rounded-lg transition-all duration-300 hover:scale-110"*/}
-                                    {/*    aria-label={`Follow ${BUSINESS_INFO.shortName} on Instagram`}*/}
-                                    {/*>*/}
-                                    {/*    <Instagram className="h-5 w-5 text-dark-text-secondary hover:text-brand-accent transition-colors duration-300" />*/}
-                                    {/*</a>*/}
                                 </div>
                             </div>
 
-                            {/* Services using constants */}
+                            {/* Services */}
                             <div>
                                 <h4 className="font-semibold text-dark-text mb-6 text-lg">Our Services</h4>
                                 <ul className="space-y-3">
-                                    <li>
-                                        <a
-                                            href="/web-development-cairns"
-                                            className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
-                                        >
-                                            <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
-                                            Web Development {SERVICE_AREAS.primary}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/ai-integration-cairns"
-                                            className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
-                                        >
-                                            <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
-                                            AI Integration & Automation
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/custom-software-cairns"
-                                            className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
-                                        >
-                                            <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
-                                            Custom Software Development
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/technology-consulting-cairns"
-                                            className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
-                                        >
-                                            <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
-                                            Technology Consulting
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/e-commerce-development-cairns"
-                                            className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
-                                        >
-                                            <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
-                                            E-commerce Development
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/mobile-app-development-cairns"
-                                            className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
-                                        >
-                                            <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
-                                            Mobile App Development
-                                        </a>
-                                    </li>
+                                    {[
+                                        { href: '/web-development-cairns', label: `Web Development ${SERVICE_AREAS.primary}` },
+                                        { href: '/ai-integration-cairns', label: 'AI Integration & Automation' },
+                                        { href: '/custom-software-cairns', label: 'Custom Software Development' },
+                                        { href: '/technology-consulting-cairns', label: 'Technology Consulting' },
+                                        { href: '/e-commerce-development-cairns', label: 'E-commerce Development' },
+                                        { href: '/mobile-app-development-cairns', label: 'Mobile App Development' },
+                                    ].map((item) => (
+                                        <li key={item.href}>
+                                            <a
+                                                href={item.href}
+                                                className="text-dark-text-secondary/60 hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
+                                            >
+                                                <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
+                                                {item.label}
+                                            </a>
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
 
-                            {/* Programmatic SEO Hub Links & Service Areas */}
+                            {/* Explore */}
                             <div>
                                 <h4 className="font-semibold text-dark-text mb-6 text-lg">Explore</h4>
                                 <ul className="space-y-3">
-                                    <li>
-                                        <a
-                                            href="/services"
-                                            className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
-                                        >
-                                            <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
-                                            Services by Location
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/tools"
-                                            className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
-                                        >
-                                            <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
-                                            QuoteMate for Trades
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/solutions"
-                                            className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
-                                        >
-                                            <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
-                                            WebFaceLift by Industry
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/articles"
-                                            className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
-                                        >
-                                            <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
-                                            Articles & Guides
-                                        </a>
-                                    </li>
+                                    {[
+                                        { href: '/services', label: 'Services by Location' },
+                                        { href: '/tools', label: 'QuoteMate for Trades' },
+                                        { href: '/solutions', label: 'WebFaceLift by Industry' },
+                                        { href: '/articles', label: 'Articles & Guides' },
+                                    ].map((item) => (
+                                        <li key={item.href}>
+                                            <a
+                                                href={item.href}
+                                                className="text-dark-text-secondary/60 hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
+                                            >
+                                                <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
+                                                {item.label}
+                                            </a>
+                                        </li>
+                                    ))}
                                 </ul>
                                 <div className="mt-5">
-                                    <h5 className="text-sm font-medium text-brand-accent mb-2">Service Areas:</h5>
-                                    <ul className="space-y-1 text-sm text-dark-text-secondary">
+                                    <h5 className="text-sm font-medium gradient-text mb-2">Service Areas:</h5>
+                                    <ul className="space-y-1 text-sm text-dark-text-secondary/50">
                                         {SERVICE_AREAS.areas.slice(0, 4).map((area) => (
-                                            <li key={area}>• {area}</li>
+                                            <li key={area}>&bull; {area}</li>
                                         ))}
                                         <li>
-                                            <a href="/services" className="text-brand-accent hover:underline text-xs">
+                                            <a href="/services" className="text-brand-accent/60 hover:text-brand-accent text-xs transition-colors">
                                                 + {SERVICE_AREAS.areas.length - 4} more areas
                                             </a>
                                         </li>
@@ -264,48 +190,48 @@ const Footer: React.FC<FooterProps> = ({
                                 </div>
                             </div>
 
-                            {/* Contact Information using constants */}
+                            {/* Contact Information */}
                             <div>
                                 <h4 className="font-semibold text-dark-text mb-6 text-lg">Get In Touch</h4>
                                 <div className="space-y-4">
                                     <div className="flex items-start gap-3">
-                                        <MapPin className="h-5 w-5 text-brand-accent mt-0.5 flex-shrink-0" />
+                                        <MapPin className="h-4 w-4 text-brand-accent/60 mt-0.5 flex-shrink-0" />
                                         <div>
-                                            <p className="text-dark-text font-medium text-sm">
+                                            <p className="text-dark-text/80 font-medium text-sm">
                                                 {CONTACT_INFO.address.suburb}, {CONTACT_INFO.address.city}
                                             </p>
-                                            <p className="text-dark-text-secondary text-xs">
+                                            <p className="text-dark-text-secondary/50 text-xs">
                                                 {CONTACT_INFO.address.state} {CONTACT_INFO.address.postcode}, {CONTACT_INFO.address.country}
                                             </p>
                                         </div>
                                     </div>
 
                                     <div className="flex items-center gap-3">
-                                        <Phone className="h-5 w-5 text-brand-accent flex-shrink-0" />
+                                        <Phone className="h-4 w-4 text-brand-accent/60 flex-shrink-0" />
                                         <a
                                             href={`tel:${CONTACT_INFO.phone.primary}`}
-                                            className="text-dark-text hover:text-brand-accent transition-colors duration-300 text-sm font-medium"
+                                            className="text-dark-text/80 hover:text-brand-accent transition-colors duration-300 text-sm font-medium"
                                         >
                                             {getFormattedPhone()}
                                         </a>
                                     </div>
 
                                     <div className="flex items-center gap-3">
-                                        <Mail className="h-5 w-5 text-brand-accent flex-shrink-0" />
+                                        <Mail className="h-4 w-4 text-brand-accent/60 flex-shrink-0" />
                                         <a
                                             href={`mailto:${CONTACT_INFO.email.primary}`}
-                                            className="text-dark-text hover:text-brand-accent transition-colors duration-300 text-sm font-medium"
+                                            className="text-dark-text/80 hover:text-brand-accent transition-colors duration-300 text-sm font-medium"
                                         >
                                             {CONTACT_INFO.email.primary}
                                         </a>
                                     </div>
 
                                     <div className="flex items-start gap-3">
-                                        <Clock className="h-5 w-5 text-brand-accent mt-0.5 flex-shrink-0" />
+                                        <Clock className="h-4 w-4 text-brand-accent/60 mt-0.5 flex-shrink-0" />
                                         <div>
-                                            <p className="text-dark-text text-sm font-medium">Business Hours:</p>
-                                            <p className="text-dark-text-secondary text-xs">{CONTACT_INFO.hours.business}</p>
-                                            <p className="text-dark-text-secondary text-xs">{CONTACT_INFO.hours.support}</p>
+                                            <p className="text-dark-text/80 text-sm font-medium">Business Hours:</p>
+                                            <p className="text-dark-text-secondary/50 text-xs">{CONTACT_INFO.hours.business}</p>
+                                            <p className="text-dark-text-secondary/50 text-xs">{CONTACT_INFO.hours.support}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -314,7 +240,7 @@ const Footer: React.FC<FooterProps> = ({
                                 <div className="mt-6">
                                     <button
                                         onClick={handleQuickContact}
-                                        className="group inline-flex items-center gap-2 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25"
+                                        className="group inline-flex items-center gap-2 btn-gradient text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/15"
                                         aria-label={`Contact ${BUSINESS_INFO.shortName} for web development services in ${SERVICE_AREAS.primary}`}
                                     >
                                         <span>Get Free Quote</span>
@@ -325,96 +251,87 @@ const Footer: React.FC<FooterProps> = ({
                         </div>
                     </div>
 
-                    {/* Bottom bar using constants */}
-                    <div className="border-t border-gray-700/50 bg-dark-bg/50">
+                    {/* Bottom bar */}
+                    <div className="gradient-line"></div>
+                    <div className="bg-white/[0.01]">
                         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
                             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
 
-                                {/* Copyright using constants */}
                                 <div className="text-center md:text-left">
-                                    <p className="text-dark-text-secondary text-sm">
-                                        &copy; {currentYear} <span className="font-semibold text-dark-text">{BUSINESS_INFO.name}</span>. All rights reserved.
+                                    <p className="text-dark-text-secondary/50 text-sm">
+                                        &copy; {currentYear} <span className="font-semibold text-dark-text/70">{BUSINESS_INFO.name}</span>. All rights reserved.
                                     </p>
-                                    <p className="text-dark-text-secondary text-xs mt-1">
-                                        ABN: {BUSINESS_INFO.abn} • {CONTACT_INFO.address.state}, {CONTACT_INFO.address.country}
+                                    <p className="text-dark-text-secondary/30 text-xs mt-1">
+                                        ABN: {BUSINESS_INFO.abn} &bull; {CONTACT_INFO.address.state}, {CONTACT_INFO.address.country}
                                     </p>
                                 </div>
 
                                 {/* Legal Links */}
                                 <div className="flex flex-wrap justify-center gap-6 text-xs">
-                                    <a
-                                        href={finalPrivacyUrl}
-                                        className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300"
-                                    >
-                                        Privacy Policy
-                                    </a>
-                                    <a
-                                        href="/projects/quotemate-privacy"
-                                        className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300"
-                                    >
-                                        QuoteMate Privacy
-                                    </a>
-                                    <a
-                                        href={finalTermsUrl}
-                                        className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300"
-                                    >
-                                        Terms of Service
-                                    </a>
+                                    {[
+                                        { href: finalPrivacyUrl, label: 'Privacy Policy' },
+                                        { href: '/projects/quotemate-privacy', label: 'QuoteMate Privacy' },
+                                        { href: finalTermsUrl, label: 'Terms of Service' },
+                                    ].map((link) => (
+                                        <a
+                                            key={link.label}
+                                            href={link.href}
+                                            className="text-dark-text-secondary/40 hover:text-brand-accent transition-colors duration-300"
+                                        >
+                                            {link.label}
+                                        </a>
+                                    ))}
                                     <a
                                         href="/sitemap.xml"
-                                        className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300 flex items-center gap-1"
+                                        className="text-dark-text-secondary/40 hover:text-brand-accent transition-colors duration-300 flex items-center gap-1"
                                     >
                                         <Globe className="h-3 w-3" />
                                         Sitemap
                                     </a>
                                 </div>
 
-                                {/* Made with love using constants */}
-                                <div className="flex items-center gap-1 text-xs text-dark-text-secondary">
+                                <div className="flex items-center gap-1 text-xs text-dark-text-secondary/30">
                                     <span>Made with</span>
-                                    <Heart className="h-3 w-3 text-red-400 fill-current" />
+                                    <Heart className="h-3 w-3 text-red-400/50 fill-current" />
                                     <span>in {CONTACT_INFO.address.city}, {CONTACT_INFO.address.country}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Local SEO benefit statement using constants */}
-                    <div className="bg-gradient-to-r from-brand-accent/5 to-brand-primary/5 border-t border-brand-accent/10">
+                    {/* Local SEO benefit statement */}
+                    <div className="bg-gradient-to-r from-brand-accent/[0.03] to-brand-primary/[0.03]">
                         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                            <p className="text-center text-dark-text-secondary text-xs leading-relaxed">
-                                <strong className="text-brand-accent">{BUSINESS_INFO.name}</strong> - Your trusted technology partner in
-                                <strong className="text-brand-primary"> {SERVICE_AREAS.primary}, {SERVICE_AREAS.region}</strong>.
+                            <p className="text-center text-dark-text-secondary/40 text-xs leading-relaxed">
+                                <strong className="text-brand-accent/50">{BUSINESS_INFO.name}</strong> - Your trusted technology partner in
+                                <strong className="text-brand-primary/50"> {SERVICE_AREAS.primary}, {SERVICE_AREAS.region}</strong>.
                                 Specializing in web development, AI integration, and custom software solutions for local businesses.
                                 Serving {SERVICES_OFFERED.industries.slice(0, 4).join(', ').toLowerCase()}, and growing companies throughout the region.
-                                <span className="block mt-1">
-                                    <strong>Local Expertise • Global Technology • Proven Results</strong>
+                                <span className="block mt-1 text-dark-text-secondary/25">
+                                    <strong>Local Expertise &bull; Global Technology &bull; Proven Results</strong>
                                 </span>
                             </p>
                         </div>
                     </div>
                 </div>
 
-                {/* Hidden SEO content using constants */}
+                {/* Hidden SEO content */}
                 <div className="sr-only">
                     <h2>{BUSINESS_INFO.name} - {SERVICE_AREAS.primary} Web Development and Technology Services</h2>
                     <p>
                         Professional web development, AI integration, and technology consulting services in {SERVICE_AREAS.primary}, {CONTACT_INFO.address.state}, {CONTACT_INFO.address.country}.
                         Serving businesses throughout {SERVICE_AREAS.region} including {SERVICE_AREAS.areas.slice(1, 5).join(', ')}, and surrounding areas.
                     </p>
-
                     <h3>Contact Information</h3>
                     <p>Address: {getFullAddress()}</p>
                     <p>Phone: {CONTACT_INFO.phone.primary}</p>
                     <p>Email: {CONTACT_INFO.email.primary}</p>
                     <p>Business Hours: {CONTACT_INFO.hours.business}</p>
-
                     <h3>Services Offered</h3>
                     <p>
                         Web development {SERVICE_AREAS.primary}, AI integration {SERVICE_AREAS.primary}, {SERVICES_OFFERED.primary.join(', ').toLowerCase()},
                         business automation, digital transformation, website design {SERVICE_AREAS.primary}, tourism website development, hospitality technology solutions.
                     </p>
-
                     <h3>Service Areas</h3>
                     <p>{SERVICE_AREAS.areas.join(', ')}, {SERVICE_AREAS.region}, {CONTACT_INFO.address.country}.</p>
                 </div>

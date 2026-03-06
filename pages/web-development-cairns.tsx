@@ -177,7 +177,7 @@ const WebDevelopmentCairns: React.FC = () => {
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Back Navigation */}
-                <div className="border-b border-white/10">
+                <div className="">
                     <div className="container-custom py-6">
                         <Link href="/#services" className="inline-flex items-center gap-2 text-dark-text-secondary hover:text-brand-accent transition-colors duration-300">
                             <ArrowLeft className="h-4 w-4" />
@@ -207,14 +207,14 @@ const WebDevelopmentCairns: React.FC = () => {
                             <div className="flex flex-wrap gap-4 justify-center mb-8">
                                 <a
                                     href="#contact"
-                                    className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <span>Get Free Quote</span>
                                     <ArrowRight className="h-5 w-5" />
                                 </a>
                                 <a
                                     href={`tel:${CONTACT_INFO.phone.primary}`}
-                                    className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
                                 >
                                     <span>Call {CONTACT_INFO.phone.display}</span>
                                 </a>
@@ -240,8 +240,8 @@ const WebDevelopmentCairns: React.FC = () => {
 
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {features.map((feature, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center mb-6 border border-brand-accent/30">
+                                    <div key={index} className="glass-card p-8 transition-all duration-500">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center mb-6">
                                             {feature.icon}
                                         </div>
                                         <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
@@ -266,7 +266,7 @@ const WebDevelopmentCairns: React.FC = () => {
 
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {services.map((item, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-500">
+                                    <div key={index} className="glass-card p-6 transition-all duration-500">
                                         <div className="flex items-center gap-4 mb-4">
                                             <div className="w-12 h-12 bg-gradient-to-br from-brand-accent to-brand-primary rounded-xl flex items-center justify-center text-white font-bold text-xl">
                                                 {item.step}
@@ -294,7 +294,7 @@ const WebDevelopmentCairns: React.FC = () => {
 
                             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                                 {technologies.map((tech, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-300 text-center">
+                                    <div key={index} className="glass-card p-6 transition-all duration-300 text-center">
                                         <Code className="h-6 w-6 text-brand-accent mx-auto mb-3" />
                                         <p className="text-white font-semibold">{tech}</p>
                                     </div>
@@ -311,11 +311,11 @@ const WebDevelopmentCairns: React.FC = () => {
                             <h3 className="text-xl font-bold text-white mb-6">Also Available Across Far North Queensland</h3>
                             <div className="flex flex-wrap justify-center gap-3">
                                 {['Palm Cove', 'Port Douglas', 'Trinity Beach', 'Smithfield', 'Edge Hill', 'Redlynch', 'Gordonvale', 'Kuranda', 'Mareeba', 'Atherton', 'Innisfail', 'Mission Beach'].map((loc) => (
-                                    <Link key={loc} href={`/services/web-development/${loc.toLowerCase().replace(/ /g, '-')}`} className="bg-white/5 text-dark-text-secondary px-4 py-2 rounded-lg text-sm hover:bg-brand-accent/20 hover:text-brand-accent transition-all duration-300 border border-white/10">
+                                    <Link key={loc} href={`/services/web-development/${loc.toLowerCase().replace(/ /g, '-')}`} className="bg-white/5 text-dark-text-secondary px-4 py-2 rounded-lg text-sm hover:bg-brand-accent/20 hover:text-brand-accent transition-all duration-300">
                                         {loc}
                                     </Link>
                                 ))}
-                                <Link href="/services" className="bg-brand-accent/10 text-brand-accent px-4 py-2 rounded-lg text-sm hover:bg-brand-accent/20 transition-all duration-300 border border-brand-accent/30 font-medium">
+                                <Link href="/services" className="bg-brand-accent/10 text-brand-accent px-4 py-2 rounded-lg text-sm hover:bg-brand-accent/20 transition-all duration-300 font-medium">
                                     All 25 locations →
                                 </Link>
                             </div>
@@ -324,7 +324,7 @@ const WebDevelopmentCairns: React.FC = () => {
                 </section>
 
                 {/* CTA Section */}
-                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 border-y border-brand-accent/20">
+                <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto text-center">
                             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -337,14 +337,14 @@ const WebDevelopmentCairns: React.FC = () => {
                             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                                 <a
                                     href="#contact"
-                                    className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <span>Start Your Project</span>
                                     <ArrowRight className="h-5 w-5" />
                                 </a>
                                 <Link
                                     href="/#portfolio"
-                                    className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
                                 >
                                     <span>View Portfolio</span>
                                 </Link>

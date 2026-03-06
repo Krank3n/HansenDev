@@ -119,7 +119,7 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Breadcrumb */}
-                <nav className="border-b border-white/10" aria-label="Breadcrumb">
+                <nav className="" aria-label="Breadcrumb">
                     <div className="container-custom py-4">
                         <ol className="flex items-center gap-2 text-sm text-dark-text-secondary flex-wrap">
                             <li><Link href="/" className="hover:text-brand-accent transition-colors">Home</Link></li>
@@ -161,7 +161,7 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
                                 </a>
                                 <Link
                                     href="/projects/webfacelift"
-                                    className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
                                 >
                                     <span>Learn More</span>
                                 </Link>
@@ -175,7 +175,7 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
                 </section>
 
                 {/* Why Outdated */}
-                <section className="py-16 lg:py-24 bg-white/[0.02] border-y border-white/10">
+                <section className="py-16 lg:py-24 bg-white/[0.02] ">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto">
                             <div className="text-center mb-12">
@@ -184,13 +184,13 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
                                 </h2>
                             </div>
 
-                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 mb-8">
+                            <div className="glass-card p-8 mb-8">
                                 <p className="text-lg text-dark-text-secondary leading-relaxed">
                                     {industry.whyOutdated}
                                 </p>
                             </div>
 
-                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                            <div className="glass-card p-8">
                                 <h3 className="text-xl font-bold text-white mb-4">The competitive reality</h3>
                                 <p className="text-dark-text-secondary leading-relaxed">
                                     {industry.competitorPressure}
@@ -214,7 +214,7 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
                             </div>
 
                             <div className="grid md:grid-cols-3 gap-8">
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-500/30 transition-all duration-500 text-center">
+                                <div className="glass-card p-8 transition-all duration-500 text-center">
                                     <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl">
                                         1
                                     </div>
@@ -224,7 +224,7 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-500/30 transition-all duration-500 text-center">
+                                <div className="glass-card p-8 transition-all duration-500 text-center">
                                     <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl">
                                         2
                                     </div>
@@ -234,7 +234,7 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
                                     </p>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-500/30 transition-all duration-500 text-center">
+                                <div className="glass-card p-8 transition-all duration-500 text-center">
                                     <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl">
                                         3
                                     </div>
@@ -263,8 +263,8 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
 
                             <div className="grid md:grid-cols-2 gap-6">
                                 {industry.designPriorities.map((priority, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 flex items-start gap-4">
-                                        <div className="w-10 h-10 bg-indigo-500/20 rounded-xl flex items-center justify-center flex-shrink-0 border border-indigo-500/30">
+                                    <div key={index} className="glass-card p-6 flex items-start gap-4">
+                                        <div className="w-10 h-10 bg-indigo-500/20 rounded-xl flex items-center justify-center flex-shrink-0 ">
                                             <CheckCircle className="h-5 w-5 text-indigo-400" />
                                         </div>
                                         <p className="text-dark-text-secondary leading-relaxed">{priority}</p>
@@ -290,7 +290,7 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
 
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                 {industry.commonPages.map((page, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:border-indigo-500/30 transition-all duration-300 text-center">
+                                    <div key={index} className="bg-white/[0.03] backdrop-blur-sm rounded-xl p-5 hover:bg-white/[0.06] transition-all duration-300 text-center">
                                         <Globe className="h-6 w-6 text-indigo-400 mx-auto mb-3" />
                                         <p className="text-white font-semibold text-sm">{page}</p>
                                     </div>
@@ -312,7 +312,7 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
 
                             <div className="grid md:grid-cols-2 gap-6">
                                 {industry.conversionGoals.map((goal, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 flex items-start gap-4">
+                                    <div key={index} className="glass-card p-6 flex items-start gap-4">
                                         <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-xl flex items-center justify-center flex-shrink-0 text-white font-bold">
                                             {index + 1}
                                         </div>
@@ -343,8 +343,8 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
                                     { icon: <Monitor className="h-6 w-6 text-indigo-400" />, title: 'Live Preview', desc: 'See your redesigned website rendered in real-time. Toggle between desktop and mobile views.' },
                                     { icon: <FileJson className="h-6 w-6 text-indigo-400" />, title: 'Export & Build', desc: 'Export the component-based JSON structure. Share with your developer or contact us to build it professionally.' },
                                 ].map((feature, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-indigo-500/30 transition-all duration-500">
-                                        <div className="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-6 border border-indigo-500/30">
+                                    <div key={index} className="glass-card p-8 transition-all duration-500">
+                                        <div className="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-6 ">
                                             {feature.icon}
                                         </div>
                                         <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
@@ -368,7 +368,7 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
 
                             <div className="space-y-6">
                                 {faqItems.map((faq, index) => (
-                                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                    <div key={index} className="glass-card p-6">
                                         <h3 className="text-lg font-bold text-white mb-3">{faq.question}</h3>
                                         <p className="text-dark-text-secondary leading-relaxed">{faq.answer}</p>
                                     </div>
@@ -379,7 +379,7 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
                 </section>
 
                 {/* Other Industries */}
-                <section className="py-16 lg:py-24 border-t border-white/10">
+                <section className="py-16 lg:py-24 ">
                     <div className="container-custom">
                         <div className="max-w-5xl mx-auto">
                             <div className="text-center mb-12">
@@ -396,7 +396,7 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
                                     <Link
                                         key={other.slug}
                                         href={`/solutions/ai-website-redesign-for-${other.slug}`}
-                                        className="bg-white/5 rounded-xl p-4 border border-white/10 hover:border-indigo-500/30 transition-all duration-300 group"
+                                        className="bg-white/[0.03] rounded-xl p-4 hover:bg-white/[0.06] transition-all duration-300 group"
                                     >
                                         <div className="flex items-center gap-2">
                                             <Sparkles className="h-4 w-4 text-indigo-400 flex-shrink-0" />
@@ -412,7 +412,7 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
                 </section>
 
                 {/* CTA */}
-                <section className="py-16 lg:py-24 bg-gradient-to-br from-indigo-600/10 via-violet-600/10 to-indigo-600/10 border-y border-indigo-500/20">
+                <section className="py-16 lg:py-24 bg-gradient-to-br from-indigo-600/10 via-violet-600/10 to-indigo-600/10 ">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto text-center">
                             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -434,7 +434,7 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
                                 </a>
                                 <Link
                                     href="/projects/webfacelift"
-                                    className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                                    className="inline-flex items-center justify-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
                                 >
                                     <span>Learn More About WebFaceLift</span>
                                 </Link>

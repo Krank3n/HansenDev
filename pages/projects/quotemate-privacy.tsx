@@ -31,7 +31,7 @@ const QuoteMatePrivacy: React.FC = () => {
 
             <div className="min-h-screen bg-dark-bg text-dark-text">
                 {/* Back Navigation */}
-                <div className="border-b border-white/10">
+                <div className="">
                     <div className="container-custom py-6">
                         <Link href="/projects/quotemate" className="inline-flex items-center gap-2 text-dark-text-secondary hover:text-brand-accent transition-colors duration-300">
                             <ArrowLeft className="h-4 w-4" />
@@ -55,7 +55,7 @@ const QuoteMatePrivacy: React.FC = () => {
                             </div>
 
                             {/* Trust Banner */}
-                            <div className="bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8 border border-brand-accent/20 mb-12">
+                            <div className="bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8  mb-12">
                                 <h2 className="text-2xl font-bold text-white mb-4">Your Privacy is Our Priority</h2>
                                 <p className="text-lg text-dark-text-secondary leading-relaxed">
                                     QuoteMate is built with privacy at its core. <strong className="text-white">We don't collect, store, or share any of your data.</strong> Everything stays on your device. This isn't just a policy - it's how the app is designed.
@@ -63,11 +63,11 @@ const QuoteMatePrivacy: React.FC = () => {
                             </div>
 
                             {/* Quick Summary */}
-                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 mb-12">
+                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8  mb-12">
                                 <h2 className="text-2xl font-bold text-white mb-6">Privacy Policy Summary</h2>
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div className="flex items-start gap-3">
-                                        <div className="w-10 h-10 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-lg flex items-center justify-center border border-green-500/30 flex-shrink-0">
+                                        <div className="w-10 h-10 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-lg flex items-center justify-center  flex-shrink-0">
                                             <Shield className="h-5 w-5 text-green-400" />
                                         </div>
                                         <div>
@@ -77,7 +77,7 @@ const QuoteMatePrivacy: React.FC = () => {
                                     </div>
 
                                     <div className="flex items-start gap-3">
-                                        <div className="w-10 h-10 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-lg flex items-center justify-center border border-green-500/30 flex-shrink-0">
+                                        <div className="w-10 h-10 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-lg flex items-center justify-center  flex-shrink-0">
                                             <Database className="h-5 w-5 text-green-400" />
                                         </div>
                                         <div>
@@ -87,7 +87,7 @@ const QuoteMatePrivacy: React.FC = () => {
                                     </div>
 
                                     <div className="flex items-start gap-3">
-                                        <div className="w-10 h-10 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-lg flex items-center justify-center border border-green-500/30 flex-shrink-0">
+                                        <div className="w-10 h-10 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-lg flex items-center justify-center  flex-shrink-0">
                                             <Share2 className="h-5 w-5 text-green-400" />
                                         </div>
                                         <div>
@@ -97,7 +97,7 @@ const QuoteMatePrivacy: React.FC = () => {
                                     </div>
 
                                     <div className="flex items-start gap-3">
-                                        <div className="w-10 h-10 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-lg flex items-center justify-center border border-green-500/30 flex-shrink-0">
+                                        <div className="w-10 h-10 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-lg flex items-center justify-center  flex-shrink-0">
                                             <Eye className="h-5 w-5 text-green-400" />
                                         </div>
                                         <div>
@@ -129,7 +129,7 @@ const QuoteMatePrivacy: React.FC = () => {
                                 {/* Local Data Storage */}
                                 <section>
                                     <h2 className="text-3xl font-bold text-white mb-6">2. How Your Data is Stored</h2>
-                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                         <h3 className="text-xl font-bold text-white mb-4">Local Device Storage</h3>
                                         <p className="text-dark-text-secondary leading-relaxed mb-4">
                                             QuoteMate stores the following information locally on your device:
@@ -156,7 +156,7 @@ const QuoteMatePrivacy: React.FC = () => {
                                                 <span><strong className="text-white">App Settings:</strong> Your preferences for the app's appearance and behavior</span>
                                             </li>
                                         </ul>
-                                        <div className="mt-6 p-4 bg-brand-accent/10 border border-brand-accent/30 rounded-xl">
+                                        <div className="mt-6 p-4 bg-brand-accent/10  rounded-xl">
                                             <p className="text-dark-text-secondary text-sm">
                                                 <strong className="text-white">Important:</strong> This data is stored using encrypted local storage on your device only. It is never transmitted to our servers because we don't have any servers. You maintain complete control and can delete all data at any time from the app settings.
                                             </p>
@@ -168,7 +168,7 @@ const QuoteMatePrivacy: React.FC = () => {
                                 <section>
                                     <h2 className="text-3xl font-bold text-white mb-6">3. Third-Party Services</h2>
                                     <div className="space-y-6">
-                                        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                             <h3 className="text-xl font-bold text-white mb-4">Bunnings API</h3>
                                             <p className="text-dark-text-secondary leading-relaxed mb-3">
                                                 When you use the "Fetch Bunnings Prices" feature, QuoteMate makes requests to the Bunnings Live API to retrieve current product pricing. This connection:
@@ -193,7 +193,7 @@ const QuoteMatePrivacy: React.FC = () => {
                                             </ul>
                                         </div>
 
-                                        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                             <h3 className="text-xl font-bold text-white mb-4">Claude AI (Anthropic)</h3>
                                             <p className="text-dark-text-secondary leading-relaxed mb-3">
                                                 When you use the AI-powered custom job estimation feature, QuoteMate sends your job description to Claude AI to generate material suggestions. This:
@@ -228,9 +228,9 @@ const QuoteMatePrivacy: React.FC = () => {
                                     </p>
 
                                     <div className="space-y-4">
-                                        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                             <div className="flex items-start gap-4">
-                                                <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center border border-brand-accent/30 flex-shrink-0">
+                                                <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                                     <span className="text-2xl">📷</span>
                                                 </div>
                                                 <div>
@@ -242,9 +242,9 @@ const QuoteMatePrivacy: React.FC = () => {
                                             </div>
                                         </div>
 
-                                        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                             <div className="flex items-start gap-4">
-                                                <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center border border-brand-accent/30 flex-shrink-0">
+                                                <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                                     <span className="text-2xl">📍</span>
                                                 </div>
                                                 <div>
@@ -256,9 +256,9 @@ const QuoteMatePrivacy: React.FC = () => {
                                             </div>
                                         </div>
 
-                                        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                             <div className="flex items-start gap-4">
-                                                <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center border border-brand-accent/30 flex-shrink-0">
+                                                <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center  flex-shrink-0">
                                                     <span className="text-2xl">💾</span>
                                                 </div>
                                                 <div>
@@ -275,7 +275,7 @@ const QuoteMatePrivacy: React.FC = () => {
                                 {/* Data Sharing */}
                                 <section>
                                     <h2 className="text-3xl font-bold text-white mb-6">5. Data Sharing & Disclosure</h2>
-                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                         <p className="text-dark-text-secondary leading-relaxed mb-4">
                                             <strong className="text-white">We do not share, sell, rent, or trade your data with anyone. Period.</strong>
                                         </p>
@@ -305,7 +305,7 @@ const QuoteMatePrivacy: React.FC = () => {
                                 {/* Analytics & Tracking */}
                                 <section>
                                     <h2 className="text-3xl font-bold text-white mb-6">6. Analytics & Tracking</h2>
-                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                         <p className="text-lg text-dark-text-secondary leading-relaxed mb-4">
                                             <strong className="text-white">QuoteMate does not use any analytics or tracking.</strong>
                                         </p>
@@ -340,7 +340,7 @@ const QuoteMatePrivacy: React.FC = () => {
                                 {/* Data Security */}
                                 <section>
                                     <h2 className="text-3xl font-bold text-white mb-6">7. Data Security</h2>
-                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                         <p className="text-dark-text-secondary leading-relaxed mb-4">
                                             Your data security is ensured through:
                                         </p>
@@ -368,7 +368,7 @@ const QuoteMatePrivacy: React.FC = () => {
                                 {/* Your Rights */}
                                 <section>
                                     <h2 className="text-3xl font-bold text-white mb-6">8. Your Rights & Control</h2>
-                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                         <p className="text-dark-text-secondary leading-relaxed mb-4">
                                             You have complete control over your data:
                                         </p>
@@ -396,7 +396,7 @@ const QuoteMatePrivacy: React.FC = () => {
                                 {/* Children's Privacy */}
                                 <section>
                                     <h2 className="text-3xl font-bold text-white mb-6">9. Children's Privacy</h2>
-                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                         <p className="text-dark-text-secondary leading-relaxed">
                                             QuoteMate is designed for professional tradies and is not intended for use by children under 13. We do not knowingly collect information from children. If you believe a child has used QuoteMate, please contact us, though rest assured no data would have been collected from our end.
                                         </p>
@@ -406,7 +406,7 @@ const QuoteMatePrivacy: React.FC = () => {
                                 {/* Changes to Policy */}
                                 <section>
                                     <h2 className="text-3xl font-bold text-white mb-6">10. Changes to This Privacy Policy</h2>
-                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 ">
                                         <p className="text-dark-text-secondary leading-relaxed mb-4">
                                             We may update this privacy policy from time to time. We will notify you of any changes by:
                                         </p>
@@ -433,7 +433,7 @@ const QuoteMatePrivacy: React.FC = () => {
                                 {/* Contact */}
                                 <section>
                                     <h2 className="text-3xl font-bold text-white mb-6">11. Contact Us</h2>
-                                    <div className="bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8 border border-brand-accent/20">
+                                    <div className="bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8 ">
                                         <p className="text-dark-text-secondary leading-relaxed mb-6">
                                             If you have any questions about this privacy policy or QuoteMate's privacy practices, please contact us:
                                         </p>
@@ -458,7 +458,7 @@ const QuoteMatePrivacy: React.FC = () => {
                             <div className="mt-16 text-center">
                                 <Link
                                     href="/projects/quotemate"
-                                    className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-accent to-brand-primary hover:from-brand-primary hover:to-brand-accent text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                    className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Shield className="h-5 w-5" />
                                     <span>Back to QuoteMate</span>
