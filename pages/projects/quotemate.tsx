@@ -486,35 +486,41 @@ fbq('track', 'PageView');
                             </div>
 
                             <div className="grid md:grid-cols-3 gap-6">
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-                                    <h3 className="text-lg font-bold text-white mb-3">🔨 Carpenters & Builders</h3>
+                                <Link href="/tools/quoting-app-for-carpenter" className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-500 group">
+                                    <h3 className="text-lg font-bold text-white mb-3 group-hover:text-brand-accent transition-colors">🔨 Carpenters & Builders</h3>
                                     <ul className="space-y-2 text-dark-text-secondary text-sm">
                                         <li>• Deck installations</li>
                                         <li>• Pergola builds</li>
                                         <li>• Stairs & handrails</li>
                                         <li>• Renovation projects</li>
                                     </ul>
-                                </div>
+                                </Link>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-                                    <h3 className="text-lg font-bold text-white mb-3">🌿 Landscapers</h3>
+                                <Link href="/tools/quoting-app-for-landscaper" className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-500 group">
+                                    <h3 className="text-lg font-bold text-white mb-3 group-hover:text-brand-accent transition-colors">🌿 Landscapers</h3>
                                     <ul className="space-y-2 text-dark-text-secondary text-sm">
                                         <li>• Retaining walls</li>
                                         <li>• Garden beds</li>
                                         <li>• Paving & pathways</li>
                                         <li>• Outdoor structures</li>
                                     </ul>
-                                </div>
+                                </Link>
 
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-                                    <h3 className="text-lg font-bold text-white mb-3">🏗️ General Contractors</h3>
+                                <Link href="/tools/quoting-app-for-fencing-contractor" className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-accent/30 transition-all duration-500 group">
+                                    <h3 className="text-lg font-bold text-white mb-3 group-hover:text-brand-accent transition-colors">🏗️ General Contractors</h3>
                                     <ul className="space-y-2 text-dark-text-secondary text-sm">
                                         <li>• Fencing projects</li>
                                         <li>• Home extensions</li>
                                         <li>• Bathroom renovations</li>
                                         <li>• Any custom job</li>
                                     </ul>
-                                </div>
+                                </Link>
+                            </div>
+
+                            <div className="text-center mt-8">
+                                <Link href="/tools" className="inline-flex items-center gap-2 text-brand-accent hover:text-white transition-colors font-medium">
+                                    See all 17 trades →
+                                </Link>
                             </div>
                         </div>
                     </div>

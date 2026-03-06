@@ -208,26 +208,59 @@ const Footer: React.FC<FooterProps> = ({
                                 </ul>
                             </div>
 
-                            {/* Service Areas & Industries using constants */}
+                            {/* Programmatic SEO Hub Links & Service Areas */}
                             <div>
-                                <h4 className="font-semibold text-dark-text mb-6 text-lg">Service Areas</h4>
-                                <div className="space-y-4">
-                                    <div>
-                                        <h5 className="text-sm font-medium text-brand-accent mb-2">Primary Areas:</h5>
-                                        <ul className="space-y-1 text-sm text-dark-text-secondary">
-                                            {SERVICE_AREAS.areas.slice(0, 4).map((area) => (
-                                                <li key={area}>• {area}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h5 className="text-sm font-medium text-brand-primary mb-2">Industries We Serve:</h5>
-                                        <ul className="space-y-1 text-sm text-dark-text-secondary">
-                                            {SERVICES_OFFERED.industries.slice(0, 4).map((industry) => (
-                                                <li key={industry}>• {industry}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
+                                <h4 className="font-semibold text-dark-text mb-6 text-lg">Explore</h4>
+                                <ul className="space-y-3">
+                                    <li>
+                                        <a
+                                            href="/services"
+                                            className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
+                                        >
+                                            <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
+                                            Services by Location
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/tools"
+                                            className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
+                                        >
+                                            <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
+                                            QuoteMate for Trades
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/solutions"
+                                            className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
+                                        >
+                                            <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
+                                            WebFaceLift by Industry
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/articles"
+                                            className="text-dark-text-secondary hover:text-brand-accent transition-colors duration-300 text-sm flex items-center gap-2 group"
+                                        >
+                                            <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
+                                            Articles & Guides
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div className="mt-5">
+                                    <h5 className="text-sm font-medium text-brand-accent mb-2">Service Areas:</h5>
+                                    <ul className="space-y-1 text-sm text-dark-text-secondary">
+                                        {SERVICE_AREAS.areas.slice(0, 4).map((area) => (
+                                            <li key={area}>• {area}</li>
+                                        ))}
+                                        <li>
+                                            <a href="/services" className="text-brand-accent hover:underline text-xs">
+                                                + {SERVICE_AREAS.areas.length - 4} more areas
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
 

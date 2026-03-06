@@ -398,7 +398,7 @@ const WebFaceLift: React.FC = () => {
                                         <div>
                                             <h3 className="text-xl font-bold text-white mb-3">Niche-Specific Templates</h3>
                                             <p className="text-dark-text-secondary leading-relaxed">
-                                                Intelligent detection routes businesses to specialised layouts — water sports with booking integration, restaurants with menus, fitness centres with class schedules.
+                                                Intelligent detection routes businesses to specialised layouts — <Link href="/solutions/ai-website-redesign-for-restaurant" className="text-indigo-400 hover:text-indigo-300 transition-colors">restaurants</Link> with menus, <Link href="/solutions/ai-website-redesign-for-gym-fitness" className="text-indigo-400 hover:text-indigo-300 transition-colors">fitness centres</Link> with class schedules, <Link href="/solutions/ai-website-redesign-for-dental-practice" className="text-indigo-400 hover:text-indigo-300 transition-colors">dental practices</Link> with booking, and <Link href="/solutions" className="text-indigo-400 hover:text-indigo-300 transition-colors">15 more industries</Link>.
                                             </p>
                                         </div>
                                     </div>
@@ -604,6 +604,12 @@ const WebFaceLift: React.FC = () => {
                                         <p className="text-dark-text-secondary leading-relaxed">{audience.description}</p>
                                     </div>
                                 ))}
+                            </div>
+
+                            <div className="text-center mt-10">
+                                <Link href="/solutions" className="inline-flex items-center gap-2 text-indigo-400 hover:text-white transition-colors font-medium">
+                                    Browse redesign guides for 15 industries →
+                                </Link>
                             </div>
                         </div>
                     </div>

@@ -304,6 +304,25 @@ const MobileAppDevelopmentCairns: React.FC = () => {
                     </div>
                 </section>
 
+                {/* Also Available In */}
+                <section className="py-12 lg:py-16">
+                    <div className="container-custom">
+                        <div className="max-w-5xl mx-auto text-center">
+                            <h3 className="text-xl font-bold text-white mb-6">Mobile App Development Across Far North Queensland</h3>
+                            <div className="flex flex-wrap justify-center gap-3">
+                                {['Palm Cove', 'Port Douglas', 'Trinity Beach', 'Smithfield', 'Edge Hill', 'Redlynch', 'Gordonvale', 'Kuranda', 'Mareeba', 'Atherton', 'Innisfail', 'Mission Beach'].map((loc) => (
+                                    <Link key={loc} href={`/services/mobile-app-development/${loc.toLowerCase().replace(/ /g, '-')}`} className="bg-white/5 text-dark-text-secondary px-4 py-2 rounded-lg text-sm hover:bg-brand-accent/20 hover:text-brand-accent transition-all duration-300 border border-white/10">
+                                        {loc}
+                                    </Link>
+                                ))}
+                                <Link href="/services" className="bg-brand-accent/10 text-brand-accent px-4 py-2 rounded-lg text-sm hover:bg-brand-accent/20 transition-all duration-300 border border-brand-accent/30 font-medium">
+                                    All 25 locations →
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* CTA Section */}
                 <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 border-y border-brand-accent/20">
                     <div className="container-custom">

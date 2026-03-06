@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Section from './common/Section';
 import Card from './common/Card';
 import { ServiceCardProps } from '../types';
@@ -15,6 +16,7 @@ import {
   Bot,
   Lightbulb,
   Info,
+  Settings,
 } from 'lucide-react';
 
 // Import business constants
@@ -75,6 +77,28 @@ const servicesData: (ServiceCardProps & { learnMoreUrl: string })[] = [
     deliveryTime: PRICING_INFO.aiIntegration.timeline,
     businessTypes: ['Tourism Operators', 'Hotels & Accommodation', 'Restaurants', 'Retail Stores', 'Professional Services', 'Healthcare Practices'],
     learnMoreUrl: '/ai-integration-cairns'
+  },
+  {
+    icon: <Settings className="h-12 w-12 text-brand-accent service-icon-settings" />,
+    title: `Business Automation ${SERVICE_AREAS.primary}`,
+    description: `Stop wasting hours on repetitive tasks. We build custom automation systems for ${SERVICE_AREAS.primary} businesses — from automated quoting and invoicing to booking systems and CRM workflows. Spend less time on admin and more time growing your ${SERVICE_AREAS.region} business.`,
+    longDescription: `Our automation solutions are purpose-built for ${SERVICE_AREAS.primary} businesses that want to scale without scaling their admin workload. We connect your tools, automate your workflows, and build systems that handle the busywork so your team can focus on what matters.`,
+    keywords: [
+      `Automation ${SERVICE_AREAS.primary}`,
+      `Business Automation ${SERVICE_AREAS.primary}`,
+      `Workflow Automation ${SERVICE_AREAS.region}`,
+      'CRM Automation',
+      'Booking System Automation',
+      'Invoice Automation',
+      `Process Automation ${CONTACT_INFO.address.state}`,
+      'Zapier Integration',
+      'API Integration'
+    ],
+    features: SERVICES_OFFERED.categories.automation.services,
+    priceRange: PRICING_INFO.automation.starting,
+    deliveryTime: PRICING_INFO.automation.timeline,
+    businessTypes: ['Trades & Services', 'Tourism Operators', 'Retail Stores', 'Professional Services', 'Restaurants & Cafes', 'Healthcare Practices'],
+    learnMoreUrl: '/automation-services-cairns'
   },
   {
     icon: <Lightbulb className="h-12 w-12 text-brand-accent service-icon-lightbulb" />,
@@ -183,7 +207,7 @@ const Services: React.FC = () => {
           </div>
 
           {/* Enhanced service cards using constants */}
-          <div className="relative grid lg:grid-cols-3 gap-8 mb-16">
+          <div className="relative grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {servicesData.map((service, index) => (
                 <Card key={service.title} className="group hover:border-brand-accent/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-accent/10 hover:-translate-y-2">
                   <div className="relative">
@@ -341,10 +365,13 @@ const Services: React.FC = () => {
               </span>
               ))}
             </div>
-            <p className="text-dark-text-secondary text-sm">
+            <p className="text-dark-text-secondary text-sm mb-4">
               {SERVICE_AREAS.onSiteRange} • {SERVICE_AREAS.remoteService} •
               Specialized expertise in tourism and hospitality industries
             </p>
+            <Link href="/services" className="inline-flex items-center gap-2 text-brand-accent hover:text-white transition-colors text-sm font-medium">
+              Browse all services by location →
+            </Link>
           </div>
 
           {/* Final CTA using constants */}
@@ -394,6 +421,12 @@ const Services: React.FC = () => {
             <p>
               Artificial intelligence solutions for {SERVICE_AREAS.primary} businesses including chatbots, automated customer service,
               booking systems, inventory management, and process automation to improve efficiency and customer experience.
+            </p>
+
+            <h3>Business Automation Services {SERVICE_AREAS.primary}</h3>
+            <p>
+              Custom automation solutions for {SERVICE_AREAS.primary} businesses including workflow automation, CRM integration,
+              booking systems, invoice automation, and API connectivity to streamline operations and reduce manual tasks.
             </p>
 
             <h3>Technology Consulting {SERVICE_AREAS.region}</h3>

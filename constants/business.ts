@@ -193,6 +193,7 @@ export const SERVICES_OFFERED = {
     primary: [
         "Web Development",
         "AI Integration",
+        "Automation Services",
         "Technology Consulting",
         "Custom Software Development"
     ],
@@ -220,6 +221,17 @@ export const SERVICES_OFFERED = {
                 "Data Analytics",
                 "Predictive Analytics"
             ] // ✅ Removed 'as const' to allow concatenation
+        },
+        automation: {
+            name: "Automation Services",
+            services: [
+                "Workflow Automation",
+                "CRM & Email Automation",
+                "Booking & Scheduling Systems",
+                "Invoice & Quoting Automation",
+                "Data Entry & Reporting Automation",
+                "Integration & API Connectivity"
+            ]
         },
         consulting: {
             name: "Technology Consulting",
@@ -254,7 +266,9 @@ export const SEO_CONSTANTS = {
         "AI integration cairns",
         "technology consulting cairns",
         "custom software cairns",
-        "website design cairns"
+        "website design cairns",
+        "automation services cairns",
+        "business automation cairns"
     ],
 
     // Local SEO Keywords
@@ -298,6 +312,11 @@ export const PRICING_INFO = {
         starting: "From $6,000",
         range: "$$",
         timeline: "3-8 weeks"
+    },
+    automation: {
+        starting: "From $3,000",
+        range: "$$",
+        timeline: "2-6 weeks"
     },
     consulting: {
         starting: "From $200/hour",
