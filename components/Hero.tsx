@@ -158,7 +158,6 @@ const Hero: React.FC = () => {
             {[
               'NAB / nabtrade',
               'DXC Technology',
-              'Bunnings API',
               'Queensland Government Approved',
             ].map((item) => (
               <span key={item} className="inline-flex items-center gap-1.5 text-xs text-gray-400 font-medium">
