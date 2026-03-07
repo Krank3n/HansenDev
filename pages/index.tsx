@@ -8,6 +8,7 @@ import DemoShowcase from '../components/DemoShowcase';
 import About from '../components/About';
 import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
+import StickyCTA from '../components/StickyCTA';
 
 // Import business constants
 import {
@@ -206,6 +207,7 @@ const HomePage: React.FC = () => {
             <About />
             <FAQ />
             <Contact />
+            <StickyCTA />
 
             {/* Privacy Policy Link Section */}
             <div className="py-8">

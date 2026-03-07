@@ -63,6 +63,10 @@ export default function Document() {
     return (
         <Html lang="en" className="dark">
             <Head>
+                <link rel="icon" href="/favicon.ico" sizes="32x32" />
+                <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+                <link rel="icon" href="/favicon-48x48.png" sizes="48x48" type="image/png" />
+                <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
                 <meta charSet="UTF-8" />
                 <meta name="author" content="HansenDev PTY LTD" />
                 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />

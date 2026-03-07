@@ -16,14 +16,44 @@ const Contact: React.FC = () => {
   const { ref, isVisible } = useScrollReveal();
 
   useEffect(() => {
+    const prefills: Record<string, Partial<typeof formData>> = {
+      '#contact-discovery': {
+        service: 'Free Discovery Session',
+        budget: 'Not sure yet',
+        message: "Hi! I'd like to book a free discovery session to find out where automation or a custom build could save my business the most time.",
+      },
+      '#contact-chat': {
+        service: 'Free Discovery Session',
+        budget: 'Not sure yet',
+        message: "Hi Tom! I'd love to have a quick chat about how HansenDev could help my business.",
+      },
+      '#contact-quote': {
+        service: '',
+        budget: '',
+        message: "Hi! I'm interested in getting a quote. Here's what I need:\n\n",
+      },
+      '#contact-project': {
+        service: 'Web Development',
+        budget: '',
+        message: "Hi! I saw your portfolio and I'd love to discuss a similar project for my business.\n\n",
+      },
+      '#contact-demo': {
+        service: 'AI Integration',
+        budget: 'Not sure yet',
+        message: "Hi! I'd love to see a demo of your AI tools and how they could work for my business.",
+      },
+      '#contact-question': {
+        service: '',
+        budget: 'Not sure yet',
+        message: "Hi! I have a question:\n\n",
+      },
+    };
+
     const handleHash = () => {
-      if (window.location.hash === '#contact-discovery') {
-        setFormData((prev) => ({
-          ...prev,
-          service: 'Free Discovery Session',
-          budget: 'Not sure yet',
-          message: "Hi! I'd like to book a free discovery session to find out where automation or a custom build could save my business the most time.",
-        }));
+      const hash = window.location.hash;
+      const prefill = prefills[hash];
+      if (prefill) {
+        setFormData((prev) => ({ ...prev, ...prefill }));
         const el = document.getElementById('contact');
         if (el) el.scrollIntoView({ behavior: 'smooth' });
         history.replaceState(null, '', window.location.pathname + '#contact');
