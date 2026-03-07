@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Section from './common/Section';
 import Card from './common/Card';
@@ -106,8 +106,112 @@ const servicesData: (ServiceCardProps & { learnMoreUrl: string })[] = [
   },
 ];
 
+const ServiceCard: React.FC<{ service: (typeof servicesData)[number]; index: number }> = ({ service, index }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-600 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+    >
+      <Card className="group hover:-translate-y-2 transition-all duration-500 h-full">
+        <div className="relative">
+          <div className="flex items-center justify-center w-20 h-20 rounded-2xl mb-6 bg-gradient-to-br from-brand-accent/10 to-brand-primary/5 group-hover:from-brand-accent/20 group-hover:to-brand-primary/10 transition-all duration-500">
+            {service.icon}
+          </div>
+          {index === 0 && (
+            <div className="absolute -top-2 -right-2 bg-gradient-to-r from-brand-accent to-brand-primary text-white text-xs px-3 py-1 rounded-full font-bold">
+              Most Popular
+            </div>
+          )}
+          <h3 className="text-2xl font-bold text-dark-text mb-4 group-hover:text-brand-accent transition-colors duration-300">
+            {service.title}
+          </h3>
+          <p className="text-dark-text-secondary mb-6 leading-relaxed">
+            {service.description}
+          </p>
+          <div className="mb-6">
+            <h4 className="text-sm font-semibold text-dark-text mb-3 flex items-center gap-2">
+              <CheckCircle className="h-4 w-4 text-brand-accent" />
+              What&apos;s Included:
+            </h4>
+            <ul className="space-y-2">
+              {service.features.slice(0, 4).map((feature, idx) => (
+                <li key={idx} className="text-sm text-dark-text-secondary flex items-start gap-2">
+                  <CheckCircle className="h-4 w-4 text-brand-accent/60 mt-0.5 flex-shrink-0" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="grid grid-cols-2 gap-4 mb-6 p-4 rounded-xl bg-gradient-to-br from-white/[0.03] to-white/[0.01]">
+            <div className="text-center">
+              <div className="text-lg font-bold gradient-text">{service.priceRange}</div>
+              <div className="text-xs text-dark-text-secondary/70">Starting Price</div>
+            </div>
+            <div className="text-center relative timeline-trigger">
+              <div className="text-lg font-bold text-brand-primary inline-flex items-center gap-1.5">
+                {service.deliveryTime}
+                <Info className="h-3.5 w-3.5 text-dark-text-secondary/40 cursor-help" />
+              </div>
+              <div className="text-xs text-dark-text-secondary/70">Timeline</div>
+              <div className="timeline-tooltip">
+                Includes discovery, design, development &amp; local QA testing
+              </div>
+            </div>
+          </div>
+          <div className="mb-6">
+            <p className="text-xs text-dark-text-secondary/60 mb-2">Perfect for:</p>
+            <div className="flex flex-wrap gap-1.5">
+              {service.businessTypes.slice(0, 3).map((type) => (
+                <span key={type} className="bg-white/[0.04] text-gray-400 px-2.5 py-1 rounded-lg text-xs font-medium">
+                  {type}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="mt-auto pt-4 space-y-3">
+            <a
+              href="#contact"
+              className="group/btn inline-flex items-center justify-center gap-2 w-full btn-gradient text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/15"
+              aria-label={`Get free consultation for ${service.title} in ${SERVICE_AREAS.primary}`}
+            >
+              <span>Get Free Quote</span>
+              <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+            </a>
+            <a
+              href={service.learnMoreUrl}
+              className="group/link inline-flex items-center justify-center gap-2 w-full text-dark-text-secondary hover:text-brand-accent text-sm font-medium transition-colors duration-300"
+              aria-label={`Learn more about ${service.title}`}
+            >
+              <span>Learn More</span>
+              <ArrowRight className="h-3 w-3 group-hover/link:translate-x-1 transition-transform duration-300" />
+            </a>
+          </div>
+        </div>
+      </Card>
+    </div>
+  );
+};
+
 const Services: React.FC = () => {
-  const { ref: cardsRef, isVisible: cardsVisible } = useScrollReveal();
   const { ref: whyRef, isVisible: whyVisible } = useScrollReveal();
   const { ref: areasRef, isVisible: areasVisible } = useScrollReveal();
 
@@ -221,101 +325,10 @@ const Services: React.FC = () => {
           </div>
         </div>
 
-        {/* Service cards with stagger */}
-        <div
-          ref={cardsRef}
-          className={`relative grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 stagger-children ${cardsVisible ? 'revealed' : ''}`}
-        >
+        {/* Service cards - each animates independently on scroll */}
+        <div className="relative grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {servicesData.map((service, index) => (
-            <Card key={service.title} className="group hover:-translate-y-2 transition-all duration-500">
-              <div className="relative">
-                {/* Gradient icon background */}
-                <div className="flex items-center justify-center w-20 h-20 rounded-2xl mb-6 bg-gradient-to-br from-brand-accent/10 to-brand-primary/5 group-hover:from-brand-accent/20 group-hover:to-brand-primary/10 transition-all duration-500">
-                  {service.icon}
-                </div>
-
-                {index === 0 && (
-                  <div className="absolute -top-2 -right-2 bg-gradient-to-r from-brand-accent to-brand-primary text-white text-xs px-3 py-1 rounded-full font-bold">
-                    Most Popular
-                  </div>
-                )}
-
-                <h3 className="text-2xl font-bold text-dark-text mb-4 group-hover:text-brand-accent transition-colors duration-300">
-                  {service.title}
-                </h3>
-
-                <p className="text-dark-text-secondary mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Features */}
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-dark-text mb-3 flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-brand-accent" />
-                    What's Included:
-                  </h4>
-                  <ul className="space-y-2">
-                    {service.features.slice(0, 4).map((feature, idx) => (
-                      <li key={idx} className="text-sm text-dark-text-secondary flex items-start gap-2">
-                        <CheckCircle className="h-4 w-4 text-brand-accent/60 mt-0.5 flex-shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Pricing - gradient background instead of border */}
-                <div className="grid grid-cols-2 gap-4 mb-6 p-4 rounded-xl bg-gradient-to-br from-white/[0.03] to-white/[0.01]">
-                  <div className="text-center">
-                    <div className="text-lg font-bold gradient-text">{service.priceRange}</div>
-                    <div className="text-xs text-dark-text-secondary/70">Starting Price</div>
-                  </div>
-                  <div className="text-center relative timeline-trigger">
-                    <div className="text-lg font-bold text-brand-primary inline-flex items-center gap-1.5">
-                      {service.deliveryTime}
-                      <Info className="h-3.5 w-3.5 text-dark-text-secondary/40 cursor-help" />
-                    </div>
-                    <div className="text-xs text-dark-text-secondary/70">Timeline</div>
-                    <div className="timeline-tooltip">
-                      Includes discovery, design, development &amp; local QA testing
-                    </div>
-                  </div>
-                </div>
-
-                {/* Business types - gradient tags */}
-                <div className="mb-6">
-                  <p className="text-xs text-dark-text-secondary/60 mb-2">Perfect for:</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {service.businessTypes.slice(0, 3).map((type) => (
-                      <span key={type} className="bg-white/[0.04] text-gray-400 px-2.5 py-1 rounded-lg text-xs font-medium">
-                        {type}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* CTA */}
-                <div className="mt-auto pt-4 space-y-3">
-                  <a
-                    href="#contact"
-                    className="group/btn inline-flex items-center justify-center gap-2 w-full btn-gradient text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/15"
-                    aria-label={`Get free consultation for ${service.title} in ${SERVICE_AREAS.primary}`}
-                  >
-                    <span>Get Free Quote</span>
-                    <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                  </a>
-                  <a
-                    href={service.learnMoreUrl}
-                    className="group/link inline-flex items-center justify-center gap-2 w-full text-dark-text-secondary hover:text-brand-accent text-sm font-medium transition-colors duration-300"
-                    aria-label={`Learn more about ${service.title}`}
-                  >
-                    <span>Learn More</span>
-                    <ArrowRight className="h-3 w-3 group-hover/link:translate-x-1 transition-transform duration-300" />
-                  </a>
-                </div>
-
-              </div>
-            </Card>
+            <ServiceCard key={service.title} service={service} index={index} />
           ))}
         </div>
 

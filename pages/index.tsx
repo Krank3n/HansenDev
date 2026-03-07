@@ -5,7 +5,6 @@ import MeetFounder from '../components/MeetFounder';
 import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
 import DemoShowcase from '../components/DemoShowcase';
-import NewsletterCapture from '../components/NewsletterCapture';
 import About from '../components/About';
 import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
@@ -204,7 +203,6 @@ const HomePage: React.FC = () => {
             <Services />
             <Portfolio />
             <DemoShowcase />
-            <NewsletterCapture />
             <About />
             <FAQ />
             <Contact />
