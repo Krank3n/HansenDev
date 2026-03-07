@@ -234,30 +234,6 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* Hidden SEO content */}
-      <div className="sr-only">
-        <h3>Web Development Services in {SERVICE_AREAS.primary}, {CONTACT_INFO.address.state}</h3>
-        <p>
-          {BUSINESS_INFO.name} provides professional web development, AI integration, and custom software development services
-          throughout {SERVICE_AREAS.primary} and {SERVICE_AREAS.region}. Based in {CONTACT_INFO.address.suburb}, we serve businesses in {SERVICE_AREAS.areas.slice(0, 6).join(', ')}, and surrounding areas.
-        </p>
-        <h4>Local {SERVICE_AREAS.primary} Business Technology Solutions</h4>
-        <p>
-          Our {SERVICE_AREAS.primary}-based team specializes in helping local businesses with website design, e-commerce development,
-          mobile applications, AI chatbots, business automation, and digital marketing solutions.
-        </p>
-        <h4>{BUSINESS_INFO.founder.name} - {SERVICE_AREAS.primary} Web Developer</h4>
-        <p>
-          {BUSINESS_INFO.founder.name}, founder of {BUSINESS_INFO.name}, is an experienced web developer and AI specialist based in {SERVICE_AREAS.primary}, {CONTACT_INFO.address.state}.
-        </p>
-        <h4>Business Information</h4>
-        <p>ABN: {BUSINESS_INFO.abn}</p>
-        <p>Address: {getFullAddress()}</p>
-        <p>Phone: {CONTACT_INFO.phone.primary}</p>
-        <p>Email: {CONTACT_INFO.email.primary}</p>
-        <p>Serving: {SERVICE_AREAS.areas.join(', ')}</p>
-        <p>Industries: {SERVICES_OFFERED.industries.join(', ')}</p>
-      </div>
     </Section>
   );
 };

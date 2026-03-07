@@ -116,8 +116,7 @@ export interface ServiceCardProps {
   title: string;
   description: string;
   longDescription?: string;
-  keywords: string[];
-  features: string[];       // ✅ Added missing property
+  features: string[];
   priceRange: string;       // ✅ Added missing property
   deliveryTime: string;     // ✅ Added missing property
   businessTypes: string[];  // ✅ Added missing property

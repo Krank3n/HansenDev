@@ -27,8 +27,7 @@ export interface ServiceCardProps {
     title: string;
     description: string;
     longDescription?: string;
-    keywords: string[];
-    features: string[];       // ✅ Added missing property
+    features: string[];
     priceRange: string;       // ✅ Added missing property
     deliveryTime: string;     // ✅ Added missing property
     businessTypes: string[];  // ✅ Added missing property
@@ -195,7 +194,8 @@ export const SERVICES_OFFERED = {
         "AI Integration",
         "Automation Services",
         "Technology Consulting",
-        "Custom Software Development"
+        "Mobile App Development",
+        "Website Redesign & Migration"
     ],
 
     // Detailed Service Categories - Made flexible for concatenation
@@ -242,7 +242,29 @@ export const SERVICES_OFFERED = {
                 "Technology Audits",
                 "Cloud Migration",
                 "Cybersecurity Strategy"
-            ] // ✅ Removed 'as const' to allow concatenation
+            ]
+        },
+        mobileApps: {
+            name: "Mobile App Development",
+            services: [
+                "iOS & Android Apps",
+                "React Native Development",
+                "API Integration",
+                "Offline-First Architecture",
+                "Push Notifications",
+                "App Store Submission"
+            ]
+        },
+        websiteRedesign: {
+            name: "Website Redesign & Migration",
+            services: [
+                "Full Site Audit & Analysis",
+                "Modern Redesign",
+                "Platform Migration",
+                "Performance Optimization",
+                "SEO Preservation",
+                "Content Migration"
+            ]
         }
     },
 
@@ -322,6 +344,21 @@ export const PRICING_INFO = {
         starting: "From $200/hour",
         range: "$$",
         timeline: "1-12 weeks"
+    },
+    mobileApps: {
+        starting: "From $8,000",
+        range: "$$$",
+        timeline: "4-12 weeks"
+    },
+    websiteRedesign: {
+        starting: "From $3,000",
+        range: "$$",
+        timeline: "2-4 weeks"
+    },
+    seo: {
+        starting: "From $1,500",
+        range: "$$",
+        timeline: "Ongoing"
     },
 
     // Payment Information

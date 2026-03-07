@@ -18,6 +18,11 @@ import {
   Lightbulb,
   Info,
   Settings,
+  Palmtree,
+  Wrench,
+  Building2,
+  Smartphone,
+  RefreshCw,
 } from 'lucide-react';
 
 import {
@@ -35,17 +40,6 @@ const servicesData: (ServiceCardProps & { learnMoreUrl: string })[] = [
     title: `Custom Web Development ${SERVICE_AREAS.primary}`,
     description: `Transform your ${SERVICE_AREAS.primary} business with professional websites and web applications that drive results. From tourism operators to local retailers, we create responsive, high-performance websites that attract customers and boost revenue throughout ${SERVICE_AREAS.region}.`,
     longDescription: `Our ${SERVICE_AREAS.primary}-based web development team specializes in creating stunning, conversion-focused websites for local businesses. Whether you're a tourism operator showcasing the Great Barrier Reef, a local restaurant, or a professional service provider, we build custom web solutions that capture your unique brand and drive real business results.`,
-    keywords: [
-      `Web Development ${SERVICE_AREAS.primary}`,
-      `Website Design ${SERVICE_AREAS.primary}`,
-      `E-commerce ${SERVICE_AREAS.primary}`,
-      'Tourism Websites',
-      'React Development',
-      `Next.js ${SERVICE_AREAS.primary}`,
-      'Responsive Design',
-      'Local SEO',
-      `${SERVICE_AREAS.region} Web`
-    ],
     features: SERVICES_OFFERED.categories.webDevelopment.services.concat([
       `Local SEO optimization for ${SERVICE_AREAS.primary} search results`,
       'Tourism industry expertise'
@@ -60,17 +54,6 @@ const servicesData: (ServiceCardProps & { learnMoreUrl: string })[] = [
     title: 'AI Integration & Business Automation',
     description: `Revolutionize your ${SERVICE_AREAS.primary} business with intelligent AI solutions. From customer service chatbots to automated booking systems, we help ${SERVICE_AREAS.region} businesses reduce costs, improve efficiency, and provide exceptional customer experiences through cutting-edge artificial intelligence.`,
     longDescription: `Stay ahead of the competition with our AI integration services designed specifically for ${SERVICE_AREAS.primary} businesses. We implement intelligent chatbots for tourism operators, automated customer service systems, predictive analytics for inventory management, and machine learning solutions that grow your business while you sleep.`,
-    keywords: [
-      `AI Integration ${SERVICE_AREAS.primary}`,
-      'Business Automation',
-      `Chatbots ${SERVICE_AREAS.primary}`,
-      'Machine Learning',
-      'Customer Service AI',
-      'Tourism AI',
-      'Process Automation',
-      'Data Analytics',
-      `AI ${SERVICE_AREAS.primary} ${CONTACT_INFO.address.state}`
-    ],
     features: SERVICES_OFFERED.categories.aiIntegration.services,
     priceRange: PRICING_INFO.aiIntegration.starting,
     deliveryTime: PRICING_INFO.aiIntegration.timeline,
@@ -82,17 +65,6 @@ const servicesData: (ServiceCardProps & { learnMoreUrl: string })[] = [
     title: `Business Automation ${SERVICE_AREAS.primary}`,
     description: `Stop wasting hours on repetitive tasks. We build custom automation systems for ${SERVICE_AREAS.primary} businesses — from automated quoting and invoicing to booking systems and CRM workflows. Spend less time on admin and more time growing your ${SERVICE_AREAS.region} business.`,
     longDescription: `Our automation solutions are purpose-built for ${SERVICE_AREAS.primary} businesses that want to scale without scaling their admin workload. We connect your tools, automate your workflows, and build systems that handle the busywork so your team can focus on what matters.`,
-    keywords: [
-      `Automation ${SERVICE_AREAS.primary}`,
-      `Business Automation ${SERVICE_AREAS.primary}`,
-      `Workflow Automation ${SERVICE_AREAS.region}`,
-      'CRM Automation',
-      'Booking System Automation',
-      'Invoice Automation',
-      `Process Automation ${CONTACT_INFO.address.state}`,
-      'Zapier Integration',
-      'API Integration'
-    ],
     features: SERVICES_OFFERED.categories.automation.services,
     priceRange: PRICING_INFO.automation.starting,
     deliveryTime: PRICING_INFO.automation.timeline,
@@ -104,21 +76,33 @@ const servicesData: (ServiceCardProps & { learnMoreUrl: string })[] = [
     title: 'Strategic Technology Consulting',
     description: `Navigate the digital transformation journey with confidence. Our ${SERVICE_AREAS.primary}-based technology consultants help ${SERVICE_AREAS.region} businesses identify opportunities, implement the right solutions, and maximize ROI from technology investments while staying competitive in today's digital marketplace.`,
     longDescription: `As your trusted technology partner in ${SERVICE_AREAS.primary}, we provide strategic guidance to help your business leverage technology for growth. From digital transformation roadmaps to technology audits, we ensure your IT investments align with your business goals and deliver measurable results.`,
-    keywords: [
-      `Tech Consulting ${SERVICE_AREAS.primary}`,
-      'Digital Transformation',
-      `IT Strategy ${SERVICE_AREAS.primary}`,
-      'Business Technology',
-      'Solution Architecture',
-      `${SERVICE_AREAS.primary} IT Consultant`,
-      'Technology Planning',
-      `Digital Strategy ${CONTACT_INFO.address.state}`
-    ],
     features: SERVICES_OFFERED.categories.consulting.services,
     priceRange: PRICING_INFO.consulting.starting,
     deliveryTime: PRICING_INFO.consulting.timeline,
     businessTypes: ['Growing Businesses', 'Established Companies', 'Non-Profits', 'Government Agencies', 'Educational Institutions', 'Healthcare Organizations'],
     learnMoreUrl: '/technology-consulting-cairns'
+  },
+  {
+    icon: <Smartphone className="h-12 w-12 text-brand-accent service-icon-smartphone" />,
+    title: `Mobile App Development ${SERVICE_AREAS.primary}`,
+    description: `Turn your business idea into a native mobile app. From tradie tools with offline mode to customer-facing booking apps, we build React Native applications that work on both iOS and Android — designed for real-world conditions, including patchy FNQ reception.`,
+    longDescription: `We specialize in cross-platform mobile apps built with React Native and Expo. Whether you need a quoting tool hooked into supplier APIs, a field service app that works offline, or a customer loyalty platform, we deliver production-ready apps to both app stores.`,
+    features: SERVICES_OFFERED.categories.mobileApps.services,
+    priceRange: PRICING_INFO.mobileApps.starting,
+    deliveryTime: PRICING_INFO.mobileApps.timeline,
+    businessTypes: ['Trades & Services', 'Tourism Operators', 'Retail Stores', 'Field Services', 'Healthcare Practices', 'Hospitality'],
+    learnMoreUrl: '/mobile-app-development-cairns'
+  },
+  {
+    icon: <RefreshCw className="h-12 w-12 text-brand-accent service-icon-refresh" />,
+    title: `Website Redesign & Migration`,
+    description: `Still on a clunky WordPress or Wix site from 2015? We migrate and modernise outdated business websites into fast, mobile-first platforms — without losing your SEO rankings, content, or customers during the switch.`,
+    longDescription: `Our redesign process starts with a full audit of your existing site, preserving what works and rebuilding what doesn't. We handle platform migrations (WordPress, Wix, Squarespace, Drupal), content transfer, SEO redirect mapping, and performance optimisation so your new site launches without a hitch.`,
+    features: SERVICES_OFFERED.categories.websiteRedesign.services,
+    priceRange: PRICING_INFO.websiteRedesign.starting,
+    deliveryTime: PRICING_INFO.websiteRedesign.timeline,
+    businessTypes: ['Any Existing Business', 'Tourism Operators', 'Professional Services', 'Retail & E-commerce', 'Restaurants & Cafes', 'Healthcare Practices'],
+    learnMoreUrl: '/website-redesign-cairns'
   },
 ];
 
@@ -170,50 +154,77 @@ const Services: React.FC = () => {
 
       <Section
         id="services"
-        title={`Technology Services for ${SERVICE_AREAS.primary} Businesses`}
-        subtitle={`Empowering ${SERVICE_AREAS.region} enterprises with cutting-edge web development, AI integration, and strategic technology solutions.`}
+        title="Custom Tech Built for the Tropics."
+        subtitle="Generic software doesn't survive in a coastal economy. We build the systems that actually run your FNQ business."
         className="relative overflow-hidden"
       >
         {/* Background gradient mesh */}
         <div className="absolute inset-0 gradient-mesh pointer-events-none"></div>
 
-        {/* The "Cairns Edge" quote */}
+        {/* Intro copy */}
         <div className="relative mb-12 max-w-3xl mx-auto text-center">
-          <p className="text-dark-text-secondary text-base sm:text-lg leading-relaxed italic pl-6 text-left relative">
-            <span className="absolute left-0 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-brand-accent to-brand-primary"></span>
-            In a coastal economy, generic tech doesn&apos;t cut it. We build solutions that handle local tourism surges,
-            automate repetitive admin for FNQ trades, and put AI to work where it actually impacts your bottom line.
+          <p className="text-dark-text-secondary text-base sm:text-lg leading-relaxed">
+            In Far North Queensland, you need technology designed for how we actually work. We don&apos;t just build basic websites — we engineer the custom automation, AI, and software that strips away your daily admin so you can get back to the actual job.
           </p>
         </div>
 
+        {/* Industry cards */}
+        <div className="relative grid md:grid-cols-3 gap-6 mb-12">
+          {[
+            {
+              icon: <Palmtree className="h-6 w-6" />,
+              gradient: 'from-emerald-500/20 to-emerald-500/5',
+              iconColor: 'text-emerald-400',
+              label: 'For Tourism Operators',
+              description: 'Booking systems designed to handle massive traffic surges during the high season without crashing.',
+            },
+            {
+              icon: <Wrench className="h-6 w-6" />,
+              gradient: 'from-orange-500/20 to-orange-500/5',
+              iconColor: 'text-orange-400',
+              label: 'For Local Tradies',
+              description: 'Automated quoting, invoicing, and API integrations (like Bunnings) so you aren\'t stuck doing admin at 9 PM.',
+            },
+            {
+              icon: <Building2 className="h-6 w-6" />,
+              gradient: 'from-blue-500/20 to-blue-500/5',
+              iconColor: 'text-blue-400',
+              label: 'For Retail & Services',
+              description: 'AI chatbots and customer portals that turn late-night inquiries into booked jobs while you sleep.',
+            },
+          ].map((item) => (
+            <div key={item.label} className="glass-card p-6 hover-glow transition-all duration-500 group">
+              <div className={`flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${item.gradient} mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <span className={item.iconColor}>{item.icon}</span>
+              </div>
+              <h4 className="font-bold text-dark-text text-lg mb-2">{item.label}</h4>
+              <p className="text-sm text-dark-text-secondary leading-relaxed">{item.description}</p>
+            </div>
+          ))}
+        </div>
+
         {/* Trust indicators */}
-        <div className="relative mb-16 text-center">
-          <div className="flex flex-wrap justify-center items-center gap-4 mb-8">
+        <div className="relative mb-16">
+          <div className="flex flex-wrap justify-center items-center gap-4">
             <div className="flex items-center gap-2 bg-white/[0.04] backdrop-blur-sm px-5 py-2.5 rounded-full">
               <MapPin className="h-4 w-4 text-brand-accent" />
-              <span className="text-sm text-dark-text/80">Serving {SERVICE_AREAS.primary} & FNQ</span>
+              <span className="text-sm text-dark-text/80">Local to {SERVICE_AREAS.primary}</span>
             </div>
             <div className="flex items-center gap-2 bg-white/[0.04] backdrop-blur-sm px-5 py-2.5 rounded-full">
               <Star className="h-4 w-4 text-yellow-400" />
-              <span className="text-sm text-dark-text/80">{BUSINESS_METRICS.stats.averageRating} Rating</span>
+              <span className="text-sm text-dark-text/80">{BUSINESS_METRICS.stats.averageRating} Average Rating</span>
             </div>
             <div className="flex items-center gap-2 bg-white/[0.04] backdrop-blur-sm px-5 py-2.5 rounded-full">
               <Shield className="h-4 w-4 text-green-400" />
-              <span className="text-sm text-dark-text/80">Australian Registered</span>
+              <span className="text-sm text-dark-text/80">100% Australian Registered</span>
             </div>
           </div>
-
-          <p className="text-dark-text-secondary max-w-3xl mx-auto leading-relaxed">
-            Trusted by tourism operators, local retailers, professional services, and growing businesses
-            throughout <span className="gradient-text font-semibold">{SERVICE_AREAS.primary} and {SERVICE_AREAS.region}</span>.
-            We understand the unique challenges and opportunities of the local market.
-          </p>
         </div>
 
         {/* Service cards with stagger */}
         <div
           ref={cardsRef}
-          className={`relative grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 stagger-children ${cardsVisible ? 'revealed' : ''}`}
+          className={`relative grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 stagger-children ${cardsVisible ? 'revealed' : ''}`}
         >
           {servicesData.map((service, index) => (
             <Card key={service.title} className="group hover:-translate-y-2 transition-all duration-500">
@@ -303,10 +314,6 @@ const Services: React.FC = () => {
                   </a>
                 </div>
 
-                <div className="sr-only">
-                  <h4>Service Keywords:</h4>
-                  <p>{service.keywords.join(', ')}</p>
-                </div>
               </div>
             </Card>
           ))}
@@ -406,44 +413,6 @@ const Services: React.FC = () => {
           </div>
         </div>
 
-        {/* Hidden SEO Content */}
-        <div className="sr-only">
-          <h2>Professional Technology Services in {SERVICE_AREAS.primary}, {CONTACT_INFO.address.state}</h2>
-          <p>
-            {BUSINESS_INFO.name} provides comprehensive web development, AI integration, and technology consulting services
-            to businesses throughout {SERVICE_AREAS.primary} and {SERVICE_AREAS.region}. Our local expertise combined with cutting-edge technology
-            helps tourism operators, retailers, professional services, and growing businesses succeed in the digital marketplace.
-          </p>
-          <h3>Web Development Services {SERVICE_AREAS.primary}</h3>
-          <p>
-            Custom website design and development for {SERVICE_AREAS.primary} businesses, including tourism operators, hotels, restaurants,
-            retail stores, and professional services. Responsive design, e-commerce integration, and local SEO optimization.
-          </p>
-          <h3>AI Integration and Business Automation {SERVICE_AREAS.primary}</h3>
-          <p>
-            Artificial intelligence solutions for {SERVICE_AREAS.primary} businesses including chatbots, automated customer service,
-            booking systems, inventory management, and process automation to improve efficiency and customer experience.
-          </p>
-          <h3>Business Automation Services {SERVICE_AREAS.primary}</h3>
-          <p>
-            Custom automation solutions for {SERVICE_AREAS.primary} businesses including workflow automation, CRM integration,
-            booking systems, invoice automation, and API connectivity to streamline operations and reduce manual tasks.
-          </p>
-          <h3>Technology Consulting {SERVICE_AREAS.region}</h3>
-          <p>
-            Strategic technology planning and digital transformation consulting for businesses in {SERVICE_AREAS.areas.slice(0, 3).join(', ')},
-            and throughout {SERVICE_AREAS.region}. IT strategy, software selection, and technology implementation.
-          </p>
-          <h4>Business Information</h4>
-          <p>Company: {BUSINESS_INFO.name}</p>
-          <p>ABN: {BUSINESS_INFO.abn}</p>
-          <p>Founder: {BUSINESS_INFO.founder.name}</p>
-          <p>Location: {CONTACT_INFO.address.full}</p>
-          <p>Phone: {CONTACT_INFO.phone.primary}</p>
-          <p>Email: {CONTACT_INFO.email.primary}</p>
-          <p>Service Areas: {SERVICE_AREAS.areas.join(', ')}</p>
-          <p>Industries Served: {SERVICES_OFFERED.industries.join(', ')}</p>
-        </div>
       </Section>
     </>
   );

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { EnvelopeIcon, PhoneIcon, MapPinIconAlt, UserCircleIcon as ContactUserCircleIcon } from './icons/CustomIcons';
 import Section from './common/Section';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
-const SERVICE_OPTIONS = ['Web Development', 'AI Integration', 'Consulting', 'Other'] as const;
-const BUDGET_OPTIONS = ['Under $4,000', '$4,000–$8,000', '$8,000–$15,000', '$15,000+', 'Not sure'] as const;
+const SERVICE_OPTIONS = ['Free Discovery Session', 'Web Development', 'AI Integration', 'Automation', 'Consulting', 'Other'] as const;
+const BUDGET_OPTIONS = ['Under $5,000', '$5,000–$10,000', '$10,000–$20,000', '$20,000+', 'Not sure yet'] as const;
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +14,25 @@ const Contact: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const { ref, isVisible } = useScrollReveal();
+
+  useEffect(() => {
+    const handleHash = () => {
+      if (window.location.hash === '#contact-discovery') {
+        setFormData((prev) => ({
+          ...prev,
+          service: 'Free Discovery Session',
+          budget: 'Not sure yet',
+          message: "Hi! I'd like to book a free discovery session to find out where automation or a custom build could save my business the most time.",
+        }));
+        const el = document.getElementById('contact');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        history.replaceState(null, '', window.location.pathname + '#contact');
+      }
+    };
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

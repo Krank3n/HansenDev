@@ -315,26 +315,6 @@ const Footer: React.FC<FooterProps> = ({
                     </div>
                 </div>
 
-                {/* Hidden SEO content */}
-                <div className="sr-only">
-                    <h2>{BUSINESS_INFO.name} - {SERVICE_AREAS.primary} Web Development and Technology Services</h2>
-                    <p>
-                        Professional web development, AI integration, and technology consulting services in {SERVICE_AREAS.primary}, {CONTACT_INFO.address.state}, {CONTACT_INFO.address.country}.
-                        Serving businesses throughout {SERVICE_AREAS.region} including {SERVICE_AREAS.areas.slice(1, 5).join(', ')}, and surrounding areas.
-                    </p>
-                    <h3>Contact Information</h3>
-                    <p>Address: {getFullAddress()}</p>
-                    <p>Phone: {CONTACT_INFO.phone.primary}</p>
-                    <p>Email: {CONTACT_INFO.email.primary}</p>
-                    <p>Business Hours: {CONTACT_INFO.hours.business}</p>
-                    <h3>Services Offered</h3>
-                    <p>
-                        Web development {SERVICE_AREAS.primary}, AI integration {SERVICE_AREAS.primary}, {SERVICES_OFFERED.primary.join(', ').toLowerCase()},
-                        business automation, digital transformation, website design {SERVICE_AREAS.primary}, tourism website development, hospitality technology solutions.
-                    </p>
-                    <h3>Service Areas</h3>
-                    <p>{SERVICE_AREAS.areas.join(', ')}, {SERVICE_AREAS.region}, {CONTACT_INFO.address.country}.</p>
-                </div>
             </footer>
         </>
     );

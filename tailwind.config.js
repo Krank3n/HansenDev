@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
+        signature: ['Georgia', 'Cambria', 'Times New Roman', 'serif'],
       },
       colors: {
         'brand-primary': '#0D9488',

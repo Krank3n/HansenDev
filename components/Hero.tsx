@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Section from './common/Section';
-import { ArrowRight, Users, Clock, Shield, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle, TrendingUp } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const bgRef = useRef<HTMLDivElement>(null);
@@ -43,6 +43,23 @@ const Hero: React.FC = () => {
       title=""
       className="min-h-screen flex items-center justify-center relative overflow-hidden !pt-0 !pb-0"
     >
+      {/* SVG gradient definition for icon shimmer */}
+      <svg width="0" height="0" className="absolute">
+        <defs>
+          <linearGradient id="shimmer-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#14B8A6">
+              <animate attributeName="stop-color" values="#14B8A6;#5eead4;#99f6e4;#5eead4;#14B8A6" dur="4s" repeatCount="indefinite" />
+            </stop>
+            <stop offset="50%" stopColor="#99f6e4">
+              <animate attributeName="stop-color" values="#99f6e4;#14B8A6;#5eead4;#99f6e4;#99f6e4" dur="4s" repeatCount="indefinite" />
+            </stop>
+            <stop offset="100%" stopColor="#14B8A6">
+              <animate attributeName="stop-color" values="#14B8A6;#99f6e4;#14B8A6;#5eead4;#14B8A6" dur="4s" repeatCount="indefinite" />
+            </stop>
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* Background Video with Parallax */}
       <div className="absolute inset-0">
         <div ref={bgRef} className="absolute inset-0 parallax-bg" style={{ top: '-10%', bottom: '-10%' }}>
@@ -52,11 +69,11 @@ const Hero: React.FC = () => {
             loop
             muted
             playsInline
-            poster={isMobile ? '/assets/video/HansenDevMobile-poster.webp' : '/assets/video/HansenDev-poster.webp'}
+            poster={isMobile ? '/assets/video/HansenDevMobile-poster.webp' : '/assets/video/HansenDevCassowary-poster.webp'}
             className="absolute inset-0 w-full h-full object-cover"
             aria-label="Background video showing HansenDev web development work"
           >
-            <source src={isMobile ? '/assets/video/HansenDevMobile.mp4' : '/assets/video/HansenDev.mp4'} type="video/mp4" />
+            <source src={isMobile ? '/assets/video/HansenDevMobile.mp4' : '/assets/video/HansenDevCassowary.mp4'} type="video/mp4" />
             <track kind="captions" src="" label="No dialogue" default />
           </video>
         </div>
@@ -82,14 +99,14 @@ const Hero: React.FC = () => {
                 loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              Cairns Web Development &
+              Less Admin.
             </span>
             <span
               className={`block ai-shimmer animate-shimmer leading-tight transition-all duration-1000 delay-200 ${
                 loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              AI Integration Experts
+              More Scaling. <TrendingUp className="inline h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 [stroke:url(#shimmer-gradient)]" />
             </span>
           </h1>
 
@@ -99,17 +116,7 @@ const Hero: React.FC = () => {
               loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
-            Transform your <span className="gradient-text font-semibold">Cairns business</span> with custom web apps,
-            <br className="hidden sm:block" />
-            {' '}intelligent AI automation & cutting-edge software.
-          </p>
-
-          <p
-            className={`text-white/50 font-medium text-sm sm:text-base tracking-widest uppercase transition-all duration-1000 delay-700 ${
-              loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-          >
-            Local expertise &bull; Global technology &bull; Proven results in FNQ
+            Ditch the messy spreadsheets and lost quotes. We build the custom apps and AI that do the heavy lifting, so you can get your evenings back.
           </p>
         </div>
 
@@ -120,60 +127,46 @@ const Hero: React.FC = () => {
           }`}
         >
           <a
-            href="#contact"
+            href="#contact-discovery"
             className="group relative inline-flex items-center justify-center gap-3 btn-gradient text-white px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-brand-accent/20 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-500 w-full sm:w-auto"
-            aria-label="Get your free consultation for web development in Cairns"
+            aria-label="Book a free discovery session to find your business bottleneck"
           >
-            <span>Get FREE Cairns Consultation</span>
+            <span>Find Your Bottleneck</span>
             <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
           </a>
 
           <a
             href="#portfolio"
             className="group inline-flex items-center justify-center gap-3 bg-white/[0.04] backdrop-blur-sm rounded-2xl px-10 py-5 text-white font-bold text-lg hover:bg-white/[0.08] transition-all duration-500 w-full sm:w-auto"
-            aria-label="View our portfolio of Cairns web development projects"
+            aria-label="See what we've built for businesses like yours"
           >
-            <span>View Our Work</span>
+            <span>See What We&apos;ve Built</span>
             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
           </a>
         </div>
 
-        {/* Trust signals */}
-        <div
-          className={`flex flex-wrap justify-center gap-x-8 gap-y-2 text-xs text-gray-500 transition-all duration-1000 delay-[1100ms] ${
-            loaded ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <span className="inline-flex items-center gap-1.5">
-            <Users className="h-3.5 w-3.5 text-brand-primary/70" />
-            100% Satisfaction
-          </span>
-          <span className="inline-flex items-center gap-1.5">
-            <Clock className="h-3.5 w-3.5 text-brand-accent/70" />
-            24/7 Support
-          </span>
-          <span className="inline-flex items-center gap-1.5">
-            <Shield className="h-3.5 w-3.5 text-green-500/70" />
-            10+ Years Experience
-          </span>
-        </div>
       </div>
 
-      {/* Floating Trust Bar - minimal gradient fade instead of borders */}
+      {/* Floating Trust Bar */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
         <div className="gradient-line" />
-        <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2 px-4 py-4 bg-dark-bg/80 backdrop-blur-md">
-          {[
-            'ABN Registered',
-            'Local Cairns References',
-            'Queensland Government Approved',
-            'Free Initial Consultation',
-          ].map((item) => (
-            <span key={item} className="inline-flex items-center gap-1.5 text-xs text-gray-500">
-              <CheckCircle className="h-3.5 w-3.5 text-brand-accent/50" />
-              {item}
-            </span>
-          ))}
+        <div className="flex flex-col items-center gap-2 px-4 py-4 bg-dark-bg/80 backdrop-blur-md">
+          <span className="text-[11px] text-gray-500 uppercase tracking-wider font-medium">
+            Engineered by developers with experience building for
+          </span>
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2">
+            {[
+              'NAB / nabtrade',
+              'DXC Technology',
+              'Bunnings API',
+              'Queensland Government Approved',
+            ].map((item) => (
+              <span key={item} className="inline-flex items-center gap-1.5 text-xs text-gray-400 font-medium">
+                <CheckCircle className="h-3.5 w-3.5 text-brand-accent/50" />
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 

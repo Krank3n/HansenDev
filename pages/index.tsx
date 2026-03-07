@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Hero from '../components/Hero';
+import MeetFounder from '../components/MeetFounder';
 import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
 import DemoShowcase from '../components/DemoShowcase';
@@ -199,6 +200,7 @@ const HomePage: React.FC = () => {
             </Head>
 
             <Hero />
+            <MeetFounder />
             <Services />
             <Portfolio />
             <DemoShowcase />

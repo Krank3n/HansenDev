@@ -249,7 +249,7 @@ const OurWorkPage: React.FC = () => {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "name": `Our Work | ${BUSINESS_INFO.name}`,
-        "description": `Explore the full portfolio of ${BUSINESS_INFO.name} — from our own SaaS platforms and apps to demo websites built for Cairns local businesses.`,
+        "description": `Explore the full portfolio of ${BUSINESS_INFO.name} — from local client success stories to our own global platforms and apps.`,
         "url": `${ONLINE_PRESENCE.website.primary}/our-work`,
         "isPartOf": {
             "@type": "WebSite",
@@ -262,11 +262,11 @@ const OurWorkPage: React.FC = () => {
         <>
             <Head>
                 <title>Our Work — Projects & Demos | {BUSINESS_INFO.name}</title>
-                <meta name="description" content={`Browse ${BUSINESS_INFO.name}'s full portfolio of web apps, SaaS platforms, mobile apps, and demo websites for Cairns local businesses.`} />
+                <meta name="description" content={`Browse ${BUSINESS_INFO.name}'s full portfolio — local client success stories, web apps, SaaS platforms, and mobile apps.`} />
                 <meta name="keywords" content={`HansenDev portfolio, web development projects, Cairns web design, demo websites, ${SERVICE_AREAS.primary}`} />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content={`Our Work | ${BUSINESS_INFO.name}`} />
-                <meta property="og:description" content={`Explore the full portfolio of ${BUSINESS_INFO.name} — SaaS platforms, mobile apps, and Cairns local business demos.`} />
+                <meta property="og:description" content={`Explore the full portfolio of ${BUSINESS_INFO.name} — local client success stories and our own global platforms.`} />
                 <meta property="og:url" content={`${ONLINE_PRESENCE.website.primary}/our-work`} />
                 <meta property="og:image" content="/assets/hansendev-cairns-web-development-og.jpg" />
                 <meta property="og:locale" content="en_AU" />
@@ -287,94 +287,16 @@ const OurWorkPage: React.FC = () => {
                         Our <span className="text-brand-accent">Work</span>
                     </h1>
                     <p className="text-lg sm:text-xl text-dark-text-secondary max-w-3xl mx-auto">
-                        From our own SaaS platforms and mobile apps to demo websites crafted for Cairns local businesses — here&apos;s everything we&apos;ve built.
+                        From local client projects to our own global platforms — here&apos;s everything we&apos;ve built.
                     </p>
                 </div>
             </div>
 
-            {/* ─── HansenDev Projects ─── */}
-            <Section
-                id="hansendev-projects"
-                title="HansenDev Projects"
-                subtitle="Our own platforms, apps, and products"
-            >
-                <div className="space-y-6">
-                    {hansenDevProjects.map((project, index) => (
-                        <div key={index} className="group relative">
-                            <div className="glass-card overflow-hidden hover-glow transition-all duration-500 hover:bg-white/[0.05]">
-                                <div className="grid lg:grid-cols-5 gap-0">
-                                    <div className="p-5 lg:p-8 flex flex-col justify-center order-2 lg:order-1 lg:col-span-3">
-                                        <div className="space-y-3">
-                                            <div className="inline-flex items-center gap-2 text-brand-accent text-xs font-medium uppercase tracking-wider">
-                                                <div className="w-1.5 h-1.5 bg-brand-accent rounded-full"></div>
-                                                {project.category}
-                                            </div>
-                                            <h3 className="text-xl lg:text-2xl font-bold text-white leading-tight">
-                                                {project.title}
-                                            </h3>
-                                            <p className="text-sm text-dark-text-secondary leading-relaxed">
-                                                {project.description}
-                                            </p>
-                                            {project.stats && (
-                                                <div className="flex gap-6">
-                                                    {project.stats.map((stat, statIndex) => (
-                                                        <div key={statIndex} className="flex items-center gap-2">
-                                                            <div className="text-brand-accent">{stat.icon}</div>
-                                                            <span className="text-lg font-bold text-white">{stat.value}</span>
-                                                            <span className="text-xs text-dark-text-secondary">{stat.label}</span>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
-                                            <div className="flex flex-wrap gap-1.5">
-                                                {project.technologies.map((tech, techIndex) => (
-                                                    <span
-                                                        key={techIndex}
-                                                        className="bg-white/10 text-dark-text px-2.5 py-1 rounded-full text-xs"
-                                                    >
-                                                        {tech}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                            <div className="pt-1">
-                                                <a
-                                                    href={project.url}
-                                                    target={project.url.startsWith('/') ? '_self' : '_blank'}
-                                                    rel={project.url.startsWith('/') ? undefined : 'noopener noreferrer'}
-                                                    className="inline-flex items-center gap-2 btn-gradient text-white px-5 py-2 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
-                                                >
-                                                    <span>View Project</span>
-                                                    <ArrowUpRight className="h-3.5 w-3.5" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="relative p-4 lg:p-6 order-1 lg:order-2 lg:col-span-2">
-                                        <div className="relative aspect-[16/10] group/image">
-                                            <div className="relative w-full h-full rounded-xl overflow-hidden bg-dark-card transition-all duration-500">
-                                                <Image
-                                                    src={project.image}
-                                                    alt={project.imageAlt}
-                                                    fill
-                                                    className="object-cover transition-transform duration-700 group-hover/image:scale-105"
-                                                    sizes="(max-width: 768px) 100vw, 40vw"
-                                                />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </Section>
-
-            {/* ─── Cairns Local Demos & Projects ─── */}
+            {/* ─── Client Success Stories ─── */}
             <Section
                 id="cairns-demos"
-                title="Cairns Local Demos & Projects"
-                subtitle="Real local businesses redesigned with modern web technology — see how we improve performance, SEO, and user experience"
+                title="Client Success Stories"
+                subtitle="Real Cairns businesses we've redesigned with modern web technology — see how we improve performance, SEO, and user experience"
             >
                 <div className="space-y-6">
                     {cairnsProjects.map((project, index) => (
@@ -447,6 +369,84 @@ const OurWorkPage: React.FC = () => {
                                                     sizes="(max-width: 768px) 100vw, 40vw"
                                                 />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </Section>
+
+            {/* ─── Our Innovation Lab ─── */}
+            <Section
+                id="innovation-lab"
+                title="Our Innovation Lab"
+                subtitle="Platforms and apps we've built from the ground up — the same engineering powers every client project"
+            >
+                <div className="space-y-6">
+                    {hansenDevProjects.map((project, index) => (
+                        <div key={index} className="group relative">
+                            <div className="glass-card overflow-hidden hover-glow transition-all duration-500 hover:bg-white/[0.05]">
+                                <div className="grid lg:grid-cols-5 gap-0">
+                                    <div className="p-5 lg:p-8 flex flex-col justify-center order-2 lg:order-1 lg:col-span-3">
+                                        <div className="space-y-3">
+                                            <div className="inline-flex items-center gap-2 text-brand-accent text-xs font-medium uppercase tracking-wider">
+                                                <div className="w-1.5 h-1.5 bg-brand-accent rounded-full"></div>
+                                                {project.category}
+                                            </div>
+                                            <h3 className="text-xl lg:text-2xl font-bold text-white leading-tight">
+                                                {project.title}
+                                            </h3>
+                                            <p className="text-sm text-dark-text-secondary leading-relaxed">
+                                                {project.description}
+                                            </p>
+                                            {project.stats && (
+                                                <div className="flex gap-6">
+                                                    {project.stats.map((stat, statIndex) => (
+                                                        <div key={statIndex} className="flex items-center gap-2">
+                                                            <div className="text-brand-accent">{stat.icon}</div>
+                                                            <span className="text-lg font-bold text-white">{stat.value}</span>
+                                                            <span className="text-xs text-dark-text-secondary">{stat.label}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            )}
+                                            <div className="flex flex-wrap gap-1.5">
+                                                {project.technologies.map((tech, techIndex) => (
+                                                    <span
+                                                        key={techIndex}
+                                                        className="bg-white/10 text-dark-text px-2.5 py-1 rounded-full text-xs"
+                                                    >
+                                                        {tech}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                            <div className="pt-1">
+                                                <a
+                                                    href={project.url}
+                                                    target={project.url.startsWith('/') ? '_self' : '_blank'}
+                                                    rel={project.url.startsWith('/') ? undefined : 'noopener noreferrer'}
+                                                    className="inline-flex items-center gap-2 btn-gradient text-white px-5 py-2 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
+                                                >
+                                                    <span>View Project</span>
+                                                    <ArrowUpRight className="h-3.5 w-3.5" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="relative p-4 lg:p-6 order-1 lg:order-2 lg:col-span-2">
+                                        <div className="relative aspect-[16/10] group/image">
+                                            <div className="relative w-full h-full rounded-xl overflow-hidden bg-dark-card transition-all duration-500">
+                                                <Image
+                                                    src={project.image}
+                                                    alt={project.imageAlt}
+                                                    fill
+                                                    className="object-cover transition-transform duration-700 group-hover/image:scale-105"
+                                                    sizes="(max-width: 768px) 100vw, 40vw"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                                             </div>
                                         </div>
                                     </div>
