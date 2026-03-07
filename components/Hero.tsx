@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Section from './common/Section';
-import { ArrowRight, CheckCircle, TrendingUp } from 'lucide-react';
+import LogoBanner from './LogoBanner';
+import { ArrowRight, TrendingUp } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const bgRef = useRef<HTMLDivElement>(null);
@@ -150,21 +151,12 @@ const Hero: React.FC = () => {
       {/* Floating Trust Bar */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
         <div className="gradient-line" />
-        <div className="flex flex-col items-center gap-2 px-4 py-4 bg-dark-bg/80 backdrop-blur-md">
+        <div className="flex flex-col items-center gap-1 py-3 bg-dark-bg/80 backdrop-blur-md">
           <span className="text-[11px] text-gray-500 uppercase tracking-wider font-medium">
             Engineered by developers with experience building for
           </span>
-          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2">
-            {[
-              'NAB / nabtrade',
-              'DXC Technology',
-              'Queensland Government Approved',
-            ].map((item) => (
-              <span key={item} className="inline-flex items-center gap-1.5 text-xs text-gray-400 font-medium">
-                <CheckCircle className="h-3.5 w-3.5 text-brand-accent/50" />
-                {item}
-              </span>
-            ))}
+          <div className="w-full">
+            <LogoBanner />
           </div>
         </div>
       </div>

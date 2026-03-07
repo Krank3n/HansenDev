@@ -188,6 +188,53 @@ body {
     radial-gradient(ellipse at 40% 80%, rgba(20, 184, 166, 0.04) 0%, transparent 50%);
 }
 
+/* Logo marquee */
+@keyframes logo-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-100%, 0, 0); }
+}
+
+.logo-marquee-wrapper {
+  display: flex;
+  overflow: hidden;
+  padding: 0.75rem 0;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.logo-marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 100%;
+  gap: 1rem;
+  padding-right: 1rem;
+  animation: logo-scroll 15s linear infinite;
+  will-change: transform;
+}
+
+.logo-marquee-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 2rem;
+}
+
+.logo-marquee-img {
+  height: 1.5rem;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.35;
+  transition: opacity 0.3s;
+}
+
+.logo-marquee-item:hover .logo-marquee-img {
+  opacity: 0.8;
+}
+
 /* Section divider gradient line */
 .gradient-line {
   height: 2px;
