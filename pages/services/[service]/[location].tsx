@@ -36,7 +36,10 @@ import {
     DollarSign,
     MapPin,
     ChevronRight,
-    Phone
+    Phone,
+    RefreshCw,
+    ArrowRightLeft,
+    FileText,
 } from 'lucide-react';
 import { BUSINESS_INFO, CONTACT_INFO, SERVICE_AREAS, PRICING_INFO, ONLINE_PRESENCE } from '../../../constants/business';
 import { SERVICES, getService, getAllServiceSlugs, Service } from '../../../data/seo/services';
@@ -72,6 +75,9 @@ const ICON_MAP: Record<string, React.ReactNode> = {
     ClipboardCheck: <ClipboardCheck className="h-6 w-6 text-brand-accent" />,
     Cloud: <Cloud className="h-6 w-6 text-brand-accent" />,
     DollarSign: <DollarSign className="h-6 w-6 text-brand-accent" />,
+    RefreshCw: <RefreshCw className="h-6 w-6 text-brand-accent" />,
+    ArrowRightLeft: <ArrowRightLeft className="h-6 w-6 text-brand-accent" />,
+    FileText: <FileText className="h-6 w-6 text-brand-accent" />,
 };
 
 const HERO_ICON_MAP: Record<string, React.ReactNode> = {
@@ -81,6 +87,8 @@ const HERO_ICON_MAP: Record<string, React.ReactNode> = {
     Smartphone: <Smartphone className="h-4 w-4" />,
     Code: <Code className="h-4 w-4" />,
     Lightbulb: <Lightbulb className="h-4 w-4" />,
+    RefreshCw: <RefreshCw className="h-4 w-4" />,
+    Search: <Search className="h-4 w-4" />,
 };
 
 interface ServiceLocationPageProps {

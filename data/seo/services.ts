@@ -10,7 +10,7 @@ export interface Service {
   heroSubtitle: string;
   ctaText: string;
   ctaQuestion: string;
-  pricingKey: 'webDevelopment' | 'aiIntegration' | 'automation' | 'consulting';
+  pricingKey: 'webDevelopment' | 'aiIntegration' | 'automation' | 'consulting' | 'mobileApps' | 'websiteRedesign' | 'seo';
   features: { title: string; description: string; icon: string }[];
   offerings: { title: string; description: string }[];
   technologies: string[];
@@ -126,7 +126,7 @@ export const SERVICES: Service[] = [
     heroSubtitle: 'Native and cross-platform mobile apps that your customers will love',
     ctaText: 'Discuss Your App Idea',
     ctaQuestion: 'Ready to Build Your Mobile App?',
-    pricingKey: 'webDevelopment',
+    pricingKey: 'mobileApps',
     features: [
       { title: 'Cross-Platform', description: 'Build once, deploy to iOS and Android with React Native for faster delivery and lower cost', icon: 'Layers' },
       { title: 'Offline-First', description: 'Apps that work without internet - critical for regional Queensland areas with patchy coverage', icon: 'WifiOff' },
@@ -214,6 +214,72 @@ export const SERVICES: Service[] = [
       { question: 'What does a technology consultation involve?', answer: 'We start with a free discovery call to understand your challenges. Then we conduct a thorough review of your current systems, identify opportunities, and deliver a clear roadmap with prioritized recommendations and costs.' },
       { question: 'Do I need consulting if I already have an IT person?', answer: 'Often yes. We provide strategic-level advice and specialized expertise that complements your existing IT support. Think of it as bringing in a specialist while your GP handles the day-to-day.' },
       { question: 'How much does technology consulting cost?', answer: 'Our consulting services start from $200/hour. Most small businesses benefit from a 2-4 hour initial assessment. We provide transparent pricing and always discuss costs upfront.' },
+    ],
+  },
+  {
+    slug: 'website-redesign',
+    name: 'Website Redesign & Migration',
+    shortName: 'Redesign',
+    icon: 'RefreshCw',
+    description: 'Modernise outdated websites, migrate platforms, and boost performance without losing SEO',
+    heroSubtitle: 'Transform your outdated website into a fast, modern platform — without losing rankings or customers',
+    ctaText: 'Get a Free Site Audit',
+    ctaQuestion: 'Ready to Modernise Your Website?',
+    pricingKey: 'websiteRedesign',
+    features: [
+      { title: 'Full Site Audit', description: 'Comprehensive review of your current site covering speed, SEO, accessibility, and design', icon: 'ClipboardCheck' },
+      { title: 'Modern Redesign', description: 'Fresh, mobile-first design that reflects your brand and converts visitors into customers', icon: 'Palette' },
+      { title: 'Platform Migration', description: 'Seamless migration from WordPress, Wix, Squarespace, or Drupal to a modern stack', icon: 'ArrowRightLeft' },
+      { title: 'SEO Preservation', description: 'Redirect mapping and on-page SEO to protect your existing search rankings during the switch', icon: 'Search' },
+      { title: 'Performance Boost', description: 'Dramatically faster load times with optimised images, code splitting, and modern hosting', icon: 'Zap' },
+      { title: 'Content Migration', description: 'All your existing content, images, and data transferred cleanly to the new platform', icon: 'FileText' },
+    ],
+    offerings: [
+      { title: 'WordPress Migration', description: 'Move from slow, plugin-heavy WordPress sites to fast, modern platforms' },
+      { title: 'Wix & Squarespace Migration', description: 'Break free from template limitations with a fully custom website' },
+      { title: 'Design Refresh', description: 'Update your existing site with a modern design while keeping the same platform' },
+      { title: 'Performance Optimisation', description: 'Speed up your current site with image optimisation, caching, and code cleanup' },
+      { title: 'Mobile Overhaul', description: 'Make your desktop-only site fully responsive and mobile-friendly' },
+      { title: 'E-commerce Migration', description: 'Move your online store to a faster, more capable platform without losing products or orders' },
+    ],
+    technologies: ['Next.js', 'React', 'Tailwind CSS', 'WordPress', 'Headless CMS', 'Cloudflare', 'Image Optimization', 'SEO Redirect Mapping'],
+    faqs: [
+      { question: 'Will I lose my Google rankings during a redesign?', answer: 'No. We implement 301 redirect mapping and preserve all on-page SEO elements. Most clients see improved rankings within weeks of launch thanks to better performance and modern best practices.' },
+      { question: 'How long does a website migration take?', answer: 'Most redesigns take 2-4 weeks. Complex sites with hundreds of pages or e-commerce may take 4-6 weeks. We provide a clear timeline during our free audit.' },
+      { question: 'Can you show me what my site could look like before I commit?', answer: 'Yes — our WebFaceLift tool can generate an AI-powered preview of your redesigned site in seconds. We also build demo pages for larger projects so you can see the quality before committing.' },
+    ],
+  },
+  {
+    slug: 'seo',
+    name: 'SEO & Search Optimisation',
+    shortName: 'SEO',
+    icon: 'Search',
+    description: 'Local SEO, technical SEO, content strategy, and search rankings for FNQ businesses',
+    heroSubtitle: 'Get found by local customers searching for exactly what you offer',
+    ctaText: 'Get a Free SEO Audit',
+    ctaQuestion: 'Ready to Rank Higher on Google?',
+    pricingKey: 'seo',
+    features: [
+      { title: 'Local SEO', description: 'Dominate local search results so customers in your area find you first on Google', icon: 'MapPin' },
+      { title: 'Technical SEO', description: 'Fix crawl errors, improve site speed, and ensure search engines can properly index your site', icon: 'Settings' },
+      { title: 'Content Strategy', description: 'Targeted content that answers what your customers are searching for and builds authority', icon: 'FileText' },
+      { title: 'Google Business Profile', description: 'Optimise your Google Business listing for maximum visibility in maps and local pack results', icon: 'Map' },
+      { title: 'Keyword Research', description: 'Identify the exact terms your customers use and build pages that rank for them', icon: 'Search' },
+      { title: 'Monthly Reporting', description: 'Clear, transparent reports showing your rankings, traffic, and ROI every month', icon: 'BarChart' },
+    ],
+    offerings: [
+      { title: 'Local SEO Packages', description: 'Ongoing optimisation for local businesses targeting customers in their area' },
+      { title: 'One-Off SEO Audit', description: 'Comprehensive technical and content audit with prioritised action items' },
+      { title: 'Programmatic SEO', description: 'Scalable page generation targeting hundreds of local search terms automatically' },
+      { title: 'Google Business Optimisation', description: 'Set up and optimise your Google Business Profile for local visibility' },
+      { title: 'Content Creation', description: 'SEO-optimised blog posts, landing pages, and service pages that rank and convert' },
+      { title: 'Competitor Analysis', description: 'Understand what your competitors rank for and find gaps you can exploit' },
+    ],
+    technologies: ['Google Search Console', 'Google Analytics', 'Structured Data / JSON-LD', 'Core Web Vitals', 'Schema Markup', 'Next.js SSG', 'Sitemap Optimisation', 'Programmatic SEO'],
+    faqs: [
+      { question: 'How long does SEO take to show results?', answer: 'Most businesses see meaningful improvement in 2-4 months. Local SEO often delivers faster wins through Google Business Profile optimisation. We set realistic expectations and track progress monthly.' },
+      { question: 'Do you guarantee first page rankings?', answer: 'No legitimate SEO provider can guarantee specific rankings — Google controls that. What we do guarantee is transparent work, measurable progress, and a clear strategy based on what actually moves the needle.' },
+      { question: 'Is SEO worth it for a small local business?', answer: 'Absolutely. Local SEO is one of the highest-ROI marketing channels for small businesses. When someone searches "plumber near me" or "cafe in Palm Cove", being in the top results means real customers walking through your door.' },
     ],
   },
 ];

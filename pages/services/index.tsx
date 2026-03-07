@@ -11,6 +11,8 @@ import {
     MapPin,
     ShoppingCart,
     Smartphone,
+    RefreshCw,
+    Search,
 } from 'lucide-react';
 import { BUSINESS_INFO, ONLINE_PRESENCE, SERVICE_AREAS, CONTACT_INFO } from '../../constants/business';
 import { SERVICES } from '../../data/seo/services';
@@ -23,6 +25,8 @@ const ICON_MAP: Record<string, React.ReactNode> = {
     Smartphone: <Smartphone className="h-8 w-8 text-brand-accent" />,
     Code: <Code className="h-8 w-8 text-brand-accent" />,
     Lightbulb: <Lightbulb className="h-8 w-8 text-brand-accent" />,
+    RefreshCw: <RefreshCw className="h-8 w-8 text-brand-accent" />,
+    Search: <Search className="h-8 w-8 text-brand-accent" />,
 };
 
 const ServicesIndex: React.FC = () => {
