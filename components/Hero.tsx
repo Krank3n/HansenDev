@@ -130,27 +130,19 @@ const Hero: React.FC = () => {
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 pb-28 sm:pb-20">
         <div className="space-y-10 mb-14">
-          {/* Headline with staggered entrance */}
+          {/* Headline — visible immediately for fast LCP, no JS-gated opacity */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight">
-            <span
-              className={`block text-white leading-tight transition-all duration-1000 ${
-                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-            >
+            <span className="block text-white leading-tight">
               Less Admin.
             </span>
-            <span
-              className={`block ai-shimmer animate-shimmer leading-tight transition-all duration-1000 delay-200 ${
-                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-            >
+            <span className="block ai-shimmer animate-shimmer leading-tight">
               More Scaling. <TrendingUp className="inline h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 [stroke:url(#shimmer-gradient)]" />
             </span>
           </h1>
 
           {/* Subtext */}
           <p
-            className={`max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-gray-300/90 leading-relaxed transition-all duration-1000 delay-500 ${
+            className={`max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-gray-300/90 leading-relaxed transition-all duration-700 delay-100 ${
               loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
@@ -160,7 +152,7 @@ const Hero: React.FC = () => {
 
         {/* CTA */}
         <div
-          className={`flex flex-col sm:flex-row gap-5 justify-center items-center mb-8 transition-all duration-1000 delay-[900ms] ${
+          className={`flex flex-col sm:flex-row gap-5 justify-center items-center mb-8 transition-all duration-700 delay-300 ${
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
