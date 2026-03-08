@@ -3,6 +3,7 @@ import { EnvelopeIcon, PhoneIcon, MapPinIconAlt, UserCircleIcon as ContactUserCi
 import Section from './common/Section';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { trackFormSubmit, trackPhoneCall, trackOutboundLink } from '../lib/gtag';
+import { CONTACT_INFO } from '../constants/business';
 
 const SERVICE_OPTIONS = ['Free Discovery Session', 'Web Development', 'AI Integration', 'Automation', 'Consulting', 'Other'] as const;
 const BUDGET_OPTIONS = ['Under $5,000', '$5,000–$10,000', '$10,000–$20,000', '$20,000+', 'Not sure yet'] as const;
@@ -138,8 +139,8 @@ const Contact: React.FC = () => {
             <EnvelopeIcon className="h-5 w-5 text-brand-accent mt-1 flex-shrink-0" />
             <div>
               <h4 className="font-medium text-dark-text">Email</h4>
-              <a href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`} className="gradient-text hover:opacity-80 transition-opacity">
-                {process.env.NEXT_PUBLIC_CONTACT_EMAIL}
+              <a href={`mailto:${CONTACT_INFO.email.primary}`} className="gradient-text hover:opacity-80 transition-opacity">
+                {CONTACT_INFO.email.primary}
               </a>
             </div>
           </div>

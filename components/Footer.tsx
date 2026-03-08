@@ -82,7 +82,7 @@ const Footer: React.FC<FooterProps> = ({
                                     </div>
                                 </div>
 
-                                <p className="text-dark-text-secondary/70 mb-6 leading-relaxed text-sm">
+                                <p className="text-dark-text-secondary mb-6 leading-relaxed text-sm">
                                     {SERVICE_AREAS.primary}' premier technology partner, helping {SERVICE_AREAS.region} businesses
                                     thrive with custom web development, AI integration, and innovative software solutions.
                                 </p>
@@ -180,7 +180,7 @@ const Footer: React.FC<FooterProps> = ({
                                 </ul>
                                 <div className="mt-5">
                                     <h5 className="text-sm font-medium gradient-text mb-2">Service Areas:</h5>
-                                    <ul className="space-y-1 text-sm text-dark-text-secondary/70">
+                                    <ul className="space-y-1 text-sm text-dark-text-secondary">
                                         {SERVICE_AREAS.areas.slice(0, 4).map((area) => (
                                             <li key={area}>&bull; {area}</li>
                                         ))}
@@ -203,7 +203,7 @@ const Footer: React.FC<FooterProps> = ({
                                             <p className="text-dark-text/80 font-medium text-sm">
                                                 {CONTACT_INFO.address.suburb}, {CONTACT_INFO.address.city}
                                             </p>
-                                            <p className="text-dark-text-secondary/70 text-xs">
+                                            <p className="text-dark-text-secondary text-xs">
                                                 {CONTACT_INFO.address.state} {CONTACT_INFO.address.postcode}, {CONTACT_INFO.address.country}
                                             </p>
                                         </div>
@@ -234,8 +234,8 @@ const Footer: React.FC<FooterProps> = ({
                                         <Clock className="h-4 w-4 text-brand-accent/60 mt-0.5 flex-shrink-0" />
                                         <div>
                                             <p className="text-dark-text/80 text-sm font-medium">Business Hours:</p>
-                                            <p className="text-dark-text-secondary/70 text-xs">{CONTACT_INFO.hours.business}</p>
-                                            <p className="text-dark-text-secondary/70 text-xs">{CONTACT_INFO.hours.support}</p>
+                                            <p className="text-dark-text-secondary text-xs">{CONTACT_INFO.hours.business}</p>
+                                            <p className="text-dark-text-secondary text-xs">{CONTACT_INFO.hours.support}</p>
                                         </div>
                                     </div>
                                 </div>

@@ -4,7 +4,7 @@ import type AppProps from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Inter } from 'next/font/google';
-import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import '../styles/globals.css';
@@ -26,7 +26,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         </Head>
-        <GoogleTagManager gtmId="GTM-PWPRX6WL" />
         <GoogleAnalytics gaId="G-TPK07P99GQ" />
         <Component {...pageProps} />
       </div>
@@ -43,7 +42,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </Head>
-      <GoogleTagManager gtmId="GTM-PWPRX6WL" />
       <GoogleAnalytics gaId="G-TPK07P99GQ" />
       <div className="flex flex-col min-h-screen">
         <Navbar />

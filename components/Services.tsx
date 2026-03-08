@@ -201,9 +201,8 @@ const ServiceCard: React.FC<{ service: (typeof servicesData)[number]; index: num
             <a
               href={service.learnMoreUrl}
               className="group/link inline-flex items-center justify-center gap-2 w-full text-dark-text-secondary hover:text-brand-accent text-sm font-medium transition-colors duration-300"
-              aria-label={`Learn more about ${service.title}`}
             >
-              <span>Learn More</span>
+              <span>Learn More About {service.title.replace(` ${SERVICE_AREAS.primary}`, '')}</span>
               <ArrowRight className="h-3 w-3 group-hover/link:translate-x-1 transition-transform duration-300" />
             </a>
           </div>
@@ -303,7 +302,7 @@ const Services: React.FC = () => {
               <div className={`flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${item.gradient} mb-4 group-hover:scale-110 transition-transform duration-300`}>
                 <span className={item.iconColor}>{item.icon}</span>
               </div>
-              <h4 className="font-bold text-dark-text text-lg mb-2">{item.label}</h4>
+              <h3 className="font-bold text-dark-text text-lg mb-2">{item.label}</h3>
               <p className="text-sm text-dark-text-secondary leading-relaxed">{item.description}</p>
             </div>
           ))}
