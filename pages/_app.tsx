@@ -26,6 +26,21 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         </Head>
+        {/* Google Analytics (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-TPK07P99GQ"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="gtag-init-demo"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-TPK07P99GQ');`,
+          }}
+        />
         <Component {...pageProps} />
       </div>
     );
@@ -51,6 +66,21 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-PWPRX6WL');`,
+        }}
+      />
+      {/* Google Analytics (gtag.js) */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-TPK07P99GQ"
+        strategy="afterInteractive"
+      />
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-TPK07P99GQ');`,
         }}
       />
       <div className="flex flex-col min-h-screen">

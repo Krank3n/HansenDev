@@ -30,6 +30,7 @@ import {
     getFormattedPhone,
     getBusinessName
 } from '../constants/business';
+import { trackCTA, trackOutboundLink, trackPhoneCall } from '../lib/gtag';
 
 interface FooterProps {
     privacyPolicyUrl?: string;
@@ -112,6 +113,7 @@ const Footer: React.FC<FooterProps> = ({
                                         href={ONLINE_PRESENCE.social.linkedin}
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        onClick={() => trackOutboundLink(ONLINE_PRESENCE.social.linkedin, 'LinkedIn')}
                                         className="p-2.5 rounded-xl bg-white/[0.03] hover:bg-brand-accent/10 transition-all duration-300 hover:scale-110 group"
                                         aria-label={`Follow ${BUSINESS_INFO.shortName} on LinkedIn`}
                                     >
@@ -121,6 +123,7 @@ const Footer: React.FC<FooterProps> = ({
                                         href={ONLINE_PRESENCE.social.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        onClick={() => trackOutboundLink(ONLINE_PRESENCE.social.github, 'GitHub')}
                                         className="p-2.5 rounded-xl bg-white/[0.03] hover:bg-brand-accent/10 transition-all duration-300 hover:scale-110 group"
                                         aria-label={`View ${BUSINESS_INFO.shortName} projects on GitHub`}
                                     >
@@ -210,6 +213,7 @@ const Footer: React.FC<FooterProps> = ({
                                         <Phone className="h-4 w-4 text-brand-accent/60 flex-shrink-0" />
                                         <a
                                             href={`tel:${CONTACT_INFO.phone.primary}`}
+                                            onClick={() => trackPhoneCall('footer')}
                                             className="text-dark-text/80 hover:text-brand-accent transition-colors duration-300 text-sm font-medium"
                                         >
                                             {getFormattedPhone()}
@@ -239,7 +243,7 @@ const Footer: React.FC<FooterProps> = ({
                                 {/* Quick contact CTA */}
                                 <div className="mt-6">
                                     <button
-                                        onClick={handleQuickContact}
+                                        onClick={() => { trackCTA('Get Free Quote', 'footer'); handleQuickContact(); }}
                                         className="group inline-flex items-center gap-2 btn-gradient text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/15"
                                         aria-label={`Contact ${BUSINESS_INFO.shortName} for web development services in ${SERVICE_AREAS.primary}`}
                                     >

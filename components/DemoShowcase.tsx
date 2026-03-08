@@ -2,6 +2,7 @@ import React from 'react';
 import Section from './common/Section';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { ArrowRight, Zap, Stethoscope, Building2, Waves, HardHat } from 'lucide-react';
+import { trackDemoView, trackCTA } from '../lib/gtag';
 
 const demos = [
     {
@@ -66,6 +67,7 @@ const DemoShowcase: React.FC = () => {
                     <a
                         key={demo.name}
                         href={demo.url}
+                        onClick={() => trackDemoView(demo.name)}
                         className="group flex items-center gap-4 p-5 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] hover:scale-[1.02] transition-all duration-500 hover-glow"
                     >
                         <div className={`flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br ${demo.gradient} flex items-center justify-center ${demo.iconColor} group-hover:scale-110 transition-transform duration-300`}>
@@ -104,6 +106,7 @@ const DemoShowcase: React.FC = () => {
                     </p>
                     <a
                         href="#contact"
+                        onClick={() => trackCTA('Get a Free Mockup', 'demo-showcase')}
                         className="group inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-2xl font-bold transition-all duration-500 hover:shadow-xl hover:shadow-brand-accent/20 hover:-translate-y-1"
                     >
                         <span>Get a Free Mockup of Your Site</span>

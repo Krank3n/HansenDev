@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavItem } from '../types';
 import { MenuIcon, XIcon, CodeIcon } from './icons/CustomIcons';
+import { trackCTA } from '../lib/gtag';
 
 const navItems: NavItem[] = [
   { name: 'Our Work', href: '/our-work' },
@@ -55,6 +56,7 @@ const Navbar: React.FC = () => {
             ))}
             <a
               href="/#contact"
+              onClick={() => trackCTA('Get Free Quote', 'navbar')}
               className="ml-3 inline-flex items-center px-5 py-2.5 rounded-xl text-sm font-semibold text-white btn-gradient transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/15 hover:scale-105"
             >
               <span>Get Free Quote</span>
@@ -92,7 +94,7 @@ const Navbar: React.FC = () => {
           ))}
           <a
             href="/#contact"
-            onClick={() => setIsOpen(false)}
+            onClick={() => { setIsOpen(false); trackCTA('Get Free Quote', 'navbar-mobile'); }}
             className="block mx-2 mt-3 text-center px-5 py-3.5 rounded-xl text-base font-semibold text-white btn-gradient transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/15"
           >
             <span>Get Free Quote</span>

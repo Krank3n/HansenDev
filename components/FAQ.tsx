@@ -3,6 +3,7 @@ import { ChevronDown } from 'lucide-react';
 import Section from './common/Section';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { FAQ_DATA } from '../constants/business';
+import { trackFAQOpen } from '../lib/gtag';
 
 const FAQItem: React.FC<{
   question: string;
@@ -81,6 +82,9 @@ const FAQ: React.FC = () => {
   const { ref, isVisible } = useScrollReveal();
 
   const toggle = (index: number) => {
+    if (openIndex !== index) {
+      trackFAQOpen(FAQ_DATA[index].question);
+    }
     setOpenIndex(openIndex === index ? null : index);
   };
 

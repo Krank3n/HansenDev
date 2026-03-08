@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Section from './common/Section';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { ExternalLink, Code2, Globe, Star, Zap, Users, ArrowUpRight, ArrowRight, Lightbulb } from 'lucide-react';
+import { trackCTA, trackOutboundLink } from '../lib/gtag';
 
 interface Project {
     title: string;
@@ -142,6 +143,7 @@ const ProjectCard: React.FC<{ project: Project; badge?: string }> = ({ project, 
                                 href={project.url}
                                 target={project.url.startsWith('/') ? '_self' : '_blank'}
                                 rel={project.url.startsWith('/') ? undefined : 'noopener noreferrer'}
+                                onClick={() => !project.url.startsWith('/') ? trackOutboundLink(project.url, project.title) : trackCTA(`View ${project.title}`, 'portfolio')}
                                 className="inline-flex items-center gap-3 btn-gradient text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/15 hover:-translate-y-0.5"
                             >
                                 <span>View Project</span>
@@ -281,6 +283,7 @@ const Portfolio: React.FC = () => {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a
                                 href="#contact"
+                                onClick={() => trackCTA('Start Your Project', 'portfolio-cta')}
                                 className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/15 hover:-translate-y-0.5"
                             >
                                 <span>Start Your Project</span>

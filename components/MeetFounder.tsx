@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Section from './common/Section';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { Shield, Rocket, Settings, Play } from 'lucide-react';
+import { trackVideoPlay } from '../lib/gtag';
 
 const differentiators = [
     {
@@ -80,6 +81,7 @@ const MeetFounder: React.FC = () => {
     // Click to replay (with audio)
     const handleClick = () => {
         if (!isPlaying) {
+            trackVideoPlay('founder-intro');
             playVideo(true);
         }
     };
@@ -111,7 +113,7 @@ const MeetFounder: React.FC = () => {
                                 ref={videoRef}
                                 onEnded={handleVideoEnded}
                                 playsInline
-                                preload="metadata"
+                                preload="none"
                                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${showPoster ? 'opacity-0' : 'opacity-100'}`}
                             >
                                 <source src="/assets/video/TomSays-compressed.mp4" type="video/mp4" />
@@ -124,7 +126,7 @@ const MeetFounder: React.FC = () => {
                                 fill
                                 className={`object-cover transition-opacity duration-500 ${showPoster ? 'opacity-100' : 'opacity-0'}`}
                                 sizes="(max-width: 768px) 100vw, 40vw"
-                                priority
+                                loading="lazy"
                             />
 
                             <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/70 via-transparent to-transparent"></div>

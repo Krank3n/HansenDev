@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { EnvelopeIcon, PhoneIcon, MapPinIconAlt, UserCircleIcon as ContactUserCircleIcon } from './icons/CustomIcons';
 import Section from './common/Section';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { trackFormSubmit, trackPhoneCall, trackOutboundLink } from '../lib/gtag';
 
 const SERVICE_OPTIONS = ['Free Discovery Session', 'Web Development', 'AI Integration', 'Automation', 'Consulting', 'Other'] as const;
 const BUDGET_OPTIONS = ['Under $5,000', '$5,000–$10,000', '$10,000–$20,000', '$20,000+', 'Not sure yet'] as const;
@@ -83,6 +84,7 @@ const Contact: React.FC = () => {
       const result = await response.json();
 
       if (response.ok) {
+        trackFormSubmit(formData.service, formData.budget);
         setIsSubmitted(true);
         setFormData({ name: '', email: '', message: '', phone: '', service: '', budget: '', website: '' });
         setTimeout(() => setIsSubmitted(false), 5000);
@@ -146,7 +148,7 @@ const Contact: React.FC = () => {
             <PhoneIcon className="h-5 w-5 text-brand-accent mt-1 flex-shrink-0" />
             <div>
               <h4 className="font-medium text-dark-text">Phone</h4>
-              <a href="tel:0480232922" className="gradient-text hover:opacity-80 transition-opacity">
+              <a href="tel:0480232922" onClick={() => trackPhoneCall('contact-section')} className="gradient-text hover:opacity-80 transition-opacity">
                 0480 232 922
               </a>
             </div>
@@ -157,6 +159,7 @@ const Contact: React.FC = () => {
               href="https://www.google.com/maps/search/?api=1&query=19+Cananga+Close+Kamerunga+QLD"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackOutboundLink('https://www.google.com/maps', 'Google Maps')}
               className="inline-block text-sm text-dark-text-secondary/50 hover:text-brand-accent transition-colors"
               aria-label="View address on Google Maps"
             >

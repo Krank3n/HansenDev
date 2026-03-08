@@ -4,6 +4,7 @@ import Section from './common/Section';
 import Card from './common/Card';
 import { ServiceCardProps } from '../types';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { trackCTA, trackPhoneCall } from '../lib/gtag';
 import {
   ArrowRight,
   Star,
@@ -190,6 +191,7 @@ const ServiceCard: React.FC<{ service: (typeof servicesData)[number]; index: num
           <div className="mt-auto pt-4 space-y-3">
             <a
               href="#contact"
+              onClick={() => trackCTA('Get Free Quote', `service-${service.title}`)}
               className="group/btn inline-flex items-center justify-center gap-2 w-full btn-gradient text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/15"
               aria-label={`Get free consultation for ${service.title} in ${SERVICE_AREAS.primary}`}
             >
@@ -409,6 +411,7 @@ const Services: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
               <a
                 href="#contact"
+                onClick={() => trackCTA('Get FREE Consultation', 'services-bottom')}
                 className="group inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-brand-accent/20 hover:-translate-y-1 transition-all duration-500"
                 aria-label={`Get free consultation for technology services in ${SERVICE_AREAS.primary}`}
               >
@@ -417,6 +420,7 @@ const Services: React.FC = () => {
               </a>
               <a
                 href={`tel:${CONTACT_INFO.phone.primary}`}
+                onClick={() => trackPhoneCall('services-bottom')}
                 className="group inline-flex items-center justify-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] backdrop-blur-sm text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-500"
                 aria-label={`Call ${BUSINESS_INFO.shortName} for immediate assistance`}
               >

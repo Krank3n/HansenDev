@@ -2,11 +2,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import Section from './common/Section';
 import LogoBanner from './LogoBanner';
 import { ArrowRight, TrendingUp } from 'lucide-react';
+import { trackCTA } from '../lib/gtag';
 
 const Hero: React.FC = () => {
   const bgRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 639px)');
@@ -15,6 +18,30 @@ const Hero: React.FC = () => {
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
   }, []);
+
+  // Defer video loading until after hydration + LCP paint
+  useEffect(() => {
+    // Use requestIdleCallback where available, else setTimeout
+    const schedule = typeof window.requestIdleCallback === 'function'
+      ? (cb: () => void) => window.requestIdleCallback(cb, { timeout: 3000 })
+      : (cb: () => void) => window.setTimeout(cb, 1500);
+
+    const id = schedule(() => setVideoReady(true));
+    return () => {
+      if (typeof window.cancelIdleCallback === 'function') {
+        window.cancelIdleCallback(id as number);
+      } else {
+        clearTimeout(id as number);
+      }
+    };
+  }, []);
+
+  // Once video element exists and source is set, start playback
+  useEffect(() => {
+    if (videoReady && videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  }, [videoReady, isMobile]);
 
   useEffect(() => {
     let ticking = false;
@@ -61,22 +88,32 @@ const Hero: React.FC = () => {
         </defs>
       </svg>
 
-      {/* Background Video with Parallax */}
+      {/* Background Video with Parallax — poster loads instantly, video deferred */}
       <div className="absolute inset-0">
         <div ref={bgRef} className="absolute inset-0 parallax-bg" style={{ top: '-10%', bottom: '-10%' }}>
-          <video
-            key={isMobile ? 'mobile' : 'desktop'}
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster={isMobile ? '/assets/video/HansenDevMobile-poster.webp' : '/assets/video/HansenDevCassowary-poster.webp'}
+          {/* Poster image renders immediately for fast LCP */}
+          <img
+            src={isMobile ? '/assets/video/HansenDevMobile-poster.webp' : '/assets/video/HansenDevCassowary-poster.webp'}
+            alt=""
             className="absolute inset-0 w-full h-full object-cover"
-            aria-label="Background video showing HansenDev web development work"
-          >
-            <source src={isMobile ? '/assets/video/HansenDevMobile.mp4' : '/assets/video/HansenDevCassowary.mp4'} type="video/mp4" />
-            <track kind="captions" src="" label="No dialogue" default />
-          </video>
+            fetchPriority="high"
+          />
+          {/* Video only loads after idle — no bandwidth impact on LCP */}
+          {videoReady && (
+            <video
+              ref={videoRef}
+              key={isMobile ? 'mobile' : 'desktop'}
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="absolute inset-0 w-full h-full object-cover"
+              aria-label="Background video showing HansenDev web development work"
+            >
+              <source src={isMobile ? '/assets/video/HansenDevMobile.mp4' : '/assets/video/HansenDevCassowary.mp4'} type="video/mp4" />
+              <track kind="captions" src="" label="No dialogue" default />
+            </video>
+          )}
         </div>
         {/* Deep gradient overlay - more immersive */}
         <div className="absolute inset-0 bg-gradient-to-b from-dark-bg/70 via-dark-bg/50 to-dark-bg"></div>
@@ -129,6 +166,7 @@ const Hero: React.FC = () => {
         >
           <a
             href="#contact-discovery"
+            onClick={() => trackCTA('Find Your Bottleneck', 'hero')}
             className="group relative inline-flex items-center justify-center gap-3 btn-gradient text-white px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-brand-accent/20 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-500 w-full sm:w-auto"
             aria-label="Book a free discovery session to find your business bottleneck"
           >
@@ -138,6 +176,7 @@ const Hero: React.FC = () => {
 
           <a
             href="#portfolio"
+            onClick={() => trackCTA('See What We Built', 'hero')}
             className="group inline-flex items-center justify-center gap-3 bg-white/[0.04] backdrop-blur-sm rounded-2xl px-10 py-5 text-white font-bold text-lg hover:bg-white/[0.08] transition-all duration-500 w-full sm:w-auto"
             aria-label="See what we've built for businesses like yours"
           >

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowRight, MessageCircle, Phone } from 'lucide-react';
 import { CONTACT_INFO } from '../constants/business';
+import { trackCTA, trackWhatsApp, trackPhoneCall } from '../lib/gtag';
 
 const sectionCTAs: Record<string, { text: string; href: string; waMessage: string }> = {
   founder: {
@@ -102,6 +103,7 @@ const StickyCTA: React.FC = () => {
             href={whatsappUrl(cta.waMessage)}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsApp(`sticky-mobile-${activeSection}`)}
             className="group inline-flex items-center justify-center gap-2 btn-gradient text-white px-6 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/20 hover:scale-[1.02] sm:hidden"
           >
             <MessageCircle className="h-4 w-4" />
@@ -109,6 +111,7 @@ const StickyCTA: React.FC = () => {
           </a>
           <a
             href={`tel:${CONTACT_INFO.phone.primary}`}
+            onClick={() => trackPhoneCall('sticky-mobile')}
             className="inline-flex items-center justify-center gap-2 bg-white/[0.06] hover:bg-white/[0.1] backdrop-blur-sm text-white px-4 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 sm:hidden"
             aria-label="Call HansenDev"
           >
@@ -119,6 +122,7 @@ const StickyCTA: React.FC = () => {
           {/* Desktop: Contact form primary, WhatsApp secondary */}
           <a
             href={cta.href}
+            onClick={() => trackCTA(cta.text, `sticky-${activeSection}`)}
             className="group hidden sm:inline-flex items-center justify-center gap-2 btn-gradient text-white px-6 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/20 hover:scale-[1.02]"
           >
             <span>{cta.text}</span>
@@ -128,6 +132,7 @@ const StickyCTA: React.FC = () => {
             href={whatsappUrl(cta.waMessage)}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsApp(`sticky-desktop-${activeSection}`)}
             className="hidden sm:inline-flex items-center justify-center gap-2 bg-white/[0.06] hover:bg-white/[0.1] backdrop-blur-sm text-white px-4 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300"
             aria-label="Message on WhatsApp"
           >

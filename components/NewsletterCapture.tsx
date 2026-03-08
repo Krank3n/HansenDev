@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail } from 'lucide-react';
 import Section from './common/Section';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { trackNewsletterSignup } from '../lib/gtag';
 
 const NewsletterCapture: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -25,6 +26,7 @@ const NewsletterCapture: React.FC = () => {
       const result = await response.json();
 
       if (response.ok) {
+        trackNewsletterSignup();
         setStatus('success');
         setEmail('');
       } else {
