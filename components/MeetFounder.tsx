@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Section from './common/Section';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { Shield, Rocket, Settings, Play } from 'lucide-react';
+import { Shield, Rocket, Settings, Play, Volume2 } from 'lucide-react';
 import { trackVideoPlay } from '../lib/gtag';
 
 const differentiators = [
@@ -36,23 +36,38 @@ const MeetFounder: React.FC = () => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const videoContainerRef = useRef<HTMLDivElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [isMuted, setIsMuted] = useState(true);
     const [hasAutoPlayed, setHasAutoPlayed] = useState(false);
     const [showPoster, setShowPoster] = useState(true);
 
-    const playVideo = useCallback((userInitiated = false) => {
+    const startVideo = useCallback((muted = true) => {
         const video = videoRef.current;
         if (!video) return;
-        setShowPoster(false);
         video.currentTime = 0;
-        video.muted = !userInitiated;
-        video.play().then(() => {
+        video.muted = muted;
+        setIsMuted(muted);
+
+        // Wait until the video has buffered enough to display a frame
+        const onReady = () => {
+            video.removeEventListener('canplay', onReady);
+            setShowPoster(false);
             setIsPlaying(true);
-        }).catch(() => {
-            setShowPoster(true);
-        });
+        };
+
+        // If already buffered (replay), hide poster immediately
+        if (video.readyState >= 3) {
+            setShowPoster(false);
+            video.play().then(() => setIsPlaying(true)).catch(() => setShowPoster(true));
+        } else {
+            video.addEventListener('canplay', onReady);
+            video.play().catch(() => {
+                video.removeEventListener('canplay', onReady);
+                setShowPoster(true);
+            });
+        }
     }, []);
 
-    // Auto-play once when video container scrolls into view
+    // Auto-play muted once when video container scrolls into view
     useEffect(() => {
         const el = videoContainerRef.current;
         if (!el || hasAutoPlayed) return;
@@ -62,27 +77,43 @@ const MeetFounder: React.FC = () => {
                 if (entry.isIntersecting) {
                     setHasAutoPlayed(true);
                     observer.unobserve(el);
-                    setTimeout(() => playVideo(), 600);
+                    setTimeout(() => startVideo(true), 600);
                 }
             },
-            { threshold: 0.1 }
+            { threshold: 0, rootMargin: '200px 0px' }
         );
 
         observer.observe(el);
         return () => observer.disconnect();
-    }, [hasAutoPlayed, playVideo]);
+    }, [hasAutoPlayed, startVideo]);
 
     // When video ends, show poster with replay button
     const handleVideoEnded = () => {
         setIsPlaying(false);
+        setIsMuted(true);
         setShowPoster(true);
     };
 
-    // Click to replay (with audio)
+    // Click handling: poster → replay with sound, muted → unmute, playing → pause, paused → resume
     const handleClick = () => {
-        if (!isPlaying) {
+        const video = videoRef.current;
+        if (!video) return;
+
+        if (showPoster) {
+            // Video ended or hasn't started — replay with sound
             trackVideoPlay('founder-intro');
-            playVideo(true);
+            startVideo(false);
+        } else if (isPlaying && isMuted) {
+            // Playing muted — unmute
+            video.muted = false;
+            setIsMuted(false);
+        } else if (isPlaying) {
+            // Playing with sound — pause
+            video.pause();
+            setIsPlaying(false);
+        } else {
+            // Paused — resume
+            video.play().then(() => setIsPlaying(true));
         }
     };
 
@@ -90,7 +121,7 @@ const MeetFounder: React.FC = () => {
         <Section
             id="founder"
             title=""
-            className="relative overflow-hidden"
+            className="relative overflow-hidden !pt-8 md:!pt-12"
         >
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-primary/[0.02] to-transparent pointer-events-none"></div>
 
@@ -131,12 +162,20 @@ const MeetFounder: React.FC = () => {
 
                             <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/70 via-transparent to-transparent"></div>
 
-                            {/* Play button overlay */}
+                            {/* Play button — only on poster */}
                             {showPoster && (
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <div className="flex items-center justify-center w-16 h-16 rounded-full bg-brand-accent/90 backdrop-blur-sm shadow-lg shadow-brand-accent/30 group-hover:scale-110 transition-transform duration-300">
                                         <Play className="h-7 w-7 text-white ml-1" fill="white" />
                                     </div>
+                                </div>
+                            )}
+
+                            {/* Tap for sound hint — top right, fades out after unmute */}
+                            {!showPoster && isMuted && (
+                                <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-dark-bg/70 backdrop-blur-sm text-white/90 text-xs px-3 py-1.5 rounded-full animate-pulse">
+                                    <Volume2 className="h-3 w-3" />
+                                    <span>Tap for sound</span>
                                 </div>
                             )}
                         </div>
