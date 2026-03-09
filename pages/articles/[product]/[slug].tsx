@@ -337,32 +337,27 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article, relatedArticles, pro
                 {/* Breadcrumb Navigation */}
                 <nav className="" aria-label="Breadcrumb">
                     <div className="container-custom py-4">
-                        <ol className="flex items-center gap-2 text-sm text-dark-text-secondary flex-wrap" itemScope itemType="https://schema.org/BreadcrumbList">
-                            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                                <Link href="/" className="hover:text-brand-accent transition-colors" itemProp="item">
-                                    <span itemProp="name">Home</span>
+                        <ol className="flex items-center gap-2 text-sm text-dark-text-secondary flex-wrap">
+                            <li>
+                                <Link href="/" className="hover:text-brand-accent transition-colors">
+                                    Home
                                 </Link>
-                                <meta itemProp="position" content="1" />
                             </li>
                             <ChevronRight className="h-4 w-4" aria-hidden="true" />
-                            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                                <Link href="/articles" className="hover:text-brand-accent transition-colors" itemProp="item">
-                                    <span itemProp="name">Articles</span>
+                            <li>
+                                <Link href="/articles" className="hover:text-brand-accent transition-colors">
+                                    Articles
                                 </Link>
-                                <meta itemProp="position" content="2" />
                             </li>
                             <ChevronRight className="h-4 w-4" aria-hidden="true" />
-                            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                                <Link href={`/articles/${product}`} className="hover:text-brand-accent transition-colors" itemProp="item">
-                                    <span itemProp="name">{productName}</span>
+                            <li>
+                                <Link href={`/articles/${product}`} className="hover:text-brand-accent transition-colors">
+                                    {productName}
                                 </Link>
-                                <meta itemProp="position" content="3" />
                             </li>
                             <ChevronRight className="h-4 w-4" aria-hidden="true" />
-                            <li className="text-white truncate max-w-[200px]" aria-current="page" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                                <span itemProp="name">{frontmatter.title}</span>
-                                <meta itemProp="position" content="4" />
-                                <meta itemProp="item" content={canonicalUrl} />
+                            <li className="text-white truncate max-w-[200px]" aria-current="page">
+                                {frontmatter.title}
                             </li>
                         </ol>
                     </div>
