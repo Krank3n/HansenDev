@@ -138,7 +138,7 @@ Absolutely. While it's great for **carpenter quotes**, it works for landscapers,
 Yes, QuoteMate is designed for the real world. You can create quotes, add items, and save drafts while offline. The app will sync your data and send the emails once you are back in range.
 
 ### Q: Is it difficult to switch from my current Excel system?
-It is surprisingly easy. Most tradies find that once they send their first quote via the app (which takes under 5 minutes), they never want to go back to spreadsheets. The first 5 quotes are free, so you can test it risk-free.
+It is surprisingly easy. Most tradies find that once they send their first quote via the app (which takes under 5 minutes), they never want to go back to spreadsheets. There's a 7-day free trial, so you can test it risk-free.
 
 ## Key Takeaways
 
@@ -162,6 +162,6 @@ You didn't become a tradie to sit behind a computer for hours every night. You d
 
 QuoteMate helps Australian tradies create professional quotes in under 5 minutes with AI-powered estimation and real-time Bunnings pricing.
 
-**Try free - your first 5 quotes are on us!**
+**Try free for 7 days - no credit card required!**
 
 [Get Started with QuoteMate](https://hansendev.com.au/quote-tool) | No credit card required

@@ -132,7 +132,7 @@ const QuoteMateTerms: React.FC = () => {
                                 <div>
                                     <h2 className="text-xl font-bold text-white mb-3">5. Free Trial & Subscriptions</h2>
                                     <p className="text-dark-text-secondary leading-relaxed mb-3">
-                                        QuoteMate offers a free trial period (first 5 quotes) with full access to all features. After the trial, continued use requires a paid subscription. Subscription plans and pricing are displayed within the App.
+                                        QuoteMate offers a 7-day free trial with unlimited quotes and full access to all features. The trial begins when you create your first quote. After the trial, continued use requires a paid subscription. Subscription plans and pricing are displayed within the App.
                                     </p>
                                     <ul className="list-disc list-inside text-dark-text-secondary space-y-2">
                                         <li>Subscriptions are billed through the Apple App Store or Google Play Store, depending on your platform.</li>

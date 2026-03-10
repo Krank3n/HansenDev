@@ -26,7 +26,7 @@ const QuoteMate: React.FC = () => {
         <>
             <Head>
                 <title>QuoteMate - Create Professional Quotes in Minutes | App for Australian Tradies</title>
-                <meta name="description" content="Stop wasting hours on quotes! QuoteMate helps Australian tradies create professional quotes in under 5 minutes. Get real-time Bunnings pricing, AI job estimates, and instant PDF quotes. Try free - first 5 quotes on us. iPhone & Android." />
+                <meta name="description" content="Stop wasting hours on quotes! QuoteMate helps Australian tradies create professional quotes in under 5 minutes. Get real-time Bunnings pricing, AI job estimates, and instant PDF quotes. Try free for 7 days. iPhone & Android." />
 
                 {/* Enhanced SEO Meta Tags */}
                 <meta name="keywords" content="tradie quoting app, quote builder Australia, Bunnings prices, tradesman invoice app, carpenter quotes, builder estimator, plumber quotes, landscaper app, construction quotes, job estimator, mobile quotes app" />
@@ -38,7 +38,7 @@ const QuoteMate: React.FC = () => {
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://hansendev.com.au/projects/quotemate" />
                 <meta property="og:title" content="QuoteMate - Create Professional Quotes in Minutes" />
-                <meta property="og:description" content="Stop wasting hours on quotes! App for Australian tradies. Get quotes done in under 5 minutes with real-time Bunnings pricing. Try free - first 5 quotes on us." />
+                <meta property="og:description" content="Stop wasting hours on quotes! App for Australian tradies. Get quotes done in under 5 minutes with real-time Bunnings pricing. Try free for 7 days - no credit card required." />
                 <meta property="og:image" content="https://hansendev.com.au/assets/projects/quotemate-app.png" />
                 <meta property="og:site_name" content="Hansen Dev" />
                 <meta property="og:locale" content="en_AU" />
@@ -47,7 +47,7 @@ const QuoteMate: React.FC = () => {
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:url" content="https://hansendev.com.au/projects/quotemate" />
                 <meta name="twitter:title" content="QuoteMate - Create Professional Quotes in Minutes" />
-                <meta name="twitter:description" content="App for Australian tradies. Get quotes done in under 5 minutes. Try free - first 5 quotes on us." />
+                <meta name="twitter:description" content="App for Australian tradies. Get quotes done in under 5 minutes. Try free for 7 days - no credit card required." />
                 <meta name="twitter:image" content="https://hansendev.com.au/assets/projects/quotemate-app.png" />
 
                 {/* Mobile App Meta */}
@@ -155,7 +155,7 @@ const QuoteMate: React.FC = () => {
                                     "name": "How much does QuoteMate cost?",
                                     "acceptedAnswer": {
                                         "@type": "Answer",
-                                        "text": "QuoteMate offers your first 5 quotes completely free - no credit card required. After that, there's a small subscription fee to continue using the app. Try it risk-free and see how much time it saves you before committing to a paid plan."
+                                        "text": "QuoteMate offers a free 7-day trial with unlimited quotes - no credit card required. After that, it's $29/month for unlimited quotes. Try it risk-free and see how much time it saves you before committing."
                                     }
                                 },
                                 {
@@ -258,7 +258,7 @@ fbq('track', 'PageView');
                                     className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
-                                    <span>Try Free - First 5 Quotes On Us</span>
+                                    <span>Try Free for 7 Days</span>
                                 </Link>
                             </div>
 
@@ -286,8 +286,8 @@ fbq('track', 'PageView');
                                 <div className="text-dark-text-secondary">Saved Per Week</div>
                             </div>
                             <div className="text-center">
-                                <div className="text-4xl lg:text-5xl font-bold text-white mb-2">Free</div>
-                                <div className="text-dark-text-secondary">First 5 Quotes</div>
+                                <div className="text-4xl lg:text-5xl font-bold text-white mb-2">7 Days</div>
+                                <div className="text-dark-text-secondary">Free Trial</div>
                             </div>
                         </div>
                     </div>
@@ -587,7 +587,7 @@ fbq('track', 'PageView');
                                 Ready to Save Hours on Quoting?
                             </h2>
                             <p className="text-xl text-dark-text-secondary mb-8 max-w-2xl mx-auto">
-                                Join hundreds of Australian tradies who've already switched to QuoteMate. Try free with 5 quotes - no credit card required. See the results before you pay a cent.
+                                Join hundreds of Australian tradies who've already switched to QuoteMate. Try free for 7 days - no credit card required. See the results before you pay a cent.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -596,14 +596,14 @@ fbq('track', 'PageView');
                                     className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
-                                    <span>Start Free Trial - 5 Quotes</span>
+                                    <span>Start Free 7-Day Trial</span>
                                 </Link>
                             </div>
 
                             <div className="flex flex-wrap justify-center gap-6 text-sm text-dark-text-secondary">
                                 <div className="flex items-center gap-2">
                                     <CheckCircle className="h-5 w-5 text-brand-accent" />
-                                    <span>First 5 Quotes Free</span>
+                                    <span>7-Day Free Trial</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <CheckCircle className="h-5 w-5 text-brand-accent" />

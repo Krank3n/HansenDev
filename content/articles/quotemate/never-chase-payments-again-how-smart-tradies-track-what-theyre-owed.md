@@ -201,6 +201,6 @@ Stop chasing. Start tracking.
 
 QuoteMate helps Australian tradies create professional quotes in under 5 minutes with AI-powered estimation and real-time Bunnings pricing.
 
-**Try free - your first 5 quotes are on us!**
+**Try free for 7 days - no credit card required!**
 
 [Get Started with QuoteMate](https://hansendev.com.au/quote-tool) | No credit card required

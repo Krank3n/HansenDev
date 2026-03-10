@@ -32,7 +32,7 @@ export const PRODUCTS: Record<ProductId, ProductConfig> = {
 
 QuoteMate helps Australian tradies create professional quotes in under 5 minutes with AI-powered estimation and real-time Bunnings pricing.
 
-**Try free - your first 5 quotes are on us!**
+**Try free for 7 days - no credit card required!**
 
 [Get Started with QuoteMate](https://hansendev.com.au/quote-tool) | No credit card required`,
     promptContext: `QuoteMate is a mobile app for Australian tradies that helps them create professional quotes in under 5 minutes. Key features include:
@@ -43,7 +43,7 @@ QuoteMate helps Australian tradies create professional quotes in under 5 minutes
 - GST calculated automatically
 - Send quotes via email, SMS, or WhatsApp
 - Track all quotes in one place
-The app saves tradies 5+ hours per week and helps them look more professional to win more jobs. First 5 quotes are free, no credit card required.`,
+The app saves tradies 5+ hours per week and helps them look more professional to win more jobs. 7-day free trial with unlimited quotes, no credit card required.`,
     websiteUrl: 'https://hansendev.com.au/projects/quotemate'
   },
 

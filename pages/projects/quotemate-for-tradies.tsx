@@ -253,7 +253,7 @@ const QuoteMateForTradies: React.FC = () => {
         },
         {
             metric: "$0",
-            description: "Cost for first 5 quotes - try free",
+            description: "7-day free trial - try now",
             trade: "Everyone"
         }
     ];
@@ -433,7 +433,7 @@ const QuoteMateForTradies: React.FC = () => {
                                     className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
-                                    <span>Try Free - First 5 Quotes</span>
+                                    <span>Try Free for 7 Days</span>
                                 </Link>
                             </div>
                         </div>
@@ -776,7 +776,7 @@ const QuoteMateForTradies: React.FC = () => {
                                 Try QuoteMate Free for Your Trade
                             </h2>
                             <p className="text-xl text-dark-text-secondary mb-8 max-w-2xl mx-auto">
-                                No matter what trade you're in, QuoteMate will save you hours. Get your first 5 quotes completely free - no credit card required. See the results yourself.
+                                No matter what trade you're in, QuoteMate will save you hours. Try free for 7 days with unlimited quotes - no credit card required. See the results yourself.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -800,7 +800,7 @@ const QuoteMateForTradies: React.FC = () => {
                             <div className="flex flex-wrap justify-center gap-6 text-sm text-dark-text-secondary">
                                 <div className="flex items-center gap-2">
                                     <CheckCircle className="h-5 w-5 text-brand-accent" />
-                                    <span>First 5 Quotes Free</span>
+                                    <span>7-Day Free Trial</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <CheckCircle className="h-5 w-5 text-brand-accent" />

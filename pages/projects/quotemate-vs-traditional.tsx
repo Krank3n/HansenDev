@@ -80,7 +80,7 @@ const QuoteMateVsTraditional: React.FC = () => {
             feature: "Cost",
             manual: "Free (but costs your time)",
             excel: "Free or $9/month (Office 365)",
-            quotemate: "$15/month after 5 free quotes",
+            quotemate: "$29/month after 7-day free trial",
             winner: "tie"
         },
         {
@@ -134,7 +134,7 @@ const QuoteMateVsTraditional: React.FC = () => {
         },
         {
             objection: "\"I only do 2-3 quotes per week, not worth paying for an app\"",
-            response: "Let's do the math: 3 quotes/week × 2 hours saved per quote = 6 hours saved weekly. That's 24 hours (3 full days) saved per month. At $60/hr, that's $1,440 in time savings vs $15/month cost. That's a 96x return on investment. Even ONE quote per month pays for itself 8x over.",
+            response: "Let's do the math: 3 quotes/week × 2 hours saved per quote = 6 hours saved weekly. That's 24 hours (3 full days) saved per month. At $60/hr, that's $1,440 in time savings vs $29/month cost. That's a 50x return on investment. Even ONE quote per month pays for itself 4x over.",
             realExample: "Sarah (landscaper): 'I only quote 2 jobs a week. But those quotes took me all Sunday night. Now I do them Friday arvo in 10 minutes total. I get my whole weekend back.'"
         },
         {
@@ -158,9 +158,9 @@ const QuoteMateVsTraditional: React.FC = () => {
             realExample: "Chris (pergola builder): 'I still use my laptop at home. But when I'm on-site, I can quote on my phone and email it to them before I leave. Customers love it and I close 50% more jobs on the spot.'"
         },
         {
-            objection: "\"$15/month adds up over a year...\"",
-            response: "$180/year sounds like a lot until you realize it saves you 250+ hours per year. That's $15,000 worth of your time (at $60/hr). You're paying $180 to get $15,000 back. That's an 83x return. Plus it's tax-deductible as a business expense.",
-            realExample: "I spend $180/year on QuoteMate and save $15K worth of my time. I spend $2,000/year on coffee and get... fat. QuoteMate is the best $15/month I spend.' - Dave, Carpenter"
+            objection: "\"$29/month adds up over a year...\"",
+            response: "$348/year sounds like a lot until you realize it saves you 250+ hours per year. That's $15,000 worth of your time (at $60/hr). You're paying $348 to get $15,000 back. That's a 43x return. Plus it's tax-deductible as a business expense.",
+            realExample: "I spend $348/year on QuoteMate and save $15K worth of my time. I spend $2,000/year on coffee and get... fat. QuoteMate is the best $29/month I spend.' - Dave, Carpenter"
         },
         {
             objection: "\"What happens to my quotes if I stop paying?\"",
@@ -372,7 +372,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                                     "name": "How does QuoteMate compare to other tradie apps like Tradify or Fergus?",
                                     "acceptedAnswer": {
                                         "@type": "Answer",
-                                        "text": "Tradify and Fergus are full job management systems costing $49-89/month - good for established businesses needing scheduling, job management, and team coordination. QuoteMate is focused solely on quoting at $15/month, making it ideal for solo tradies or small teams who just need better quotes. QuoteMate has unique AI estimation and Bunnings integration that other apps lack."
+                                        "text": "Tradify and Fergus are full job management systems costing $49-89/month - good for established businesses needing scheduling, job management, and team coordination. QuoteMate is focused solely on quoting at $29/month, making it ideal for solo tradies or small teams who just need better quotes. QuoteMate has unique AI estimation and Bunnings integration that other apps lack."
                                     }
                                 },
                                 {
@@ -380,7 +380,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                                     "name": "Is QuoteMate worth it if I only do 2-3 quotes per week?",
                                     "acceptedAnswer": {
                                         "@type": "Answer",
-                                        "text": "Yes! Even at 2 quotes/week (8/month), QuoteMate saves 16 hours monthly. At $60/hr, that's $960 in time savings vs $15 cost - a 64x ROI. Plus professional quotes help win more jobs, potentially increasing your quote volume. It's also tax-deductible as a business expense."
+                                        "text": "Yes! Even at 2 quotes/week (8/month), QuoteMate saves 16 hours monthly. At $60/hr, that's $960 in time savings vs $29 cost - a 33x ROI. Plus professional quotes help win more jobs, potentially increasing your quote volume. It's also tax-deductible as a business expense."
                                     }
                                 },
                                 {
@@ -905,7 +905,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                             <div className="bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 rounded-2xl p-8  text-center">
                                 <h3 className="text-2xl font-bold text-white mb-4">Still Not Sure? Try It Risk-Free</h3>
                                 <p className="text-xl text-dark-text-secondary mb-6">
-                                    Get 5 free quotes to see the difference yourself. No credit card. No commitment. If it doesn't save you massive time, don't subscribe. Simple.
+                                    Try free for 7 days to see the difference yourself. No credit card. No commitment. If it doesn't save you massive time, don't subscribe. Simple.
                                 </p>
                                 <Link
                                     href="/quote-tool"
@@ -914,7 +914,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                                     className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
-                                    <span>Try 5 Free Quotes</span>
+                                    <span>Start 7-Day Free Trial</span>
                                 </Link>
                             </div>
                         </div>
@@ -985,7 +985,7 @@ const QuoteMateVsTraditional: React.FC = () => {
                             <div className="flex flex-wrap justify-center gap-6 text-sm text-dark-text-secondary">
                                 <div className="flex items-center gap-2">
                                     <CheckCircle className="h-5 w-5 text-brand-accent" />
-                                    <span>5 Free Quotes</span>
+                                    <span>7-Day Free Trial</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <CheckCircle className="h-5 w-5 text-brand-accent" />

@@ -118,7 +118,7 @@ If your hourly rate is $80 and you spend 5 hours a week on quoting and invoicing
 
 If an AI app saves you those 5 hours, that is $19,200 worth of billable time you can reclaim—or 250 hours of free time to spend with your family. The cost of a subscription is peanuts compared to the value of your time.
 
-**Pro Tip:** Most apps, including QuoteMate, offer a free tier (e.g., first 5 quotes free). Use this to test if the workflow suits you before committing.
+**Pro Tip:** Most apps, including QuoteMate, offer a free trial (e.g., 7-day free trial). Use this to test if the workflow suits you before committing.
 
 ## Frequently Asked Questions
 
@@ -154,6 +154,6 @@ By using a tool like QuoteMate, you aren't just getting a **carpenter quotes** g
 
 QuoteMate helps Australian tradies create professional quotes in under 5 minutes with AI-powered estimation and real-time Bunnings pricing.
 
-**Try free - your first 5 quotes are on us!**
+**Try free for 7 days - no credit card required!**
 
 [Get Started with QuoteMate](https://hansendev.com.au/quote-tool) | No credit card required

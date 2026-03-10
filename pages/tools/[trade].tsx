@@ -41,7 +41,7 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "AUD",
-            "description": "First 5 quotes free, no credit card required",
+            "description": "7-day free trial, no credit card required",
         },
         "description": `Quoting app for Australian ${trade.plural.toLowerCase()}. Create professional quotes with AI-powered estimation and real-time Bunnings pricing.`,
         "url": `${ONLINE_PRESENCE.website.primary}/projects/quotemate`,
@@ -72,7 +72,7 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
         },
         {
             question: `How much does QuoteMate cost for ${trade.plural.toLowerCase()}?`,
-            answer: `Your first 5 quotes are completely free with no credit card required. After that, QuoteMate offers affordable plans designed for individual ${trade.plural.toLowerCase()} and small teams. Most ${trade.plural.toLowerCase()} save 5+ hours per week on admin.`,
+            answer: `QuoteMate offers a 7-day free trial with unlimited quotes and no credit card required. After that, it's $29/month for unlimited quotes. Most ${trade.plural.toLowerCase()} save 5+ hours per week on admin.`,
         },
         {
             question: `Can I add my own ${trade.name.toLowerCase()} materials and pricing?`,
@@ -170,7 +170,7 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
                             </div>
 
                             <p className="text-sm text-dark-text-secondary">
-                                <strong className="text-white">First 5 quotes free</strong> &bull; No credit card required &bull; Works on iPhone &amp; Android
+                                <strong className="text-white">7-day free trial</strong> &bull; No credit card required &bull; Works on iPhone &amp; Android
                             </p>
                         </div>
                     </div>
@@ -448,7 +448,7 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
                             <div className="flex flex-wrap justify-center gap-6 text-sm text-dark-text-secondary">
                                 <div className="flex items-center gap-2">
                                     <CheckCircle className="h-5 w-5 text-brand-accent" />
-                                    <span>First 5 Quotes Free</span>
+                                    <span>7-Day Free Trial</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <CheckCircle className="h-5 w-5 text-brand-accent" />

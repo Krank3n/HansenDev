@@ -212,7 +212,7 @@ const QuoteMateGettingStarted: React.FC = () => {
 
     const nextSteps = [
         {
-            title: "Do Your First 5 Quotes Free",
+            title: "Start Your 7-Day Free Trial",
             description: "Use your free trial on real jobs. Get a feel for the app. See the time savings firsthand.",
             action: "Start quoting!"
         },
@@ -228,7 +228,7 @@ const QuoteMateGettingStarted: React.FC = () => {
         },
         {
             title: "Upgrade When Ready",
-            description: "After 5 free quotes, upgrade to Pro for unlimited quotes at $15/month. Worth every cent.",
+            description: "After your 7-day trial, upgrade to Pro for unlimited quotes at $29/month. Worth every cent.",
             action: "Upgrade to Pro"
         }
     ];
@@ -392,7 +392,7 @@ const QuoteMateGettingStarted: React.FC = () => {
                                     "name": "Do I need to create an account to use QuoteMate?",
                                     "acceptedAnswer": {
                                         "@type": "Answer",
-                                        "text": "No account is required to start using QuoteMate. Simply download the app and start creating quotes immediately. You only need to set up a basic business profile (name, phone, email) which takes 90 seconds. Your first 5 quotes are completely free with no signup required."
+                                        "text": "No account is required to start using QuoteMate. Simply download the app and start creating quotes immediately. You only need to set up a basic business profile (name, phone, email) which takes 90 seconds. You get a 7-day free trial with unlimited quotes and no signup required."
                                     }
                                 },
                                 {
@@ -416,7 +416,7 @@ const QuoteMateGettingStarted: React.FC = () => {
                                     "name": "What if I make a mistake on my first quote?",
                                     "acceptedAnswer": {
                                         "@type": "Answer",
-                                        "text": "No worries! You can edit quotes at any time before sending. After sending, you can create a revised quote and resend it. Your first 5 quotes are free practice, so use them to learn the app without pressure. It's impossible to mess up - worst case, you start a new quote."
+                                        "text": "No worries! You can edit quotes at any time before sending. After sending, you can create a revised quote and resend it. You have a full 7-day free trial, so use it to learn the app without pressure. It's impossible to mess up - worst case, you start a new quote."
                                     }
                                 },
                                 {
@@ -802,7 +802,7 @@ const QuoteMateGettingStarted: React.FC = () => {
                                 Ready to Create Your First Quote?
                             </h2>
                             <p className="text-xl text-dark-text-secondary mb-8 max-w-2xl mx-auto">
-                                Download QuoteMate now and have your first professional quote ready in under 10 minutes. First 5 quotes completely free.
+                                Download QuoteMate now and have your first professional quote ready in under 10 minutes. 7-day free trial with unlimited quotes.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -826,7 +826,7 @@ const QuoteMateGettingStarted: React.FC = () => {
                             <div className="flex flex-wrap justify-center gap-6 text-sm text-dark-text-secondary">
                                 <div className="flex items-center gap-2">
                                     <CheckCircle className="h-5 w-5 text-brand-accent" />
-                                    <span>First 5 Quotes Free</span>
+                                    <span>7-Day Free Trial</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <CheckCircle className="h-5 w-5 text-brand-accent" />
