@@ -6,7 +6,7 @@ const logos: { src: string; alt: string; width: number; height: number; imgClass
   { src: '/assets/companies/dxclogo.svg', alt: 'DXC Technology', width: 120, height: 28, href: 'https://dxc.com/' },
   { src: '/assets/companies/australian-retirement-trust.svg', alt: 'Australian Retirement Trust', width: 140, height: 36, href: 'https://www.australianretirementtrust.com.au/' },
   { src: '/assets/companies/ShredIndex.png', alt: 'ShredIndex', width: 160, height: 40, imgClass: '!h-8', href: 'https://shredindex.com/' },
-  { src: '/assets/projects/quote-mate.png', alt: 'QuoteMate', width: 160, height: 40, imgClass: '!h-8', href: 'https://quotemateapp.au/' },
+  { src: '/assets/projects/quote-mate-transparent.png', alt: 'QuoteMate', width: 160, height: 40, imgClass: '!h-8', href: 'https://quotemateapp.au/' },
 ];
 
 const LogoBanner: React.FC = memo(() => (
