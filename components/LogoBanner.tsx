@@ -7,6 +7,7 @@ const logos: { src: string; alt: string; width: number; height: number; imgClass
   { src: '/assets/companies/australian-retirement-trust.svg', alt: 'Australian Retirement Trust', width: 140, height: 36, href: 'https://www.australianretirementtrust.com.au/' },
   { src: '/assets/companies/ShredIndex.png', alt: 'ShredIndex', width: 160, height: 40, imgClass: '!h-8', href: 'https://shredindex.com/' },
   { src: '/assets/projects/quote-mate-transparent.png', alt: 'QuoteMate', width: 160, height: 40, imgClass: '!h-8', href: 'https://quotemateapp.au/' },
+  { src: '/assets/projects/consultation-manager-logo-white.png', alt: 'Consultation Manager', width: 180, height: 40, href: 'https://www.consultationmanager.com/' },
 ];
 
 const LogoBanner: React.FC = memo(() => (
