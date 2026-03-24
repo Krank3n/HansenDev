@@ -87,7 +87,7 @@ const QuoteMate: React.FC = () => {
                                 "name": "Hansen Dev",
                                 "url": "https://hansendev.com.au"
                             },
-                            "downloadUrl": "https://hansendev.com.au/quote-tool",
+                            "downloadUrl": "https://quotemateapp.au/",
                             "screenshot": "https://hansendev.com.au/assets/projects/quotemate-app.png",
                             "featureList": [
                                 "Create professional quotes in under 5 minutes",
@@ -254,7 +254,7 @@ fbq('track', 'PageView');
                             {/* CTA Buttons */}
                             <div className="flex flex-wrap gap-4 justify-center mb-8">
                                 <Link
-                                    href="/quote-tool"
+                                    href="https://quotemateapp.au/"
                                     className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />
@@ -581,7 +581,7 @@ fbq('track', 'PageView');
 
                             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                                 <Link
-                                    href="/quote-tool"
+                                    href="https://quotemateapp.au/"
                                     className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                                 >
                                     <Download className="h-6 w-6" />

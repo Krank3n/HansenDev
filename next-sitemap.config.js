@@ -5,8 +5,6 @@ module.exports = {
   sitemapSize: 7000,
   exclude: [
     '/demo/*',        // dynamic demo pages — exclude from sitemap
-    '/quote-tool',    // embedded Expo app
-    '/quote-tool/*',
   ],
   additionalPaths: async (config) => {
     // Programmatic SEO: generate sitemap entries for all service/location combos

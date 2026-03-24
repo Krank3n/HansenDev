@@ -73,7 +73,7 @@ const ToolsIndex: React.FC = () => {
                             </p>
 
                             <Link
-                                href="/quote-tool"
+                                href="https://quotemateapp.au/"
                                 className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
                             >
                                 <span>Try QuoteMate Free</span>
@@ -135,7 +135,7 @@ const ToolsIndex: React.FC = () => {
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Link
-                                    href="/quote-tool"
+                                    href="https://quotemateapp.au/"
                                     className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
                                 >
                                     <span>Try Free &mdash; No Sign Up</span>

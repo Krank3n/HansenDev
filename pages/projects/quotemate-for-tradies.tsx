@@ -427,7 +427,7 @@ const QuoteMateForTradies: React.FC = () => {
 
                             <div className="flex flex-wrap gap-4 justify-center">
                                 <Link
-                                    href="/quote-tool"
+                                    href="https://quotemateapp.au/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"
@@ -781,7 +781,7 @@ const QuoteMateForTradies: React.FC = () => {
 
                             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                                 <Link
-                                    href="/quote-tool"
+                                    href="https://quotemateapp.au/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center justify-center gap-3 btn-gradient text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/25 hover:-translate-y-0.5"

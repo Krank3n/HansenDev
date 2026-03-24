@@ -5,7 +5,7 @@ import { trackCTA } from '../lib/gtag';
 
 const navItems: NavItem[] = [
   { name: 'Our Work', href: '/our-work' },
-  { name: 'QuoteMate', href: '/quote-tool' },
+  { name: 'QuoteMate', href: 'https://quotemateapp.au/' },
   { name: 'Articles', href: '/articles' },
   { name: 'Services', href: '/#services' },
   { name: 'About Us', href: '/#about' },

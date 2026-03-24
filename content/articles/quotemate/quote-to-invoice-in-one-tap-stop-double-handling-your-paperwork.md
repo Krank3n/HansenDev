@@ -187,4 +187,4 @@ QuoteMate helps Australian tradies create professional quotes in under 5 minutes
 
 **Try free for 7 days - no credit card required!**
 
-[Get Started with QuoteMate](https://hansendev.com.au/quote-tool) | No credit card required
+[Get Started with QuoteMate](https://quotemateapp.au/) | No credit card required

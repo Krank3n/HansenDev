@@ -34,7 +34,7 @@ QuoteMate helps Australian tradies create professional quotes in under 5 minutes
 
 **Try free for 7 days - no credit card required!**
 
-[Get Started with QuoteMate](https://hansendev.com.au/quote-tool) | No credit card required`,
+[Get Started with QuoteMate](https://quotemateapp.au/) | No credit card required`,
     promptContext: `QuoteMate is a mobile app for Australian tradies that helps them create professional quotes in under 5 minutes. Key features include:
 - AI-powered job estimation - just describe the work in plain English
 - Real-time Bunnings pricing automatically added to quotes
