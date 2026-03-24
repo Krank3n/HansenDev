@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
+import QuoteMateWalkthrough from '../../components/QuoteMateWalkthrough';
 import {
     ArrowLeft,
     Github,
@@ -293,28 +293,17 @@ fbq('track', 'PageView');
                     </div>
                 </section>
 
-                {/* Main Image */}
+                {/* App Walkthrough Video */}
                 <section className="py-16 lg:py-24">
                     <div className="container-custom">
                         <div className="max-w-4xl mx-auto">
-                            <div className="relative flex justify-center">
-                                <div className="relative w-full max-w-sm">
-                                    <div className="relative aspect-[9/16] rounded-[3rem] overflow-hidden bg-dark-card border-8 border-gray-800 shadow-2xl">
-                                        <div className="absolute inset-0">
-                                            <Image
-                                                src="/assets/projects/sim-screen-quotemate.gif"
-                                                alt="QuoteMate app interface showing quote creation in under 5 minutes"
-                                                fill
-                                                className="object-cover"
-                                                priority
-                                                unoptimized
-                                            />
-                                        </div>
-                                    </div>
-                                    {/* Phone notch effect */}
-                                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-40 h-8 bg-gray-800 rounded-b-3xl"></div>
-                                </div>
+                            <div className="text-center mb-10">
+                                <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">See QuoteMate in Action</h2>
+                                <p className="text-lg text-dark-text-secondary max-w-2xl mx-auto">
+                                    Watch how easy it is to create a professional quote in under 5 minutes
+                                </p>
                             </div>
+                            <QuoteMateWalkthrough />
                         </div>
                     </div>
                 </section>
