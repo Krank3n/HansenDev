@@ -5,9 +5,9 @@ const logos: { src: string; alt: string; width: number; height: number; imgClass
   { src: '/assets/companies/nabTradeLogo.png', alt: 'nabtrade', width: 140, height: 30, href: 'https://www.nabtrade.com.au/' },
   { src: '/assets/companies/dxclogo.svg', alt: 'DXC Technology', width: 120, height: 28, href: 'https://dxc.com/' },
   { src: '/assets/companies/australian-retirement-trust.svg', alt: 'Australian Retirement Trust', width: 140, height: 36, href: 'https://www.australianretirementtrust.com.au/' },
-  { src: '/assets/companies/ShredIndex.png', alt: 'ShredIndex', width: 160, height: 40, imgClass: '!h-8', href: 'https://shredindex.com/' },
-  { src: '/assets/projects/quote-mate-transparent.png', alt: 'QuoteMate', width: 160, height: 40, imgClass: '!h-8', href: 'https://quotemateapp.au/' },
-  { src: '/assets/projects/consultation-manager-logo.png', alt: 'Consultation Manager', width: 180, height: 40, imgClass: 'brightness-0 invert', href: 'https://www.consultationmanager.com/' },
+  { src: '/assets/companies/ShredIndex.png', alt: 'ShredIndex', width: 200, height: 50, imgClass: '!h-10', href: 'https://shredindex.com/' },
+  { src: '/assets/projects/quote-mate-transparent.png', alt: 'QuoteMate', width: 200, height: 50, imgClass: '!h-10', href: 'https://quotemateapp.au/' },
+  { src: '/assets/projects/consultation-manager-logo.png', alt: 'Consultation Manager', width: 280, height: 60, imgClass: '!h-10', href: 'https://www.consultationmanager.com/' },
 ];
 
 const LogoBanner: React.FC = memo(() => (
