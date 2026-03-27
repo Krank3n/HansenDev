@@ -70,42 +70,8 @@ export interface DemoBusiness {
   process?: ProcessStep[];
   serviceAreas: string[];
   certifications: string[];
-  template: 'industrial' | 'corporate' | 'medical' | 'wakepark';
+  template: 'industrial' | 'wakepark';
   navLinks?: { label: string; href: string }[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   custom?: Record<string, any>;
-}
-
-// ─── Medical-specific types ───────────────────────────────────────────────
-
-export interface Clinic {
-  name: string;
-  address: string;
-  addressUrl: string;
-  phone: string;
-  fax: string;
-  hours: { days: string; time: string }[];
-  bookingUrl: string;
-}
-
-export interface Doctor {
-  name: string;
-  qualifications: string;
-  interests: string[];
-  location: string;
-  acceptingNewPatients: boolean;
-  imageUrl: string;
-  imageAlt: string;
-  bio: string;
-}
-
-export interface MedicalCustomData {
-  clinics: Clinic[];
-  doctors: Doctor[];
-  onboardingSteps: ProcessStep[];
-  accreditations: string[];
-  bookingUrl: string;
-  feeStandard: string;
-  feeExtended: string;
-  bulkBillingNote: string;
 }

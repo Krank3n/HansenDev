@@ -1,7 +1,7 @@
 import React from 'react';
 import Section from './common/Section';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { ArrowRight, Zap, Stethoscope, Building2, Waves, HardHat } from 'lucide-react';
+import { ArrowRight, Zap, Waves, HardHat } from 'lucide-react';
 import { trackDemoView, trackCTA } from '../lib/gtag';
 
 const demos = [
@@ -13,23 +13,7 @@ const demos = [
         gradient: 'from-orange-500/20 to-orange-500/5',
         iconColor: 'text-orange-400',
     },
-    {
-        name: 'Barrier Reef Business Brokers',
-        industry: 'Corporate',
-        icon: <Building2 className="h-5 w-5" />,
-        url: '/demo/brbb',
-        gradient: 'from-blue-500/20 to-blue-500/5',
-        iconColor: 'text-blue-400',
-    },
-    {
-        name: 'Beaches Family Practice',
-        industry: 'Medical',
-        icon: <Stethoscope className="h-5 w-5" />,
-        url: '/demo/beachesfp',
-        gradient: 'from-emerald-500/20 to-emerald-500/5',
-        iconColor: 'text-emerald-400',
-    },
-    {
+{
         name: 'Cairns Wake Park',
         industry: 'Recreation',
         icon: <Waves className="h-5 w-5" />,

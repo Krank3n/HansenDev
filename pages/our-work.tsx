@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Section from '../components/common/Section';
-import { ExternalLink, Code2, Globe, Star, Zap, Users, TrendingUp, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { ExternalLink, Code2, Globe, Star, Zap, Users, TrendingUp, ArrowUpRight, CheckCircle2, Briefcase } from 'lucide-react';
 import {
     BUSINESS_INFO,
     ONLINE_PRESENCE,
@@ -103,22 +103,12 @@ const hansenDevProjects: Project[] = [
         technologies: ["Next.js", "TypeScript", "Claude AI", "Tailwind CSS", "Supabase", "Firecrawl"],
         highlight: true,
         gradient: "from-indigo-500 via-violet-500 to-purple-500",
-        image: "https://webfacelift.app/og-image.png",
+        image: "/assets/projects/webfacelift-logo.png",
         imageAlt: "WebFaceLift AI website redesign platform",
         stats: [
             { label: "Redesign Time", value: "30s", icon: <Zap className="h-4 w-4" /> },
             { label: "Any Website", value: "Universal", icon: <Globe className="h-4 w-4" /> }
         ]
-    },
-    {
-        title: "Thomas Andrew Hansen",
-        description: "Personal portfolio website showcasing professional work, technical expertise, and project highlights with clean, modern design and optimal user experience.",
-        url: "https://thomasandrewhansen.com/",
-        category: "Personal Portfolio",
-        technologies: ["Portfolio Design", "Personal Branding", "SEO Optimization", "Modern UI/UX"],
-        gradient: "from-emerald-500 via-green-500 to-teal-500",
-        image: "/assets/projects/thomas-andrew-hansen-website.jpg",
-        imageAlt: "Thomas Andrew Hansen portfolio website"
     },
 ];
 
@@ -142,45 +132,7 @@ const cairnsProjects: CairnsProject[] = [
             'Streamlined content hierarchy with clearer calls-to-action',
         ],
     },
-    {
-        slug: 'brbb',
-        name: 'Barrier Reef Business Brokers',
-        tagline: 'Your Trusted Business Brokers in Far North Queensland',
-        template: 'Corporate',
-        demoUrl: '/demo/brbb',
-        url: '/demo/brbb',
-        originalUrl: 'https://brbb.com.au/',
-        image: '/assets/projects/makawa-solutions.jpg',
-        imageAlt: 'Barrier Reef Business Brokers demo website',
-        improvements: [
-            'Rebuilt from a JS-only SPA that showed a blank page without JavaScript',
-            'Added server-side rendering so content is visible to search engines and all users',
-            'Implemented graceful degradation and progressive enhancement',
-            'Dramatically improved First Contentful Paint and Core Web Vitals',
-            'Added proper SEO meta tags, structured data, and semantic HTML',
-            'Created a professional corporate design with clear service presentation',
-        ],
-    },
-    {
-        slug: 'beachesfp',
-        name: 'Beaches Family Practice',
-        tagline: 'Trusted Family GP Clinics on the Northern Beaches',
-        template: 'Medical',
-        demoUrl: '/demo/beachesfp',
-        url: '/demo/beachesfp',
-        originalUrl: 'https://www.beachesfamilypractice.com.au/',
-        image: '/assets/projects/makawa-solutions.jpg',
-        imageAlt: 'Beaches Family Practice demo website',
-        improvements: [
-            'Migrated from an outdated Drupal site with deprecated jQuery plugins',
-            'Modernised the design with a clean, trustworthy medical aesthetic',
-            'Made pricing and booking information prominent instead of buried in news posts',
-            'Added individual doctor profiles with qualifications and specialties',
-            'Replaced obfuscated JavaScript email links with accessible contact methods',
-            'Upgraded from legacy UA analytics to a modern, lightweight tracking setup',
-        ],
-    },
-    {
+{
         slug: 'cairnswakepark',
         name: 'Cairns Wake Park',
         tagline: 'Send It in the Tropics',
@@ -219,6 +171,25 @@ const cairnsProjects: CairnsProject[] = [
         ],
     },
     {
+        slug: 'mcreative',
+        name: 'MCreative',
+        tagline: 'Bold Creative Agency with a Modern Digital Presence',
+        template: 'Recreation',
+        demoUrl: 'https://mcreative-web.vercel.app/',
+        url: 'https://mcreative-web.vercel.app/',
+        originalUrl: '',
+        image: '/assets/projects/mcreative.jpg',
+        imageAlt: 'MCreative website',
+        improvements: [
+            'Consulted on full website rebuild for modern performance and speed',
+            'Optimised asset delivery with lazy loading and next-gen image formats',
+            'Improved Core Web Vitals scores for faster first paint and interactivity',
+            'Streamlined page structure for cleaner navigation and user flow',
+            'Enhanced SEO with proper meta tags, structured data, and semantic HTML',
+            'Implemented responsive mobile-first design for all screen sizes',
+        ],
+    },
+    {
         slug: 'makawa',
         name: 'Makawa Dynamic Solutions',
         tagline: 'Modern Building & Construction Solutions',
@@ -237,10 +208,79 @@ const cairnsProjects: CairnsProject[] = [
     },
 ];
 
+interface ProfessionalProject {
+    title: string;
+    company: string;
+    role: string;
+    period: string;
+    description: string;
+    url: string;
+    technologies: string[];
+    logo?: string;
+    logoAlt?: string;
+    gradient: string;
+    highlights: string[];
+}
+
+const professionalProjects: ProfessionalProject[] = [
+    {
+        title: 'Australian Retirement Trust',
+        company: 'Australian Retirement Trust',
+        role: 'Front End Engineering',
+        period: 'Nov 2022 – Present',
+        description: 'Delivered front end engineering for one of Australia\'s largest superannuation funds, managing retirement savings for over two million members. Focused on enterprise-wide relationship integration, advanced React component development, and WCAG accessibility compliance.',
+        url: 'https://www.australianretirementtrust.com.au/',
+        technologies: ['React', 'TypeScript', 'Accessibility (WCAG)', 'Dashboard Libraries', 'Enterprise Integration'],
+        logo: '/assets/projects/australian_retirement_trust.jpg',
+        logoAlt: 'Australian Retirement Trust platform',
+        gradient: 'from-teal-500 to-emerald-600',
+        highlights: [
+            'Enterprise-wide relationship integration across platforms',
+            'Built bot and advanced React component systems',
+            'Developed reusable dashboard component library',
+            'Implemented core and advanced WCAG accessibility standards',
+        ],
+    },
+    {
+        title: 'DXC / nabTrade',
+        company: 'DXC Technology / nabTrade',
+        role: 'Component Library & UI Development',
+        period: 'Jan 2020 – Nov 2022',
+        description: 'Delivered component library and UI development for Australia\'s leading online share trading platform serving hundreds of thousands of active investors. Led interface architecture and contributed to global financial mapping across product and engineering teams.',
+        url: 'https://www.nabtrade.com.au/',
+        technologies: ['React', 'JavaScript', 'TypeScript', 'Component Libraries', 'Financial APIs'],
+        logo: '/assets/projects/nabTrade.png',
+        logoAlt: 'nabTrade trading platform',
+        gradient: 'from-red-500 to-red-700',
+        highlights: [
+            'Led the component library build for the nabTrade platform',
+            'Global financial mapping across all trading interfaces',
+            'Delivered 3 React/JS/TypeScript applications',
+            'Embedded across product and engineering teams',
+        ],
+    },
+    {
+        title: 'Consultation Manager',
+        company: 'Consultation Manager',
+        role: 'Product Design & Front End Development',
+        period: 'Jul 2020 – Jul 2023',
+        description: 'Shaped product direction and built the front end for a stakeholder engagement platform used by government and enterprise organisations across Australia. Drove strategy, user research, and client-facing UI development.',
+        url: 'https://www.consultationmanager.com/',
+        technologies: ['React', 'TypeScript', 'Product Design', 'User Research', 'Agile'],
+        logo: '/assets/projects/consultation_manager_logo_darker.png',
+        logoAlt: 'Consultation Manager platform',
+        gradient: 'from-blue-600 to-indigo-600',
+        highlights: [
+            'Product design and front end development',
+            'Drove strategy and market direction',
+            'Scaled up agile team culture and processes',
+            'Led user research and client-facing UI initiatives',
+        ],
+    },
+];
+
 const templateColors: Record<string, string> = {
     Industrial: 'from-orange-500 to-amber-500',
-    Corporate: 'from-blue-600 to-indigo-500',
-    Medical: 'from-emerald-500 to-teal-500',
     Recreation: 'from-cyan-500 to-sky-500',
 };
 
@@ -379,6 +419,88 @@ const OurWorkPage: React.FC = () => {
                 </div>
             </Section>
 
+            {/* ─── Professional Experience ─── */}
+            <Section
+                id="professional-experience"
+                title="Professional Experience"
+                subtitle="Enterprise platforms and products we've contributed to as part of leading Australian and international teams"
+            >
+                <div className="space-y-6">
+                    {professionalProjects.map((project, index) => (
+                        <div key={index} className="group relative">
+                            <div className="glass-card overflow-hidden hover-glow transition-all duration-500 hover:bg-white/[0.05]">
+                                <div className="grid lg:grid-cols-5 gap-0">
+                                    {/* Content Side */}
+                                    <div className={`p-5 lg:p-8 flex flex-col justify-center lg:col-span-3 ${index % 2 === 0 ? 'order-2 lg:order-1' : 'order-2'}`}>
+                                        <div className="space-y-3">
+                                            <div className="flex items-center gap-3 flex-wrap">
+                                                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider text-white bg-gradient-to-r ${project.gradient}`}>
+                                                    {project.role}
+                                                </span>
+                                                <span className="text-xs text-dark-text-secondary">{project.period}</span>
+                                            </div>
+                                            <h3 className="text-xl lg:text-2xl font-bold text-white leading-tight">
+                                                {project.title}
+                                            </h3>
+                                            <p className="text-sm text-dark-text-secondary leading-relaxed">
+                                                {project.description}
+                                            </p>
+                                            {project.highlights.length > 0 && (
+                                                <div className="space-y-1.5">
+                                                    <h4 className="text-xs font-semibold text-brand-accent uppercase tracking-wider">Key Contributions</h4>
+                                                    <ul className="space-y-1">
+                                                        {project.highlights.map((h, i) => (
+                                                            <li key={i} className="flex items-start gap-1.5 text-xs text-dark-text-secondary">
+                                                                <CheckCircle2 className="h-3 w-3 text-brand-accent shrink-0 mt-0.5" />
+                                                                <span>{h}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            )}
+                                            <div className="flex flex-wrap gap-1.5">
+                                                {project.technologies.map((tech, i) => (
+                                                    <span key={i} className="bg-white/10 text-dark-text px-2.5 py-1 rounded-full text-xs">{tech}</span>
+                                                ))}
+                                            </div>
+                                            <div className="pt-1">
+                                                <a href={project.url} target="_blank" rel="noopener noreferrer"
+                                                   className="inline-flex items-center gap-2 text-brand-accent hover:text-white text-sm font-medium transition-colors">
+                                                    <span>Visit {project.company}</span>
+                                                    <ExternalLink className="h-3.5 w-3.5" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Image Side */}
+                                    <div className={`relative p-4 lg:p-6 lg:col-span-2 ${index % 2 === 0 ? 'order-1 lg:order-2' : 'order-1'}`}>
+                                        <div className="relative aspect-[16/10] group/image">
+                                            <div className="relative w-full h-full rounded-xl overflow-hidden bg-dark-card transition-all duration-500">
+                                                {project.logo ? (
+                                                    <Image
+                                                        src={project.logo}
+                                                        alt={project.logoAlt || project.company}
+                                                        fill
+                                                        className="object-cover transition-transform duration-700 group-hover/image:scale-105"
+                                                        sizes="(max-width: 768px) 100vw, 40vw"
+                                                    />
+                                                ) : (
+                                                    <div className="flex items-center justify-center w-full h-full">
+                                                        <Briefcase className="h-16 w-16 text-dark-text-secondary" />
+                                                    </div>
+                                                )}
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </Section>
+
             {/* ─── Our Innovation Lab ─── */}
             <Section
                 id="innovation-lab"
@@ -390,7 +512,7 @@ const OurWorkPage: React.FC = () => {
                         <div key={index} className="group relative">
                             <div className="glass-card overflow-hidden hover-glow transition-all duration-500 hover:bg-white/[0.05]">
                                 <div className="grid lg:grid-cols-5 gap-0">
-                                    <div className="p-5 lg:p-8 flex flex-col justify-center order-2 lg:order-1 lg:col-span-3">
+                                    <div className={`p-5 lg:p-8 flex flex-col justify-center lg:col-span-3 ${index % 2 === 0 ? 'order-2 lg:order-1' : 'order-2'}`}>
                                         <div className="space-y-3">
                                             <div className="inline-flex items-center gap-2 text-brand-accent text-xs font-medium uppercase tracking-wider">
                                                 <div className="w-1.5 h-1.5 bg-brand-accent rounded-full"></div>
@@ -436,7 +558,7 @@ const OurWorkPage: React.FC = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="relative p-4 lg:p-6 order-1 lg:order-2 lg:col-span-2">
+                                    <div className={`relative p-4 lg:p-6 lg:col-span-2 ${index % 2 === 0 ? 'order-1 lg:order-2' : 'order-1'}`}>
                                         <div className="relative aspect-[16/10] group/image">
                                             <div className="relative w-full h-full rounded-xl overflow-hidden bg-dark-card transition-all duration-500">
                                                 <Image
