@@ -244,8 +244,8 @@ const QuoteMateTerms: React.FC = () => {
                                     <ul className="text-dark-text-secondary space-y-1">
                                         <li><strong className="text-white">Business:</strong> {BUSINESS_INFO.name} (ABN {BUSINESS_INFO.abn})</li>
                                         <li><strong className="text-white">Email:</strong>{' '}
-                                            <a href={`mailto:${CONTACT_INFO.email.support}`} className="text-brand-accent hover:underline">
-                                                {CONTACT_INFO.email.support}
+                                            <a href={`mailto:${CONTACT_INFO.email}`} className="text-brand-accent hover:underline">
+                                                {CONTACT_INFO.email}
                                             </a>
                                         </li>
                                         <li><strong className="text-white">Location:</strong> {CONTACT_INFO.address.city}, {CONTACT_INFO.address.state}, {CONTACT_INFO.address.country}</li>

@@ -50,7 +50,7 @@ const HomePage: React.FC = () => {
         },
         "url": ONLINE_PRESENCE.website.primary,
         "telephone": CONTACT_INFO.phone.primary,
-        "email": CONTACT_INFO.email.primary,
+        "email": CONTACT_INFO.email,
         "priceRange": "$$",
         "paymentAccepted": "Cash, Credit Card, Bank Transfer",
         "currenciesAccepted": "AUD",

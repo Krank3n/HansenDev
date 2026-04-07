@@ -139,8 +139,8 @@ const Contact: React.FC = () => {
             <EnvelopeIcon className="h-5 w-5 text-brand-accent mt-1 flex-shrink-0" />
             <div>
               <h4 className="font-medium text-dark-text">Email</h4>
-              <a href={`mailto:${CONTACT_INFO.email.primary}`} className="gradient-text hover:opacity-80 transition-opacity">
-                {CONTACT_INFO.email.primary}
+              <a href={`mailto:${CONTACT_INFO.email}`} className="gradient-text hover:opacity-80 transition-opacity">
+                {CONTACT_INFO.email}
               </a>
             </div>
           </div>

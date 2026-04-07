@@ -268,8 +268,8 @@ const TermsOfService: React.FC = () => {
 
                                         <div className="flex items-center gap-3">
                                             <Mail className="h-5 w-5 text-brand-accent" />
-                                            <a href={`mailto:${CONTACT_INFO.email.primary}`} className="text-brand-accent hover:text-brand-primary transition-colors">
-                                                {CONTACT_INFO.email.primary}
+                                            <a href={`mailto:${CONTACT_INFO.email}`} className="text-brand-accent hover:text-brand-primary transition-colors">
+                                                {CONTACT_INFO.email}
                                             </a>
                                         </div>
 

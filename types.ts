@@ -35,11 +35,7 @@ export const CONTACT_INFO = {
     raw: "61480232922"
   },
 
-  email: {
-    primary: "thomas@hansendev.com.au",
-    info: "info@hansendev.com.au",
-    support: "support@hansendev.com.au"
-  },
+  email: "tom@hansendev.com.au",
 
   // Address Information
   address: {

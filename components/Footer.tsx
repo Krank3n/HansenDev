@@ -223,10 +223,10 @@ const Footer: React.FC<FooterProps> = ({
                                     <div className="flex items-center gap-3">
                                         <Mail className="h-4 w-4 text-brand-accent/60 flex-shrink-0" />
                                         <a
-                                            href={`mailto:${CONTACT_INFO.email.primary}`}
+                                            href={`mailto:${CONTACT_INFO.email}`}
                                             className="text-dark-text/80 hover:text-brand-accent transition-colors duration-300 text-sm font-medium"
                                         >
-                                            {CONTACT_INFO.email.primary}
+                                            {CONTACT_INFO.email}
                                         </a>
                                     </div>
 
