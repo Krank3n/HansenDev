@@ -7,6 +7,7 @@ const logos: { src: string; alt: string; width: number; height: number; imgClass
   { src: '/assets/companies/australian-retirement-trust.svg', alt: 'Australian Retirement Trust', width: 140, height: 36, href: 'https://www.australianretirementtrust.com.au/' },
   { src: '/assets/companies/ShredIndex.png', alt: 'ShredIndex', width: 200, height: 50, imgClass: '!h-10', href: 'https://shredindex.com/' },
   { src: '/assets/projects/quote-mate-transparent.png', alt: 'QuoteMate', width: 200, height: 50, imgClass: '!h-10', href: 'https://quotemateapp.au/' },
+  { src: '/assets/projects/callkatielogo.svg', alt: 'Call Katie', width: 200, height: 200, imgClass: '!h-10 !w-auto', href: 'https://callkatie.ai/' },
   { src: '/assets/projects/consultation-manager-logo.png', alt: 'Consultation Manager', width: 280, height: 60, imgClass: '!h-10', href: 'https://www.consultationmanager.com/' },
 ];
 

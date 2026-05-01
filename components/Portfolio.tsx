@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Section from './common/Section';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { ExternalLink, Code2, Globe, Star, Zap, Users, ArrowUpRight, ArrowRight, Lightbulb } from 'lucide-react';
+import { ExternalLink, Code2, Globe, Star, Zap, Users, ArrowUpRight, ArrowRight, Lightbulb, Phone, Clock } from 'lucide-react';
 import { trackCTA, trackOutboundLink } from '../lib/gtag';
 
 interface Project {
@@ -66,6 +66,21 @@ const ownProducts: Project[] = [
         stats: [
             { label: "AI-Powered", value: "Custom Jobs", icon: <Star className="h-4 w-4" /> },
             { label: "API Integration", value: "Bunnings", icon: <Zap className="h-4 w-4" /> }
+        ]
+    },
+    {
+        title: "Call Katie",
+        description: "An AI receptionist that answers business calls 24/7, qualifies leads with natural conversation, and pushes structured jobs straight into QuoteMate, Jobber, HubSpot, or any webhook. Built for Australian trade and service businesses where every missed call is a lost lead.",
+        url: "/projects/callkatie",
+        category: "AI Voice Platform",
+        technologies: ["Next.js", "TypeScript", "ElevenLabs", "Azure Voice", "Webhooks", "CRM Integration"],
+        highlight: true,
+        gradient: "from-pink-500 via-rose-500 to-fuchsia-500",
+        image: "/assets/projects/callkatielogo.svg",
+        imageAlt: "Call Katie logo",
+        stats: [
+            { label: "Always On", value: "24/7", icon: <Clock className="h-4 w-4" /> },
+            { label: "Qualified Leads", value: "Auto-CRM", icon: <Phone className="h-4 w-4" /> }
         ]
     },
     {

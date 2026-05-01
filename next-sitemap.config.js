@@ -37,7 +37,7 @@ module.exports = {
 
     if (path === '/') {
       priority = 1.0;
-    } else if (path.startsWith('/projects/quotemate') || path.startsWith('/projects/shredindex') || path.startsWith('/projects/webfacelift') || path.startsWith('/projects/chatspark')) {
+    } else if (path.startsWith('/projects/quotemate') || path.startsWith('/projects/shredindex') || path.startsWith('/projects/webfacelift') || path.startsWith('/projects/chatspark') || path.startsWith('/projects/callkatie')) {
       priority = 0.9;
     } else if (path.startsWith('/services/')) {
       priority = 0.7; // programmatic SEO - service/location pages
