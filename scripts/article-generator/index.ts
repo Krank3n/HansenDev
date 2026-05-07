@@ -9,8 +9,16 @@ import { getProduct } from './config/products';
 import { generateArticleText, generateArticlePreview } from './services/gemini-text';
 import { generateFeaturedImage, generateImagePreview } from './services/gemini-image';
 import { writeArticle, previewMarkdown } from './services/markdown-writer';
+import {
+  popNextPending,
+  markDone,
+  revertToPending,
+  formatKeywordList,
+  KeywordRow,
+} from './services/keyword-queue';
 import { generateSlug } from './utils/slug';
 import logger from './utils/logger';
+import { ProductId } from './types/article';
 
 // Load environment variables from .env.local
 dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
@@ -32,14 +40,40 @@ const main = async () => {
       process.exit(1);
     }
 
+    // If --from-queue, pop the next pending row and override topic/word count.
+    let queueRow: KeywordRow | null = null;
+    let topic: string;
+    let wordCount: number;
+    let clusterKeywords: string[] | undefined;
+
+    if (options.fromQueue) {
+      queueRow = popNextPending(options.product as ProductId);
+      if (!queueRow) {
+        logger.error(`No pending rows in keyword queue for ${product.name}.`);
+        logger.info(`Add rows to data/seo/keyword-queue/${options.product}.csv`);
+        process.exit(1);
+      }
+      topic = queueRow.primary_keyword;
+      wordCount = queueRow.word_count ?? options.wordCount ?? 1500;
+      clusterKeywords = formatKeywordList(queueRow);
+      logger.info(`Popped from queue (row #${queueRow._rowIndex}): "${topic}"`);
+    } else {
+      topic = options.topic!;
+      wordCount = options.wordCount ?? 1500;
+    }
+
     logger.keyValue('Product', product.name);
-    logger.keyValue('Topic', options.topic);
-    logger.keyValue('Word Count', options.wordCount?.toString() || '1500');
+    logger.keyValue('Topic', topic);
+    logger.keyValue('Word Count', wordCount.toString());
+    logger.keyValue('Source', options.fromQueue ? 'keyword queue' : 'CLI --topic');
+    if (clusterKeywords) {
+      logger.keyValue('Cluster size', clusterKeywords.length.toString());
+    }
     logger.keyValue('Dry Run', options.dryRun ? 'Yes' : 'No');
     logger.keyValue('Generate Image', options.noImage ? 'No' : 'Yes');
     logger.divider();
 
-    const slug = generateSlug(options.topic);
+    const slug = generateSlug(topic);
     logger.keyValue('Generated Slug', slug);
 
     // Dry run mode - just show the prompts
@@ -48,14 +82,20 @@ const main = async () => {
 
       logger.info('Article Generation Prompt:');
       logger.blank();
-      console.log(generateArticlePreview(options.topic, product, options.wordCount || 1500));
+      console.log(generateArticlePreview(topic, product, wordCount, clusterKeywords));
 
       if (!options.noImage) {
         logger.blank();
         logger.divider();
         logger.info('Image Generation Prompt:');
         logger.blank();
-        console.log(generateImagePreview(options.topic, product));
+        console.log(generateImagePreview(topic, product));
+      }
+
+      // If we popped from queue in dry-run, revert it so the row stays pending.
+      if (queueRow) {
+        revertToPending(options.product as ProductId, queueRow._rowIndex);
+        logger.info('Reverted queue row to pending (dry run).');
       }
 
       logger.blank();
@@ -66,18 +106,24 @@ const main = async () => {
 
     // Generate article content
     logger.blank();
-    const article = await generateArticleText(
-      options.topic,
-      product,
-      options.wordCount || 1500
-    );
+    let article;
+    try {
+      article = await generateArticleText(topic, product, wordCount, clusterKeywords);
+    } catch (err) {
+      // On failure during a queue run, revert the row so it can retry.
+      if (queueRow) {
+        revertToPending(options.product as ProductId, queueRow._rowIndex);
+        logger.warning('Generation failed — reverted queue row to pending.');
+      }
+      throw err;
+    }
 
     // Generate featured image (unless --no-image)
     let imagePath: string | null = null;
     if (!options.noImage) {
       logger.blank();
       const imageOutputPath = path.join(ASSETS_DIR, product.id, `${slug}.png`);
-      imagePath = await generateFeaturedImage(options.topic, product, imageOutputPath);
+      imagePath = await generateFeaturedImage(topic, product, imageOutputPath);
     }
 
     // Write markdown file
@@ -92,6 +138,13 @@ const main = async () => {
       imagePath,
       outputDir: CONTENT_DIR
     });
+
+    // Mark queue row as done if applicable
+    if (queueRow) {
+      const today = new Date().toISOString().slice(0, 10);
+      markDone(options.product as ProductId, queueRow._rowIndex, slug, today);
+      logger.info(`Marked queue row #${queueRow._rowIndex} as done.`);
+    }
 
     // Summary
     logger.blank();

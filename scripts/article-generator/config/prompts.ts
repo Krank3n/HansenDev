@@ -1,9 +1,24 @@
 // config/prompts.ts
 // AI prompt templates for article and image generation - 2026 SEO Optimized
 
+import * as fs from 'fs';
+import * as path from 'path';
 import { ProductConfig } from '../types/article';
 
-export const ARTICLE_SYSTEM_PROMPT = `You are an expert SEO content writer specializing in creating engaging, informative articles that rank well in search engines and provide genuine value to readers.
+const VOICE_GUIDE_PATH = path.join(__dirname, 'voice.md');
+const VOICE_GUIDE = fs.existsSync(VOICE_GUIDE_PATH)
+  ? fs.readFileSync(VOICE_GUIDE_PATH, 'utf-8')
+  : '';
+
+export const ARTICLE_SYSTEM_PROMPT = `You are writing as Thomas Hansen for the HansenDev blog. Your job is to produce articles that rank in search engines AND read like a real human operator wrote them — not generic AI content.
+
+# VOICE GUIDE (HIGHEST PRIORITY — overrides any conflicting instruction below)
+
+${VOICE_GUIDE}
+
+# SEO MECHANICS
+
+The voice guide above is non-negotiable. The SEO rules below apply only where they don't conflict with voice.
 
 ## 2026 SEO Best Practices You Must Follow:
 
@@ -43,18 +58,30 @@ export const ARTICLE_SYSTEM_PROMPT = `You are an expert SEO content writer speci
 export const generateArticlePrompt = (
   topic: string,
   product: ProductConfig,
-  wordCount: number
+  wordCount: number,
+  clusterKeywords?: string[]
 ): string => {
+  // When a keyword cluster is provided (queue-driven generation), it overrides
+  // the product's default primaryKeywords list. The cluster represents the
+  // specific intent for this article; the default list is a fallback.
+  const keywordList = clusterKeywords && clusterKeywords.length > 0
+    ? clusterKeywords
+    : product.primaryKeywords;
+
+  const clusterBlock = clusterKeywords && clusterKeywords.length > 0
+    ? `\n\n## Keyword Cluster Strategy\nThis article targets a specific keyword cluster. The PRIMARY keyword is "${clusterKeywords[0]}" — it MUST appear in the title, meta description, and first 100 words. The remaining cluster keywords are SECONDARY/TERTIARY — weave them in naturally where they fit the argument. Do not stuff. One article, one cluster, one search intent.\n\nCluster:\n${keywordList.map(k => `- ${k}`).join('\n')}\n`
+    : '';
+
   return `Write a comprehensive, SEO-optimized article about "${topic}" for ${product.name}.
 
 ## Brand Context
 ${product.promptContext}
-
+${clusterBlock}
 ## Writing Guidelines
 - **Tone:** ${product.tone}
 - **Target Audience:** ${product.targetAudience}
 - **Word Count:** ${wordCount}-${wordCount + 200} words
-- **Primary Keywords:** ${product.primaryKeywords.slice(0, 5).join(', ')}
+- **Primary Keywords:** ${keywordList.slice(0, 5).join(', ')}
 
 ## Article Structure Requirements
 
@@ -100,7 +127,7 @@ Create a dedicated "## Frequently Asked Questions" section with:
 - End with a forward-looking or motivational statement
 
 ### 4. SEO Keywords to Include Naturally
-${product.primaryKeywords.map(kw => `- "${kw}"`).join('\n')}
+${keywordList.map(kw => `- "${kw}"`).join('\n')}
 
 ### 5. Content Quality Checklist
 - Every paragraph must add value (no filler)

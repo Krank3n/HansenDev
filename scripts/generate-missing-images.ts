@@ -36,7 +36,7 @@ const main = async () => {
   if (!apiKey) { console.error('GEMINI_API_KEY not set'); process.exit(1); }
 
   const ai = new GoogleGenAI({ apiKey });
-  const products = ['shredindex', 'chatspark', 'wakeindex'];
+  const products = ['shredindex', 'chatspark', 'wakeindex', 'hansendev', 'quotemate', 'webfacelift', 'callkatie'];
 
   for (const productId of products) {
     const product = getProduct(productId);

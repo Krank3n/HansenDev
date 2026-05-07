@@ -18,9 +18,14 @@ export const parseArgs = (): CLIOptions => {
       '-p, --product <product>',
       `Product to generate article for (${getProductIds().join(', ')})`
     )
-    .requiredOption(
+    .option(
       '-t, --topic <topic>',
-      'Topic for the article (e.g., "how to quote a deck")'
+      'Topic for the article (e.g., "how to quote a deck"). Required unless --from-queue is set.'
+    )
+    .option(
+      '-q, --from-queue',
+      'Pop the next pending row from data/seo/keyword-queue/<product>.csv',
+      false
     )
     .option(
       '-w, --word-count <count>',
@@ -40,16 +45,19 @@ export const parseArgs = (): CLIOptions => {
 
 Examples:
   $ npm run generate-article -- --product=quotemate --topic="how to quote a deck"
+  $ npm run generate-article -- --product=quotemate --from-queue
   $ npm run generate-article -- --product=chatspark --topic="overcoming small talk anxiety" --word-count=2000
   $ npm run generate-article -- --product=shredindex --topic="best ski resorts for beginners" --dry-run
   $ npm run generate-article -- --product=hansendev --topic="benefits of custom software" --no-image
 
 Products:
-  quotemate   - Quoting app for Australian tradies
-  chatspark   - Social anxiety & confidence building app
-  shredindex  - Ski resort database & job board
-  hansendev   - Web development & AI consulting
-  wakeindex   - Wakeboarding spot database
+  quotemate    - Quoting app for Australian tradies
+  chatspark    - Social anxiety & confidence building app
+  shredindex   - Ski resort database & job board
+  hansendev    - Web development & AI consulting
+  wakeindex    - Wakeboarding spot database
+  webfacelift  - AI website redesign tool
+  callkatie    - AI receptionist for service businesses
 `);
 
   program.parse();
@@ -71,12 +79,19 @@ Products:
     process.exit(1);
   }
 
+  // Either --topic or --from-queue must be provided.
+  if (!opts.topic && !opts.fromQueue) {
+    console.error('Error: must provide either --topic or --from-queue');
+    process.exit(1);
+  }
+
   return {
     product: product as ProductId,
     topic: opts.topic,
     wordCount,
     dryRun: opts.dryRun,
-    noImage: !opts.image // Commander inverts --no-* options
+    noImage: !opts.image, // Commander inverts --no-* options
+    fromQueue: opts.fromQueue
   };
 };
 

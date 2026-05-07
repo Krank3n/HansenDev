@@ -219,6 +219,49 @@ The platform helps wakeboarders and water sports enthusiasts discover new spots 
     websiteUrl: 'https://www.wakeindex.com'
   },
 
+  callkatie: {
+    id: 'callkatie',
+    name: 'Call Katie',
+    tagline: 'AI Receptionist That Never Sleeps',
+    tone: 'Direct, revenue-focused, and operator-to-operator. Speak to service-business owners (tradies, clinics, agencies) about the cost of missed calls. Frame everything in terms of jobs won or lost. No fluff about "AI revolution" — talk about phones ringing at 2am while the team is on the tools.',
+    targetAudience: 'Australian service-business owners — plumbers, electricians, roofers, builders, cleaners, pest control, dental clinics, veterinary clinics, real estate agencies, landscapers, painters, locksmiths — where every missed call is a lost lead.',
+    brandColors: {
+      primary: '#EC4899', // Pink-500
+      secondary: '#D946EF', // Fuchsia-500
+      accent: '#F43F5E' // Rose-500
+    },
+    imageStyle: 'Pink/rose/fuchsia gradient backgrounds with soft glow effects. Show busy service businesses, phones ringing on tradie jobsites, dashboards with structured leads, calm receptionist scenes. Modern SaaS aesthetic with warm pink/rose tones, not cold corporate blue.',
+    primaryKeywords: [
+      'AI receptionist',
+      'AI phone answering',
+      'virtual receptionist Australia',
+      '24/7 call answering',
+      'lead qualification AI',
+      'AI receptionist for tradies',
+      'after hours call answering',
+      'missed call cost small business',
+      'automated phone receptionist',
+      'AI answering service'
+    ],
+    ctaBlock: `## Stop Letting the Phone Cost You Jobs
+
+Call Katie answers every call 24/7, qualifies the lead in natural conversation, and pushes the structured job straight into QuoteMate, Jobber, HubSpot, or any custom webhook.
+
+**14-day free trial — no credit card. From $149/mo AUD + usage.**
+
+[Start Free Trial](https://callkatie.ai) | Built by [HansenDev](https://hansendev.com.au)`,
+    promptContext: `Call Katie is an AI receptionist for Australian service businesses, built by HansenDev. Key features include:
+- 24/7 call answering with natural conversation (no phone trees, no robotic prompts)
+- Automatic lead qualification — captures name, phone, address, work required, and urgency on every call
+- CRM integrations: pushes structured leads into QuoteMate, Jobber, HubSpot, or any custom webhook
+- Fully customisable greeting, tone, services offered, and questioning flow
+- Configurable voice models from ElevenLabs and Azure
+- Full call transcripts and recordings in the dashboard
+- Works for plumbers, electricians, roofers, builders, cleaners, pest control, dental and veterinary clinics, real estate agencies, landscapers, painters, locksmiths
+Pricing: from $149/mo AUD plus usage, 14-day free trial with no credit card required. Tagline: "A receptionist that doesn't sleep, forget, or take holidays." The pitch is simple: every missed call is a lost lead, and a qualified lead in the CRM five minutes after the call closes a deal.`,
+    websiteUrl: 'https://callkatie.ai'
+  },
+
   webfacelift: {
     id: 'webfacelift',
     name: 'WebFaceLift',

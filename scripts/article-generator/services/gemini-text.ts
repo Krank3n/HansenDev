@@ -41,7 +41,8 @@ const parseArticleResponse = (response: string): ParsedArticle => {
 export const generateArticleText = async (
   topic: string,
   product: ProductConfig,
-  wordCount: number
+  wordCount: number,
+  clusterKeywords?: string[]
 ): Promise<ParsedArticle> => {
   const apiKey = process.env.GEMINI_API_KEY;
 
@@ -53,7 +54,7 @@ export const generateArticleText = async (
 
   const ai = new GoogleGenAI({ apiKey });
 
-  const prompt = generateArticlePrompt(topic, product, wordCount);
+  const prompt = generateArticlePrompt(topic, product, wordCount, clusterKeywords);
 
   logger.step(2, 'Generating article content with Gemini 3 Pro...');
   logger.keyValue('Model', 'gemini-3-pro-preview');
@@ -96,8 +97,9 @@ export const generateArticleText = async (
 export const generateArticlePreview = (
   topic: string,
   product: ProductConfig,
-  wordCount: number
+  wordCount: number,
+  clusterKeywords?: string[]
 ): string => {
-  const prompt = generateArticlePrompt(topic, product, wordCount);
+  const prompt = generateArticlePrompt(topic, product, wordCount, clusterKeywords);
   return `${ARTICLE_SYSTEM_PROMPT}\n\n${prompt}`;
 };

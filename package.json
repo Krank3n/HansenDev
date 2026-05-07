@@ -8,7 +8,8 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "generate-article": "tsx scripts/article-generator/index.ts"
+    "generate-article": "tsx scripts/article-generator/index.ts",
+    "expand-cluster": "tsx scripts/cluster-expander/index.ts"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.6",

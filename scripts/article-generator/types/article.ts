@@ -39,10 +39,11 @@ export interface GeneratedArticle {
 
 export interface CLIOptions {
   product: string;
-  topic: string;
+  topic?: string;
   wordCount?: number;
   dryRun?: boolean;
   noImage?: boolean;
+  fromQueue?: boolean;
 }
 
 export interface GenerationResult {
@@ -52,4 +53,4 @@ export interface GenerationResult {
   error?: string;
 }
 
-export type ProductId = 'quotemate' | 'chatspark' | 'shredindex' | 'hansendev' | 'wakeindex' | 'webfacelift';
+export type ProductId = 'quotemate' | 'chatspark' | 'shredindex' | 'hansendev' | 'wakeindex' | 'webfacelift' | 'callkatie';
