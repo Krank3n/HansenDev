@@ -96,6 +96,21 @@ const hansenDevProjects: Project[] = [
         ]
     },
     {
+        title: "TalkMyShiz",
+        description: "A teleprompter, editor and publishing tool in one app for talking-head business video. Reads your script beside the lens, transcribes the take to find filler words and false starts, burns in word-by-word captions, and publishes straight to YouTube. The video never leaves the phone.",
+        url: "/projects/talkmyshiz",
+        category: "Mobile App",
+        technologies: ["React Native", "Expo", "FFmpeg", "Firebase", "Claude AI", "Deepgram", "YouTube Data API"],
+        highlight: true,
+        gradient: "from-violet-600 via-purple-500 to-fuchsia-500",
+        image: "/assets/projects/talkmyshiz-icon.png",
+        imageAlt: "TalkMyShiz teleprompter and video editing app",
+        stats: [
+            { label: "Video Uploaded", value: "None", icon: <Star className="h-4 w-4" /> },
+            { label: "Prompter", value: "Free", icon: <Zap className="h-4 w-4" /> }
+        ]
+    },
+    {
         title: "ChatSpark",
         description: "Build social confidence through conversations. 145+ micro-missions across 7 difficulty levels with voice coaching and progress tracking. Privacy-focused app to overcome social anxiety one interaction at a time.",
         url: "/projects/chatspark",
