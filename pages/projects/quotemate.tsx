@@ -18,7 +18,8 @@ import {
     FileText,
     Camera,
     MapPin,
-    Shield
+    Shield,
+    Calendar
 } from 'lucide-react';
 
 const QuoteMate: React.FC = () => {
@@ -97,7 +98,8 @@ const QuoteMate: React.FC = () => {
                                 "Works offline - quote on-site without internet",
                                 "Track all your quotes in one place",
                                 "GST calculated automatically",
-                                "Send quotes via email, SMS, or WhatsApp instantly"
+                                "Send quotes via email, SMS, or WhatsApp instantly",
+                                "Google Calendar sync - scheduled jobs land in your Google Calendar"
                             ]
                         })
                     }}
@@ -438,6 +440,20 @@ const QuoteMate: React.FC = () => {
                                             <h3 className="text-xl font-bold text-white mb-3">Track Every Quote, Never Lose a Lead</h3>
                                             <p className="text-dark-text-secondary leading-relaxed">
                                                 Keep all your quotes organized in one place. See which are pending, accepted, or rejected. Follow up on old quotes and convert more leads into paying jobs.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8   transition-all duration-500">
+                                    <div className="flex items-start gap-4">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-brand-accent/20 to-brand-primary/20 rounded-xl flex items-center justify-center  flex-shrink-0">
+                                            <Calendar className="h-6 w-6 text-brand-accent" />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-xl font-bold text-white mb-3">Google Calendar sync</h3>
+                                            <p className="text-dark-text-secondary leading-relaxed">
+                                                Schedule a job in QuoteMate and it lands in your Google Calendar. Reschedule it and the event moves with it. Optional - connect it in Settings and disconnect whenever you like.
                                             </p>
                                         </div>
                                     </div>
