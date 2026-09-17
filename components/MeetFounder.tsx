@@ -2,30 +2,24 @@ import React, { useRef, useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Section from './common/Section';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { Shield, Rocket, Settings, Play, Volume2 } from 'lucide-react';
+import { Shield, Rocket, Settings, Play, Volume2, MapPin } from 'lucide-react';
 import { trackVideoPlay } from '../lib/gtag';
 
 const differentiators = [
     {
-        icon: <Shield className="h-6 w-6" />,
-        gradient: 'from-brand-accent/20 to-brand-accent/5',
-        iconColor: 'text-brand-accent',
-        title: 'Bank-Level Security',
-        description: 'Your customer data, payment gateways, and client portals are built with the same rigorous security standards required by major financial institutions.',
+        icon: <Shield className="h-5 w-5" />,
+        title: 'Bank-level security',
+        description: 'Customer data, payment gateways and client portals built to the standards required by major financial institutions.',
     },
     {
-        icon: <Rocket className="h-6 w-6" />,
-        gradient: 'from-brand-primary/20 to-brand-primary/5',
-        iconColor: 'text-brand-primary',
-        title: 'Zero-Crash Scalability',
-        description: 'We build infrastructure designed to handle intense traffic — ensuring your site never drops out during a massive FNQ tourism surge.',
+        icon: <Rocket className="h-5 w-5" />,
+        title: 'Zero-crash scalability',
+        description: 'Infrastructure that handles intense traffic, so your site never drops out during a massive FNQ tourism surge.',
     },
     {
-        icon: <Settings className="h-6 w-6" />,
-        gradient: 'from-violet-500/20 to-violet-500/5',
-        iconColor: 'text-violet-400',
-        title: 'True Custom Logic',
-        description: "We don't just connect basic apps together. If your business needs a completely custom piece of software to run efficiently, we code it from the ground up.",
+        icon: <Settings className="h-5 w-5" />,
+        title: 'True custom logic',
+        description: "We don't just glue apps together. If your business needs a purpose-built piece of software, we code it from the ground up.",
     },
 ];
 
@@ -47,14 +41,12 @@ const MeetFounder: React.FC = () => {
         video.muted = muted;
         setIsMuted(muted);
 
-        // Wait until the video has buffered enough to display a frame
         const onReady = () => {
             video.removeEventListener('canplay', onReady);
             setShowPoster(false);
             setIsPlaying(true);
         };
 
-        // If already buffered (replay), hide poster immediately
         if (video.readyState >= 3) {
             setShowPoster(false);
             video.play().then(() => setIsPlaying(true)).catch(() => setShowPoster(true));
@@ -67,11 +59,9 @@ const MeetFounder: React.FC = () => {
         }
     }, []);
 
-    // Auto-play muted once when video container scrolls into view
     useEffect(() => {
         const el = videoContainerRef.current;
         if (!el || hasAutoPlayed) return;
-
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -82,37 +72,29 @@ const MeetFounder: React.FC = () => {
             },
             { threshold: 0, rootMargin: '200px 0px' }
         );
-
         observer.observe(el);
         return () => observer.disconnect();
     }, [hasAutoPlayed, startVideo]);
 
-    // When video ends, show poster with replay button
     const handleVideoEnded = () => {
         setIsPlaying(false);
         setIsMuted(true);
         setShowPoster(true);
     };
 
-    // Click handling: poster → replay with sound, muted → unmute, playing → pause, paused → resume
     const handleClick = () => {
         const video = videoRef.current;
         if (!video) return;
-
         if (showPoster) {
-            // Video ended or hasn't started — replay with sound
             trackVideoPlay('founder-intro');
             startVideo(false);
         } else if (isPlaying && isMuted) {
-            // Playing muted — unmute
             video.muted = false;
             setIsMuted(false);
         } else if (isPlaying) {
-            // Playing with sound — pause
             video.pause();
             setIsPlaying(false);
         } else {
-            // Paused — resume
             video.play().then(() => setIsPlaying(true));
         }
     };
@@ -120,131 +102,110 @@ const MeetFounder: React.FC = () => {
     return (
         <Section
             id="founder"
-            title=""
-            className="relative overflow-hidden !pt-8 md:!pt-12"
+            eyebrow="Meet the founder"
+            title="Big-tech engineering. Local FNQ focus."
+            subtitle="The same calibre of software that runs Australia's biggest financial platforms, built for businesses in Cairns and the Far North."
+            align="left"
+            className="relative overflow-hidden"
         >
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-primary/[0.02] to-transparent pointer-events-none"></div>
-
             <div
                 ref={contentRef}
-                className={`grid lg:grid-cols-5 gap-12 lg:gap-16 items-start transition-all duration-700 ${
-                    contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                className={`grid items-start gap-10 lg:grid-cols-12 lg:gap-16 transition-all duration-700 ${
+                    contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
             >
-                {/* Video / Photo Side */}
-                <div className="lg:col-span-2 lg:sticky lg:top-24">
+                {/* Video / Photo */}
+                <div className="lg:col-span-5 lg:sticky lg:top-28">
                     <div
                         ref={videoContainerRef}
-                        className="relative rounded-3xl overflow-hidden group hover-glow cursor-pointer"
+                        className="glass-card hover-glow group relative cursor-pointer overflow-hidden !rounded-3xl !p-0"
                         onClick={handleClick}
                     >
-                        <div className="relative w-full aspect-[540/940]">
-                            {/* Video */}
+                        <div className="relative aspect-[4/5] w-full">
                             <video
                                 ref={videoRef}
                                 onEnded={handleVideoEnded}
                                 playsInline
                                 preload="none"
-                                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${showPoster ? 'opacity-0' : 'opacity-100'}`}
+                                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${showPoster ? 'opacity-0' : 'opacity-100'}`}
                             >
                                 <source src="/assets/video/TomSays-compressed.mp4" type="video/mp4" />
                             </video>
 
-                            {/* Poster image (visible before/after video) */}
                             <Image
                                 src="/assets/thomas-hansen-founder.webp"
-                                alt="Thomas Hansen — Founder and Lead Developer of HansenDev, based in Kamerunga, Cairns"
+                                alt="Thomas Hansen, Founder and Lead Developer of HansenDev, based in Kamerunga, Cairns"
                                 fill
-                                className={`object-cover transition-opacity duration-500 ${showPoster ? 'opacity-100' : 'opacity-0'}`}
-                                sizes="(max-width: 768px) 100vw, 40vw"
+                                className={`object-cover transition-all duration-700 group-hover:scale-[1.03] ${showPoster ? 'opacity-100' : 'opacity-0'}`}
+                                sizes="(max-width: 1024px) 100vw, 40vw"
                                 loading="lazy"
                             />
 
-                            <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/70 via-transparent to-transparent"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/90 via-dark-bg/10 to-transparent" />
 
-                            {/* Play button — only on poster */}
                             {showPoster && (
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="flex items-center justify-center w-16 h-16 rounded-full bg-brand-accent/90 backdrop-blur-sm shadow-lg shadow-brand-accent/30 group-hover:scale-110 transition-transform duration-300">
-                                        <Play className="h-7 w-7 text-white ml-1" fill="white" />
+                                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-md ring-1 ring-white/30 transition-transform duration-300 group-hover:scale-110">
+                                        <Play className="ml-1 h-6 w-6 text-white" fill="white" />
                                     </div>
                                 </div>
                             )}
 
-                            {/* Tap for sound hint — top right, fades out after unmute */}
                             {!showPoster && isMuted && (
-                                <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-dark-bg/70 backdrop-blur-sm text-white/90 text-xs px-3 py-1.5 rounded-full animate-pulse">
+                                <div className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full bg-dark-bg/70 px-3 py-1.5 text-xs text-white/90 backdrop-blur-sm animate-pulse">
                                     <Volume2 className="h-3 w-3" />
                                     <span>Tap for sound</span>
                                 </div>
                             )}
-                        </div>
 
-                        <div className="absolute bottom-4 left-4 right-4 bg-dark-bg/60 backdrop-blur-md rounded-xl p-4">
-                            <p className="text-white text-sm font-medium">Thomas Hansen</p>
-                            <p className="text-gray-400 text-xs">Founder & Lead Developer, Kamerunga</p>
+                            <div className="absolute inset-x-0 bottom-0 p-5">
+                                <p className="font-display text-lg font-semibold text-white">Thomas Hansen</p>
+                                <p className="mt-0.5 flex items-center gap-1.5 text-xs text-dark-text-secondary">
+                                    <MapPin className="h-3 w-3 text-brand-accent" />
+                                    Founder &amp; Lead Developer &middot; Kamerunga, Cairns
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Text Side */}
-                <div className="lg:col-span-3 space-y-6">
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                        Big Tech Firepower.{' '}
-                        <span className="gradient-text">Local FNQ Focus.</span>
-                    </h2>
+                {/* Story */}
+                <div className="lg:col-span-7">
+                    <p className="font-display text-2xl font-semibold leading-snug text-white sm:text-[1.7rem]">
+                        &ldquo;Local businesses shouldn&apos;t have to choose between a basic template site and a faceless agency down south that charges a fortune.&rdquo;
+                    </p>
 
-                    <div className="space-y-5 text-dark-text-secondary leading-relaxed">
+                    <div className="mt-8 space-y-5 text-[1.03rem] leading-relaxed text-dark-text-secondary">
                         <p>
-                            Hi, I'm <strong className="text-white">Thomas Hansen</strong>. I founded HansenDev with a simple goal: to give Far North Queensland businesses access to the exact same calibre of technology used by top-tier enterprises.
+                            Hi, I&apos;m <strong className="font-semibold text-white">Thomas Hansen</strong>. I founded HansenDev with a simple goal: to give Far North Queensland businesses access to the exact same calibre of technology used by top-tier enterprises.
                         </p>
-
                         <p>
-                            Local businesses usually have to make a frustrating choice. You either settle for a basic, off-the-shelf website that doesn't actually solve your admin problems, or you hire a massive, faceless agency down south that charges a fortune and doesn't understand the FNQ market. I bridge that gap.
+                            Before building for local trades and tourism operators, I spent my career engineering high-stakes software for global IT leaders like <strong className="font-semibold text-white">DXC Technology</strong> and financial platforms including <strong className="font-semibold text-white">nabtrade (NAB)</strong>. When you write the code that handles live trades for one of Australia&apos;s Big Four banks, there is zero room for error. Everything has to be bulletproof, fast, and built to scale.
                         </p>
-
                         <p>
-                            Before building solutions for local trades and tourism operators, I spent my career engineering complex, high-stakes software for global IT leaders like <strong className="text-white">DXC Technology</strong> and major financial platforms including <strong className="text-white">nabtrade (NAB)</strong>. When you write the code that handles live financial trades for one of Australia's Big Four banks, there is zero room for error. Everything has to be bulletproof, lightning-fast, and built to scale.
-                        </p>
-
-                        <p>
-                            Today, I operate right here out of <strong className="gradient-text">Kamerunga</strong>, bringing that exact same enterprise-level engineering to your business. Whether I'm building custom tradie applications hooked into the Bunnings API, or automating a booking system for a local reef operator, I build digital assets that become the strongest, most reliable part of your business.
+                            Today I operate out of <strong className="font-semibold text-white">Kamerunga</strong>, bringing that enterprise-level engineering to your business. Whether it&apos;s a tradie app hooked into the Bunnings API or an automated booking system for a reef operator, I build digital assets that become the most reliable part of your business.
                         </p>
                     </div>
 
-                    {/* Signature */}
-                    <div className="pt-4 pb-2">
-                        <p className="font-signature text-3xl text-brand-accent italic">Thomas Hansen</p>
-                        <p className="text-sm text-dark-text-secondary/70 mt-1">Lead Developer, HansenDev PTY LTD</p>
+                    <div className="mt-8 flex items-center gap-5 border-t border-hairline pt-6">
+                        <p className="font-signature text-3xl italic text-brand-accent">Thomas Hansen</p>
+                        <p className="text-sm text-dark-muted">Lead Developer, HansenDev PTY LTD</p>
                     </div>
                 </div>
             </div>
 
-            {/* The HansenDev Difference */}
+            {/* The HansenDev difference */}
             <div
                 ref={diffRef}
-                className={`mt-20 transition-all duration-700 ${
-                    diffVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
+                className={`mt-16 grid gap-5 md:grid-cols-3 stagger-children ${diffVisible ? 'revealed' : ''}`}
             >
-                <h3 className="text-2xl font-bold text-dark-text mb-8 text-center">
-                    The HansenDev Difference
-                </h3>
-
-                <div className="grid md:grid-cols-3 gap-6">
-                    {differentiators.map((item) => (
-                        <div
-                            key={item.title}
-                            className="glass-card p-6 hover-glow transition-all duration-500 group"
-                        >
-                            <div className={`flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${item.gradient} mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                                <span className={item.iconColor}>{item.icon}</span>
-                            </div>
-                            <h4 className="font-bold text-dark-text text-lg mb-2">{item.title}</h4>
-                            <p className="text-sm text-dark-text-secondary leading-relaxed">{item.description}</p>
-                        </div>
-                    ))}
-                </div>
+                {differentiators.map((item) => (
+                    <div key={item.title} className="glass-card hover-glow group p-6">
+                        <span className="icon-tile mb-5 h-11 w-11">{item.icon}</span>
+                        <h3 className="mb-2 text-lg font-semibold text-white">{item.title}</h3>
+                        <p className="text-sm leading-relaxed text-dark-text-secondary">{item.description}</p>
+                    </div>
+                ))}
             </div>
         </Section>
     );

@@ -12,6 +12,7 @@ import {
     Tag,
     Share2,
     ChevronRight,
+    RefreshCw,
     CheckCircle,
     BookOpen,
     TrendingUp,
@@ -26,7 +27,7 @@ import {
     ArticlePreview,
     FAQ
 } from '../../../lib/articles';
-import { BUSINESS_INFO, ONLINE_PRESENCE, CONTACT_INFO } from '../../../constants/business';
+import { AUTHOR, BUSINESS_INFO, ONLINE_PRESENCE, CONTACT_INFO } from '../../../constants/business';
 import AuthorBio from '../../../components/AuthorBio';
 
 interface ArticlePageProps {
@@ -81,6 +82,10 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article, relatedArticles, pro
     const productName = getProductName(product);
     const canonicalUrl = `${ONLINE_PRESENCE.website.primary}/articles/${product}/${frontmatter.slug}`;
 
+    // An article only claims a modified date once someone sets lastUpdated.
+    const lastUpdated = frontmatter.lastUpdated || frontmatter.publishDate;
+    const wasUpdated = Boolean(frontmatter.lastUpdated && frontmatter.lastUpdated !== frontmatter.publishDate);
+
     // Process content
     const processedHtml = addHeadingIds(htmlContent);
     const headings = extractHeadings(processedHtml);
@@ -106,18 +111,17 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article, relatedArticles, pro
         },
         "author": {
             "@type": "Person",
-            "@id": `${ONLINE_PRESENCE.website.primary}/#author`,
+            "@id": AUTHOR.id,
             "name": frontmatter.author,
-            "url": ONLINE_PRESENCE.website.primary,
+            "url": `${ONLINE_PRESENCE.website.primary}${AUTHOR.path}`,
             "jobTitle": BUSINESS_INFO.founder.title,
+            "image": AUTHOR.image,
             "worksFor": {
                 "@type": "Organization",
+                "@id": `${ONLINE_PRESENCE.website.primary}/#organization`,
                 "name": BUSINESS_INFO.name
             },
-            "sameAs": [
-                ONLINE_PRESENCE.social.linkedin,
-                ONLINE_PRESENCE.social.github
-            ]
+            "sameAs": [AUTHOR.linkedin, AUTHOR.github]
         },
         "publisher": {
             "@type": "Organization",
@@ -130,7 +134,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article, relatedArticles, pro
             }
         },
         "datePublished": frontmatter.publishDate,
-        "dateModified": frontmatter.publishDate,
+        "dateModified": lastUpdated,
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": canonicalUrl
@@ -284,7 +288,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article, relatedArticles, pro
                 <meta property="og:site_name" content={BUSINESS_INFO.name} />
                 <meta property="og:locale" content="en_AU" />
                 <meta property="article:published_time" content={`${frontmatter.publishDate}T00:00:00+10:00`} />
-                <meta property="article:modified_time" content={`${frontmatter.publishDate}T00:00:00+10:00`} />
+                <meta property="article:modified_time" content={`${lastUpdated}T00:00:00+10:00`} />
                 <meta property="article:author" content={frontmatter.author} />
                 <meta property="article:section" content={productName} />
                 {frontmatter.keywords.slice(0, 6).map((keyword, index) => (
@@ -419,6 +423,20 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article, relatedArticles, pro
                                                     })}
                                                 </time>
                                             </span>
+                                            {wasUpdated && (
+                                                <span className="flex items-center gap-1 text-brand-accent">
+                                                    <RefreshCw className="h-3 w-3" />
+                                                    <span>Updated{' '}
+                                                        <time dateTime={lastUpdated}>
+                                                            {new Date(lastUpdated).toLocaleDateString('en-AU', {
+                                                                year: 'numeric',
+                                                                month: 'long',
+                                                                day: 'numeric'
+                                                            })}
+                                                        </time>
+                                                    </span>
+                                                </span>
+                                            )}
                                             <span className="flex items-center gap-1">
                                                 <Clock className="h-3 w-3" />
                                                 {frontmatter.readingTime}

@@ -18,6 +18,10 @@ export interface ArticleFrontmatter {
   keywords: string[];
   author: string;
   publishDate: string;
+  // Optional. Set it when an article is materially revised - it drives dateModified,
+  // article:modified_time, the "Updated" line on the page and the sitemap's lastmod.
+  // Falls back to publishDate when absent, so an untouched article claims nothing.
+  lastUpdated?: string;
   readingTime: string;
 }
 
@@ -198,7 +202,9 @@ export const productNames: Record<string, string> = {
   chatspark: 'ChatSpark',
   shredindex: 'ShredIndex',
   hansendev: 'HansenDev',
-  wakeindex: 'WakeIndex'
+  wakeindex: 'WakeIndex',
+  webfacelift: 'WebFaceLift',
+  callkatie: 'Call Katie'
 };
 
 export const getProductName = (product: string): string => {

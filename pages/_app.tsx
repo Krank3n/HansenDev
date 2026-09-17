@@ -3,7 +3,7 @@ import React from 'react';
 import type AppProps from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { Inter } from 'next/font/google';
+import { Inter, Sora } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -15,6 +15,13 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
+const sora = Sora({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['500', '600', '700', '800'],
+  variable: '--font-sora',
+});
+
 // @ts-ignore
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -22,7 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   if (isDemoPage) {
     return (
-      <div className={`${inter.variable} ${inter.className}`}>
+      <div className={`${inter.variable} ${sora.variable} ${inter.className}`}>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         </Head>
@@ -33,14 +40,17 @@ function MyApp({ Component, pageProps }: AppProps) {
   }
 
   return (
-    <div className={`${inter.variable} ${inter.className}`}>
+    <div className={`${inter.variable} ${sora.variable} ${inter.className}`}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {/* Default SEO tags can go here, or be overridden by pages */}
-        <link rel="icon" href="/favicon-48x48.png" type="image/png" sizes="48x48" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/favicon.ico" sizes="32x32" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        {/*
+          Only tags next/head actually dedupes belong here. Its METATYPES list covers
+          name/httpEquiv/charSet/itemProp - NOT property - so an og:* tag placed here
+          is emitted alongside the page's own and, being first in the document, is the
+          one scrapers read. og:* and canonical are per-page, always.
+        */}
+        <meta name="author" content="HansenDev PTY LTD" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       </Head>
       <GoogleAnalytics gaId="G-TPK07P99GQ" />
       <div className="flex flex-col min-h-screen">

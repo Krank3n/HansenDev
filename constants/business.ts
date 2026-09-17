@@ -62,6 +62,20 @@ export const BUSINESS_INFO = {
     }
 } as const;
 
+// The single author entity for the site. Every Article byline and the Organization's
+// founder reference this @id instead of restating the person, so Google resolves one
+// author across all of them. The page that defines it is /about/thomas-hansen.
+export const AUTHOR = {
+    id: "https://hansendev.com.au/about/thomas-hansen#person",
+    path: "/about/thomas-hansen",
+    name: "Thomas Hansen",
+    legalName: "Thomas Andrew Hansen",
+    image: "https://hansendev.com.au/assets/thomas-hansen-founder.webp",
+    // Personal profiles - the ONLINE_PRESENCE.social entries are company placeholders.
+    linkedin: "https://www.linkedin.com/in/thomas-andrew-hansen",
+    github: "https://github.com/Krank3n",
+} as const;
+
 export const CONTACT_INFO = {
     // Primary Contact Details
     phone: {
@@ -416,10 +430,6 @@ export const FAQ_DATA: FAQItem[] = [
     {
         question: "What AI integration services do you offer?",
         answer: `We offer AI chatbots, machine learning integration, business process automation, predictive analytics, and custom AI solutions tailored to your business needs in ${SERVICE_AREAS.primary} and throughout ${CONTACT_INFO.address.state}.`,
-    },
-    {
-        question: "What is WebFaceLift?",
-        answer: `WebFaceLift is an AI-powered website reconstruction tool built by ${BUSINESS_INFO.name}. Paste any outdated website URL and our AI scrapes the content, redesigns the entire structure, and renders a modern blueprint you can iterate on in real-time via chat. Try it free at webfacelift.app.`,
     },
     {
         question: `How much does a custom website cost in ${SERVICE_AREAS.primary}?`,

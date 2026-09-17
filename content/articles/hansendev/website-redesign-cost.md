@@ -19,6 +19,10 @@ publishDate: "2026-05-03"
 readingTime: "9 min read"
 ---
 
+## The short answer
+
+A template-based face-lift starts around $2,500. A custom redesign for an Australian small business typically runs $5,000 to $15,000, and complex or e-commerce builds go beyond that. All figures ex-GST. The biggest hidden cost is rarely the build. It is how long it takes you to write the new copy.
+
 A tour operator down at the Marlin Marina recently told me he missed out on a $4,000 group booking because his contact form crashed on an iPhone. The customer got frustrated, went back to Google, and booked with a competitor. When he asked me about the website redesign cost to fix his outdated setup, he was bracing for a massive number. 
 
 Most business owners treat web development like taking their ute to the mechanic. You know something is making a funny noise, but you are terrified of what the final invoice will look like. The truth is, pricing in this industry varies wildly. You can find someone on the internet offering to do it for $500, and you can find a big-city agency quoting $50,000 for the exact same brief.

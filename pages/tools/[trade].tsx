@@ -19,14 +19,17 @@ import {
     Phone,
 } from 'lucide-react';
 import { BUSINESS_INFO, ONLINE_PRESENCE, CONTACT_INFO } from '../../constants/business';
+import RelatedArticles from '../../components/RelatedArticles';
+import { getArticlesByProduct, ArticlePreview } from '../../lib/articles';
 import { TRADES, getTrade, Trade } from '../../data/seo/trades';
 
 interface TradePageProps {
+    articles: ArticlePreview[];
     trade: Trade;
     otherTrades: Pick<Trade, 'slug' | 'name' | 'plural'>[];
 }
 
-const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
+const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades, articles }) => {
     const canonicalUrl = `${ONLINE_PRESENCE.website.primary}/tools/quoting-app-for-${trade.slug}`;
     const pageTitle = `Quoting App for ${trade.plural} | QuoteMate by ${BUSINESS_INFO.shortName}`;
     const pageDescription = `The best quoting app for Australian ${trade.plural.toLowerCase()}. Create professional quotes in under 5 minutes with AI-powered estimation and real-time Bunnings pricing. Try free.`;
@@ -462,6 +465,13 @@ const TradeQuotingPage: React.FC<TradePageProps> = ({ trade, otherTrades }) => {
                         </div>
                     </div>
                 </section>
+
+                <RelatedArticles
+                    articles={articles}
+                    product="quotemate"
+                    heading="Quoting, invoicing and getting paid"
+                    intro="Written for tradies running into the same problems you are."
+                />
             </div>
         </>
     );
@@ -489,7 +499,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         .map(({ slug, name, plural }) => ({ slug, name, plural }));
 
     return {
-        props: { trade, otherTrades },
+        props: {
+            trade,
+            otherTrades,
+            articles: getArticlesByProduct('quotemate').slice(0, 3),
+        },
     };
 };
 

@@ -18,6 +18,10 @@ publishDate: "2026-05-03"
 readingTime: "9 min read"
 ---
 
+## The short answer
+
+An AI receptionist answers your phone around the clock, qualifies the caller, and drops the job details straight into your CRM. For a service business it covers the calls that arrive while you are on the tools or after hours, which are the ones that otherwise go to whoever the caller rings next.
+
 A missed call at 7:43 PM on a Thursday usually means one thing. It is a $450 emergency call-out fee going straight to your competitor down the road. You are either eating dinner, finishing up BAS paperwork for the ATO, or finally getting the kids to bed. By the time you check the voicemail, that customer has already Googled another local business and booked them.
 
 Finding the right ai receptionist for small business stops this leak immediately. It is not about replacing human staff with robots. It is about making sure that when someone rings with a burst pipe, a sparking switchboard, or a rental property emergency, a voice answers the phone. That voice takes their details, qualifies the urgency, and drops a structured lead right into your system. 
@@ -31,7 +35,7 @@ Finding the right ai receptionist for small business stops this leak immediately
 
 ## The Invisible Drain on Your Margin
 
-The average Cairns electrician loses around $600 a week to missed calls. Most don't track it because the loss doesn't show up on a spreadsheet. It just looks like a quiet week on the schedule. 
+Missed calls never show up as a loss. They show up as a quiet week on the schedule, and nobody goes looking for the reason. 
 
 You are under a floorboard running cable, and your phone vibrates in your pocket. You think, *"I'll call them back when I'm back in the ute."* Two hours later, you ring the number. They tell you they have already got someone else sorted. That is the reality of the service industry. Customers do not leave voicemails anymore. They just call the next business on the search results.
 

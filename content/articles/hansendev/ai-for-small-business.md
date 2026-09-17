@@ -24,6 +24,10 @@ publishDate: "2026-05-03"
 readingTime: "7 min read"
 ---
 
+## The short answer
+
+For most small businesses, AI is worth pointing at the repetitive admin that eats unbillable hours: drafting quotes from voice notes, answering the phone after hours, keeping material prices current, sorting the inbox. Start with the task you do most often and like least, not with the technology.
+
 A local sparkie in Earlville just spent four hours of his Sunday sorting through a dashboard of half-written quotes and wet hardware receipts. He looked at the screen and thought, *"I'm paying myself $15 an hour to do data entry on my weekend."*
 
 That is the real cost of running a trades or service business in Far North Queensland. You finish on the tools at 4:00 PM, but the paperwork keeps you at the kitchen table until 9:00 PM. When you look at ai for small business, the goal isn't to build a robot workforce. It is simply about getting you home before dinner. 
@@ -43,7 +47,7 @@ The [Australian Bureau of Statistics](https://www.abs.gov.au/) reports that smal
 
 If you are wondering what can ai do for small business, look at your most repetitive tasks. You look at a deck build and think, *"Yeah, that's probably about $2,000 in timber."* Three weeks later you're at the Bunnings trade desk and the price of Merbau jumped 15%. Your margin just evaporated because you didn't have time to update your pricing spreadsheet. AI tools can automatically scan supplier emails and update your material costs in real time. 
 
-Mark is a fencing contractor operating out of Edmonton. He used to spend two hours every night typing up quotes. He set up a simple automated system that reads his voice notes from the site visit and drafts the email to the client. That saves him 10 hours a week. At $85 an hour for his labour, that is $44,200 of reclaimed time a year. 
+Say you are a fencing contractor spending two hours a night typing up quotes. A system that turns your voice notes from the site visit into a drafted email takes back most of that block. Run it on your own numbers rather than mine: your nightly admin hours, times your charge-out rate, times a working year. The figure is usually larger than people expect. 
 
 The technology handles the heavy lifting on text, data, and scheduling so you can focus on the actual job. It stops the invisible leaks in your quoting process.
 

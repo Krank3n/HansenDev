@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { EnvelopeIcon, PhoneIcon, MapPinIconAlt, UserCircleIcon as ContactUserCircleIcon } from './icons/CustomIcons';
+import { Mail, Phone, MapPin, MessageCircle, ArrowRight, Send, CheckCircle2 } from 'lucide-react';
 import Section from './common/Section';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { trackFormSubmit, trackPhoneCall, trackOutboundLink } from '../lib/gtag';
-import { CONTACT_INFO } from '../constants/business';
+import { trackFormSubmit, trackPhoneCall, trackOutboundLink, trackWhatsApp } from '../lib/gtag';
+import { CONTACT_INFO, BUSINESS_METRICS } from '../constants/business';
 
 const SERVICE_OPTIONS = ['Free Discovery Session', 'Web Development', 'AI Integration', 'Automation', 'Consulting', 'Other'] as const;
 const BUDGET_OPTIONS = ['Under $5,000', '$5,000–$10,000', '$10,000–$20,000', '$20,000+', 'Not sure yet'] as const;
@@ -81,14 +81,13 @@ const Contact: React.FC = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-
       const result = await response.json();
 
       if (response.ok) {
         trackFormSubmit(formData.service, formData.budget);
         setIsSubmitted(true);
         setFormData({ name: '', email: '', message: '', phone: '', service: '', budget: '', website: '' });
-        setTimeout(() => setIsSubmitted(false), 5000);
+        setTimeout(() => setIsSubmitted(false), 6000);
       } else {
         setSubmitError(result.error || 'An unexpected error occurred.');
       }
@@ -99,141 +98,152 @@ const Contact: React.FC = () => {
     }
   };
 
-  const inputClasses = "mt-1 block w-full px-4 py-3 bg-white/[0.03] rounded-xl placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-brand-accent/30 focus:bg-white/[0.05] sm:text-sm text-dark-text transition-all duration-300";
+  const whatsapp = `https://wa.me/${CONTACT_INFO.phone.raw}?text=${encodeURIComponent("Hi Tom! I'd love to have a quick chat about how HansenDev could help my business.")}`;
+  const label = 'mb-1.5 block text-xs font-medium uppercase tracking-wider text-dark-text-secondary';
 
   return (
-    <Section
-      id="contact"
-      title="Let's Build Something Amazing"
-      subtitle="Reach out to discuss your project or ideas."
-      className="relative overflow-hidden"
-    >
-      <div className="absolute inset-0 gradient-mesh pointer-events-none opacity-30"></div>
+    <Section id="contact" title="" className="relative overflow-hidden bg-dark-surface/60">
+      <div className="absolute inset-0 gradient-mesh pointer-events-none" />
+      <div className="orb orb-teal left-[-10%] bottom-[-10%] h-[520px] w-[520px] opacity-50" />
 
       <div
         ref={ref}
-        className={`relative grid md:grid-cols-2 gap-12 transition-all duration-700 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        className={`relative grid gap-10 lg:grid-cols-12 lg:gap-16 transition-all duration-700 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
         }`}
       >
-        {/* Contact details */}
-        <div className="space-y-5">
-          <h3 className="text-2xl font-semibold text-dark-text">Contact Details</h3>
+        {/* Intro + details */}
+        <div className="lg:col-span-5">
+          <span className="eyebrow mb-4">Get in touch</span>
+          <h2 className="text-3xl font-bold leading-[1.1] tracking-tightest text-white sm:text-4xl lg:text-[2.75rem]">
+            Let&apos;s find your bottleneck.
+          </h2>
+          <p className="mt-5 max-w-md text-lg leading-relaxed text-dark-text-secondary">
+            Tell us what&apos;s eating your evenings. We reply {BUSINESS_METRICS.stats.responseTime.toLowerCase()}, and the first chat is always free.
+          </p>
 
-          {[
-            { icon: <ContactUserCircleIcon className="h-5 w-5 text-brand-accent" />, title: 'HansenDev PTY LTD', lines: ['Thomas Hansen'] },
-            { icon: <MapPinIconAlt className="h-5 w-5 text-brand-accent" />, title: 'Location', lines: ['19 Cananga Close', 'Kamerunga, QLD 4870', 'Cairns, Australia'] },
-          ].map((item) => (
-            <div key={item.title} className="flex items-start space-x-3 p-4 rounded-2xl bg-white/[0.03] hover:bg-white/[0.05] transition-all duration-300">
-              <span className="mt-1 flex-shrink-0">{item.icon}</span>
-              <div>
-                <h4 className="font-medium text-dark-text">{item.title}</h4>
-                {item.lines.map((line) => (
-                  <p key={line} className="text-dark-text-secondary">{line}</p>
-                ))}
-              </div>
-            </div>
-          ))}
-
-          <div className="flex items-start space-x-3 p-4 rounded-2xl bg-white/[0.03] hover:bg-white/[0.05] transition-all duration-300">
-            <EnvelopeIcon className="h-5 w-5 text-brand-accent mt-1 flex-shrink-0" />
-            <div>
-              <h4 className="font-medium text-dark-text">Email</h4>
-              <a href={`mailto:${CONTACT_INFO.email}`} className="gradient-text hover:opacity-80 transition-opacity">
-                {CONTACT_INFO.email}
+          <ul className="mt-9 space-y-3">
+            <li>
+              <a href={`mailto:${CONTACT_INFO.email}`} className="glass-card hover-glow flex items-center gap-4 p-4">
+                <span className="icon-tile h-10 w-10"><Mail className="h-4 w-4" /></span>
+                <div className="min-w-0">
+                  <p className="text-xs text-dark-muted">Email</p>
+                  <p className="truncate font-medium text-white">{CONTACT_INFO.email}</p>
+                </div>
               </a>
-            </div>
-          </div>
-
-          <div className="flex items-start space-x-3 p-4 rounded-2xl bg-white/[0.03] hover:bg-white/[0.05] transition-all duration-300">
-            <PhoneIcon className="h-5 w-5 text-brand-accent mt-1 flex-shrink-0" />
-            <div>
-              <h4 className="font-medium text-dark-text">Phone</h4>
-              <a href="tel:0480232922" onClick={() => trackPhoneCall('contact-section')} className="gradient-text hover:opacity-80 transition-opacity">
-                0480 232 922
+            </li>
+            <li>
+              <a href="tel:0480232922" onClick={() => trackPhoneCall('contact-section')} className="glass-card hover-glow flex items-center gap-4 p-4">
+                <span className="icon-tile h-10 w-10"><Phone className="h-4 w-4" /></span>
+                <div>
+                  <p className="text-xs text-dark-muted">Phone</p>
+                  <p className="font-medium text-white">0480 232 922</p>
+                </div>
               </a>
-            </div>
-          </div>
+            </li>
+            <li>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=19+Cananga+Close+Kamerunga+QLD"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackOutboundLink('https://www.google.com/maps', 'Google Maps')}
+                className="glass-card hover-glow flex items-center gap-4 p-4"
+                aria-label="View address on Google Maps"
+              >
+                <span className="icon-tile h-10 w-10"><MapPin className="h-4 w-4" /></span>
+                <div>
+                  <p className="text-xs text-dark-muted">Office</p>
+                  <p className="font-medium text-white">19 Cananga Close, Kamerunga QLD 4870</p>
+                </div>
+              </a>
+            </li>
+          </ul>
 
-          <div className="mt-4">
+          <div className="mt-8 border-t border-hairline pt-6">
+            <p className="text-sm text-dark-text-secondary">Prefer to talk?</p>
             <a
-              href="https://www.google.com/maps/search/?api=1&query=19+Cananga+Close+Kamerunga+QLD"
+              href={whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackOutboundLink('https://www.google.com/maps', 'Google Maps')}
-              className="inline-block text-sm text-dark-text-secondary/50 hover:text-brand-accent transition-colors"
-              aria-label="View address on Google Maps"
+              onClick={() => trackWhatsApp('contact-section')}
+              className="btn-secondary mt-3 px-5 py-3 text-sm"
             >
-              View on Google Maps
+              <MessageCircle className="h-4 w-4 text-brand-accent" />
+              Message Tom on WhatsApp
+              <ArrowRight className="h-4 w-4" />
             </a>
           </div>
         </div>
 
         {/* Form */}
-        <div className="glass-card p-6 sm:p-8">
-          <h3 className="text-2xl font-semibold text-dark-text mb-6">Send Us a Message</h3>
-          {isSubmitted ? (
-            <div className="text-center p-6 rounded-xl bg-brand-accent/10">
-              <p className="font-semibold gradient-text text-lg">Thank you!</p>
-              <p className="text-dark-text-secondary mt-1">Your message has been sent.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-dark-text-secondary/70">Full Name</label>
-                <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} required disabled={isLoading} className={inputClasses} placeholder="John Doe" aria-label="Full Name" />
+        <div className="lg:col-span-7">
+          <div className="panel p-6 sm:p-8 lg:p-10">
+            {isSubmitted ? (
+              <div className="flex flex-col items-center justify-center py-16 text-center">
+                <span className="icon-tile h-14 w-14"><CheckCircle2 className="h-7 w-7" /></span>
+                <p className="mt-5 font-display text-2xl font-semibold text-white">Thanks, message sent.</p>
+                <p className="mt-2 text-dark-text-secondary">Tom will get back to you {BUSINESS_METRICS.stats.responseTime.toLowerCase()}.</p>
               </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-dark-text-secondary/70">Email Address</label>
-                <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} required disabled={isLoading} className={inputClasses} placeholder="you@example.com" aria-label="Email Address" />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-dark-text-secondary/70">Phone Number <span className="text-gray-600">(optional)</span></label>
-                <input type="tel" name="phone" id="phone" value={formData.phone} onChange={handleChange} disabled={isLoading} className={inputClasses} placeholder="+61 400 000 000" aria-label="Phone Number" />
-              </div>
-              <div>
-                <label htmlFor="service" className="block text-sm font-medium text-dark-text-secondary/70">Service Interest <span className="text-gray-600">(optional)</span></label>
-                <select name="service" id="service" value={formData.service} onChange={handleChange} disabled={isLoading} className={inputClasses} aria-label="Service Interest">
-                  <option value="">Select a service...</option>
-                  {SERVICE_OPTIONS.map((opt) => (
-                    <option key={opt} value={opt}>{opt}</option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label htmlFor="budget" className="block text-sm font-medium text-dark-text-secondary/70">Budget Range <span className="text-gray-600">(optional)</span></label>
-                <select name="budget" id="budget" value={formData.budget} onChange={handleChange} disabled={isLoading} className={inputClasses} aria-label="Budget Range">
-                  <option value="">Select a range...</option>
-                  {BUDGET_OPTIONS.map((opt) => (
-                    <option key={opt} value={opt}>{opt}</option>
-                  ))}
-                </select>
-              </div>
-              {/* Honeypot */}
-              <div className="absolute opacity-0 top-0 left-0 h-0 w-0 -z-10" aria-hidden="true">
-                <label htmlFor="website">Website</label>
-                <input type="text" name="website" id="website" value={formData.website} onChange={handleChange} tabIndex={-1} autoComplete="off" />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-dark-text-secondary/70">Message</label>
-                <textarea name="message" id="message" rows={4} value={formData.message} onChange={handleChange} required disabled={isLoading} className={inputClasses} placeholder="How can we help you?" aria-label="Message" />
-              </div>
-              {submitError && (
-                <div className="p-3 bg-red-500/10 text-red-400 rounded-xl text-sm">
-                  <p>{submitError}</p>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="name" className={label}>Full name</label>
+                    <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} required disabled={isLoading} className="field" placeholder="Jane Smith" autoComplete="name" />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className={label}>Email</label>
+                    <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} required disabled={isLoading} className="field" placeholder="you@business.com.au" autoComplete="email" />
+                  </div>
                 </div>
-              )}
-              <div>
-                <button
-                  type="submit"
-                  disabled={isLoading}
-                  className="w-full flex justify-center py-3.5 px-4 rounded-xl text-sm font-semibold text-white btn-gradient focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark-bg focus:ring-brand-accent transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/15 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  <span>{isLoading ? 'Sending...' : 'Send Message'}</span>
-                </button>
-              </div>
-            </form>
-          )}
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="phone" className={label}>Phone <span className="normal-case tracking-normal text-dark-muted">(optional)</span></label>
+                    <input type="tel" name="phone" id="phone" value={formData.phone} onChange={handleChange} disabled={isLoading} className="field" placeholder="+61 400 000 000" autoComplete="tel" />
+                  </div>
+                  <div>
+                    <label htmlFor="service" className={label}>I&apos;m interested in</label>
+                    <select name="service" id="service" value={formData.service} onChange={handleChange} disabled={isLoading} className="field">
+                      <option value="">Select a service</option>
+                      {SERVICE_OPTIONS.map((opt) => <option key={opt} value={opt}>{opt}</option>)}
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="budget" className={label}>Budget <span className="normal-case tracking-normal text-dark-muted">(optional)</span></label>
+                  <select name="budget" id="budget" value={formData.budget} onChange={handleChange} disabled={isLoading} className="field">
+                    <option value="">Select a range</option>
+                    {BUDGET_OPTIONS.map((opt) => <option key={opt} value={opt}>{opt}</option>)}
+                  </select>
+                </div>
+                {/* Honeypot */}
+                <div className="absolute left-0 top-0 h-0 w-0 -z-10 opacity-0" aria-hidden="true">
+                  <label htmlFor="website">Website</label>
+                  <input type="text" name="website" id="website" value={formData.website} onChange={handleChange} tabIndex={-1} autoComplete="off" />
+                </div>
+                <div>
+                  <label htmlFor="message" className={label}>What&apos;s the bottleneck?</label>
+                  <textarea name="message" id="message" rows={5} value={formData.message} onChange={handleChange} required disabled={isLoading} className="field resize-y" placeholder="Tell us about the admin, the lost quotes, the thing you keep doing by hand..." />
+                </div>
+                {submitError && (
+                  <div className="rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-300">
+                    <p>{submitError}</p>
+                  </div>
+                )}
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-xs text-dark-muted">No spam, no sales funnel. Just a reply from Tom.</p>
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="group inline-flex items-center justify-center gap-2.5 rounded-xl btn-gradient px-7 py-3.5 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    <span>{isLoading ? 'Sending...' : 'Send message'}</span>
+                    <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
         </div>
       </div>
     </Section>

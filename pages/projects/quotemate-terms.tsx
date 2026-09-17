@@ -42,6 +42,10 @@ const QuoteMateTerms: React.FC = () => {
                 <meta name="robots" content="noindex, follow" />
                 <link rel="canonical" href={canonicalUrl} />
 
+                <meta property="og:url" content={canonicalUrl} />
+                <meta property="og:image" content="https://hansendev.com.au/assets/HansenDevOg-1200x630.jpg" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}

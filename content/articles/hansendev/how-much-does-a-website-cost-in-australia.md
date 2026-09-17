@@ -17,6 +17,10 @@ publishDate: "2026-05-03"
 readingTime: "9 min read"
 ---
 
+## The short answer
+
+A basic five-page website for an Australian small business costs $1,500 to $3,000 from a local freelancer or small studio. Running it adds $20 to $30 a year for a .com.au domain and $20 to $50 a month for decent Australian hosting. E-commerce and custom builds run past $15,000.
+
 Last Tuesday, a sparkie from the Atherton Tablelands forwarded me a PDF quote for $14,500. He just wanted a simple five-page website so locals could find his phone number when their safety switches kept tripping. He looked at the bottom line and thought, *"Is this bloke having a laugh, or is this just what things cost now?"*
 
 If you are trying to figure out how much does a website cost in Australia, that massive gap between a $500 DIY job and a $15,000 agency pitch is enough to give anyone a headache. Most small business owners just want a straight answer. The reality is that pricing depends entirely on what you need the site to actually do. A basic digital business card costs a fraction of a full online store.

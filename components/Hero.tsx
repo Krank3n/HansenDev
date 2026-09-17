@@ -1,12 +1,50 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Section from './common/Section';
 import LogoBanner from './LogoBanner';
-import { ArrowRight, TrendingUp } from 'lucide-react';
+import { ArrowRight, PhoneCall, FileText, Sparkles, Star, Clock, Briefcase } from 'lucide-react';
 import { trackCTA } from '../lib/gtag';
+import { BUSINESS_METRICS } from '../constants/business';
+
+const activity = [
+  {
+    product: 'QuoteMate',
+    initials: 'Q',
+    tone: 'from-emerald-400 to-teal-600',
+    icon: <FileText className="h-4 w-4" />,
+    title: 'Quote #1042 sent to client',
+    meta: '90 seconds after the site visit',
+    time: 'Just now',
+  },
+  {
+    product: 'Call Katie',
+    initials: 'K',
+    tone: 'from-rose-400 to-fuchsia-600',
+    icon: <PhoneCall className="h-4 w-4" />,
+    title: 'Missed call answered, lead qualified',
+    meta: 'Job details pushed to CRM',
+    time: '2:14 am',
+  },
+  {
+    product: 'TalkMyShiz',
+    initials: 'T',
+    tone: 'from-violet-400 to-indigo-600',
+    icon: <Sparkles className="h-4 w-4" />,
+    title: 'Filler words cut, captions burned in',
+    meta: 'Published to YouTube',
+    time: '4 min',
+  },
+];
+
+const proof = [
+  { icon: <Briefcase className="h-4 w-4" />, value: BUSINESS_METRICS.stats.projectsCompleted, label: 'projects shipped' },
+  { icon: <Star className="h-4 w-4" />, value: BUSINESS_METRICS.stats.averageRating, label: 'average rating' },
+  { icon: <Clock className="h-4 w-4" />, value: BUSINESS_METRICS.stats.responseTime, label: 'response' },
+];
 
 const Hero: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const inViewRef = useRef(true);
   const [isMobile, setIsMobile] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
@@ -19,86 +57,75 @@ const Hero: React.FC = () => {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  // Defer video loading until after hydration + LCP paint
+  // Defer the video until the browser is idle so LCP is the poster, not the mp4
   useEffect(() => {
-    // Use requestIdleCallback where available, else setTimeout
     const schedule = typeof window.requestIdleCallback === 'function'
       ? (cb: () => void) => window.requestIdleCallback(cb, { timeout: 3000 })
       : (cb: () => void) => window.setTimeout(cb, 1500);
-
     const id = schedule(() => setVideoReady(true));
     return () => {
-      if (typeof window.cancelIdleCallback === 'function') {
-        window.cancelIdleCallback(id as number);
-      } else {
-        clearTimeout(id as number);
-      }
+      if (typeof window.cancelIdleCallback === 'function') window.cancelIdleCallback(id as number);
+      else clearTimeout(id as number);
     };
   }, []);
 
-  // Once video element exists and source is set, start playback
   useEffect(() => {
-    if (videoReady && videoRef.current) {
-      videoRef.current.play().catch(() => {});
-    }
+    if (videoReady && videoRef.current) videoRef.current.play().catch(() => {});
   }, [videoReady, isMobile]);
 
+  // Pause the video (and skip parallax work) while the hero is scrolled out of view.
+  // Decoding a looping mp4 offscreen was the biggest scroll-jank source on this page.
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        inViewRef.current = entry.isIntersecting;
+        const v = videoRef.current;
+        if (!v) return;
+        if (entry.isIntersecting) v.play().catch(() => {});
+        else v.pause();
+      },
+      { threshold: 0 }
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [videoReady]);
+
+  // Gentle parallax on the backdrop
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          if (bgRef.current) {
-            bgRef.current.style.transform = `translateY(${window.scrollY * 0.3}px)`;
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
+      if (ticking || !inViewRef.current) return;
+      requestAnimationFrame(() => {
+        if (bgRef.current) bgRef.current.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+        ticking = false;
+      });
+      ticking = true;
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoaded(true), 100);
-    return () => clearTimeout(timer);
+    const t = setTimeout(() => setLoaded(true), 60);
+    return () => clearTimeout(t);
   }, []);
 
-  return (
-    <Section
-      id="home"
-      title=""
-      className="min-h-screen flex items-center justify-center relative overflow-hidden !pt-0 !pb-0"
-    >
-      {/* SVG gradient definition for icon shimmer */}
-      <svg width="0" height="0" className="absolute">
-        <defs>
-          <linearGradient id="shimmer-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#14B8A6">
-              <animate attributeName="stop-color" values="#14B8A6;#5eead4;#99f6e4;#5eead4;#14B8A6" dur="4s" repeatCount="indefinite" />
-            </stop>
-            <stop offset="50%" stopColor="#99f6e4">
-              <animate attributeName="stop-color" values="#99f6e4;#14B8A6;#5eead4;#99f6e4;#99f6e4" dur="4s" repeatCount="indefinite" />
-            </stop>
-            <stop offset="100%" stopColor="#14B8A6">
-              <animate attributeName="stop-color" values="#14B8A6;#99f6e4;#14B8A6;#5eead4;#14B8A6" dur="4s" repeatCount="indefinite" />
-            </stop>
-          </linearGradient>
-        </defs>
-      </svg>
+  const entrance = (delay: string) =>
+    `transition-all duration-700 ease-out ${delay} ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`;
 
-      {/* Background Video with Parallax — poster loads instantly, video deferred */}
+  return (
+    <section ref={sectionRef} id="home" className="relative flex min-h-[calc(100svh-5rem)] flex-col overflow-hidden">
+      {/* Backdrop: poster paints instantly, video fades in when idle */}
       <div className="absolute inset-0">
-        <div ref={bgRef} className="absolute inset-0 parallax-bg" style={{ top: '-10%', bottom: '-10%' }}>
-          {/* Poster image renders immediately for fast LCP */}
+        <div ref={bgRef} className="parallax-bg absolute inset-0" style={{ top: '-12%', bottom: '-12%' }}>
           <img
             src={isMobile ? '/assets/video/HansenDevMobile-poster.webp' : '/assets/video/HansenDevCassowary-poster.webp'}
             alt=""
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
             fetchPriority="high"
           />
-          {/* Video only loads after idle — no bandwidth impact on LCP */}
           {videoReady && (
             <video
               ref={videoRef}
@@ -107,92 +134,142 @@ const Hero: React.FC = () => {
               muted
               playsInline
               preload="auto"
-              className="absolute inset-0 w-full h-full object-cover"
-              aria-label="Background video showing HansenDev web development work"
+              className="absolute inset-0 h-full w-full object-cover"
+              aria-label="Background video: a cassowary in the FNQ rainforest with code raining through the canopy"
             >
               <source src={isMobile ? '/assets/video/HansenDevMobile.mp4' : '/assets/video/HansenDevCassowary.mp4'} type="video/mp4" />
-              <track kind="captions" src="" label="No dialogue" default />
             </video>
           )}
         </div>
-        {/* Deep gradient overlay - more immersive */}
-        <div className="absolute inset-0 bg-gradient-to-b from-dark-bg/70 via-dark-bg/50 to-dark-bg"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(10,15,26,0.6)_70%)]"></div>
+        {/* Legibility overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-dark-bg via-dark-bg/85 to-dark-bg/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-dark-bg/80 via-transparent to-dark-bg" />
+        <div className="absolute inset-0 bg-dots opacity-[0.18] [mask-image:radial-gradient(60%_60%_at_30%_40%,black,transparent)]" />
+        <div className="orb orb-teal left-[-10%] top-[10%] h-[520px] w-[520px] opacity-70 animate-float-slow" />
       </div>
 
-      {/* Floating gradient orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="orb orb-teal w-[500px] h-[500px] top-[10%] left-[15%] animate-float opacity-60"></div>
-        <div className="orb orb-primary w-[600px] h-[600px] bottom-[10%] right-[10%] animate-float-slow opacity-40"></div>
-        <div className="orb orb-teal w-[300px] h-[300px] top-[50%] left-[60%] animate-float-slower opacity-30"></div>
-      </div>
+      {/* Content */}
+      <div className="container relative z-10 mx-auto flex flex-1 items-center px-4 pb-16 pt-14 sm:px-6 sm:pt-20 lg:px-8 lg:pb-24">
+        <div className="grid w-full items-center gap-12 lg:grid-cols-12 lg:gap-8">
+          {/* Copy */}
+          <div className="lg:col-span-7">
+            <div className={entrance('delay-0')}>
+              <span className="chip !text-dark-text mb-7 !px-3.5 !py-1.5">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-brand-accent animate-ping-soft" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-accent" />
+                </span>
+                Cairns, FNQ &middot; Custom software &amp; AI for local business
+              </span>
+            </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 pb-28 sm:pb-20">
-        <div className="space-y-10 mb-14">
-          {/* Headline — visible immediately for fast LCP, no JS-gated opacity */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight">
-            <span className="block text-white leading-tight">
-              Less Admin.
-            </span>
-            <span className="block ai-shimmer animate-shimmer leading-tight">
-              More Scaling. <TrendingUp className="inline h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 [stroke:url(#shimmer-gradient)]" />
-            </span>
-          </h1>
+            <h1 className="font-display text-[2.9rem] font-bold leading-[0.98] tracking-tightest text-white sm:text-6xl lg:text-7xl xl:text-[5.6rem]">
+              <span className="block">Less admin.</span>
+              <span className="ai-shimmer animate-shimmer block">More scaling.</span>
+            </h1>
 
-          {/* Subtext */}
-          <p
-            className={`max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-gray-300/90 leading-relaxed transition-all duration-700 delay-100 ${
-              loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}
-          >
-            Ditch the messy spreadsheets and lost quotes. We build the custom apps and AI that do the heavy lifting, so you can get your evenings back.
-          </p>
-        </div>
+            <p className={`mt-7 max-w-xl text-lg leading-relaxed text-dark-text-secondary sm:text-xl ${entrance('delay-100')}`}>
+              Ditch the messy spreadsheets and lost quotes. We build the custom apps and AI that do the heavy lifting, so you get your evenings back.
+            </p>
 
-        {/* CTA */}
-        <div
-          className={`flex flex-col sm:flex-row gap-5 justify-center items-center mb-8 transition-all duration-700 delay-300 ${
-            loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-          }`}
-        >
-          <a
-            href="#contact-discovery"
-            onClick={() => trackCTA('Find Your Bottleneck', 'hero')}
-            className="group relative inline-flex items-center justify-center gap-3 btn-gradient text-white px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-brand-accent/20 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-500 w-full sm:w-auto"
-            aria-label="Book a free discovery session to find your business bottleneck"
-          >
-            <span>Find Your Bottleneck</span>
-            <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
-          </a>
+            <div className={`mt-9 flex flex-col gap-3 sm:flex-row sm:items-center ${entrance('delay-200')}`}>
+              <a
+                href="#contact-discovery"
+                onClick={() => trackCTA('Find Your Bottleneck', 'hero')}
+                className="group inline-flex items-center justify-center gap-2.5 rounded-xl btn-gradient px-7 py-4 text-base font-semibold text-white"
+                aria-label="Book a free discovery session to find your business bottleneck"
+              >
+                <span>Find your bottleneck</span>
+                <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+              <a
+                href="#portfolio"
+                onClick={() => trackCTA('See What We Built', 'hero')}
+                className="btn-secondary px-7 py-4 text-base"
+              >
+                See what we&apos;ve built
+              </a>
+            </div>
 
-          <a
-            href="#portfolio"
-            onClick={() => trackCTA('See What We Built', 'hero')}
-            className="group inline-flex items-center justify-center gap-3 bg-white/[0.04] backdrop-blur-sm rounded-2xl px-10 py-5 text-white font-bold text-lg hover:bg-white/[0.08] transition-all duration-500 w-full sm:w-auto"
-            aria-label="See what we've built for businesses like yours"
-          >
-            <span>See What We&apos;ve Built</span>
-            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-          </a>
-        </div>
+            {/* Proof row */}
+            <dl className={`mt-12 flex flex-wrap items-center gap-x-8 gap-y-4 ${entrance('delay-300')}`}>
+              {proof.map((item) => (
+                <div key={item.label} className="flex items-center gap-3">
+                  <span className="icon-tile h-9 w-9">{item.icon}</span>
+                  <div className="leading-tight">
+                    <dt className="sr-only">{item.label}</dt>
+                    <dd className="font-display text-lg font-semibold text-white">{item.value}</dd>
+                    <dd className="text-xs text-dark-muted">{item.label}</dd>
+                  </div>
+                </div>
+              ))}
+            </dl>
+          </div>
 
-      </div>
+          {/* Activity stack */}
+          <div className={`hidden lg:col-span-5 lg:block ${entrance('delay-300')}`}>
+            <div className="relative mx-auto max-w-md lg:ml-auto">
+              {/* Depth cards */}
+              <div className="glass-card absolute inset-x-6 -top-4 h-full opacity-50 -rotate-2" aria-hidden="true" />
+              <div className="glass-card absolute inset-x-3 -top-2 h-full opacity-70 -rotate-1" aria-hidden="true" />
 
-      {/* Floating Trust Bar */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
-        <div className="gradient-line" />
-        <div className="flex flex-col items-center gap-1 py-3 bg-dark-bg/80 backdrop-blur-md">
-          <span className="text-[11px] text-gray-500 uppercase tracking-wider font-medium">
-            Engineered by developers with experience building for
-          </span>
-          <div className="w-full">
-            <LogoBanner />
+              <div className="glass-card relative p-5 animate-float">
+                <div className="mb-4 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 animate-ping-soft" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                    </span>
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-dark-text-secondary">Live from tools we built</p>
+                  </div>
+                  <span className="text-[11px] text-dark-muted">FNQ · today</span>
+                </div>
+
+                <ul className="space-y-2.5">
+                  {activity.map((row) => (
+                    <li key={row.product} className="flex items-start gap-3 rounded-xl border border-hairline bg-white/[0.02] p-3.5 transition-colors hover:bg-white/[0.045]">
+                      <span className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${row.tone} text-sm font-bold text-white shadow-md`}>
+                        {row.initials}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center justify-between gap-2">
+                          <p className="truncate text-sm font-semibold text-white">{row.title}</p>
+                          <span className="flex-shrink-0 text-[11px] text-dark-muted">{row.time}</span>
+                        </div>
+                        <p className="mt-0.5 flex items-center gap-1.5 text-xs text-dark-text-secondary">
+                          <span className="text-brand-accent">{row.icon}</span>
+                          {row.meta}
+                          <span className="text-dark-muted">&middot; {row.product}</span>
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-4 flex items-center justify-between border-t border-hairline pt-4">
+                  <p className="text-xs text-dark-text-secondary">Built &amp; hosted from Kamerunga, Cairns</p>
+                  <a href="#portfolio" className="btn-ghost text-xs">
+                    See the products <ArrowRight className="h-3.5 w-3.5" />
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-    </Section>
+      {/* Logo strip */}
+      <div className="relative z-10 border-t border-hairline bg-dark-bg/60 backdrop-blur-md">
+        <div className="container mx-auto flex flex-col items-center gap-2 px-4 py-4 sm:px-6 lg:flex-row lg:gap-8 lg:px-8">
+          <p className="flex-shrink-0 text-[11px] font-semibold uppercase tracking-[0.18em] text-dark-muted">
+            Engineering background from
+          </p>
+          <div className="w-full min-w-0 flex-1">
+            <LogoBanner />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

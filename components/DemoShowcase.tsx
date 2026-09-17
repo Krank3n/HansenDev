@@ -1,7 +1,7 @@
 import React from 'react';
 import Section from './common/Section';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { ArrowRight, Zap, Waves, HardHat } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Sparkles, Waves, HardHat, Tent } from 'lucide-react';
 import { trackDemoView, trackCTA } from '../lib/gtag';
 
 const demos = [
@@ -10,91 +10,90 @@ const demos = [
         industry: 'Construction',
         icon: <HardHat className="h-5 w-5" />,
         url: '/demo/instantalloy',
-        gradient: 'from-orange-500/20 to-orange-500/5',
-        iconColor: 'text-orange-400',
     },
-{
+    {
         name: 'Cairns Wake Park',
         industry: 'Recreation',
         icon: <Waves className="h-5 w-5" />,
         url: '/demo/cairnswakepark',
-        gradient: 'from-cyan-500/20 to-cyan-500/5',
-        iconColor: 'text-cyan-400',
     },
     {
         name: 'Sail Structures',
         industry: 'Industrial',
-        icon: <HardHat className="h-5 w-5" />,
+        icon: <Tent className="h-5 w-5" />,
         url: '/demo/sailstructures',
-        gradient: 'from-amber-500/20 to-amber-500/5',
-        iconColor: 'text-amber-400',
     },
 ];
 
 const DemoShowcase: React.FC = () => {
     const { ref: gridRef, isVisible: gridVisible } = useScrollReveal();
+    const { ref: ctaRef, isVisible: ctaVisible } = useScrollReveal();
 
     return (
         <Section
             id="demos"
-            title="See What Your Site Could Look Like"
-            subtitle="We rebuilt these real Cairns business websites to show what's possible. Click any demo to see the full redesign."
-            className="relative overflow-hidden"
+            eyebrow="Free redesign demos"
+            title="See what your site could look like."
+            subtitle="We rebuilt these real Cairns business websites to show what's possible. Open any demo to explore the full redesign."
+            className="relative overflow-hidden bg-dark-surface/60"
         >
-            <div className="absolute inset-0 gradient-mesh pointer-events-none opacity-50"></div>
+            <div className="absolute inset-0 gradient-mesh pointer-events-none opacity-60" />
 
             <div
                 ref={gridRef}
-                className={`relative grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-10 stagger-children ${gridVisible ? 'revealed' : ''}`}
+                className={`relative grid gap-4 sm:grid-cols-2 lg:grid-cols-4 stagger-children ${gridVisible ? 'revealed' : ''}`}
             >
                 {demos.map((demo) => (
                     <a
                         key={demo.name}
                         href={demo.url}
                         onClick={() => trackDemoView(demo.name)}
-                        className="group flex items-center gap-4 p-5 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] hover:scale-[1.02] transition-all duration-500 hover-glow"
+                        className="glass-card hover-glow group flex flex-col p-6"
                     >
-                        <div className={`flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br ${demo.gradient} flex items-center justify-center ${demo.iconColor} group-hover:scale-110 transition-transform duration-300`}>
-                            {demo.icon}
+                        <div className="flex items-start justify-between">
+                            <span className="icon-tile h-11 w-11">{demo.icon}</span>
+                            <ArrowUpRight className="h-5 w-5 text-dark-muted transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-accent" />
                         </div>
-                        <div className="min-w-0">
-                            <p className="text-white font-semibold text-sm truncate">{demo.name}</p>
-                            <p className="text-dark-text-secondary/60 text-xs">{demo.industry}</p>
-                        </div>
-                        <ArrowRight className="h-4 w-4 text-dark-text-secondary/40 group-hover:text-brand-accent group-hover:translate-x-1 transition-all duration-300 ml-auto flex-shrink-0" />
+                        <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.16em] text-dark-muted">{demo.industry}</p>
+                        <p className="mt-1 font-semibold leading-snug text-white">{demo.name}</p>
+                        <p className="mt-4 text-xs text-brand-accent">View the redesign</p>
                     </a>
                 ))}
                 <a
                     href="/our-work"
-                    className="group flex items-center gap-4 p-5 rounded-2xl bg-gradient-to-br from-brand-accent/[0.06] to-brand-primary/[0.03] hover:from-brand-accent/[0.12] hover:to-brand-primary/[0.06] hover:scale-[1.02] transition-all duration-500"
+                    className="group flex flex-col justify-between rounded-2xl border border-brand-accent/25 bg-gradient-to-br from-brand-accent/[0.12] to-brand-primary/[0.04] p-6 transition-all duration-400 hover:border-brand-accent/50 hover:from-brand-accent/[0.18]"
                 >
-                    <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-brand-accent/20 to-brand-primary/10 flex items-center justify-center text-brand-accent group-hover:scale-110 transition-transform duration-300">
-                        <Zap className="h-5 w-5" />
+                    <span className="icon-tile h-11 w-11"><Sparkles className="h-5 w-5" /></span>
+                    <div>
+                        <p className="font-semibold text-white">All case studies</p>
+                        <p className="mt-1 text-sm text-dark-text-secondary">Full portfolio, before-and-after improvements.</p>
+                        <p className="mt-4 flex items-center gap-1.5 text-xs font-medium text-brand-soft">
+                            Browse <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                        </p>
                     </div>
-                    <div className="min-w-0">
-                        <p className="text-brand-accent font-semibold text-sm">View All Case Studies</p>
-                        <p className="text-dark-text-secondary/60 text-xs">Full portfolio & improvements</p>
-                    </div>
-                    <ArrowRight className="h-4 w-4 text-brand-accent/60 group-hover:translate-x-1 transition-all duration-300 ml-auto flex-shrink-0" />
                 </a>
             </div>
 
-            <div className="relative text-center rounded-3xl p-8 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-brand-accent/[0.06] via-brand-primary/[0.04] to-brand-accent/[0.06]"></div>
-                <div className="relative">
-                    <p className="text-xl font-bold text-white mb-2">
-                        Is your website outdated?
-                    </p>
-                    <p className="text-dark-text-secondary mb-6 max-w-xl mx-auto">
-                        We'll show you exactly what a modern rebuild looks like for your business — no cost, no commitment.
-                    </p>
+            {/* Offer */}
+            <div
+                ref={ctaRef}
+                className={`panel relative mt-8 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+            >
+                <div className="noise-overlay absolute inset-0" />
+                <div className="relative flex flex-col gap-6 p-8 sm:p-10 lg:flex-row lg:items-center lg:justify-between">
+                    <div className="max-w-xl">
+                        <h3 className="text-2xl font-bold text-white sm:text-3xl">Is your website outdated?</h3>
+                        <p className="mt-2 text-dark-text-secondary">
+                            We&apos;ll show you exactly what a modern rebuild looks like for your business. No cost, no commitment.
+                        </p>
+                    </div>
                     <a
-                        href="#contact"
+                        href="#contact-demo"
                         onClick={() => trackCTA('Get a Free Mockup', 'demo-showcase')}
-                        className="group inline-flex items-center gap-3 btn-gradient text-white px-8 py-4 rounded-2xl font-bold transition-all duration-500 hover:shadow-xl hover:shadow-brand-accent/20 hover:-translate-y-1"
+                        className="group inline-flex flex-shrink-0 items-center justify-center gap-2.5 rounded-xl btn-gradient px-7 py-4 font-semibold text-white"
                     >
-                        <span>Get a Free Mockup of Your Site</span>
-                        <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                        <span>Get a free mockup of your site</span>
+                        <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                     </a>
                 </div>
             </div>

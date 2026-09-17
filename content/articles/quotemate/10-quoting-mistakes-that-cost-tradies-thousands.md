@@ -18,6 +18,10 @@ publishDate: "2026-01-20"
 readingTime: "9 min read"
 ---
 
+## The short answer
+
+The costliest quoting mistakes are guessing material prices instead of checking them, quoting too slowly to win the job, leaving consumables and waste out of the numbers, and writing a vague scope that invites scope creep. Each is small on one job and expensive across a year.
+
 ## Introduction
 
 You know the feeling. You’ve just finished a massive week on the tools. Your back is sore, the ute needs a wash, and all you want to do is crack a cold one and relax. But instead, you’re stuck at the kitchen table, surrounded by crumpled receipts and scribbled notes, trying to hammer out quotes for next week’s jobs.

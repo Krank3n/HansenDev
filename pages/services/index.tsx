@@ -15,7 +15,7 @@ import {
     Search,
 } from 'lucide-react';
 import { BUSINESS_INFO, ONLINE_PRESENCE, SERVICE_AREAS, CONTACT_INFO } from '../../constants/business';
-import { SERVICES } from '../../data/seo/services';
+import { SERVICES, hasLocationPages } from '../../data/seo/services';
 import { LOCATIONS } from '../../data/seo/locations';
 
 const ICON_MAP: Record<string, React.ReactNode> = {
@@ -95,29 +95,45 @@ const ServicesIndex: React.FC = () => {
                                         {ICON_MAP[service.icon]}
                                     </div>
                                     <div>
-                                        <h2 className="text-2xl sm:text-3xl font-bold text-white">{service.name}</h2>
+                                        <h2 className="text-2xl sm:text-3xl font-bold text-white">
+                                            <Link href={`/services/${service.slug}`} className="hover:text-brand-accent transition-colors">
+                                                {service.name}
+                                            </Link>
+                                        </h2>
                                         <p className="text-dark-text-secondary">{service.description}</p>
                                     </div>
                                 </div>
 
                                 <div className="mt-8">
-                                    <h3 className="text-sm font-medium text-dark-text-secondary uppercase tracking-wider mb-4 flex items-center gap-2">
-                                        <MapPin className="h-4 w-4 text-brand-accent" />
-                                        Available in {LOCATIONS.length} locations
-                                    </h3>
-                                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                                        {LOCATIONS.map((location) => (
-                                            <Link
-                                                key={location.slug}
-                                                href={`/services/${service.slug}/${location.slug}`}
-                                                className="bg-white/[0.03] rounded-lg px-4 py-3 hover:bg-white/[0.06] transition-all duration-300 group text-center"
-                                            >
-                                                <span className="text-white text-sm font-medium group-hover:text-brand-accent transition-colors">
-                                                    {location.name}
-                                                </span>
-                                            </Link>
-                                        ))}
-                                    </div>
+                                    {hasLocationPages(service) ? (
+                                        <>
+                                            <h3 className="text-sm font-medium text-dark-text-secondary uppercase tracking-wider mb-4 flex items-center gap-2">
+                                                <MapPin className="h-4 w-4 text-brand-accent" />
+                                                Available in {LOCATIONS.length} locations
+                                            </h3>
+                                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                                                {LOCATIONS.map((location) => (
+                                                    <Link
+                                                        key={location.slug}
+                                                        href={`/services/${service.slug}/${location.slug}`}
+                                                        className="bg-white/[0.03] rounded-lg px-4 py-3 hover:bg-white/[0.06] transition-all duration-300 group text-center"
+                                                    >
+                                                        <span className="text-white text-sm font-medium group-hover:text-brand-accent transition-colors">
+                                                            {location.name}
+                                                        </span>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <Link
+                                            href={`/services/${service.slug}`}
+                                            className="inline-flex items-center gap-2 text-brand-accent hover:text-teal-400 transition-colors font-medium"
+                                        >
+                                            <span>Everything we do across {SERVICE_AREAS.region}</span>
+                                            <ArrowRight className="h-4 w-4" />
+                                        </Link>
+                                    )}
                                 </div>
                             </div>
                         </div>

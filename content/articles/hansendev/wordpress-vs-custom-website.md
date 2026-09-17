@@ -18,6 +18,10 @@ publishDate: "2026-05-03"
 readingTime: "10 min read"
 ---
 
+## The short answer
+
+A WordPress build for an Australian small business typically runs $2,500 to $6,000; a custom-coded site starts around $8,000. WordPress wins on upfront cost and speed to launch. Custom wins on performance, security, and anything involving real business logic. Compare total cost over three years, not the first invoice.
+
 A local Cairns mechanic recently paid $4,500 for a new website that takes nine full seconds to load on a mobile phone. When a customer with a broken-down ute on the Captain Cook Highway tries to find his phone number, they stare at a blank white screen until they give up and call the next shop on Google. 
 
 When you sit down to plan a new digital storefront, the first roadblock is always the **wordpress vs custom website** debate. You look at two proposals from different agencies and think, *"Why is one quoting $3,500 and the other wants $12,000 for what looks like the exact same five pages?"* 

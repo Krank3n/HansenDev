@@ -5,32 +5,32 @@ import { trackCTA, trackWhatsApp, trackPhoneCall } from '../lib/gtag';
 
 const sectionCTAs: Record<string, { text: string; href: string; waMessage: string }> = {
   founder: {
-    text: 'Book a Free Chat with Tom',
+    text: 'Book a free chat with Tom',
     href: '#contact-chat',
     waMessage: "Hi Tom! I'd love to have a quick chat about how HansenDev could help my business.",
   },
   services: {
-    text: 'Get a Free Quote',
+    text: 'Get a free quote',
     href: '#contact-quote',
     waMessage: "Hi! I'm interested in getting a quote for a project. Can we chat?",
   },
   portfolio: {
-    text: 'Start Your Project',
+    text: 'Start your project',
     href: '#contact-project',
     waMessage: "Hi! I saw your portfolio and I'd love to discuss a similar project for my business.",
   },
   demos: {
-    text: 'Try a Free Demo',
+    text: 'Get a free mockup',
     href: '#contact-demo',
     waMessage: "Hi! I'd love to see a demo of your AI tools and how they could work for my business.",
   },
   about: {
-    text: 'Get Your Free Consultation',
+    text: 'Book a free consultation',
     href: '#contact-discovery',
     waMessage: "Hi! I'd like to book a free discovery session to find out where automation or a custom build could save my business the most time.",
   },
   faq: {
-    text: 'Still Have Questions? Ask Us',
+    text: 'Still have questions? Ask us',
     href: '#contact-question',
     waMessage: "Hi! I have a quick question about your services.",
   },
@@ -56,11 +56,7 @@ const StickyCTA: React.FC = () => {
       const heroBottom = heroEl ? heroEl.offsetTop + heroEl.offsetHeight : 0;
       const contactTop = contactEl ? contactEl.offsetTop - viewportHeight * 0.5 : Infinity;
 
-      if (scrollY < heroBottom - 100 || scrollY > contactTop) {
-        setVisible(false);
-      } else {
-        setVisible(true);
-      }
+      setVisible(!(scrollY < heroBottom - 100 || scrollY > contactTop));
 
       const center = scrollY + viewportHeight * 0.4;
       for (const id of sectionIds) {
@@ -71,7 +67,6 @@ const StickyCTA: React.FC = () => {
           break;
         }
       }
-
       ticking = false;
     };
 
@@ -91,56 +86,52 @@ const StickyCTA: React.FC = () => {
 
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 z-50 transition-all duration-500 ${
-        visible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
+      className={`pointer-events-none fixed inset-x-0 bottom-4 z-50 flex justify-center px-4 transition-all duration-500 sm:bottom-6 ${
+        visible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
       }`}
     >
-      <div className="bg-dark-bg/80 backdrop-blur-xl border-t border-white/[0.06]">
-        <div className="container mx-auto px-4 py-3 flex items-center justify-center gap-3">
+      <div className={`flex items-center gap-1.5 rounded-full border border-hairline-strong bg-dark-bg/80 p-1.5 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.8)] backdrop-blur-xl ${visible ? 'pointer-events-auto' : ''}`}>
+        {/* Mobile: WhatsApp primary, Call secondary */}
+        <a
+          href={whatsappUrl(cta.waMessage)}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackWhatsApp(`sticky-mobile-${activeSection}`)}
+          className="inline-flex items-center gap-2 rounded-full btn-gradient px-5 py-2.5 text-sm font-semibold text-white sm:hidden"
+        >
+          <MessageCircle className="h-4 w-4" />
+          <span>WhatsApp us</span>
+        </a>
+        <a
+          href={`tel:${CONTACT_INFO.phone.primary}`}
+          onClick={() => trackPhoneCall('sticky-mobile')}
+          className="inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/[0.06] sm:hidden"
+          aria-label="Call HansenDev"
+        >
+          <Phone className="h-4 w-4" />
+          <span>Call</span>
+        </a>
 
-          {/* Mobile: WhatsApp primary, Call secondary */}
-          <a
-            href={whatsappUrl(cta.waMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackWhatsApp(`sticky-mobile-${activeSection}`)}
-            className="group inline-flex items-center justify-center gap-2 btn-gradient text-white px-6 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/20 hover:scale-[1.02] sm:hidden"
-          >
-            <MessageCircle className="h-4 w-4" />
-            <span>WhatsApp Us</span>
-          </a>
-          <a
-            href={`tel:${CONTACT_INFO.phone.primary}`}
-            onClick={() => trackPhoneCall('sticky-mobile')}
-            className="inline-flex items-center justify-center gap-2 bg-white/[0.06] hover:bg-white/[0.1] backdrop-blur-sm text-white px-4 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 sm:hidden"
-            aria-label="Call HansenDev"
-          >
-            <Phone className="h-4 w-4" />
-            <span>Call</span>
-          </a>
-
-          {/* Desktop: Contact form primary, WhatsApp secondary */}
-          <a
-            href={cta.href}
-            onClick={() => trackCTA(cta.text, `sticky-${activeSection}`)}
-            className="group hidden sm:inline-flex items-center justify-center gap-2 btn-gradient text-white px-6 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/20 hover:scale-[1.02]"
-          >
-            <span>{cta.text}</span>
-            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-          </a>
-          <a
-            href={whatsappUrl(cta.waMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackWhatsApp(`sticky-desktop-${activeSection}`)}
-            className="hidden sm:inline-flex items-center justify-center gap-2 bg-white/[0.06] hover:bg-white/[0.1] backdrop-blur-sm text-white px-4 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300"
-            aria-label="Message on WhatsApp"
-          >
-            <MessageCircle className="h-4 w-4" />
-            <span>WhatsApp</span>
-          </a>
-
-        </div>
+        {/* Desktop: Contact form primary, WhatsApp secondary */}
+        <a
+          href={cta.href}
+          onClick={() => trackCTA(cta.text, `sticky-${activeSection}`)}
+          className="group hidden items-center gap-2 rounded-full btn-gradient px-5 py-2.5 text-sm font-semibold text-white sm:inline-flex"
+        >
+          <span>{cta.text}</span>
+          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+        </a>
+        <a
+          href={whatsappUrl(cta.waMessage)}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackWhatsApp(`sticky-desktop-${activeSection}`)}
+          className="hidden items-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/[0.06] sm:inline-flex"
+          aria-label="Message on WhatsApp"
+        >
+          <MessageCircle className="h-4 w-4" />
+          <span>WhatsApp</span>
+        </a>
       </div>
     </div>
   );

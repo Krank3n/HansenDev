@@ -3,11 +3,6 @@ import React from 'react';
 import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
-    // It's best practice to get your site's base URL from an environment variable
-    // For development, you can fallback to localhost
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-    const ogImageUrl = `${siteUrl}/assets/HansenDevOg-1200x630.jpg`;
-
     // Organization Schema for LLM recognition
     const organizationSchema = {
         "@context": "https://schema.org",
@@ -18,10 +13,13 @@ export default function Document() {
         "logo": "https://hansendev.com.au/assets/hansendev-logo.png",
         "description": "Leading web development and AI integration services in Cairns, Queensland. Custom websites, mobile apps, and intelligent automation solutions.",
         "foundingDate": "2024",
-        "founders": [{
+        "@id": "https://hansendev.com.au/#organization",
+        "founder": {
             "@type": "Person",
-            "name": "Thomas Andrew Hansen"
-        }],
+            "@id": "https://hansendev.com.au/about/thomas-hansen#person",
+            "name": "Thomas Andrew Hansen",
+            "url": "https://hansendev.com.au/about/thomas-hansen"
+        },
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Cairns",
@@ -68,19 +66,13 @@ export default function Document() {
                 <link rel="icon" href="/favicon-48x48.png" sizes="48x48" type="image/png" />
                 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
                 <meta charSet="UTF-8" />
-                <meta name="author" content="HansenDev PTY LTD" />
-                <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content={siteUrl} />
-                <meta property="og:image" content={ogImageUrl} />
-                {/* You might also want to add specific dimensions for the image */}
-                <meta property="og:image:width" content="1200" /> {/* Example width */}
-                <meta property="og:image:height" content="630" /> {/* Example height */}
-                <meta property="og:locale" content="en_AU" />
-                <meta property="og:site_name" content="HansenDev PTY LTD" />
-
-                <link rel="canonical" href={siteUrl} />
+                {/*
+                  Nothing page-scoped belongs in here. _document's Head is separate from
+                  next/head and does not dedupe against it, so a canonical, og:url, og:image
+                  or robots tag placed here is emitted a second time on every page. Defaults
+                  that pages may override live in _app.tsx; canonicals are per-page only.
+                */}
 
                 {/* Global Organization Schema for LLM Recognition */}
                 <script

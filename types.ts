@@ -95,6 +95,12 @@ export interface SectionProps {
   id: string;
   title: string;
   subtitle?: string;
+  /** Small uppercase label rendered above the title */
+  eyebrow?: string;
+  /** Header alignment. Defaults to centred. */
+  align?: 'left' | 'center';
+  /** Optional element rendered beside the header on large screens (left-aligned only) */
+  aside?: React.ReactNode;
   children: React.ReactNode;
   className?: string;
   titleClassName?: string;

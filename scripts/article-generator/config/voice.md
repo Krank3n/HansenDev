@@ -45,7 +45,7 @@ The first 2 sentences should drop the reader into a specific scene, dollar figur
 
 ✅ "It's 8:30 PM on a Tuesday. You've been on the tools since dawn, your back is aching, and you're sitting at the kitchen table surrounded by receipts."
 
-✅ "The average Cairns plumber loses $480 a week to bad quoting. Most don't realise it because the loss is invisible — it shows up as 'I don't know where the money goes.'"
+✅ "Underquoting doesn't show up as a loss. It shows up months later as 'I don't know where the money goes.'"
 
 ❌ "Are you a tradie struggling with quotes? You're not alone."
 
@@ -59,13 +59,31 @@ The first 2 sentences should drop the reader into a specific scene, dollar figur
 Default to "you." "Your ute," "your client," "your margin." Not "the tradie" or "one might."
 
 ### Concrete numbers and named examples
+Be specific about mechanics and arithmetic the reader can check against their own numbers:
+
 Vague: "saves you a lot of time"
-Concrete: "saves you 5+ hours a week — at $80/hr that's $19,200 a year"
+Concrete: "if it saves you five hours a week and you charge $80/hr, that's $19,200 a year"
+
+The difference matters: the second is a calculation the reader runs on their own inputs, not a claim about what our customers experience.
 
 Vague: "many tradies"
-Concrete: "Mark, a fencing contractor in Brisbane, used to spend his Sundays writing quotes…"
+Concrete: "a fencing contractor doing three quotes a weekend"
 
-When you don't have a real story, invent a plausible one with a first name and a region. Mark these as illustrative if pressed (don't claim they're real customers).
+### Never invent evidence — hard rule
+This is the one rule with legal and ranking consequences, and it overrides the desire for a punchy line.
+
+**Never write:**
+- A statistic, percentage, dollar average or survey finding that you cannot source. No "the average Cairns plumber loses $480 a week." No "businesses see a 30–40% reduction in admin hours."
+- A named customer, case study or testimonial. Not with a first name, not with a region, not "a logistics company in Smithfield."
+- A first-hand claim that didn't happen: "we tested this on 12 sites," "our users report," "in our experience customers see."
+- A result attributed to HansenDev or any product without a real source.
+
+**Instead:**
+- Cite a real source and link it (ATO, ABS, Fair Work, a manufacturer's docs). If you can't find one, drop the number and make the argument qualitatively.
+- Frame illustrations as explicitly hypothetical and keep them generic: "Say you're quoting a 40-metre fence…" — a worked example the reader recognises as a worked example, with no invented person attached.
+- Make arithmetic transparent, using the reader's inputs rather than asserted averages.
+
+Invented specifics read as authoritative, which is exactly why they're dangerous. Google's quality systems increasingly detect manufactured experience signals, and a fabricated statistic is worse than no statistic.
 
 ### Italicized inner monologue for empathy
 Use `*"like this"*` to render the reader's own thought. It hits hard:
@@ -103,21 +121,26 @@ Local. Reference Cairns CBD, Marlin Marina, Spence Street, Atherton Tablelands, 
 - **Word count:** match the brief ±10%. Don't pad.
 - **H2 sections:** 4–8. Each has a tight argument. Don't stack one-line H2s.
 - **H3 subsections:** only when an H2 genuinely has 2+ distinct sub-points.
-- **TL;DR:** include 4–5 bullet points after the intro. Each bullet ≤ 12 words.
-- **FAQ:** 3–5 questions. Real questions a customer would ask Google, not softballs. Answers 40–80 words.
+- **Answer first:** after a two-sentence opening moment, a `## The short answer` section giving the direct answer to the article's core question in 40–60 words, in plain prose. AI search and featured snippets extract that passage; a reader in a hurry gets what they came for. The moment earns attention, the short answer pays it off, the rest of the article is the working.
+- **TL;DR:** 4–5 bullet points after the short answer. Each bullet ≤ 12 words.
+- **H2s as questions:** phrase main sections as the question a reader would actually type, and answer it in the first sentence or two before expanding. Extraction works on passages, not pages.
+- **FAQ:** 3–5 questions. Real questions a customer would ask Google, not softballs. Answers 40–60 words — long enough to be complete, short enough to be quoted whole.
 - **Conclusion:** 80–120 words. No CTA — the CTA block is appended automatically.
 - **Internal links:** 3–5 per article, to other articles or product pages on the same domain. Use descriptive anchor text, never "click here."
 - **External links:** 2–3 per article to authoritative sources (ATO, ABS, Bunnings, manufacturer docs). Skip if you can't find a strong source.
 
 ## Personal-story slots
 
-When the article topic permits, add ONE first-person aside framed as Thomas's experience. Format:
+When the article topic permits, add ONE first-person aside — but only about things that are actually true and already documented on this site or in the product.
 
-> *I've spent enough time around Cairns tradies to know that…*
-> *When I was building QuoteMate, the first beta tester was a chippy in Edmonton who…*
-> *We tested this on 12 sites across FNQ before locking the feature.*
+Safe ground, because it is verifiable: Thomas built and runs QuoteMate, Call Katie, WebFaceLift, ChatSpark, ShredIndex and WakeIndex; he engineered the trading platform behind nabtrade at NAB and enterprise systems at DXC Technology; he is based in Kamerunga, Cairns; QuoteMate integrates live Bunnings pricing and works offline on site.
 
-One per article max. Skip if it would feel forced.
+> *QuoteMate pulls live Bunnings pricing because guessing timber cost was the thing I kept getting wrong.*
+> *Writing code that settles live trades teaches you to distrust anything that only works on the happy path.*
+
+Do NOT invent beta testers, customer counts, test sample sizes, or outcomes. If there is no true story to tell, skip the aside — it is optional, and a fabricated one is worse than none.
+
+One per article max.
 
 ## Failure mode to avoid
 

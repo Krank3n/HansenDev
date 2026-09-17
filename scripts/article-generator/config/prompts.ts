@@ -20,40 +20,41 @@ ${VOICE_GUIDE}
 
 The voice guide above is non-negotiable. The SEO rules below apply only where they don't conflict with voice.
 
-## 2026 SEO Best Practices You Must Follow:
+## How search works now (write for this, not for 2023)
 
-### Content Structure
-- Use clear heading hierarchy (H2 for main sections, H3 for subsections)
-- Start with a compelling hook that addresses the reader's pain point
-- Include a brief summary/TL;DR after the introduction
-- Use short paragraphs (2-3 sentences max)
-- Include bullet points and numbered lists for scannable content
-- Add specific examples, statistics, and case studies
-- End with actionable takeaways
+Google's AI Overviews and AI Mode, ChatGPT, Perplexity and Claude answer most questions by extracting a **passage** and citing the page it came from. Ranking a page is no longer the unit of work; being the passage that answers the question is. Everything below follows from that.
 
-### E-E-A-T Signals (Experience, Expertise, Authoritativeness, Trustworthiness)
-- Write from first-hand experience where relevant
-- Include specific examples that demonstrate expertise
-- Reference industry standards and best practices
-- Provide actionable, tested advice
+Note: FAQ rich results were retired in May 2026. We still emit FAQPage markup because AI systems use it to locate answers, but do not write FAQs expecting a bigger SERP listing.
 
-### Featured Snippet Optimization
-- Include a definition or direct answer early in the article
-- Use "What is...", "How to...", "Why..." formats for headers
-- Create list-based content that Google can extract
-- Answer questions concisely in 40-60 words
+### Answer-first structure — the most important rule
+1. Open with the two-sentence moment the voice guide requires. Earn the attention.
+2. Immediately follow it with a `## The short answer` section: the direct answer to the article's core question, 40-60 words, plain prose, no hedging, no preamble, no "it depends" unless you then say what it depends on. This is the passage that gets quoted.
+3. Then the TL;DR bullets, then the article proper.
 
-### Keyword Strategy
-- Include the primary keyword in the first 100 words
-- Use semantic variations and related terms naturally
-- Include question-based keywords (who, what, when, where, why, how)
-- Add long-tail variations throughout
+Do not bury the answer beneath 400 words of context. The reader who wants the context will keep reading; the one who wants the answer should have it before they scroll.
 
-### User Engagement
-- Use conversational tone appropriate to the brand
-- Include rhetorical questions to engage readers
-- Add "Pro Tips" or "Expert Insights" callouts
-- Create content worth bookmarking and sharing`;
+### Headings are queries
+- Phrase H2s the way a person types the question. "What does a website cost in Australia?" beats "Understanding Website Pricing."
+- Answer in the first sentence or two of the section, then expand. A section that opens with three sentences of scene-setting cannot be extracted.
+- Use H3s only when an H2 has genuinely distinct sub-points.
+
+### Evidence rules — read the voice guide's "Never invent evidence" section and obey it
+- Never invent a statistic, percentage, dollar average, survey result, customer count or case study.
+- Never claim first-hand testing, user outcomes or customer results that are not documented fact.
+- Cite real sources and link them. If you cannot find a source, drop the number and argue qualitatively.
+- Hypothetical worked examples are fine when the reader can see they are hypothetical ("say you're quoting a 40-metre fence"). A named customer with a suburb is not.
+
+A fabricated specific is the single worst thing you can put in a draft. It is a Google spam-policy risk, it is unfair to the reader, and it is the failure mode that gets caught.
+
+### E-E-A-T
+- Real first-hand experience only, from the documented list in the voice guide.
+- Reference real standards, real suppliers, real regulators.
+- Write the thing an operator who has done this would write, including the parts that are inconvenient.
+
+### Keyword strategy
+- Primary keyword in the title, the short answer, and the first 100 words.
+- Semantic variations and question forms throughout, placed where they fit the argument.
+- No stuffing. If a keyword cannot be used in a sentence you would say aloud, leave it out.`;
 
 export const generateArticlePrompt = (
   topic: string,
@@ -86,11 +87,10 @@ ${clusterBlock}
 ## Article Structure Requirements
 
 ### 1. Title (50-60 characters)
-Create a compelling, click-worthy title that:
-- Includes the main topic/keyword
-- Uses power words (Ultimate, Complete, Essential, Proven)
-- Optionally includes a number for listicles
-- Appeals directly to the target audience
+- Includes the primary keyword, ideally near the front
+- Says something specific. "Ultimate", "Complete", "Essential", "Proven" and "Guide" are filler that make every title interchangeable - avoid them unless the article genuinely is a complete reference
+- A number is fine when the article really is a list of that many things
+- Written for the person searching, in their words
 
 ### 2. Meta Description (150-160 characters)
 Write a compelling description that:
@@ -101,24 +101,32 @@ Write a compelling description that:
 
 ### 3. Article Body Structure
 
-**Introduction (150-200 words)**
-- Start with a hook that identifies the reader's pain point
-- Establish relevance and urgency
+**Opening moment (2 sentences)**
+- A specific scene, a flat fact, or a number the reader recognises
+- Never a rhetorical question, never "In 2026,", never a preview of what the article covers
+
+**## The short answer (40-60 words)**
+- The direct answer to the question the title asks, in plain prose
 - Include the primary keyword naturally
-- End with a preview of what the article covers
+- Written so it stands alone if quoted with no surrounding context
+- No preamble, no "let's look at", no restating the question
+
+**TL;DR (4-5 bullets, each <= 12 words)**
 
 **Main Content (${Math.floor(wordCount * 0.7)} words)**
-- Use 4-8 main H2 sections
-- Each section should have 2-3 H3 subsections where appropriate
-- Include practical, actionable advice
-- Add specific examples relevant to Australian context
-- Use bullet points for lists of 3+ items
-- Include "Pro Tip" or "Quick Tip" callouts marked with **Pro Tip:**
+- 4-8 H2 sections, each phrased as a question a reader would type
+- Answer each H2's question in its first sentence or two, then expand
+- H3 subsections only where an H2 has 2+ genuinely distinct sub-points
+- Practical, checkable advice with Australian context
+- Bullet points for lists of 3+ items
+- At most 3 **Pro Tip:** callouts, only where the tip is genuinely non-obvious
+- No invented statistics, customers or case studies (see the evidence rules above)
 
 **FAQ Section (3-5 questions)**
 Create a dedicated "## Frequently Asked Questions" section with:
-- Real questions your target audience would ask
-- Concise, helpful answers (40-80 words each)
+- Real questions the audience types into Google, not softballs that set up a pitch
+- Answers of 40-60 words: complete enough to stand alone, short enough to quote whole
+- Questions that the article body does not already answer under an H2
 - Format each as "### Q: [Question]" followed by the answer
 
 **Conclusion (100-150 words)**
@@ -150,16 +158,25 @@ Structure your response EXACTLY as follows (use these exact delimiters):
 [8-10 comma-separated keywords including long-tail variations]
 
 ---CONTENT---
-[Full article in Markdown format]
+[Full article in Markdown format, starting with the opening moment as plain prose - no "## Introduction" heading]
 
-## Introduction
-[Hook + pain point + preview]
+[Two-sentence opening moment. No heading above it.]
 
-## [Main Section 1 - use descriptive H2]
-[Content with H3 subsections as needed]
+## The short answer
 
-## [Main Section 2]
-[Content]
+[40-60 words answering the article's core question directly. This is the passage AI search will quote.]
+
+**In short:**
+- [bullet, <= 12 words]
+- [bullet]
+- [bullet]
+- [bullet]
+
+## [Main Section 1 - phrased as a question a reader would type]
+[First sentence answers it. Then the detail, with H3s only if needed.]
+
+## [Main Section 2 - also a question]
+[Same pattern]
 
 [Continue with 4-8 total main sections...]
 

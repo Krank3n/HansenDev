@@ -15,6 +15,13 @@ export interface Service {
   offerings: { title: string; description: string }[];
   technologies: string[];
   faqs: { question: string; answer: string }[];
+  // Whether this service is expanded into a /services/<slug>/<location> page per
+  // location. Defaults to true. website-redesign and seo were expanded across all
+  // 25 locations unintentionally - getAllServiceSlugs() returns every entry here,
+  // while next-sitemap.config.js only ever listed six - producing 50 near-identical
+  // pages that were never part of the plan. Their hub page covers the topic; the
+  // retired suburb URLs 301 to it from next.config.js.
+  locationPages?: boolean;
 }
 
 export const SERVICES: Service[] = [
@@ -226,6 +233,7 @@ export const SERVICES: Service[] = [
     ctaText: 'Get a Free Site Audit',
     ctaQuestion: 'Ready to Modernise Your Website?',
     pricingKey: 'websiteRedesign',
+    locationPages: false,
     features: [
       { title: 'Full Site Audit', description: 'Comprehensive review of your current site covering speed, SEO, accessibility, and design', icon: 'ClipboardCheck' },
       { title: 'Modern Redesign', description: 'Fresh, mobile-first design that reflects your brand and converts visitors into customers', icon: 'Palette' },
@@ -259,6 +267,7 @@ export const SERVICES: Service[] = [
     ctaText: 'Get a Free SEO Audit',
     ctaQuestion: 'Ready to Rank Higher on Google?',
     pricingKey: 'seo',
+    locationPages: false,
     features: [
       { title: 'Local SEO', description: 'Dominate local search results so customers in your area find you first on Google', icon: 'MapPin' },
       { title: 'Technical SEO', description: 'Fix crawl errors, improve site speed, and ensure search engines can properly index your site', icon: 'Settings' },
@@ -290,4 +299,15 @@ export const getService = (slug: string): Service | undefined => {
 
 export const getAllServiceSlugs = (): string[] => {
   return SERVICES.map(s => s.slug);
+};
+
+// Every service gets a hub at /services/<slug>. Only these get suburb pages beneath it.
+export const hasLocationPages = (service: Service): boolean => service.locationPages !== false;
+
+export const getLocationPageServiceSlugs = (): string[] => {
+  return SERVICES.filter(hasLocationPages).map(s => s.slug);
+};
+
+export const getRetiredLocationPageServiceSlugs = (): string[] => {
+  return SERVICES.filter(s => !hasLocationPages(s)).map(s => s.slug);
 };

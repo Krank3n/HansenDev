@@ -42,8 +42,10 @@ import {
     FileText,
 } from 'lucide-react';
 import { BUSINESS_INFO, CONTACT_INFO, SERVICE_AREAS, PRICING_INFO, ONLINE_PRESENCE } from '../../../constants/business';
-import { SERVICES, getService, getAllServiceSlugs, Service } from '../../../data/seo/services';
+import { SERVICES, getService, getLocationPageServiceSlugs, Service } from '../../../data/seo/services';
 import { LOCATIONS, getLocation, getAllLocationSlugs, Location } from '../../../data/seo/locations';
+import RelatedArticles from '../../../components/RelatedArticles';
+import { getArticlesByProduct, ArticlePreview } from '../../../lib/articles';
 
 // Icon mapping for dynamic rendering
 const ICON_MAP: Record<string, React.ReactNode> = {
@@ -93,6 +95,7 @@ const HERO_ICON_MAP: Record<string, React.ReactNode> = {
 
 interface ServiceLocationPageProps {
     service: Service;
+    articles: ArticlePreview[];
     location: Location;
     nearbyLocations: Location[];
     otherServices: Service[];
@@ -103,6 +106,7 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
     location,
     nearbyLocations,
     otherServices,
+    articles,
 }) => {
     const canonicalUrl = `${ONLINE_PRESENCE.website.primary}/services/${service.slug}/${location.slug}`;
     const pageTitle = `${service.name} ${location.name} | ${BUSINESS_INFO.shortName}`;
@@ -146,17 +150,20 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
         "@type": "BreadcrumbList",
         "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": ONLINE_PRESENCE.website.primary },
-            { "@type": "ListItem", "position": 2, "name": "Services", "item": `${ONLINE_PRESENCE.website.primary}/#services` },
+            { "@type": "ListItem", "position": 2, "name": "Services", "item": `${ONLINE_PRESENCE.website.primary}/services` },
             { "@type": "ListItem", "position": 3, "name": service.name, "item": `${ONLINE_PRESENCE.website.primary}/services/${service.slug}` },
             { "@type": "ListItem", "position": 4, "name": location.name, "item": canonicalUrl },
         ],
     };
 
-    // Structured Data - FAQ
+    // Structured Data - FAQ. Suburb FAQs are appended to the service ones so the
+    // markup matches what is actually rendered below.
+    const allFaqs = [...service.faqs, ...(location.localInsight?.faqs ?? [])];
+
     const faqStructuredData = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": service.faqs.map(faq => ({
+        "mainEntity": allFaqs.map(faq => ({
             "@type": "Question",
             "name": faq.question,
             "acceptedAnswer": { "@type": "Answer", "text": faq.answer },
@@ -285,6 +292,26 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
                     </div>
                 </section>
 
+                {/* Local material specific to this suburb, where we have it */}
+                {location.localInsight && (
+                    <section className="py-12 lg:py-16">
+                        <div className="container-custom">
+                            <div className="max-w-4xl mx-auto">
+                                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">
+                                    {location.localInsight.heading}
+                                </h2>
+                                <div className="space-y-4">
+                                    {location.localInsight.paragraphs.map((paragraph, index) => (
+                                        <p key={index} className="text-dark-text-secondary leading-relaxed text-lg">
+                                            {paragraph}
+                                        </p>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                )}
+
                 {/* Features Grid */}
                 <section className="py-16 lg:py-24">
                     <div className="container-custom">
@@ -405,7 +432,7 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
                             </div>
 
                             <div className="space-y-6">
-                                {service.faqs.map((faq, index) => (
+                                {allFaqs.map((faq, index) => (
                                     <div key={index} className="glass-card p-6">
                                         <h3 className="text-lg font-bold text-white mb-3">{faq.question}</h3>
                                         <p className="text-dark-text-secondary leading-relaxed">{faq.answer}</p>
@@ -487,6 +514,13 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
                     </div>
                 </section>
 
+                <RelatedArticles
+                    articles={articles}
+                    product="hansendev"
+                    heading="Worth reading first"
+                    intro="What this costs, how long it takes, and what to ask before you commit."
+                />
+
                 {/* CTA Section */}
                 <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 ">
                     <div className="container-custom">
@@ -537,7 +571,7 @@ const ServiceLocationPage: React.FC<ServiceLocationPageProps> = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const serviceSlugs = getAllServiceSlugs();
+    const serviceSlugs = getLocationPageServiceSlugs();
     const locationSlugs = getAllLocationSlugs();
 
     const paths = serviceSlugs.flatMap(service =>
@@ -574,6 +608,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
             location,
             nearbyLocations,
             otherServices,
+            articles: getArticlesByProduct('hansendev').slice(0, 3),
         },
     };
 };

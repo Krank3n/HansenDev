@@ -17,7 +17,6 @@ import {
     ONLINE_PRESENCE,
     SERVICE_AREAS,
     SERVICES_OFFERED,
-    BUSINESS_METRICS,
     SEO_CONSTANTS,
     FAQ_DATA,
     getFullAddress,
@@ -71,12 +70,6 @@ const HomePage: React.FC = () => {
                 }
             }))
         },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": BUSINESS_METRICS.stats.averageRating,
-            "ratingCount": "25",
-            "bestRating": "5"
-        },
         "sameAs": [
             ONLINE_PRESENCE.social.linkedin,
             ONLINE_PRESENCE.social.github
@@ -87,9 +80,9 @@ const HomePage: React.FC = () => {
         <>
             <Head>
                 {/* Primary Meta Tags */}
-                <title>Web Development & AI Integration Cairns | {BUSINESS_INFO.name}</title>
+                <title>{`Web Development & AI Integration Cairns | ${BUSINESS_INFO.name}`}</title>
                 <meta name="title" content={`Web Development & AI Integration Cairns | ${BUSINESS_INFO.name}`} />
-                <meta name="description" content={`Leading web development and AI integration services in ${SERVICE_AREAS.primary}, ${CONTACT_INFO.address.state}. ${BUSINESS_INFO.shortName} helps local businesses grow with custom websites, intelligent automation, and WebFaceLift — our AI-powered website redesign tool. Free consultation available.`} />
+                <meta name="description" content={`Leading web development and AI integration services in ${SERVICE_AREAS.primary}, ${CONTACT_INFO.address.state}. ${BUSINESS_INFO.shortName} helps local businesses grow with custom websites, intelligent automation, and AI-powered apps like QuoteMate and Call Katie. Free consultation available.`} />
                 <meta name="keywords" content={getKeywordsString()} />
                 <meta name="robots" content="index, follow" />
                 <meta name="language" content="English" />
@@ -118,8 +111,8 @@ const HomePage: React.FC = () => {
                 <meta property="twitter:image" content="/assets/hansendev-cairns-web-development-twitter.jpg" />
 
                 {/* Additional SEO Meta Tags */}
-                <meta name="theme-color" content="#6366f1" />
-                <meta name="msapplication-TileColor" content="#6366f1" />
+                <meta name="theme-color" content="#0a0f1a" />
+                <meta name="msapplication-TileColor" content="#0a0f1a" />
                 <link rel="canonical" href={ONLINE_PRESENCE.website.primary} />
 
                 {/* Local Business Structured Data */}
@@ -209,20 +202,6 @@ const HomePage: React.FC = () => {
             <Contact />
             <StickyCTA />
 
-            {/* Privacy Policy Link Section */}
-            <div className="py-8">
-                <div className="gradient-line mb-8" />
-                <div className="container-custom text-center">
-                    <p className="text-dark-text-secondary/70 text-sm">
-                        <a
-                            href="/projects/quotemate-privacy"
-                            className="text-brand-accent/80 hover:text-brand-accent transition-colors"
-                        >
-                            QuoteMate Privacy Policy
-                        </a>
-                    </p>
-                </div>
-            </div>
         </>
     );
 };

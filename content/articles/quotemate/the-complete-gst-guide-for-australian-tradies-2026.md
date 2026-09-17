@@ -18,6 +18,10 @@ publishDate: "2026-02-18"
 readingTime: "9 min read"
 ---
 
+## The short answer
+
+You must register for GST once your business turns over $75,000 or more in a 12-month period. Once registered, you add 10% to your quotes and invoices, claim back the GST you paid on materials, and report the difference to the ATO on your BAS each quarter.
+
 ## Introduction
 
 GST. Three letters that make most tradies' eyes glaze over. But getting GST wrong doesn't just annoy your accountant—it can cost you thousands of dollars a year in lost profit, ATO penalties, or both.

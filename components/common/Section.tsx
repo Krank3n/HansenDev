@@ -1,34 +1,57 @@
-
 import React from 'react';
 import { SectionProps } from '@/types';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
-const Section: React.FC<SectionProps> = ({ id, title, subtitle, children, className = '', titleClassName = '', subtitleClassName = '' }) => {
+/**
+ * Standard page section: consistent vertical rhythm + an editorial header
+ * (eyebrow → title → subtitle). Header is omitted when no title/subtitle given.
+ */
+const Section: React.FC<SectionProps> = ({
+  id,
+  title,
+  subtitle,
+  eyebrow,
+  align = 'center',
+  aside,
+  children,
+  className = '',
+  titleClassName = '',
+  subtitleClassName = '',
+}) => {
   const { ref, isVisible } = useScrollReveal();
+  const hasHeader = Boolean(title || subtitle || eyebrow);
+  const isLeft = align === 'left';
 
   return (
-    <section id={id} className={`py-16 md:py-24 ${className}`}>
+    <section id={id} className={`py-20 md:py-28 ${className}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {(title || subtitle) && (
+        {hasHeader && (
           <div
             ref={ref}
-            className={`text-center mb-12 md:mb-16 transition-all duration-700 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+            className={`mb-12 md:mb-16 transition-all duration-700 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            } ${isLeft ? 'lg:flex lg:items-end lg:justify-between lg:gap-12' : 'text-center'}`}
           >
-            {title && (
-              <>
-                <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-dark-text ${titleClassName}`}>
+            <div className={isLeft ? 'max-w-2xl' : 'max-w-3xl mx-auto'}>
+              {eyebrow && <span className={`eyebrow mb-4 ${isLeft ? '' : 'justify-center'}`}>{eyebrow}</span>}
+              {title && (
+                <h2
+                  className={`text-3xl sm:text-4xl lg:text-[2.75rem] font-bold leading-[1.1] tracking-tightest text-white ${titleClassName}`}
+                >
                   {title}
                 </h2>
-                <div className="gradient-line w-24 mx-auto mt-4" />
-              </>
-            )}
-            {subtitle && (
-              <p className={`mt-6 max-w-2xl mx-auto text-lg text-dark-text-secondary ${subtitleClassName}`}>
-                {subtitle}
-              </p>
-            )}
+              )}
+              {subtitle && (
+                <p
+                  className={`mt-5 text-base sm:text-lg leading-relaxed text-dark-text-secondary ${
+                    isLeft ? 'max-w-xl' : 'max-w-2xl mx-auto'
+                  } ${subtitleClassName}`}
+                >
+                  {subtitle}
+                </p>
+              )}
+            </div>
+            {isLeft && aside && <div className="mt-6 lg:mt-0 lg:flex-shrink-0">{aside}</div>}
           </div>
         )}
         {children}

@@ -286,6 +286,9 @@ const QuoteMateVsTraditional: React.FC = () => {
                 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
                 <link rel="canonical" href="https://hansendev.com.au/projects/quotemate-vs-traditional" />
 
+                <meta property="og:image" content="https://hansendev.com.au/assets/HansenDevOg-1200x630.jpg" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
                 {/* Open Graph */}
                 <meta property="og:type" content="article" />
                 <meta property="og:url" content="https://hansendev.com.au/projects/quotemate-vs-traditional" />

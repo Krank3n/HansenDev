@@ -20,6 +20,10 @@ const PrivacyPolicy: React.FC = () => {
                 <meta name="description" content={`Privacy policy for ${BUSINESS_INFO.name}. Learn how we collect, use, and protect your personal information.`} />
                 <meta name="robots" content="index, follow" />
                 <link rel="canonical" href={`${ONLINE_PRESENCE.website.primary}/privacy-policy`} />
+                <meta property="og:url" content={`${ONLINE_PRESENCE.website.primary}/privacy-policy`} />
+                <meta property="og:image" content="https://hansendev.com.au/assets/HansenDevOg-1200x630.jpg" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
             </Head>
 
             <div className="min-h-screen bg-dark-bg text-dark-text">

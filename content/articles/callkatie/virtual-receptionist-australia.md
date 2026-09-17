@@ -18,6 +18,10 @@ publishDate: "2026-05-03"
 readingTime: "4 min read"
 ---
 
+## The short answer
+
+A virtual receptionist answers your calls without sitting in your office. Australian businesses choose between human answering services, usually charged by the minute or from about $30 an hour, and AI receptionists that answer 24/7 for a flat monthly fee and push structured job details into your CRM.
+
 A missed call at 7:43 PM costs the average Cairns plumber $400. You are under a house in Edge Hill trying to fix a busted pipe, your phone rings in the ute, and by the time you wash your hands to check the voicemail, the client has already called the next bloke on Google. That is the reality of running a service business. Every time the phone rings out, money walks out the door.
 
 Setting up a **virtual receptionist australia** service is not about sounding corporate. It is about stopping the bleed. We are talking about capturing the panicked Sunday morning emergency calls, the after-hours quote requests, and the mid-job interruptions without dropping the tools. 

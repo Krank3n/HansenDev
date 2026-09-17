@@ -1,72 +1,83 @@
 import React, { useState, useEffect } from 'react';
 import { NavItem } from '../types';
 import { MenuIcon, XIcon, CodeIcon } from './icons/CustomIcons';
+import { ArrowRight } from 'lucide-react';
 import { trackCTA } from '../lib/gtag';
 
 const navItems: NavItem[] = [
+  { name: 'Services', href: '/#services' },
   { name: 'Our Work', href: '/our-work' },
   { name: 'QuoteMate', href: 'https://quotemateapp.au/' },
   { name: 'Articles', href: '/articles' },
-  { name: 'Services', href: '/#services' },
-  { name: 'About Us', href: '/#about' },
-  { name: 'Contact', href: '/#contact' },
+  { name: 'About', href: '/#about' },
 ];
+
+export const Logo: React.FC<{ className?: string }> = ({ className = '' }) => (
+  <a href="/" className={`group inline-flex items-center gap-2.5 ${className}`} aria-label="HansenDev home">
+    <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-accent to-brand-primary shadow-glow-sm transition-transform duration-300 group-hover:scale-105">
+      <CodeIcon className="h-5 w-5 text-white" strokeWidth={2} />
+    </span>
+    <span className="font-display text-[1.35rem] font-bold tracking-tight text-white">
+      Hansen<span className="text-brand-accent">Dev</span>
+    </span>
+  </a>
+);
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 24);
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return (
-    <header
-      className={`sticky top-0 z-50 backdrop-blur-xl transition-all duration-500 ${
-        scrolled
-          ? 'bg-dark-bg/80 shadow-lg shadow-black/20'
-          : 'bg-transparent'
-      }`}
-    >
-      {/* Subtle bottom gradient line when scrolled */}
-      {scrolled && (
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-accent/20 to-transparent"></div>
-      )}
+  // Lock body scroll when the mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [isOpen]);
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-16' : 'h-20'}`}>
-          <a href="/" className="flex items-center space-x-2.5 text-2xl font-bold text-brand-accent hover:text-teal-400 transition-colors group">
-            <CodeIcon className={`transition-all duration-300 group-hover:scale-110 ${scrolled ? 'h-9 w-9' : 'h-10 w-10'}`} />
-            <span className={`transition-all duration-300 ${scrolled ? 'text-2xl' : 'text-[1.7rem]'}`}>HansenDev</span>
-          </a>
-          <nav className="hidden lg:flex items-center space-x-1">
-            {navItems.map((item) => (
+  return (
+    <header className="sticky top-0 z-50">
+      <div className={`transition-all duration-500 ${scrolled ? 'pt-3 px-3 sm:px-4' : 'pt-0 px-0'}`}>
+        <div
+          className={`mx-auto transition-all duration-500 ${
+            scrolled
+              ? 'max-w-6xl rounded-2xl border border-hairline bg-dark-bg/75 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.7)] backdrop-blur-xl'
+              : 'max-w-none border border-transparent bg-transparent'
+          }`}
+        >
+          <div className={`flex items-center justify-between transition-all duration-500 ${scrolled ? 'h-14 px-4 sm:px-5' : 'h-20 px-4 sm:px-6 lg:px-8 container mx-auto'}`}>
+            <Logo />
+
+            <nav className="hidden lg:flex items-center gap-1" aria-label="Primary">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="rounded-lg px-3.5 py-2 text-sm font-medium text-dark-text-secondary transition-colors duration-200 hover:bg-white/[0.05] hover:text-white"
+                >
+                  {item.name}
+                </a>
+              ))}
               <a
-                key={item.name}
-                href={item.href}
-                className="relative text-dark-text-secondary/80 hover:text-white transition-colors duration-300 font-medium px-4 py-2 rounded-xl text-sm group hover:bg-white/[0.04]"
+                href="/#contact"
+                onClick={() => trackCTA('Book a free chat', 'navbar')}
+                className="group ml-3 inline-flex items-center gap-2 rounded-xl btn-gradient px-4 py-2.5 text-sm font-semibold text-white"
               >
-                {item.name}
-                <span className="absolute bottom-1 left-4 right-4 h-px bg-gradient-to-r from-brand-accent to-brand-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                <span>Book a free chat</span>
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </a>
-            ))}
-            <a
-              href="/#contact"
-              onClick={() => trackCTA('Get Free Quote', 'navbar')}
-              className="ml-3 inline-flex items-center px-5 py-2.5 rounded-xl text-sm font-semibold text-white btn-gradient transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/15 hover:scale-105"
-            >
-              <span>Get Free Quote</span>
-            </a>
-          </nav>
-          <div className="lg:hidden">
+            </nav>
+
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-dark-text-secondary hover:text-brand-accent focus:outline-none p-2 rounded-xl hover:bg-white/[0.04] transition-all duration-300"
+              className="lg:hidden rounded-xl p-2 text-dark-text-secondary transition-colors hover:bg-white/[0.05] hover:text-white"
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
             >
               {isOpen ? <XIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
             </button>
@@ -74,32 +85,41 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <div
-        className={`lg:hidden absolute w-full bg-dark-bg/95 backdrop-blur-xl transition-all duration-500 overflow-hidden ${
-          isOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
+        className={`lg:hidden fixed inset-x-0 top-0 z-40 h-[100dvh] transition-all duration-400 ${
+          isOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
         }`}
+        aria-hidden={!isOpen}
       >
-        <div className="gradient-line"></div>
-        <nav className="px-4 pt-3 pb-4 space-y-1">
-          {navItems.map((item) => (
+        <div className="absolute inset-0 bg-dark-bg/95 backdrop-blur-2xl" onClick={() => setIsOpen(false)} />
+        <div className={`relative flex h-full flex-col px-6 pt-24 pb-10 transition-transform duration-500 ${isOpen ? 'translate-y-0' : '-translate-y-4'}`}>
+          <nav className="flex flex-col gap-1" aria-label="Mobile">
+            {navItems.map((item, i) => (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                style={{ transitionDelay: `${i * 40}ms` }}
+                className="flex items-center justify-between rounded-xl px-4 py-4 font-display text-2xl font-semibold text-white transition-colors hover:bg-white/[0.05]"
+              >
+                {item.name}
+                <ArrowRight className="h-5 w-5 text-dark-muted" />
+              </a>
+            ))}
+          </nav>
+          <div className="mt-auto">
             <a
-              key={item.name}
-              href={item.href}
-              onClick={() => setIsOpen(false)}
-              className="text-dark-text-secondary hover:text-white hover:bg-white/[0.04] block px-4 py-3 rounded-xl text-base font-medium transition-all duration-300"
+              href="/#contact"
+              onClick={() => { setIsOpen(false); trackCTA('Book a free chat', 'navbar-mobile'); }}
+              className="flex w-full items-center justify-center gap-2 rounded-xl btn-gradient px-5 py-4 text-base font-semibold text-white"
             >
-              {item.name}
+              <span>Book a free chat</span>
+              <ArrowRight className="h-5 w-5" />
             </a>
-          ))}
-          <a
-            href="/#contact"
-            onClick={() => { setIsOpen(false); trackCTA('Get Free Quote', 'navbar-mobile'); }}
-            className="block mx-2 mt-3 text-center px-5 py-3.5 rounded-xl text-base font-semibold text-white btn-gradient transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/15"
-          >
-            <span>Get Free Quote</span>
-          </a>
-        </nav>
+            <p className="mt-4 text-center text-xs text-dark-muted">Cairns, Far North Queensland</p>
+          </div>
+        </div>
       </div>
     </header>
   );

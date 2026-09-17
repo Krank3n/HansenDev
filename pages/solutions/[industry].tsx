@@ -19,14 +19,17 @@ import {
     Wrench,
 } from 'lucide-react';
 import { BUSINESS_INFO, ONLINE_PRESENCE } from '../../constants/business';
+import RelatedArticles from '../../components/RelatedArticles';
+import { getArticlesByProduct, ArticlePreview } from '../../lib/articles';
 import { INDUSTRIES, getIndustry, Industry } from '../../data/seo/industries';
 
 interface IndustryPageProps {
+    articles: ArticlePreview[];
     industry: Industry;
     otherIndustries: Pick<Industry, 'slug' | 'name' | 'plural'>[];
 }
 
-const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndustries }) => {
+const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndustries, articles }) => {
     const canonicalUrl = `${ONLINE_PRESENCE.website.primary}/solutions/ai-website-redesign-for-${industry.slug}`;
     const pageTitle = `AI Website Redesign for ${industry.plural} | WebFaceLift by ${BUSINESS_INFO.shortName}`;
     const pageDescription = `Modernise your ${industry.name.toLowerCase()} website in 30 seconds with AI. WebFaceLift scrapes your content, redesigns everything, and lets you refine via chat. Try free - no account required.`;
@@ -460,6 +463,13 @@ const IndustryRedesignPage: React.FC<IndustryPageProps> = ({ industry, otherIndu
                         </div>
                     </div>
                 </section>
+
+                <RelatedArticles
+                    articles={articles}
+                    product="webfacelift"
+                    heading="More on website redesigns"
+                    intro="How the redesign process actually works, and what it costs."
+                />
             </div>
         </>
     );
@@ -487,7 +497,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         .map(({ slug, name, plural }) => ({ slug, name, plural }));
 
     return {
-        props: { industry, otherIndustries },
+        props: {
+            industry,
+            otherIndustries,
+            articles: getArticlesByProduct('webfacelift').slice(0, 3),
+        },
     };
 };
 
